@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="no.hiof.groupproject.tools.ExampleToolClassTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-09-25T16:33:44" hostname="SAM-LAPTOP" time="0.044">
+  <properties/>
+  <testcase name="ChecksThatFunctionPrintsCorrectMessage()" classname="no.hiof.groupproject.tools.ExampleToolClassTest" time="0.044"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
