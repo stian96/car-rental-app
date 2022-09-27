@@ -1,8 +1,10 @@
+package no.hiof.groupproject.models;
+
 public abstract class Person{
 
-    private int id;
+    private int id,dLicense;
     private String name;
-    private int driving_license;
+
 
 
 
