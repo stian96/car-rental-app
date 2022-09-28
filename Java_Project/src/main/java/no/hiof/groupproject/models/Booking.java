@@ -7,7 +7,6 @@ public class Booking {
     private int id;
     private Advertisement ad; //should it be ad or car?
     private Customer customer;
-    private Owner owner;
     private Date dateFrom; //will need to convert to string for retrieval
     private Date dateTil;
 
