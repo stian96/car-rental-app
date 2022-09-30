@@ -4,4 +4,6 @@ public abstract class Advertisement {
     private int id;
 
 
+
+
 }
