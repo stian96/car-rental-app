@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="Updated new" />
+    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="new instance variable">
+      <change afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/UserProfile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +41,19 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/sprint1" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -153,7 +169,21 @@
       <option name="project" value="LOCAL" />
       <updated>1664534900512</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="new instance variable">
+      <created>1664710815273</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1664710815273</updated>
+    </task>
+    <task id="LOCAL-00011" summary="new instance variable">
+      <created>1664710874142</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1664710874142</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,7 +191,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/sprint1" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -176,6 +218,7 @@
     <MESSAGE value="added new classes and cleaned up code" />
     <MESSAGE value="updating ideas for this" />
     <MESSAGE value="Updated new" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated new" />
+    <MESSAGE value="new instance variable" />
+    <option name="LAST_COMMIT_MESSAGE" value="new instance variable" />
   </component>
 </project>
