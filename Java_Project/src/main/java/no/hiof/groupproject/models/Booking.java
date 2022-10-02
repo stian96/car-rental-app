@@ -9,5 +9,6 @@ public class Booking {
     private Customer customer;
     private Date dateFrom; //will need to convert to string for retrieval
     private Date dateTil;
+    private Payment payment;
 
 }
