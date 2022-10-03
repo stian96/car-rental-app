@@ -1,9 +1,6 @@
 package no.hiof.groupproject.tools;
-
 import org.junit.jupiter.api.Test;
-
 import java.util.HashMap;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class VerifyDrivingLicenseTest {
@@ -20,7 +17,16 @@ class VerifyDrivingLicenseTest {
     @Test
     void CheckForNoLicense() {
         boolean compare = false;
-        testClass.fillLicenseDictionary();
         assertEquals(compare, testClass.verifyDrivingLicense("BE"));
+    }
+
+    @Test
+    void CheckIfDictionaryGetsFilled() {
+        HashMap<String, Boolean> compare = new HashMap<>();
+        compare.put("A", false);
+        compare.put("B", false);
+        compare.put("C", false);
+        testClass.fillLicenseDictionary();
+        assertEquals(compare, testClass.getLicenseClasses());
     }
 }
