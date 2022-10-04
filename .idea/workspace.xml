@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="new instance variable">
-      <change afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/UserProfile.java" afterDir="false" />
+    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="new userprofile class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Advertisement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Advertisement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/UserProfile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,7 +184,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664710874142</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="new userprofile class">
+      <created>1664711592747</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1664711592747</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +227,7 @@
     <MESSAGE value="updating ideas for this" />
     <MESSAGE value="Updated new" />
     <MESSAGE value="new instance variable" />
-    <option name="LAST_COMMIT_MESSAGE" value="new instance variable" />
+    <MESSAGE value="new userprofile class" />
+    <option name="LAST_COMMIT_MESSAGE" value="new userprofile class" />
   </component>
 </project>
