@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="added test for DeadlineClass Branch sprint1" />
+    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="new userprofile class">
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/tools/Deadline.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/tools/Deadline.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -34,7 +36,6 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
-        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -42,14 +43,6 @@
     <favorite-branches>
       <branch-storage>
         <map>
-          <entry type="LOCAL">
-            <value>
-              <list>
-                <branch-info repo="$PROJECT_DIR$" source="lorena/feature" />
-                <branch-info repo="$PROJECT_DIR$" source="sprint1" />
-              </list>
-            </value>
-          </entry>
           <entry type="REMOTE">
             <value>
               <list>
@@ -60,11 +53,6 @@
         </map>
       </branch-storage>
     </favorite-branches>
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="sprint1" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -80,21 +68,6 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
-    <key name="CreateTestDialog.RecentsKey">
-      <recent name="no.hiof.groupproject.tools" />
-    </key>
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -209,19 +182,7 @@
       <option name="project" value="LOCAL" />
       <updated>1664711592747</updated>
     </task>
-    <task id="LOCAL−00013" summary="added class for deadline">
-      <created>1664957366122</created>
-      <option name="number" value="LOCAL−00013" />
-      <option name="presentableId" value="LOCAL−00013" />
-      <updated>1664957366122</updated>
-    </task>
-    <task id="LOCAL−00014" summary="added test for DeadlineClass Branch sprint1">
-      <created>1664971209808</created>
-      <option name="number" value="LOCAL−00014" />
-      <option name="presentableId" value="LOCAL−00014" />
-      <updated>1664971209808</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,8 +219,6 @@
     <MESSAGE value="Updated new" />
     <MESSAGE value="new instance variable" />
     <MESSAGE value="new userprofile class" />
-    <MESSAGE value="added class for deadline" />
-    <MESSAGE value="added test for DeadlineClass Branch sprint1" />
-    <option name="LAST_COMMIT_MESSAGE" value="added test for DeadlineClass Branch sprint1" />
+    <option name="LAST_COMMIT_MESSAGE" value="new userprofile class" />
   </component>
 </project>
