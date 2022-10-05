@@ -2,8 +2,11 @@ package no.hiof.groupproject.tools;
 import java.time.*;
 public class Deadline {
 
-//Deadlines for accepting/declining an offer.
+<<<<<<< HEAD
+//Deadlines for accepting/declining an offer
 
+=======
+>>>>>>> 8668452 (added class for deadline)
         private LocalDateTime today;
         private LocalDateTime deadline;
 
@@ -39,5 +42,9 @@ public class Deadline {
                 return true;}//thisdateequaltodeadline
         }
 
+<<<<<<< HEAD
     }
 
+=======
+}
+>>>>>>> 8668452 (added class for deadline)
