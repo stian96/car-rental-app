@@ -5,8 +5,8 @@ import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
 
-
 class DeadlineTest {
+
     LocalDate thisDay1= LocalDate.now();
     LocalDate deadline1=thisDay1.plusDays(2);
 
@@ -30,5 +30,4 @@ class DeadlineTest {
         Assertions.assertEquals(2, thisDay3.compareTo(deadline3));
 
     }
-
 }

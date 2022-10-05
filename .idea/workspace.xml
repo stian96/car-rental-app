@@ -67,7 +67,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.DeadlineTest.afterDeadline">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="no.hiof.groupproject.Main" />
       <module name="Java_Project.main" />
@@ -81,8 +81,59 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DeadlineTest.afterDeadline" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java_Project.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="no.hiof.groupproject.tools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="no.hiof.groupproject.tools" />
+      <option name="MAIN_CLASS_NAME" value="no.hiof.groupproject.tools.DeadlineTest" />
+      <option name="METHOD_NAME" value="afterDeadline" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeadlineTest.beforeDeadline" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java_Project.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="no.hiof.groupproject.tools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="no.hiof.groupproject.tools" />
+      <option name="MAIN_CLASS_NAME" value="no.hiof.groupproject.tools.DeadlineTest" />
+      <option name="METHOD_NAME" value="beforeDeadline" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeadlineTest.sameDayAsDeadline" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java_Project.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="no.hiof.groupproject.tools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="no.hiof.groupproject.tools" />
+      <option name="MAIN_CLASS_NAME" value="no.hiof.groupproject.tools.DeadlineTest" />
+      <option name="METHOD_NAME" value="sameDayAsDeadline" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DeadlineTest.afterDeadline" />
+        <item itemvalue="JUnit.DeadlineTest.sameDayAsDeadline" />
+        <item itemvalue="JUnit.DeadlineTest.beforeDeadline" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
