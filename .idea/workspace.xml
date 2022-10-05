@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="new userprofile class">
-      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/tools/Deadline.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/tools/Deadline.java" afterDir="false" />
-    </list>
+    <list default="true" id="9c0fba85-2331-443a-9a0b-e492ca663689" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +90,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="" />
+      <changelist id="9c0fba85-2331-443a-9a0b-e492ca663689" name="Changes" comment="update" />
       <created>1664283865513</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -182,7 +180,31 @@
       <option name="project" value="LOCAL" />
       <updated>1664711592747</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL−00013" summary="update">
+      <created>1664959352895</created>
+      <option name="number" value="LOCAL−00013" />
+      <option name="presentableId" value="LOCAL−00013" />
+      <updated>1664959352895</updated>
+    </task>
+    <task id="LOCAL−00014" summary="update">
+      <created>1664959514629</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1664959514629</updated>
+    </task>
+    <task id="LOCAL−00015" summary="update">
+      <created>1664959846935</created>
+      <option name="number" value="LOCAL−00015" />
+      <option name="presentableId" value="LOCAL−00015" />
+      <updated>1664959846935</updated>
+    </task>
+    <task id="LOCAL−00016" summary="update">
+      <created>1664960001653</created>
+      <option name="number" value="LOCAL−00016" />
+      <option name="presentableId" value="LOCAL−00016" />
+      <updated>1664960001653</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +241,7 @@
     <MESSAGE value="Updated new" />
     <MESSAGE value="new instance variable" />
     <MESSAGE value="new userprofile class" />
-    <option name="LAST_COMMIT_MESSAGE" value="new userprofile class" />
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
   </component>
 </project>
