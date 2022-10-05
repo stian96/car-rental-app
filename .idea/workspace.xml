@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="new userprofile class">
-      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/tools/Deadline.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/tools/Deadline.java" afterDir="false" />
-    </list>
+    <list default="true" id="9c0fba85-2331-443a-9a0b-e492ca663689" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
