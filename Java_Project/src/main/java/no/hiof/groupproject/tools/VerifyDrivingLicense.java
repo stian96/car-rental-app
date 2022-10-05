@@ -11,6 +11,9 @@ public class VerifyDrivingLicense {
     // Hashmap where we can store license classes for a specific person.
     private static HashMap<String, Boolean> licenseClasses = new HashMap<>();
 
+    /* Method that checks if the given license class is in the
+    * license hashmap. If it is, then it changes the value of that
+    * license class to true. Else it returns false. */
     public Boolean verifyDrivingLicense(String licenseClass) {
         if (licenseClasses.containsKey(licenseClass)) {
             licenseClasses.put(licenseClass, true);
@@ -21,8 +24,6 @@ public class VerifyDrivingLicense {
         }
     }
 
-    /* Method that updates the parameter 'value' with either true or false,
-       based on what it receives from the verifyDrivingLicense method. */
     public void fillLicenseDictionary() {
         boolean notVerified = false;
         licenseClasses.put("A", notVerified);
