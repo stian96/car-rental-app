@@ -1,4 +1,4 @@
-package no.hiof.groupproject.models;
+package no.hiof.groupproject.models.payment_methods;
 
 import no.hiof.groupproject.models.payment_methods.Payment;
 
