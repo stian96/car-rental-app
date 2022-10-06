@@ -2,7 +2,8 @@ package no.hiof.groupproject.tools;
 
 import no.hiof.groupproject.models.payment_methods.*;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
+
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -107,10 +108,51 @@ class VerifyPaymentTest {
     }
 
     @Test
-    void assertsfdsfsdf() {
+    void assertPaypalEmailPasswordVerified() {
 
-        VerifyPayment payment = new VerifyPayment(new Paypal("test@hotmail.com", "hunter2"));
+        //checks that the paypal email password combination is verified
+        VerifyPayment payment = new VerifyPayment(new Paypal("jim@hotmail.com", "hunter2"));
         assertTrue(payment.isVerified());
+    }
+
+    @Test
+    void assertPaypalPasswordIncorrect() {
+
+        //checks that a valid email with invalid password returns false
+        VerifyPayment payment = new VerifyPayment(new Paypal("jim@hotmail.com", "hunter3"));
+        assertFalse(payment.isVerified());
+    }
+
+    @Test
+    void assertPaypalEmailNotInHashmap() {
+
+        //checks that non-existant emails return false
+        VerifyPayment payment = new VerifyPayment(new Paypal("nonexistantjim@hotmail.com", "hunter2"));
+        assertFalse(payment.isVerified());
+    }
+
+    @Test
+    void assertVippsTlfnrPinVerified() {
+
+        //checks that a valid tlfnr pincode combination is verified
+        VerifyPayment payment = new VerifyPayment(new Vipps("12345678", "1234"));
+        assertTrue(payment.isVerified());
+    }
+
+    @Test
+    void assertVippsPinIncorrect() {
+
+        //checks that a valid tlfnr with an invalid pincode returns false
+        VerifyPayment payment = new VerifyPayment(new Vipps("12345678", "1111"));
+        assertFalse(payment.isVerified());
+    }
+
+    @Test
+    void assertVippsTlfnrNotInHashmap() {
+
+        //checks that non-existant tlfnrs returns false
+        VerifyPayment payment = new VerifyPayment(new Vipps("42424242", "4242"));
+        assertFalse(payment.isVerified());
     }
 
 
