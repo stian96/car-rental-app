@@ -5,22 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="established first test for payment class - payment hierarchy polymorphism">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java_Project/src/test/java/no/hiof/groupproject/tools/VerifyPaymentTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_8_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Java_Project.main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Java_Project.test.iml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/interfaces/StrLengthCheck.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/CreditDebit.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
@@ -28,12 +14,17 @@
       <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/7.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/7.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_Project/build/classes/java/test/no/hiof/groupproject/tools/ExampleToolClassTest.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/build/reports/tests/test/packages/no.hiof.groupproject.tools.html" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/build/reports/tests/test/packages/no.hiof.groupproject.tools.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Credit_Debit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/GooglePay.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/GooglePay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/PaymentViaAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/PaymentViaAccount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Paypal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Paypal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Vipps.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Vipps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/test/java/no/hiof/groupproject/tools/VerifyPaymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/test/java/no/hiof/groupproject/tools/VerifyPaymentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,6 +68,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
         <option value="JUnit5 Test Class" />
       </list>
     </option>
@@ -136,14 +128,18 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="ExtractSuperBase.RECENT_KEYS">
+      <recent name="no.hiof.groupproject.interfaces" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="no.hiof.groupproject.models.payment_methods" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="no.hiof.groupproject.interfaces" />
       <recent name="no.hiof.groupproject.tools" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.ExampleToolClassTest">
+  <component name="RunManager" selected="Gradle.VerifyPaymentTest">
     <configuration name="DeadlineTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -274,8 +270,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.ExampleToolClassTest" />
         <item itemvalue="Gradle.VerifyPaymentTest" />
+        <item itemvalue="Gradle.ExampleToolClassTest" />
         <item itemvalue="Gradle.Tests in 'no.hiof.groupproject.tools'" />
         <item itemvalue="Gradle.VerifyDrivingLicenseTest" />
         <item itemvalue="Gradle.DeadlineTest" />
@@ -395,7 +391,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665054434351</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="established first test for payment class - payment hierarchy polymorphism">
+      <created>1665056641604</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1665056641604</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
