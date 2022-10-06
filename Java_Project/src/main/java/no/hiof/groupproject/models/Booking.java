@@ -1,5 +1,7 @@
 package no.hiof.groupproject.models;
 
+import no.hiof.groupproject.models.payment_methods.Payment;
+
 import java.util.Date;
 
 public class Booking {

@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/Java_Project/src/test/java/no/hiof/groupproject/tools/DeadlineTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_Project/build/classes/java/test/no/hiof/groupproject/tools/ExampleToolClassTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/build/classes/java/test/no/hiof/groupproject/tools/ExampleToolClassTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/PaymentViaAccount.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/tools/VerifyPayment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Credit_Debit.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Credit_Debit.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/GooglePay.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/GooglePay.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Payment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Paypal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Paypal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Vipps.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Vipps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,8 +42,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
