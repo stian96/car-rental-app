@@ -4,8 +4,8 @@ import no.hiof.groupproject.models.payment_methods.Payment;
 
 public abstract class PaymentViaAccount extends Payment {
 
-    String email;
-    String pwd;
+    private String email;
+    private String pwd;
 
     //validating emails isn't necessary at the prototype stage
     //more efficient to just assume that the email exists as long as it
@@ -26,5 +26,19 @@ public abstract class PaymentViaAccount extends Payment {
 
     }
 
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
 }

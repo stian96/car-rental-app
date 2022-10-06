@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="established first test for payment class - payment hierarchy polymorphism">
-      <change afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/interfaces/StrLengthCheck.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/CreditDebit.java" afterDir="false" />
+    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="created tests and code to assure that arguments passed are valid">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
@@ -18,12 +16,9 @@
       <change beforePath="$PROJECT_DIR$/Java_Project/build/reports/tests/test/packages/no.hiof.groupproject.tools.html" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/build/reports/tests/test/packages/no.hiof.groupproject.tools.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/build/test-results/test/binary/results.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Credit_Debit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/GooglePay.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/GooglePay.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Payment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Payment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/PaymentViaAccount.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/PaymentViaAccount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Paypal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Paypal.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Vipps.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/payment_methods/Vipps.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/tools/VerifyPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/tools/VerifyPayment.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Java_Project/src/test/java/no/hiof/groupproject/tools/VerifyPaymentTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/test/java/no/hiof/groupproject/tools/VerifyPaymentTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -398,7 +393,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665056641604</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="created tests and code to assure that arguments passed are valid">
+      <created>1665062656025</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1665062656025</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -439,6 +441,7 @@
     <MESSAGE value="created new dir for classes related to payment, restructured class hierarchy" />
     <MESSAGE value="created new class tool to verify payment (work in progress)" />
     <MESSAGE value="established first test for payment class - payment hierarchy polymorphism" />
-    <option name="LAST_COMMIT_MESSAGE" value="established first test for payment class - payment hierarchy polymorphism" />
+    <MESSAGE value="created tests and code to assure that arguments passed are valid" />
+    <option name="LAST_COMMIT_MESSAGE" value="created tests and code to assure that arguments passed are valid" />
   </component>
 </project>

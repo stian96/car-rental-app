@@ -106,6 +106,13 @@ class VerifyPaymentTest {
         assertThrows(IllegalArgumentException.class, () -> payment = new Paypal("email@hotmail.com", ""));
     }
 
+    @Test
+    void assertsfdsfsdf() {
+
+        VerifyPayment payment = new VerifyPayment(new Paypal("test@hotmail.com", "hunter2"));
+        assertTrue(payment.isVerified());
+    }
+
 
 
 }
