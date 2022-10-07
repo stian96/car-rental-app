@@ -155,6 +155,38 @@ class VerifyPaymentTest {
         assertFalse(payment.isVerified());
     }
 
+    @Test
+    void assertCardNumberCCVAndDateMatch() {
+
+        //checks that a valid card number ccv combination is verified
+        VerifyPayment payment = new VerifyPayment(new CreditDebit("1234234534564567", "123", 12, 2030));
+        assertTrue(payment.isVerified());
+    }
+
+    @Test
+    void assertOldDateIsInvalid() {
+
+        //checks that a valid card number ccv combination with an expired date is rejected
+        VerifyPayment payment = new VerifyPayment(new CreditDebit("1234234534564567", "123", 12, 1990));
+        assertFalse(payment.isVerified());
+    }
+
+    @Test
+    void assertCardNumberNotInHashmap() {
+
+        //checks that an invalid card number is rejected
+        VerifyPayment payment = new VerifyPayment(new CreditDebit("9999777788885555", "123", 12, 2030));
+        assertFalse(payment.isVerified());
+    }
+
+    @Test
+    void assertCardNumberInHashmapButInvalidCCV() {
+
+        //checks that a valid card number but invalid ccv combination is rejected
+        VerifyPayment payment = new VerifyPayment(new CreditDebit("1234234534564567", "999", 12, 2030));
+        assertFalse(payment.isVerified());
+    }
+
 
 
 }

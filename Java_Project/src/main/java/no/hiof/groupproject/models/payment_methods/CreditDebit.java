@@ -6,7 +6,10 @@ public class CreditDebit extends Payment {
 
     //string for these details to account for a 0 appearing
     private String card_number, ccv;
+    //expired cards can still be instantiated
+    //VerifyPayment class actually checks that the date is valid as of current date
     private LocalDate valid_until;
+    private CreditDebitPair pair;
 
     public CreditDebit(String card_number, String ccv, int month, int year) {
 
@@ -28,11 +31,28 @@ public class CreditDebit extends Payment {
             this.ccv = ccv;
             //expires the first day of the month
             valid_until = LocalDate.of(year, month, 1);
+            //creates a string string pair object for use in testing hashmap
+            //and database storage
+            storeCCVDateInPair();
         }
     }
 
     public CreditDebit() {
 
+    }
+
+    //creates a pair that can be inserted as a value so that the dummy
+    //hashmap used for testing has 3 values instead of 2
+    public void storeCCVDateInPair() {
+        pair = new CreditDebitPair(this.ccv, this.valid_until);
+    }
+
+    public CreditDebitPair getPair() {
+        return pair;
+    }
+
+    public void setPair(CreditDebitPair pair) {
+        this.pair = pair;
     }
 
     public String getCard_number() {
@@ -49,6 +69,8 @@ public class CreditDebit extends Payment {
 
     public void setCcv(String ccv) {
         this.ccv = ccv;
+        //updates pair as well
+        this.pair.setCcv(ccv);
     }
 
     public LocalDate getValid_until() {
@@ -57,5 +79,7 @@ public class CreditDebit extends Payment {
 
     public void setValid_until(LocalDate valid_until) {
         this.valid_until = valid_until;
+        //updates pair as well
+        this.pair.setValid_until(valid_until);
     }
 }
