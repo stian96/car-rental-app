@@ -1,0 +1,487 @@
+Index: .idea/modules/Java_Project.main.iml
+===================================================================
+diff --git a/.idea/modules/Java_Project.main.iml b/.idea/modules/Java_Project.main.iml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/modules/Java_Project.main.iml	
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module external.linked.project.id="Java_Project:main" external.linked.project.path="$MODULE_DIR$/../../Java_Project" external.root.project.path="$MODULE_DIR$/../../Java_Project" external.system.id="GRADLE" external.system.module.group="org.example" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17">
++    <output url="file://$MODULE_DIR$/../../Java_Project/build/classes/java/main" />
++    <exclude-output />
++    <content url="file://$MODULE_DIR$/../../Java_Project/src/main">
++      <sourceFolder url="file://$MODULE_DIR$/../../Java_Project/src/main/java" isTestSource="false" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules/Java_Project.iml
+===================================================================
+diff --git a/.idea/modules/Java_Project.iml b/.idea/modules/Java_Project.iml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/modules/Java_Project.iml	
+@@ -0,0 +1,12 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module external.linked.project.id="Java_Project" external.linked.project.path="$MODULE_DIR$/../../Java_Project" external.root.project.path="$MODULE_DIR$/../../Java_Project" external.system.id="GRADLE" external.system.module.group="org.example" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17" inherit-compiler-output="true">
++    <exclude-output />
++    <content url="file://$MODULE_DIR$/../../Java_Project">
++      <excludeFolder url="file://$MODULE_DIR$/../../Java_Project/.gradle" />
++      <excludeFolder url="file://$MODULE_DIR$/../../Java_Project/build" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: Java_Project/src/main/java/no/hiof/groupproject/models/Person.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package no.hiof.groupproject.models;\r\n\r\npublic abstract class Person{\r\n\r\n    private int id,dLicense, phone;\r\n    private String first_name, last_name, address, email;\r\n\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Java_Project/src/main/java/no/hiof/groupproject/models/Person.java b/Java_Project/src/main/java/no/hiof/groupproject/models/Person.java
+--- a/Java_Project/src/main/java/no/hiof/groupproject/models/Person.java	
++++ b/Java_Project/src/main/java/no/hiof/groupproject/models/Person.java	
+@@ -3,7 +3,7 @@
+ public abstract class Person{
+ 
+     private int id,dLicense, phone;
+-    private String first_name, last_name, address, email;
++    private String first_name, last_name, bankAccountNum, address, email;
+ 
+ 
+ 
+Index: .idea/modules/Java_Project.test.iml
+===================================================================
+diff --git a/.idea/modules/Java_Project.test.iml b/.idea/modules/Java_Project.test.iml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/modules/Java_Project.test.iml	
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module external.linked.project.id="Java_Project:test" external.linked.project.path="$MODULE_DIR$/../../Java_Project" external.root.project.path="$MODULE_DIR$/../../Java_Project" external.system.id="GRADLE" external.system.module.group="org.example" external.system.module.type="sourceSet" external.system.module.version="1.0-SNAPSHOT" type="JAVA_MODULE" version="4">
++  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_17">
++    <output-test url="file://$MODULE_DIR$/../../Java_Project/build/classes/java/test" />
++    <exclude-output />
++    <content url="file://$MODULE_DIR$/../../Java_Project/src/test">
++      <sourceFolder url="file://$MODULE_DIR$/../../Java_Project/src/test/java" isTestSource="true" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++    <orderEntry type="module" module-name="Java_Project.main" />
++    <orderEntry type="library" name="Gradle: org.junit.jupiter:junit-jupiter-api:5.8.1" level="project" />
++    <orderEntry type="library" name="Gradle: org.junit.platform:junit-platform-commons:1.8.1" level="project" />
++    <orderEntry type="library" name="Gradle: org.opentest4j:opentest4j:1.2.0" level="project" />
++    <orderEntry type="library" scope="PROVIDED" name="Gradle: org.apiguardian:apiguardian-api:1.1.2" level="project" />
++    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.junit.jupiter:junit-jupiter-engine:5.8.1" level="project" />
++    <orderEntry type="library" scope="RUNTIME" name="Gradle: org.junit.platform:junit-platform-engine:1.8.1" level="project" />
++  </component>
++  <component name="TestModuleProperties" production-module="Java_Project.main" />
++</module>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_8_1.xml
+===================================================================
+diff --git a/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_8_1.xml b/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_8_1.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_8_1.xml	
+@@ -0,0 +1,11 @@
++<component name="libraryTable">
++  <library name="Gradle: org.junit.platform:junit-platform-commons:1.8.1">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.8.1/1e362cbe6d0f225b066757865e233972557484/junit-platform-commons-1.8.1.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-commons/1.8.1/386b61876dd33d0ef0381189d3c1db9455d99659/junit-platform-commons-1.8.1-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml
+===================================================================
+diff --git a/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml b/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml	
+@@ -0,0 +1,11 @@
++<component name="libraryTable">
++  <library name="Gradle: org.junit.jupiter:junit-jupiter-engine:5.8.1">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.8.1/21b86e08aae2720bbf017703669948be96d1388c/junit-jupiter-engine-5.8.1.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-engine/5.8.1/ea87fe3d752e24397f71f347872e79a89c61a704/junit-jupiter-engine-5.8.1-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/workspace.xml	
+@@ -0,0 +1,199 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="Updated new">
++      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_2.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_8_1.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_engine_5_8_1.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_commons_1_8_1.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_8_1.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_opentest4j_opentest4j_1_2_0.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/modules/Java_Project.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/modules/Java_Project.main.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/modules/Java_Project.test.iml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/7.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/7.2/fileHashes/fileHashes.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/7.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/7.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Java_Project/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Advertisement.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Advertisement.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Booking.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Person.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/Person.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/RentOutAd.java" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/models/RentOutAd.java" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="CodeStyleSettingsInfer">
++    <option name="done" value="true" />
++  </component>
++  <component name="ExternalProjectsData">
++    <projectState path="$PROJECT_DIR$/Java_Project">
++      <ProjectState />
++    </projectState>
++  </component>
++  <component name="ExternalProjectsManager">
++    <system id="GRADLE">
++      <state>
++        <projects_view>
++          <tree_state>
++            <expand />
++            <select />
++          </tree_state>
++        </projects_view>
++      </state>
++    </system>
++  </component>
++  <component name="FileTemplateManagerImpl">
++    <option name="RECENT_TEMPLATES">
++      <list>
++        <option value="Class" />
++      </list>
++    </option>
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
++  </component>
++  <component name="ProjectCodeStyleSettingsMigration">
++    <option name="version" value="2" />
++  </component>
++  <component name="ProjectId" id="2FLuotSqofxWOAlBq7ks5scUMp1" />
++  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
++    <ConfirmationsSetting value="2" id="Add" />
++  </component>
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="RunManager">
++    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
++      <option name="MAIN_CLASS_NAME" value="no.hiof.groupproject.Main" />
++      <module name="Java_Project.main" />
++      <extension name="coverage">
++        <pattern>
++          <option name="PATTERN" value="no.hiof.groupproject.*" />
++          <option name="ENABLED" value="true" />
++        </pattern>
++      </extension>
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <recent_temporary>
++      <list>
++        <item itemvalue="Application.Main" />
++      </list>
++    </recent_temporary>
++  </component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="" />
++      <created>1664283865513</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1664283865513</updated>
++    </task>
++    <task id="LOCAL-00001" summary="Adding new classes and cleaned up code in others">
++      <created>1664299455861</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1664299455861</updated>
++    </task>
++    <task id="LOCAL-00002" summary="add new class">
++      <created>1664301364913</created>
++      <option name="number" value="00002" />
++      <option name="presentableId" value="LOCAL-00002" />
++      <option name="project" value="LOCAL" />
++      <updated>1664301364913</updated>
++    </task>
++    <task id="LOCAL-00003" summary="add new class">
++      <created>1664354890050</created>
++      <option name="number" value="00003" />
++      <option name="presentableId" value="LOCAL-00003" />
++      <option name="project" value="LOCAL" />
++      <updated>1664354890050</updated>
++    </task>
++    <task id="LOCAL-00004" summary="add new class">
++      <created>1664356911685</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1664356911685</updated>
++    </task>
++    <task id="LOCAL-00005" summary="change instance variable">
++      <created>1664357895227</created>
++      <option name="number" value="00005" />
++      <option name="presentableId" value="LOCAL-00005" />
++      <option name="project" value="LOCAL" />
++      <updated>1664357895227</updated>
++    </task>
++    <task id="LOCAL-00006" summary="change instance variables">
++      <created>1664359372395</created>
++      <option name="number" value="00006" />
++      <option name="presentableId" value="LOCAL-00006" />
++      <option name="project" value="LOCAL" />
++      <updated>1664359372395</updated>
++    </task>
++    <task id="LOCAL-00007" summary="added new classes and cleaned up code">
++      <created>1664360730072</created>
++      <option name="number" value="00007" />
++      <option name="presentableId" value="LOCAL-00007" />
++      <option name="project" value="LOCAL" />
++      <updated>1664360730072</updated>
++    </task>
++    <task id="LOCAL-00008" summary="updating ideas for this">
++      <created>1664362121476</created>
++      <option name="number" value="00008" />
++      <option name="presentableId" value="LOCAL-00008" />
++      <option name="project" value="LOCAL" />
++      <updated>1664362121476</updated>
++    </task>
++    <task id="LOCAL-00009" summary="Updated new">
++      <created>1664534900512</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1664534900512</updated>
++    </task>
++    <option name="localTasksCounter" value="10" />
++    <servers />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++  <component name="VcsManagerConfiguration">
++    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
++    <MESSAGE value="Adding new classes and cleaned up code in others" />
++    <MESSAGE value="add new class" />
++    <MESSAGE value="change instance variable" />
++    <MESSAGE value="change instance variables" />
++    <MESSAGE value="added new classes and cleaned up code" />
++    <MESSAGE value="updating ideas for this" />
++    <MESSAGE value="Updated new" />
++    <option name="LAST_COMMIT_MESSAGE" value="Updated new" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__org_opentest4j_opentest4j_1_2_0.xml
+===================================================================
+diff --git a/.idea/libraries/Gradle__org_opentest4j_opentest4j_1_2_0.xml b/.idea/libraries/Gradle__org_opentest4j_opentest4j_1_2_0.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Gradle__org_opentest4j_opentest4j_1_2_0.xml	
+@@ -0,0 +1,11 @@
++<component name="libraryTable">
++  <library name="Gradle: org.opentest4j:opentest4j:1.2.0">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.2.0/28c11eb91f9b6d8e200631d46e20a7f407f2a046/opentest4j-1.2.0.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.opentest4j/opentest4j/1.2.0/41d55b3c2254de9837b4ec8923cbd371b8a7eab5/opentest4j-1.2.0-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_8_1.xml
+===================================================================
+diff --git a/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_8_1.xml b/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_8_1.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Gradle__org_junit_platform_junit_platform_engine_1_8_1.xml	
+@@ -0,0 +1,11 @@
++<component name="libraryTable">
++  <library name="Gradle: org.junit.platform:junit-platform-engine:1.8.1">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.8.1/e6c63bf990dc88a6527b4ed617b23e47048f07e0/junit-platform-engine-1.8.1.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.platform/junit-platform-engine/1.8.1/9d87ea7959823714ad803aa91e0618bf2213b52c/junit-platform-engine-1.8.1-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: Java_Project/src/main/java/no/hiof/groupproject/models/Booking.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package no.hiof.groupproject.models;\r\n\r\nimport java.util.Date;\r\n\r\npublic class Booking {\r\n    /*This class is for booking the vehicle*/\r\n    private int id;\r\n    private Advertisement ad; //should it be ad or car?\r\n    private Customer customer;\r\n    private Date dateFrom; //will need to convert to string for retrieval\r\n    private Date dateTil;\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Java_Project/src/main/java/no/hiof/groupproject/models/Booking.java b/Java_Project/src/main/java/no/hiof/groupproject/models/Booking.java
+--- a/Java_Project/src/main/java/no/hiof/groupproject/models/Booking.java	
++++ b/Java_Project/src/main/java/no/hiof/groupproject/models/Booking.java	
+@@ -9,5 +9,6 @@
+     private Customer customer;
+     private Date dateFrom; //will need to convert to string for retrieval
+     private Date dateTil;
++    private Payment payment;
+ 
+ }
+Index: .idea/compiler.xml
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/compiler.xml	
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel>
++      <module name="Java_Project" target="17" />
++      <module name="Java_Project.main" target="17" />
++      <module name="Java_Project.test" target="17" />
++    </bytecodeTargetLevel>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_8_1.xml
+===================================================================
+diff --git a/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_8_1.xml b/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_8_1.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Gradle__org_junit_jupiter_junit_jupiter_api_5_8_1.xml	
+@@ -0,0 +1,11 @@
++<component name="libraryTable">
++  <library name="Gradle: org.junit.jupiter:junit-jupiter-api:5.8.1">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.8.1/6538b88eb8bf8811bc7b6efb5246f835c15e0bfe/junit-jupiter-api-5.8.1.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.junit.jupiter/junit-jupiter-api/5.8.1/a3e13f34a2a47fb2c0d7385c5e6e0e8623194061/junit-jupiter-api-5.8.1-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_2.xml
+===================================================================
+diff --git a/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_2.xml b/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_2.xml
+new file mode 100644
+--- /dev/null	
++++ b/.idea/libraries/Gradle__org_apiguardian_apiguardian_api_1_1_2.xml	
+@@ -0,0 +1,11 @@
++<component name="libraryTable">
++  <library name="Gradle: org.apiguardian:apiguardian-api:1.1.2">
++    <CLASSES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.1.2/a231e0d844d2721b0fa1b238006d15c6ded6842a/apiguardian-api-1.1.2.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES>
++      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apiguardian/apiguardian-api/1.1.2/e0787a997746ac32639e0bf3cb27af8dce8a3428/apiguardian-api-1.1.2-sources.jar!/" />
++    </SOURCES>
++  </library>
++</component>
+\ No newline at end of file
+Index: Java_Project/src/main/java/no/hiof/groupproject/models/RentOutAd.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package no.hiof.groupproject.models;\r\n\r\npublic class RentOutAd extends Advertisement{\r\n\r\n    private Vehicle vehicle;\r\n    private int rate;//not sure where this should be here or car\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Java_Project/src/main/java/no/hiof/groupproject/models/RentOutAd.java b/Java_Project/src/main/java/no/hiof/groupproject/models/RentOutAd.java
+--- a/Java_Project/src/main/java/no/hiof/groupproject/models/RentOutAd.java	
++++ b/Java_Project/src/main/java/no/hiof/groupproject/models/RentOutAd.java	
+@@ -1,7 +1,12 @@
+ package no.hiof.groupproject.models;
+ 
+ public class RentOutAd extends Advertisement{
+-
++    /*This page is for the owner to rent out the car*/
+     private Vehicle vehicle;
+     private int rate;//not sure where this should be here or car
++    public RentOutAd(String id, Vehicle vehicle, int rate){
++        super();
++        this.vehicle = vehicle;
++        this.rate = rate;
++    }
+ }
+Index: Java_Project/src/main/java/no/hiof/groupproject/models/Advertisement.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package no.hiof.groupproject.models;\r\n\r\npublic abstract class Advertisement {\r\n    private int id;\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Java_Project/src/main/java/no/hiof/groupproject/models/Advertisement.java b/Java_Project/src/main/java/no/hiof/groupproject/models/Advertisement.java
+--- a/Java_Project/src/main/java/no/hiof/groupproject/models/Advertisement.java	
++++ b/Java_Project/src/main/java/no/hiof/groupproject/models/Advertisement.java	
+@@ -4,4 +4,6 @@
+     private int id;
+ 
+ 
++
++
+ }
