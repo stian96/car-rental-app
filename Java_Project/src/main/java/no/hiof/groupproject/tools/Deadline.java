@@ -1,7 +1,7 @@
 package no.hiof.groupproject.tools;
 import java.time.*;
 public class Deadline {
-//Added class
+//Added class Deadline to accept/decline an offer..
         private LocalDateTime today;
         private LocalDateTime deadline;
 
