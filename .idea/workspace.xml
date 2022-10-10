@@ -5,8 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/Java_Project/src/test/java/no/hiof/groupproject/tools/DeadlineTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_Project/build/classes/java/test/no/hiof/groupproject/tools/ExampleToolClassTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/build/classes/java/test/no/hiof/groupproject/tools/ExampleToolClassTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/tools/Notification.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Java_Project/src/test/java/no/hiof/groupproject/tools/NotificationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +67,7 @@
     </favorite-branches>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="sprint1" />
+        <entry key="$PROJECT_DIR$" value="ashti/feature" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -84,13 +86,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": ""
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -99,23 +100,94 @@
       <recent name="no.hiof.groupproject.tools" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="no.hiof.groupproject.Main" />
-      <module name="Java_Project.main" />
+  <component name="RunManager" selected="JUnit.NotificationTest.checking_email_sends">
+    <configuration name="NotificationTest.checking_email_sends" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java_Project.test" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="no.hiof.groupproject.*" />
+          <option name="PATTERN" value="no.hiof.groupproject.tools.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="no.hiof.groupproject.tools" />
+      <option name="MAIN_CLASS_NAME" value="no.hiof.groupproject.tools.NotificationTest" />
+      <option name="METHOD_NAME" value="checking_email_sends" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationTest.checking_notification_sends_the_correct_message" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java_Project.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="no.hiof.groupproject.tools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="no.hiof.groupproject.tools" />
+      <option name="MAIN_CLASS_NAME" value="no.hiof.groupproject.tools.NotificationTest" />
+      <option name="METHOD_NAME" value="checking_notification_sends_the_correct_message" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationTest.checking_send_to_gui_returns_correctly" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java_Project.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="no.hiof.groupproject.tools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="no.hiof.groupproject.tools" />
+      <option name="MAIN_CLASS_NAME" value="no.hiof.groupproject.tools.NotificationTest" />
+      <option name="METHOD_NAME" value="checking_send_to_gui_returns_correctly" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationTest.skjhdfh" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java_Project.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="no.hiof.groupproject.tools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="no.hiof.groupproject.tools" />
+      <option name="MAIN_CLASS_NAME" value="no.hiof.groupproject.tools.NotificationTest" />
+      <option name="METHOD_NAME" value="skjhdfh" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotificationTest.test_to_fill_arraylist" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Java_Project.test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="no.hiof.groupproject.tools.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="no.hiof.groupproject.tools" />
+      <option name="MAIN_CLASS_NAME" value="no.hiof.groupproject.tools.NotificationTest" />
+      <option name="METHOD_NAME" value="test_to_fill_arraylist" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="JUnit.NotificationTest.checking_email_sends" />
+        <item itemvalue="JUnit.NotificationTest.checking_notification_sends_the_correct_message" />
+        <item itemvalue="JUnit.NotificationTest.skjhdfh" />
+        <item itemvalue="JUnit.NotificationTest.test_to_fill_arraylist" />
+        <item itemvalue="JUnit.NotificationTest.checking_send_to_gui_returns_correctly" />
       </list>
     </recent_temporary>
   </component>
@@ -232,13 +304,33 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/sprint1" />
+                        <option value="origin/lorena/feature" />
                       </list>
                     </value>
                   </entry>
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/lorena/feature" />
+                </option>
+              </RecentGroup>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/sprint1" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -257,5 +349,30 @@
     <MESSAGE value="new userprofile class" />
     <MESSAGE value="added class for deadline" />
     <option name="LAST_COMMIT_MESSAGE" value="added class for deadline" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Java_Project/src/main/java/no/hiof/groupproject/tools/Notification.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/Java_Project/src/test/java/no/hiof/groupproject/tools/NotificationTest.java</url>
+          <line>35</line>
+          <properties class="no.hiof.groupproject.tools.NotificationTest" method="checking_email_sends">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Group_Project$NotificationTest_checking_email_sends.ic" NAME="NotificationTest.checking_email_sends Coverage Results" MODIFIED="1665058126756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>no.hiof.groupproject.tools.*</FILTER>
+    </SUITE>
   </component>
 </project>
