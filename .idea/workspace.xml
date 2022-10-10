@@ -86,12 +86,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": ""
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -181,6 +181,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.NotificationTest.checking_email_sends" />
+      <item itemvalue="JUnit.NotificationTest.checking_notification_sends_the_correct_message" />
+      <item itemvalue="JUnit.NotificationTest.checking_send_to_gui_returns_correctly" />
+      <item itemvalue="JUnit.NotificationTest.skjhdfh" />
+      <item itemvalue="JUnit.NotificationTest.test_to_fill_arraylist" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.NotificationTest.checking_email_sends" />
