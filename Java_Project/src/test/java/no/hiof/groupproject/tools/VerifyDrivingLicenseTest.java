@@ -1,32 +1,38 @@
 package no.hiof.groupproject.tools;
+import no.hiof.groupproject.tools.Tool.VerifyLicense;
 import org.junit.jupiter.api.Test;
-import java.util.HashMap;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class VerifyDrivingLicenseTest {
 
-    VerifyDrivingLicense testClass = new VerifyDrivingLicense();
+    VerifyLicense test = new VerifyLicense("98 45 123456 1", "2008-05-12",
+                                            "Norway");
 
     @Test
-    void CheckForDrivingLicense() {
-        boolean compare = true;
-        testClass.fillLicenseDictionary();
-        assertEquals(compare, testClass.verifyDrivingLicense("B"));
+    void CheckIfFunctionReturnTrueOnCorrectPattern() {
+        assertEquals(true, test.verifyLicenseNumber(test.getLicenseNumber()));
     }
 
     @Test
-    void CheckForNoLicense() {
-        boolean compare = false;
-        assertEquals(compare, testClass.verifyDrivingLicense("BE"));
+    void CheckIfFunctionReturnFalseOnWrongPattern() {
+        assertEquals(false, test.verifyLicenseNumber("9543 1234561"));
     }
 
     @Test
-    void CheckIfDictionaryGetsFilled() {
-        HashMap<String, Boolean> compare = new HashMap<>();
-        compare.put("A", false);
-        compare.put("B", false);
-        compare.put("C", false);
-        testClass.fillLicenseDictionary();
-        assertEquals(compare, testClass.getLicenseClasses());
+    void CheckIfDateOfIssueIsBeforeNow() {
+        assertEquals(true, test.verifyDateOfIssue(test.getDateOfIssue()));
     }
+
+    @Test
+    void CheckIfCountryOfIssueIsNorway() {
+        assertEquals("Valid", test.verifyCountryOfIssue(test.getCountryOfIssue()));
+    }
+
+    @Test
+    void CheckIfCountryOfIssueIsNotNorway() {
+        String rules = "License only valid for 3 months.";
+        assertEquals(rules, test.verifyCountryOfIssue("Poland"));
+    }
+
 }
