@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/Java_Project/src/test/java/no/hiof/groupproject/tools/DeadlineTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_Project/build/classes/java/test/no/hiof/groupproject/tools/ExampleToolClassTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/build/classes/java/test/no/hiof/groupproject/tools/ExampleToolClassTest.class" afterDir="false" />
-    </list>
+    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="added test for DeadlineClass Branch sprint1" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -218,7 +215,13 @@
       <option name="presentableId" value="LOCAL−00013" />
       <updated>1664957366122</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL−00014" summary="added test for DeadlineClass Branch sprint1">
+      <created>1664971209808</created>
+      <option name="number" value="LOCAL−00014" />
+      <option name="presentableId" value="LOCAL−00014" />
+      <updated>1664971209808</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -256,6 +259,7 @@
     <MESSAGE value="new instance variable" />
     <MESSAGE value="new userprofile class" />
     <MESSAGE value="added class for deadline" />
-    <option name="LAST_COMMIT_MESSAGE" value="added class for deadline" />
+    <MESSAGE value="added test for DeadlineClass Branch sprint1" />
+    <option name="LAST_COMMIT_MESSAGE" value="added test for DeadlineClass Branch sprint1" />
   </component>
 </project>
