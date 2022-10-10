@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="no.hiof.groupproject.tools.DeadlineTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-10-10T09:36:38" hostname="Stians-MacBook-Air.local" time="0.002">
-  <properties/>
-  <testcase name="beforeDeadline()" classname="no.hiof.groupproject.tools.DeadlineTest" time="0.0"/>
-  <testcase name="afterDeadline()" classname="no.hiof.groupproject.tools.DeadlineTest" time="0.0"/>
-  <testcase name="sameDayAsDeadline()" classname="no.hiof.groupproject.tools.DeadlineTest" time="0.001"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
