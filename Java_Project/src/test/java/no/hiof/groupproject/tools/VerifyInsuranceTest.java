@@ -6,16 +6,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class VerifyInsuranceTest {
 
-    VerifyInsurance insuranceTest = new VerifyInsurance(1);
+    VerifyInsurance insuranceTest = new VerifyInsurance();
 
     @Test
-    void TestIfFunctionReturnYesIfInsured() {
+    void TestIfFunctionReturnInsuredIfInsured() {
         String hasInsurance = insuranceTest.VerifyCarInsurance("yes");
         assertEquals("insured", hasInsurance);
     }
 
     @Test
-    void TestIfFunctionReturnNoIfNotInsured() {
+    void TestIfFunctionReturnNotInsuredIfNotInsured() {
         String noInsurance = insuranceTest.VerifyCarInsurance("no");
         assertEquals("not insured", noInsurance);
     }

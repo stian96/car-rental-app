@@ -3,19 +3,17 @@ package no.hiof.groupproject.tools.Tool;
 import java.util.HashMap;
 import java.util.Locale;
 
+/* The class is supposed to be handled by a third party */
+
 public class VerifyInsurance {
-    private int carId;
+    private int carId = 0;
     private final static String HAS_INSURANCE = "insured";
     private final static String NO_INSURANCE = "not insured";
-    private HashMap<Integer, String> insurance;
-
-    public VerifyInsurance(int carID) {
-        this.carId = carID;
-        this.insurance = new HashMap<>();
-    }
+    private HashMap<Integer, String> insurance = new HashMap<>();
 
     public String VerifyCarInsurance(String response) {
         String result = response.toLowerCase(Locale.ROOT);
+        carId++;
         registerResult(result);
         return insurance.get(carId);
     }
@@ -27,15 +25,6 @@ public class VerifyInsurance {
         else {
             insurance.put(carId, NO_INSURANCE);
         }
-
-    }
-
-    public int getCarId() {
-        return carId;
-    }
-
-    public void setCarId(int carId) {
-        this.carId = carId;
     }
 
     public HashMap<Integer, String> getInsurance() {
