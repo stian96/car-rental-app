@@ -5,8 +5,8 @@ import java.util.Locale;
 
 public class VerifyInsurance {
     private int carId;
-    private final static String HAS_INSURANCE = "yes";
-    private final static String NO_INSURANCE = "no";
+    private final static String HAS_INSURANCE = "insured";
+    private final static String NO_INSURANCE = "not insured";
     private HashMap<Integer, String> insurance;
 
     public VerifyInsurance(int carID) {
@@ -14,14 +14,14 @@ public class VerifyInsurance {
         this.insurance = new HashMap<>();
     }
 
-    public Boolean VerifyCarInsurance(String response) {
+    public String VerifyCarInsurance(String response) {
         String result = response.toLowerCase(Locale.ROOT);
         registerResult(result);
-        return insurance.get(0).equals(result);
+        return insurance.get(carId);
     }
 
     public void registerResult(String response) {
-        if (response.equals(HAS_INSURANCE)) {
+        if (response.equals("yes")) {
             insurance.put(carId, HAS_INSURANCE);
         }
         else {

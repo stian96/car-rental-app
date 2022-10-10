@@ -1,6 +1,31 @@
 package no.hiof.groupproject.tools;
+import no.hiof.groupproject.tools.Tool.VerifyInsurance;
+import org.junit.jupiter.api.Test;
 
-public class VerifyInsuranceTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+class VerifyInsuranceTest {
+
+    VerifyInsurance insuranceTest = new VerifyInsurance(1);
+
+    @Test
+    void TestIfFunctionReturnYesIfInsured() {
+        String hasInsurance = insuranceTest.VerifyCarInsurance("yes");
+        assertEquals("insured", hasInsurance);
+    }
+
+    @Test
+    void TestIfFunctionReturnNoIfNotInsured() {
+        String noInsurance = insuranceTest.VerifyCarInsurance("no");
+        assertEquals("not insured", noInsurance);
+    }
+
+    @Test
+    void TestIfResultsGetRegisteredInHashMap() {
+        insuranceTest.VerifyCarInsurance("yes");
+        assertTrue(insuranceTest.getInsurance().containsKey(1));
+    }
+
 
 
 }
