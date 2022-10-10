@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="51daf563-f655-49f1-bfc0-2d98c4b1d047" name="Changes" comment="added paypal and vipps verification methods along with additional tests">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/Java_Project.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_10_2022_12_40__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_10_2022_12_40__Changes_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_10_2022_12_40__Changes_1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_10_2022_12_40__Changes_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Java_Project/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
+    <list default="true" id="b134ae96-15bb-428d-a7d4-ad4d65edabc0" name="Changes" comment="changed files">
+      <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Java_Project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Java_Project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,7 +29,12 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand />
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="Java_Project" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
             <select />
           </tree_state>
         </projects_view>
@@ -90,15 +93,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
-    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -114,7 +113,16 @@
       <recent name="no.hiof.groupproject.tools" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.VerifyPaymentTest">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="ALTERNATIVE_JRE_PATH" value="openjdk-17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="no.hiof.groupproject.Main" />
+      <module name="Java_Project.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DeadlineTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -152,6 +160,29 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;no.hiof.groupproject.tools.ExampleToolClassTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="NotificationTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/Java_Project" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;no.hiof.groupproject.tools.NotificationTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -207,7 +238,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="VerifyPaymentTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="VerifyPaymentTest" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/Java_Project" />
@@ -243,9 +274,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Gradle.VerifyPaymentTest" />
+      <item itemvalue="Gradle.NotificationTest" />
+      <item itemvalue="Gradle.DeadlineTest" />
+      <item itemvalue="Gradle.ExampleToolClassTest" />
+      <item itemvalue="Gradle.Tests in 'no.hiof.groupproject.tools'" />
+      <item itemvalue="Gradle.VerifyDrivingLicenseTest" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.VerifyPaymentTest" />
+        <item itemvalue="Gradle.NotificationTest" />
         <item itemvalue="Gradle.ExampleToolClassTest" />
         <item itemvalue="Gradle.Tests in 'no.hiof.groupproject.tools'" />
         <item itemvalue="Gradle.VerifyDrivingLicenseTest" />
@@ -395,7 +435,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665065876463</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="update">
+      <created>1665388973653</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1665388973653</updated>
+    </task>
+    <task id="LOCAL-00021" summary="changed files">
+      <created>1665392476772</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1665392476772</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -412,13 +466,28 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/sprint1" />
+                        <option value="ashti/feature" />
                       </list>
                     </value>
                   </entry>
                 </map>
               </option>
             </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="origin/sprint1" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -442,6 +511,13 @@
     <MESSAGE value="created tests and code to assure that arguments passed are valid" />
     <MESSAGE value="getters and setters with private class members" />
     <MESSAGE value="added paypal and vipps verification methods along with additional tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="added paypal and vipps verification methods along with additional tests" />
+    <MESSAGE value="update" />
+    <MESSAGE value="changed files" />
+    <option name="LAST_COMMIT_MESSAGE" value="changed files" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Group_Project$NotificationTest_checking_email_sends.ic" NAME="NotificationTest.checking_email_sends Coverage Results" MODIFIED="1665058126756" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>no.hiof.groupproject.tools.*</FILTER>
+    </SUITE>
   </component>
 </project>
