@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="no.hiof.groupproject.tools.VerifyPaymentTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-10-10T17:27:53" hostname="RACHEL" time="0.02">
-  <properties/>
-  <testcase name="assertsCreditDebitNumberIsOfValidFormat()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.02"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
