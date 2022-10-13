@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-10-13T10:10:06" hostname="Stians-MacBook-Air.local" time="0.03">
+  <properties/>
+  <testcase name="CheckIfCountryOfIssueIsNotNorway()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.001"/>
+  <testcase name="CheckIfFunctionReturnFalseOnWrongPattern()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.001"/>
+  <testcase name="CheckIfCountryOfIssueIsNorway()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.0"/>
+  <testcase name="CheckIfFunctionReturnTrueOnCorrectPattern()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.002"/>
+  <testcase name="CheckIfDateOfIssueIsBeforeNow()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.017"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
