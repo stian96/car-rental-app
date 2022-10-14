@@ -30,6 +30,7 @@ public class ConnectDB {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        //returns a variable of type Connection
         return conn;
     }
 }

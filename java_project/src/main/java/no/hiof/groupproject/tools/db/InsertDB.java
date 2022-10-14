@@ -16,6 +16,8 @@ on the 14/10/2022.
 public class InsertDB {
 
     public void insert(String table, String nm, int ag) {
+
+        //eg INSERT INTO people(name,age) VALUES('sam',29)
         String sql = "INSERT INTO " + table + "(name,age) VALUES(?,?)";
 
         try (Connection conn = ConnectDB.connect();
@@ -28,14 +30,4 @@ public class InsertDB {
             System.out.println(e.getMessage());
         }
     }
-
-    public static void main(String[] args) {
-
-        InsertDB db = new InsertDB();
-
-        db.insert("people", "jonas", 12);
-        db.insert("people", "mary", 25);
-        db.insert("people", "rigmor", 99);
-    }
-
 }
