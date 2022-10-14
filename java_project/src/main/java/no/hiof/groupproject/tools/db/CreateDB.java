@@ -32,9 +32,4 @@ public class CreateDB {
             System.out.println(e.getMessage());
         }
     }
-
-    public static void main(String[] args) {
-
-        createNewDatabase("test.db");
-    }
 }
