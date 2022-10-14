@@ -8,13 +8,13 @@ import java.sql.SQLException;
 A loose coupled adaptor which establishes a connection to a database.
 Simply import this class and call the static method via:
     ConnectDB.connect();
-The code was taken from https://www.sqlitetutorial.net/sqlite-java/create-database/ at 13:00
+The code was taken from https://www.sqlitetutorial.net/sqlite-java/sqlite-jdbc-driver/ at 13:00
 on the 14/10/2022.
 @author sqlitetutorial.net
  */
 public class ConnectDB {
 
-    public static void connect() {
+    public static Connection connect() {
 
         Connection conn = null;
 
@@ -29,14 +29,7 @@ public class ConnectDB {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
-        } finally {
-            try {
-                if (conn != null) {
-                    conn.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
         }
+        return conn;
     }
 }
