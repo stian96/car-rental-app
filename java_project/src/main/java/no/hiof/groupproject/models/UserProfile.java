@@ -11,4 +11,10 @@ public class UserProfile {
 
     //Will need ratings might be a class of its own?
     //bio field
+
+    public void AddAdvertisement(Advertisement advertisement) {
+        advertisements.add(advertisement);
+    }
+
+
 }

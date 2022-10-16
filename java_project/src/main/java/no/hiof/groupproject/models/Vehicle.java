@@ -10,4 +10,5 @@ public abstract class Vehicle {
     // private ArrayList<RentalRecord> records= new ArrayList<>(); --> not sure where to place this,if under person class or Vehicle class
 
 
+
 }

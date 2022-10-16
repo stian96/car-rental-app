@@ -1,6 +1,5 @@
 package no.hiof.groupproject.tools;
 
-import no.hiof.groupproject.tools.Tool.VerifyLicense;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
