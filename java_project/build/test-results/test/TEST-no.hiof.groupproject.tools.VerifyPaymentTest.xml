@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="no.hiof.groupproject.tools.VerifyPaymentTest" tests="22" skipped="0" failures="0" errors="0" timestamp="2022-10-16T12:17:59" hostname="Stians-MacBook-Air.local" time="0.068">
+  <properties/>
+  <testcase name="assertCardNumberInHashmapButInvalidCCV()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.005"/>
+  <testcase name="assertVippsTlfnrNotInHashmap()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertOldDateIsInvalid()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertsInvalidPasswordIfLengthIsZero()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.008"/>
+  <testcase name="assertsThatSubclassObjectIsOfSuperclassTypePayment()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertVippsTlfnrPinVerified()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.002"/>
+  <testcase name="assertsCreditDebitNumberIsOfValidFormat()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.0"/>
+  <testcase name="assertsCreditDebitRejectsCCVLengthThatIsNotThree()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertVippsPinIncorrect()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.003"/>
+  <testcase name="assertsValidEmailIfAtSymbolIsPresent()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertPaypalEmailNotInHashmap()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertsVippsPincodeLengthIsFour()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.003"/>
+  <testcase name="assertsCreditDebitRejectsYearLengthThatIsNotFour()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.002"/>
+  <testcase name="assertCardNumberNotInHashmap()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertsCreditDebitRejectsCardNumberLengthThatIsNotSixteen()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertsCreditDebitMonthRejectsZeroBeingPassed()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertCardNumberCCVAndDateMatch()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertPaypalPasswordIncorrect()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertPaypalEmailPasswordVerified()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertsVippsTlfnrIsAtLeastEight()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.002"/>
+  <testcase name="assertsPaymentViaAccountEmailContainsAtSymbol()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <testcase name="assertsCreditDebitRejectsMonthLengthThatIsNotOneOrTwo()" classname="no.hiof.groupproject.tools.VerifyPaymentTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
