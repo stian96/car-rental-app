@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-10-13T11:32:29" hostname="Stians-MacBook-Air.local" time="0.032">
+<testsuite name="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-10-16T09:07:40" hostname="DESKTOP-P1M6OUN" time="0.042">
   <properties/>
-  <testcase name="CheckIfCountryOfIssueIsNotNorway()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.001"/>
-  <testcase name="CheckIfFunctionReturnFalseOnWrongPattern()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.001"/>
-  <testcase name="CheckIfCountryOfIssueIsNorway()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.001"/>
+  <testcase name="CheckIfCountryOfIssueIsNotNorway()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.015"/>
+  <testcase name="CheckIfFunctionReturnFalseOnWrongPattern()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.0"/>
+  <testcase name="CheckIfCountryOfIssueIsNorway()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.0"/>
   <testcase name="CheckIfFunctionReturnTrueOnCorrectPattern()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.001"/>
-  <testcase name="CheckIfDateOfIssueIsBeforeNow()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.021"/>
+  <testcase name="CheckIfDateOfIssueIsBeforeNow()" classname="no.hiof.groupproject.tools.VerifyDrivingLicenseTest" time="0.023"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
