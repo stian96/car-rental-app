@@ -12,9 +12,28 @@ public class UserProfile {
     //Will need ratings might be a class of its own?
     //bio field
 
+    public UserProfile() {
+        this.advertisements = new ArrayList<>();
+    }
+
     public void AddAdvertisement(Advertisement advertisement) {
         advertisements.add(advertisement);
     }
 
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public ArrayList<Advertisement> getAdvertisements() {
+        return advertisements;
+    }
+
+    public void setAdvertisements(ArrayList<Advertisement> advertisements) {
+        this.advertisements = advertisements;
+    }
 }
