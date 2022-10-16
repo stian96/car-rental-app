@@ -41,7 +41,7 @@ public class RentOutAd extends Advertisement {
             if (booking.getBookedFrom().isAfter(set.getKey()) && booking.getBookedTo().isBefore(set.getValue())) {
                 //creates a booking in the format of <renter id>.<date booking begins>.<vehicle owner id>
                 //42.2024-12-24.26
-                // booking.setStrId(booking.getStrId() + "." + this.getUser().getId());
+                booking.setStrId(booking.getStrId() + "." + this.getUser().getId());
                 confirmedBookings.add(booking);
             }
         }
@@ -52,8 +52,6 @@ public class RentOutAd extends Advertisement {
     public void refreshPeriods() {
         availableWithin.entrySet().removeIf(entry -> LocalDate.now().isAfter(entry.getValue()));
     }
-
-
 
     public Vehicle getVehicle() {
         return vehicle;
