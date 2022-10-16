@@ -1,11 +1,14 @@
 package no.hiof.groupproject.models;
 
+import java.util.ArrayList;
+
 public class UserProfile {
 
-    //Not sure if this class is needed since it would contain the person class which we already have. This class is more
-    //for the gui
+    //variables should be User, array of Advertisements, rating (together with a system for averaging ratings),
+    //display picture, description
     private User user;
-    private String password;
+    private ArrayList<Advertisement> advertisements;
+
     //Will need ratings might be a class of its own?
     //bio field
 }
