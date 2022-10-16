@@ -35,7 +35,7 @@ public class RentOutAd extends Advertisement {
         availableWithin.put(dateFrom, dateTo);
     }
 
-    //function to set a new booking
+    //function to add a new booking
     public void addBooking(Booking booking) {
         for (HashMap.Entry<LocalDate, LocalDate> set : availableWithin.entrySet()) {
             if (booking.getBookedFrom().isAfter(set.getKey()) && booking.getBookedTo().isBefore(set.getValue())) {
