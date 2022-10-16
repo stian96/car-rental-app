@@ -2,24 +2,20 @@ package no.hiof.groupproject.models;
 
 public abstract class Vehicle {
     /* update the necessary instance variable needed */
-    private String vehicle_id, regNo, manufacturer, model, fuel_type, gearbox;
+    private String vehicle_id, regNo, manufacturer, model, fuel_type, gearType;
     private int modelYear, price;
     private User owner;
     private int vehicleStatus;
 
-    // Default constructor.
-    public Vehicle() {
-
-    }
-
     public Vehicle(String ID, String regNumber, String manufacturer, String model, String fuelType,
-                   String gearBox, int modelYear, int price, User owner, int vehicleStatus) {
+                   String gearType, int modelYear, int price, User owner, int vehicleStatus) {
+
         this.vehicle_id = ID;
         this.regNo = regNumber;
         this.manufacturer = manufacturer;
         this.model = model;
         this.fuel_type = fuelType;
-        this.gearbox = gearBox;
+        this.gearType = gearType;
         this.modelYear = modelYear;
         this.price = price;
         this.owner = owner;
@@ -66,12 +62,12 @@ public abstract class Vehicle {
         this.fuel_type = fuel_type;
     }
 
-    public String getGearbox() {
-        return gearbox;
+    public String getGearType() {
+        return gearType;
     }
 
-    public void setGearbox(String gearbox) {
-        this.gearbox = gearbox;
+    public void setGearbox(String gearType) {
+        this.gearType = gearType;
     }
 
     public int getModelYear() {
