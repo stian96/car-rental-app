@@ -5,9 +5,9 @@ public class Moped extends Vehicle{
 
     public Moped(String ID, String regNumber, String manufacturer, String model,
                  String fuelType, String gearType, int modelYear, int price,
-                 User owner, int vehicleStatus, String helmetProvided) {
+                 User owner, String helmetProvided) {
 
-        super(ID, regNumber, manufacturer, model, fuelType, gearType, modelYear, price, owner, vehicleStatus);
+        super(ID, regNumber, manufacturer, model, fuelType, gearType, modelYear, price, owner);
         this.helmetProvided = helmetProvided;
 
     }

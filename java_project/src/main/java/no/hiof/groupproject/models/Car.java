@@ -3,14 +3,16 @@ package no.hiof.groupproject.models;
 public class Car extends Vehicle{
     private int seatingCapacity;
     private int towingAbility;
+    private String carType;
 
     public Car(String ID, String regNumber, String manufacturer, String model,
                String fuelType, String gearBox, int modelYear, int price, User owner,
-               int vehicleStatus, int seatingCapacity, int towingAbility) {
+               int vehicleStatus, int seatingCapacity, int towingAbility, String carType) {
 
-        super(ID, regNumber, manufacturer, model, fuelType, gearBox, modelYear, price, owner, vehicleStatus);
+        super(ID, regNumber, manufacturer, model, fuelType, gearBox, modelYear, price, owner);
         this.seatingCapacity = seatingCapacity;
         this.towingAbility = towingAbility;
+        this.carType = carType;
 
     }
 
@@ -28,5 +30,13 @@ public class Car extends Vehicle{
 
     public void setTowingAbility(int towingAbility) {
         this.towingAbility = towingAbility;
+    }
+
+    public String getCarType() {
+        return carType;
+    }
+
+    public void setCarType(String carType) {
+        this.carType = carType;
     }
 }

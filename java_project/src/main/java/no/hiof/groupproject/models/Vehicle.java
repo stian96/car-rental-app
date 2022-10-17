@@ -2,24 +2,23 @@ package no.hiof.groupproject.models;
 
 public abstract class Vehicle {
     /* update the necessary instance variable needed */
-    private String vehicle_id, regNo, manufacturer, model, fuel_type, gearType;
+    private String vehicle_id, regNo, manufacturer;
+    private String model, engineType, gearType;
     private int modelYear, price;
     private User owner;
-    private int vehicleStatus;
 
-    public Vehicle(String ID, String regNumber, String manufacturer, String model, String fuelType,
-                   String gearType, int modelYear, int price, User owner, int vehicleStatus) {
+    public Vehicle(String ID, String regNumber, String manufacturer, String model, String engineType,
+                   String gearType, int modelYear, int price, User owner) {
 
         this.vehicle_id = ID;
         this.regNo = regNumber;
         this.manufacturer = manufacturer;
         this.model = model;
-        this.fuel_type = fuelType;
+        this.engineType = engineType;
         this.gearType = gearType;
         this.modelYear = modelYear;
         this.price = price;
         this.owner = owner;
-        this.vehicleStatus = vehicleStatus;
     }
 
     public String getVehicle_id() {
@@ -54,12 +53,12 @@ public abstract class Vehicle {
         this.model = model;
     }
 
-    public String getFuel_type() {
-        return fuel_type;
+    public String getEngineType() {
+        return engineType;
     }
 
-    public void setFuel_type(String fuel_type) {
-        this.fuel_type = fuel_type;
+    public void setEngineType(String engineType) {
+        this.engineType = engineType;
     }
 
     public String getGearType() {
@@ -94,11 +93,4 @@ public abstract class Vehicle {
         this.owner = owner;
     }
 
-    public int getVehicleStatus() {
-        return vehicleStatus;
-    }
-
-    public void setVehicleStatus(int vehicleStatus) {
-        this.vehicleStatus = vehicleStatus;
-    }
 }
