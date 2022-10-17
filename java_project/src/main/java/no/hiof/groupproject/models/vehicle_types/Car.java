@@ -1,6 +1,9 @@
-package no.hiof.groupproject.models;
+package no.hiof.groupproject.models.vehicle_types;
 
-public class Car extends Vehicle{
+import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.models.vehicle_types.Vehicle;
+
+public class Car extends Vehicle {
     private int seatingCapacity;
     private int towingAbility;
     private String carType;

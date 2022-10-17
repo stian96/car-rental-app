@@ -1,4 +1,6 @@
-package no.hiof.groupproject.models;
+package no.hiof.groupproject.models.vehicle_types;
+
+import no.hiof.groupproject.models.User;
 
 public abstract class Vehicle {
     /* update the necessary instance variable needed */

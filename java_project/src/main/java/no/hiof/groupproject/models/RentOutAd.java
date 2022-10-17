@@ -1,6 +1,6 @@
 package no.hiof.groupproject.models;
 
-import no.hiof.groupproject.models.payment_methods.Payment;
+import no.hiof.groupproject.models.vehicle_types.Vehicle;
 
 import java.time.LocalDate;
 import java.time.Period;

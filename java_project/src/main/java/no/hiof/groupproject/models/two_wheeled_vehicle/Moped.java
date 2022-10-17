@@ -1,6 +1,9 @@
-package no.hiof.groupproject.models;
+package no.hiof.groupproject.models.two_wheeled_vehicle;
 
-public class Moped extends Vehicle{
+import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.models.vehicle_types.Vehicle;
+
+public class Moped extends Vehicle {
     private String helmetProvided;
 
     public Moped(String ID, String regNumber, String manufacturer, String model,
