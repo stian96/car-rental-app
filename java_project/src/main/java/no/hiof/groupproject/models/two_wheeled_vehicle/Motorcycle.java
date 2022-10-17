@@ -7,10 +7,10 @@ public class Motorcycle extends Vehicle {
     private String helmetProvided;
 
     public Motorcycle(String ID, String regNumber, String manufacturer, String model,
-                      String fuelType, String gearType, int modelYear, int price,
+                      String fuelType, String gearType, int modelYear,
                       User owner, String helmetProvided) {
 
-        super(ID, regNumber, manufacturer, model, fuelType, gearType, modelYear, price, owner);
+        super(ID, regNumber, manufacturer, model, fuelType, gearType, modelYear, owner);
         this.helmetProvided = helmetProvided;
     }
 

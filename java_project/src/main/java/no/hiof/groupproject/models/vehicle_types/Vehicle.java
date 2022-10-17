@@ -6,11 +6,11 @@ public abstract class Vehicle {
     /* update the necessary instance variable needed */
     private String vehicle_id, regNo, manufacturer;
     private String model, engineType, gearType;
-    private int modelYear, price;
+    private int modelYear;
     private User owner;
 
     public Vehicle(String ID, String regNumber, String manufacturer, String model, String engineType,
-                   String gearType, int modelYear, int price, User owner) {
+                   String gearType, int modelYear, User owner) {
 
         this.vehicle_id = ID;
         this.regNo = regNumber;
@@ -19,7 +19,6 @@ public abstract class Vehicle {
         this.engineType = engineType;
         this.gearType = gearType;
         this.modelYear = modelYear;
-        this.price = price;
         this.owner = owner;
     }
 
@@ -77,14 +76,6 @@ public abstract class Vehicle {
 
     public void setModelYear(int modelYear) {
         this.modelYear = modelYear;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 
     public User getOwner() {
