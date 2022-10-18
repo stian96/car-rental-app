@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Objects;
 
 public class VerifyLogInSignUp {
-
+    /** This class will need to be modified. It isn't used anywhere except for testing*/
     protected Registration methods_loginSignUp;
 
     public HashMap<String, String> loginverification;
