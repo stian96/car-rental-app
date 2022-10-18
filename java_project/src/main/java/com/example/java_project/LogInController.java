@@ -50,7 +50,7 @@ public class LogInController {
     public void userSignUp(ActionEvent event) throws IOException{
         SignUpCheck();
     }
-
+    /** Changed isVerified to void from boolean. Added dummy values to a hashmap to check user exists. */
     public void isVerified() throws IOException {
         Main m = new Main();
 
