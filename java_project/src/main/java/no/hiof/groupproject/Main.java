@@ -1,9 +1,11 @@
 package no.hiof.groupproject;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
 
 import java.io.IOException;
 
@@ -18,7 +20,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         stg = stage;
             stage.setResizable(false);
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logIn.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getClassLoader().getResource("logIn.fxml"));
             Scene scene = new Scene(fxmlLoader.load(), 600, 400);
             stage.setTitle("ToGoCar");
             stage.setScene(scene);
@@ -27,10 +29,8 @@ public class Main extends Application {
     }
 
 
-
     public void changeScene(String fxml) throws IOException {
-        Parent pane;
-        pane = FXMLLoader.load(getClass().getResource(fxml));
+        Parent pane = FXMLLoader.load(getClass().getResource(fxml));
         stg.getScene().setRoot(pane);
     }
 

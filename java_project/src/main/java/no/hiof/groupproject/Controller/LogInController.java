@@ -8,7 +8,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 import no.hiof.groupproject.Main;
-import no.hiof.groupproject.models.loginSignUp_methods.Registration;
+import no.hiof.groupproject.models.loginSignUp_methods.LogInSignUp;
 import no.hiof.groupproject.tools.VerifyLogInSignUp;
 
 import java.io.IOException;
@@ -27,7 +27,7 @@ public class LogInController extends VerifyLogInSignUp {
     @FXML
     protected Button button_signUp;
 
-    public LogInController(Registration methods_loginSignUp, Label wrongLogin, TextField tf_userName, PasswordField tf_password, Button button_login, Button button_signUp) {
+    public LogInController(LogInSignUp methods_loginSignUp, Label wrongLogin, TextField tf_userName, PasswordField tf_password, Button button_login, Button button_signUp) {
         super(methods_loginSignUp);
         this.wrongLogin = wrongLogin;
         this.tf_userName = tf_userName;
@@ -37,14 +37,14 @@ public class LogInController extends VerifyLogInSignUp {
     }
 
     public void userLogIn(ActionEvent event) throws IOException {
-        isVerified();
+        LogInCheck();
     }
 
     public void userSignUp(ActionEvent event) throws IOException{
         SignUpCheck();
     }
 
-    public boolean isVerified() throws IOException {
+    public void LogInCheck () throws IOException {
         Main m = new Main();
         for (Map.Entry<String, String> entry : loginverification.entrySet()) {
             String key = entry.getKey();
@@ -52,17 +52,14 @@ public class LogInController extends VerifyLogInSignUp {
             if (tf_userName.getText().toString().equals(key) && tf_password.getText().toString().equals(value)) {
                 wrongLogin.setText("Success!");
                 m.changeScene("ToGoCar.fxml");
-            }else if (tf_userName.getText().isEmpty() && tf_password.getText().isEmpty()) {
+            } else if (tf_userName.getText().isEmpty() && tf_password.getText().isEmpty()) {
                 wrongLogin.setText("Please enter Email and Password.");
-            }
-            else {
+            } else {
                 wrongLogin.setText("Wrong email or password");
             }
 
-        return false;
-    }
+        }
 
-        return false;
     }
     private void SignUpCheck() throws IOException {
         Main m = new Main();

@@ -5,11 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 import no.hiof.groupproject.Main;
+import no.hiof.groupproject.models.loginSignUp_methods.LogInSignUp;
 import no.hiof.groupproject.tools.VerifyLogInSignUp;
 
 import java.io.IOException;
 
-public class ToGoCarPageController {
+public class ToGoCarPageController extends VerifyLogInSignUp {
 
     @FXML
     private Button button_registerCar;
@@ -23,6 +24,16 @@ public class ToGoCarPageController {
     private Button button_customerService;
     @FXML
     private Button button_logOut;
+
+    public ToGoCarPageController(LogInSignUp methods_loginSignUp, Button button_registerCar, Button button_bookCar, Button button_profile, Button button_messages, Button button_customerService, Button button_logOut) {
+        super(methods_loginSignUp);
+        this.button_registerCar = button_registerCar;
+        this.button_bookCar = button_bookCar;
+        this.button_profile = button_profile;
+        this.button_messages = button_messages;
+        this.button_customerService = button_customerService;
+        this.button_logOut = button_logOut;
+    }
 
 
     public void userRegisterCar(ActionEvent event) throws IOException {
