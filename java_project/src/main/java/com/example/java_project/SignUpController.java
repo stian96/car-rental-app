@@ -38,6 +38,7 @@ public class SignUpController {
         this.button_signUpFacebook = button_signUpFacebook;
         this.validEmail = validEmail;
     }
+    /** Added empty constructor to start gui. Above constructor doesn't work well*/
     public SignUpController(){}
     public void userLogIn(ActionEvent event) throws IOException {
         LogInCheck();
@@ -57,7 +58,7 @@ public class SignUpController {
     public void signUpFacebook(ActionEvent event) throws IOException{
         SignUpCheckFacebook();
     }
-
+    /** Changed isVerified to void from boolean. Added dummy values to a hashmap to check user exists. */
     public void isVerified() throws IOException {
         Main m = new Main();
         HashMap<String,String>signUp = new HashMap<>();
