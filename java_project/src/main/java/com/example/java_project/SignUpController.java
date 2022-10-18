@@ -1,4 +1,4 @@
-package no.hiof.groupproject.Controller;
+package com.example.java_project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,7 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
-import no.hiof.groupproject.Main;
 import no.hiof.groupproject.models.loginSignUp_methods.Registration;
 import no.hiof.groupproject.tools.VerifyLogInSignUp;
 

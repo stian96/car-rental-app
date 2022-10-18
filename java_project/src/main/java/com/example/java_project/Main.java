@@ -1,4 +1,4 @@
-package no.hiof.groupproject;
+package com.example.java_project;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

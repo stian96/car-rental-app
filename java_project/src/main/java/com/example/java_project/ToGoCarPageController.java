@@ -1,11 +1,8 @@
-package no.hiof.groupproject.Controller;
+package com.example.java_project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-
-import no.hiof.groupproject.Main;
-import no.hiof.groupproject.tools.VerifyLogInSignUp;
 
 import java.io.IOException;
 
