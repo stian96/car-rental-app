@@ -84,7 +84,7 @@
       <recent name="com.example.java_project" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.LogInControllerTest">
+  <component name="RunManager">
     <configuration name="DeadlineTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
