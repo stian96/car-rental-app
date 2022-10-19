@@ -13,7 +13,7 @@ public class UserProfile {
     private HashMap<User, Integer> ratings = new HashMap<>(); // Hashmap that stores all the users and their ratings of current user
     private double averageRating = 0; //Current user's avg rating
 
-    /** Method that calculates the average rating for the User*/
+    /** Method to calculates the average rating for the User*/
     public double calculateAverageRating(HashMap<User, Integer> ratings){
         double sum = 0;
         int count = ratings.size();
