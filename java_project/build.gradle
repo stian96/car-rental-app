@@ -38,6 +38,8 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
     implementation 'org.xerial:sqlite-jdbc:3.39.3.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4'
+    implementation 'io.vertx:vertx-core:4.3.4'
 }
 
 test {
