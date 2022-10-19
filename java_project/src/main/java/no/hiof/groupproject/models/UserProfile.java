@@ -20,7 +20,7 @@ public class UserProfile {
         double result = 0;
         for(int values : ratings.values()){
             sum += values;
-            result = sum/((double) count);
+            result = sum/((double) count); //Fix later : round to one or two decimal places
         }
         return result;
     }
