@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a69514e-8a85-4b5c-8caa-aa4095284208" name="Changes" comment="added commentary and changed tests">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/no/hiof/groupproject/models/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/src/main/java/no/hiof/groupproject/models/UserProfile.java" afterDir="false" />
+    <list default="true" id="6a69514e-8a85-4b5c-8caa-aa4095284208" name="Changes" comment="Added commentary to UserProfile">
+      <change beforePath="$PROJECT_DIR$/java_project/src/test/java/no/hiof/groupproject/models/UserProfileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/src/test/java/no/hiof/groupproject/models/UserProfileTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +40,13 @@
       </state>
     </system>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
@@ -68,6 +74,8 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "C:/Users/Ashti/IdeaProjects/Group_Project"
   }
 }]]></component>
@@ -354,7 +362,28 @@
       <option name="project" value="LOCAL" />
       <updated>1666096808913</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Updating UserProfile to include rating">
+      <created>1666179195662</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1666179195662</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Adding Test for user profile">
+      <created>1666179343255</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1666179343255</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added commentary to UserProfile">
+      <created>1666179364265</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1666179364265</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -396,6 +425,9 @@
     <MESSAGE value="tested gui main" />
     <MESSAGE value="added commentary" />
     <MESSAGE value="added commentary and changed tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="added commentary and changed tests" />
+    <MESSAGE value="Updating UserProfile to include rating" />
+    <MESSAGE value="Adding Test for user profile" />
+    <MESSAGE value="Added commentary to UserProfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added commentary to UserProfile" />
   </component>
 </project>
