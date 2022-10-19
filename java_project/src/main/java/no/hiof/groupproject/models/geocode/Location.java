@@ -9,6 +9,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Scanner;
 
+/*  Parameters we can use to do search in nominatim.openstreetmap.org. Now it´s set to 'city'.
+    q=<query>
+    street=<housenumber> <streetname>
+    city=<city>
+    county=<county>
+    state=<state>
+    country=<country>
+    postalcode=<postalcode>
+*/
+
 public class Location {
     // Url to the openstreetmap API. Just need to append a "city name" to the end of the url.
     private final StringBuilder api = new StringBuilder("https://nominatim.openstreetmap.org/search?format=json&city=");
