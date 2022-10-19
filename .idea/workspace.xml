@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a69514e-8a85-4b5c-8caa-aa4095284208" name="Changes" comment="Added commentary to UserProfile">
-      <change beforePath="$PROJECT_DIR$/java_project/src/test/java/no/hiof/groupproject/models/UserProfileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/src/test/java/no/hiof/groupproject/models/UserProfileTest.java" afterDir="false" />
+    <list default="true" id="6a69514e-8a85-4b5c-8caa-aa4095284208" name="Changes" comment="Added test to UserProfileTest file">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,11 +84,17 @@
       <recent name="C:\Users\Ashti\IdeaProjects\Group_Project\java_project\src\main\resources\com\example\java_project" />
       <recent name="C:\Users\Ashti\IdeaProjects\Group_Project\java_project\build\resources\main\com\example\java_project" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.java_project" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="no.hiof.groupproject.models" />
+    </key>
   </component>
-  <component name="RunManager" selected="Gradle.LogInControllerTest">
+  <component name="RunManager" selected="Gradle.UserProfileTest">
     <configuration name="DeadlineTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -156,7 +162,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="Tests in 'no.hiof.groupproject.tools.Tool'" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UserProfileTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/java_project" />
@@ -169,7 +175,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;no.hiof.groupproject.tools.Tool.*&quot;" />
+            <option value="&quot;no.hiof.groupproject.models.UserProfileTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -225,19 +231,19 @@
     </configuration>
     <list>
       <item itemvalue="Gradle.java_project [configJavafxRun]" />
+      <item itemvalue="Gradle.UserProfileTest" />
       <item itemvalue="Gradle.LogInControllerTest" />
       <item itemvalue="Gradle.VerifyLogInSignUpTest" />
       <item itemvalue="Gradle.DeadlineTest" />
       <item itemvalue="Gradle.Tests in 'java_project.test'" />
-      <item itemvalue="Gradle.Tests in 'no.hiof.groupproject.tools.Tool'" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.UserProfileTest" />
         <item itemvalue="Gradle.LogInControllerTest" />
         <item itemvalue="Gradle.VerifyLogInSignUpTest" />
         <item itemvalue="Gradle.Tests in 'java_project.test'" />
         <item itemvalue="Gradle.DeadlineTest" />
-        <item itemvalue="Gradle.Tests in 'no.hiof.groupproject.tools.Tool'" />
       </list>
     </recent_temporary>
   </component>
@@ -383,7 +389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666179364265</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added test to UserProfileTest file">
+      <created>1666179678053</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1666179678053</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -428,6 +441,7 @@
     <MESSAGE value="Updating UserProfile to include rating" />
     <MESSAGE value="Adding Test for user profile" />
     <MESSAGE value="Added commentary to UserProfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added commentary to UserProfile" />
+    <MESSAGE value="Added test to UserProfileTest file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added test to UserProfileTest file" />
   </component>
 </project>
