@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6a69514e-8a85-4b5c-8caa-aa4095284208" name="Changes" comment="Added commentary to UserProfile">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6a69514e-8a85-4b5c-8caa-aa4095284208" name="Changes" comment="cleaned code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -417,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666280770337</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="cleaned code">
+      <created>1666281777457</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1666281777457</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -463,6 +468,7 @@
     <MESSAGE value="Adding Test for user profile" />
     <MESSAGE value="Added test to UserProfileTest file" />
     <MESSAGE value="Added commentary to UserProfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added commentary to UserProfile" />
+    <MESSAGE value="cleaned code" />
+    <option name="LAST_COMMIT_MESSAGE" value="cleaned code" />
   </component>
 </project>
