@@ -1,16 +1,26 @@
 package no.hiof.groupproject.models.loginSignUp_methods;
 
-public abstract class Registration{
+public abstract class Registration extends LogInSignUp{
 
-    String email;
-    String password;
+    private String email;
+    private String password;
 
     public Registration(String email, String password) {
-
-        if (email.indexOf('@') != -1 && password.length() > 0)
         this.email = email;
         this.password = password;
     }
+    /*
+    public Registration(String email, String password) {
+
+/*
+        if (email.indexOf('@') != -1 && password.length() > 0){
+        this.email = email;
+        this.password = password;
+    }
+        else {
+        throw new IllegalArgumentException();
+    }*/
+
 
     public Registration(){
 
