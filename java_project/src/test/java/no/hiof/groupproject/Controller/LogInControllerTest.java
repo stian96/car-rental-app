@@ -15,8 +15,8 @@ class LogInControllerTest {
 
     @Test
     void checkMemberValiduser() throws IOException {
-        VerifyLogInSignUp login = new VerifyLogInSignUp(new LogInValidUsers("jim@hotmail.com", "hunter3"));
-        assertFalse(login.isVerified());
+        VerifyLogInSignUp login = new VerifyLogInSignUp(new LogInValidUsers("john1@gmail.com", "john1"));
+        assertTrue(login.isVerified());
     }
 
 }

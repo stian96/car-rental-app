@@ -1,9 +1,10 @@
-package com.example.java_project.Controller;
+package com.example.java_project;
 
+import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import no.hiof.groupproject.Main;
+
 
 import java.io.IOException;
 
@@ -23,6 +24,9 @@ public class ToGoCarPageController{
         this.button_messages = button_messages;
         this.button_customerService = button_customerService;
         this.button_logOut = button_logOut;
+    }
+
+    public ToGoCarPageController() {
     }
 
     public Button getButton_registerCar() {

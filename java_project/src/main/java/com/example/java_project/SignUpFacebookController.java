@@ -1,12 +1,13 @@
-package com.example.java_project.Controller;
+package com.example.java_project;
 
+import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import no.hiof.groupproject.Main;
+
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -25,6 +26,16 @@ public class SignUpFacebookController {
     @FXML
     private Label validEmail;
 
+    public SignUpFacebookController(TextField tf_userName, PasswordField tf_password, Button button_signUpFacebook, Button button_login, Label validEmail) {
+        this.tf_userName = tf_userName;
+        this.tf_password = tf_password;
+        this.button_signUpFacebook = button_signUpFacebook;
+        this.button_login = button_login;
+        this.validEmail = validEmail;
+    }
+
+    public SignUpFacebookController() {
+    }
 
     public void userLogIn(ActionEvent event) throws IOException {
         LoginPage();
@@ -33,6 +44,8 @@ public class SignUpFacebookController {
     public void signUpFacebook(ActionEvent event) throws IOException{
         SignUpCheckFacebook();
     }
+
+
 
     public void SignUpCheckFacebook() throws IOException {
         Main m = new Main();

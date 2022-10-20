@@ -1,12 +1,13 @@
-package com.example.java_project.Controller;
+package com.example.java_project;
 
+import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import no.hiof.groupproject.Main;
+
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -29,6 +30,18 @@ public class SignUpController {
     @FXML
     private Label validEmail;
 
+    public SignUpController(TextField tf_userName, PasswordField tf_password, Button button_login, Button button_signUp, Button button_signUpGoogle, Button button_signUpFacebook, Label validEmail) {
+        this.tf_userName = tf_userName;
+        this.tf_password = tf_password;
+        this.button_login = button_login;
+        this.button_signUp = button_signUp;
+        this.button_signUpGoogle = button_signUpGoogle;
+        this.button_signUpFacebook = button_signUpFacebook;
+        this.validEmail = validEmail;
+    }
+
+    public SignUpController() {
+    }
 
     public void userLogIn(ActionEvent event) throws IOException {
         LogInCheck();
@@ -47,7 +60,7 @@ public class SignUpController {
     }
 
 
-    public boolean SignUpCheck() throws IOException {
+    public void SignUpCheck() throws IOException {
         Main m = new Main();
         HashMap<String, String> signUpInfo = new HashMap<String, String>();
         signUpInfo.put("John", "cool");
@@ -68,10 +81,9 @@ public class SignUpController {
                 validEmail.setText("Wrong email or password");
             }
 
-            return false;
+
         }
 
-        return false;
     }
 
     public void LogInCheck() throws IOException {

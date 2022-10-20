@@ -3,15 +3,10 @@ module com.example.java_project {
     requires javafx.fxml;
     requires javafx.graphics;
     requires javafx.base;
-
-
-
-
-
-
+    requires java.sql;
 
 
     opens com.example.java_project to javafx.fxml;
-    exports no.hiof.groupproject;
+    exports com.example.java_project;
 
 }

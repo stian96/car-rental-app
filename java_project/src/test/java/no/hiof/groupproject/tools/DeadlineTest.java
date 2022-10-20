@@ -2,6 +2,7 @@ package no.hiof.groupproject.tools;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import java.sql.Array;
 
 import java.time.LocalDate;
 
