@@ -40,6 +40,9 @@ dependencies {
     implementation 'org.xerial:sqlite-jdbc:3.39.3.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4'
     implementation 'io.vertx:vertx-core:4.3.4'
+    testImplementation 'org.mockito:mockito-inline:4.8.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:4.8.0'
+
 }
 
 test {

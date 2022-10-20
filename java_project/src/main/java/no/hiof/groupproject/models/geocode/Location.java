@@ -45,12 +45,14 @@ public class Location {
     }
 
     // Method that uses Scanner class to fetch data from "url.openstream()" and append it to the StringBuilder.
-    private void getDataFromApi(URL url) throws IOException {
-        Scanner scanner = new Scanner(url.openStream());
-        while (scanner.hasNext()) {
-            inline.append(scanner.nextLine());
+    private void getDataFromApi(URL url) {
+        try (Scanner scanner = new Scanner(url.openStream())) {
+            while (scanner.hasNext()) {
+                inline.append(scanner.nextLine());
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
         }
-        scanner.close();
     }
 
     // Method that convert Json to a JsonNode Object.
@@ -60,8 +62,8 @@ public class Location {
     }
 
     // Simple method that returns the JsonNode object as a String.
-    public String getLocationInformation() throws JsonProcessingException {
+    public String printLocationInfo() throws JsonProcessingException {
         JsonNode node = MapToJsonNodeObject();
-        return node.get(1).get("display_name").toString();
+        return node.get(1).get("display_name").asText();
     }
 }
