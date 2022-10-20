@@ -12,17 +12,21 @@ import static org.mockito.Mockito.*;
 
 public class LocationTest {
 
+    // Creating a mock object that we can use to test "void methods".
     Location location = mock(Location.class);
     Location test = new Location("Moss");
 
     ObjectMapper objectMapper = new ObjectMapper();
     JsonNode jsonNode = null;
 
+    // Just ignore this.
     public LocationTest() throws IOException {
     }
 
     @Test
+    // In this test I only check if the method is called one time.
     void VerifyThatSendGetRequestIsExecuted() {
+        // doNothing() is used to tell verify() that the method does nothing.
         try {
             doNothing().when(location).sendGetRequest(isA(String.class));
             location.sendGetRequest("GET");
