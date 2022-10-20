@@ -23,7 +23,6 @@ public class Main extends Application {
             stage.setTitle("ToGoCar");
             stage.setScene(scene);
             stage.show();
-
     }
 
 
