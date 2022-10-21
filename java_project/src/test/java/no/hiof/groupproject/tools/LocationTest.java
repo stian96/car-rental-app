@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
+import static org.mockito.BDDMockito.willThrow;
 import static org.mockito.Mockito.*;
 
 public class LocationTest {
@@ -45,6 +46,14 @@ public class LocationTest {
         catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    @Test
+    void OnBadConnectionThrowRunTimeException() throws IOException {
+        Location badResponse = mock(Location.class);
+        willThrow(new RuntimeException()).given(badResponse).checkResponse();
+
+        Assertions.assertThrows(RuntimeException.class, badResponse::checkResponse);
     }
 
     @Test
