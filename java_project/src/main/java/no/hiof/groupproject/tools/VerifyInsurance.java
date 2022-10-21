@@ -1,4 +1,4 @@
-package no.hiof.groupproject.tools.Tool;
+package no.hiof.groupproject.tools;
 
 import java.util.HashMap;
 import java.util.Locale;

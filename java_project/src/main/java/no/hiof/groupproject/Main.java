@@ -11,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.util.Currency;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
 
         RentOutAd roa = new RentOutAd(
                 new User("Sam", "Davies", "1111", "hunter2",
