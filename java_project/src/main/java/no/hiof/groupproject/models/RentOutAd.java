@@ -41,6 +41,9 @@ public class RentOutAd extends Advertisement {
     private ArrayList<Booking> confirmedBookings;
     //where the vehicle is located - the location is based on a string of a city eg "Sarpsborg" or "Bergen"
     private Location location;
+    //strings based on Location so that the API is only queried on initialisation.
+    //handy if API is temporarily unavailable
+    private String by, fylke, postnr, land;
 
     public RentOutAd(User user, Vehicle vehicle,
                      BigDecimal dailyCharge, BigDecimal chargePerTwentyKm, String city) {
@@ -56,9 +59,14 @@ public class RentOutAd extends Advertisement {
         this.chargePerTwentyKm = chargePerTwentyKm;
         try {
             this.location = new Location(city);
+            by = this.location.getBy();
+            fylke = this.location.getFylke();
+            postnr = this.location.getPostNr();
+            land = this.location.getLand();
         } catch (IOException e) {
             e.printStackTrace();
         }
+
     }
 
 
@@ -138,14 +146,36 @@ public class RentOutAd extends Advertisement {
         availableWithin.entrySet().removeIf(entry -> LocalDate.now().isAfter(entry.getValue()));
     }
 
-    @Override
-    public int getId() {
-        return id;
+    public String getBy() {
+        return by;
     }
 
-    @Override
-    public void setId(int id) {
-        this.id = id;
+    public void setBy(String by) {
+        this.by = by;
+    }
+
+    public String getFylke() {
+        return fylke;
+    }
+
+    public void setFylke(String fylke) {
+        this.fylke = fylke;
+    }
+
+    public String getPostnr() {
+        return postnr;
+    }
+
+    public void setPostnr(String postnr) {
+        this.postnr = postnr;
+    }
+
+    public String getLand() {
+        return land;
+    }
+
+    public void setLand(String land) {
+        this.land = land;
     }
 
     public Location getLocation() {
