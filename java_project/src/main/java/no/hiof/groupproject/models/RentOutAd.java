@@ -1,18 +1,31 @@
 package no.hiof.groupproject.models;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
 
 /*
 A subclass of Advertisement designed to be used for users wanting to rent out their car.
+RentOutAd has two different costs - first is a charge for each day the vehicle is rented, second is an additional
+charge for every 20 kilometers driven during the rental period.
+An example of initialisation is:
+    RentOutAd roa = new RentOutAd(
+                    new User("Sam", "Davies", "1111", "hunter2", "123412341234", "sam@sam.no", "12345678"),
+                    new Car(),
+                    BigDecimal.valueOf(200), BigDecimal.valueOf(10)
+                    );
  */
 
 public class RentOutAd extends Advertisement {
 
 
     private Vehicle vehicle;
-    private Currency nok;
+    //currency in norwegian kroner (NOK) set during initialisation
+    private Currency cur;
+    //BigDecimal used for currencies - BigDecimal.valueOf(<long> or <double>)
+    private BigDecimal dailyCharge;
+    private BigDecimal chargePerTwentyKm;
     //treemap of the time that the vehicle is available to be rented within
     //sorted array from oldest -> newest date based on the key
     private TreeMap<LocalDate, LocalDate> availableWithin;
@@ -20,10 +33,12 @@ public class RentOutAd extends Advertisement {
     private ArrayList<Booking> confirmedBookings;
 
     public RentOutAd(User user, Vehicle vehicle,
-                     Currency nok) {
+                     BigDecimal dailyCharge, BigDecimal chargePerTwentyKm) {
         super(user);
         this.vehicle = vehicle;
-        this.nok = Currency.getInstance("NOK");
+        this.cur = Currency.getInstance("NOK");
+        this.dailyCharge = dailyCharge;
+        this.chargePerTwentyKm = chargePerTwentyKm;
     }
 
 
@@ -103,7 +118,29 @@ public class RentOutAd extends Advertisement {
         availableWithin.entrySet().removeIf(entry -> LocalDate.now().isAfter(entry.getValue()));
     }
 
+    public Currency getCur() {
+        return cur;
+    }
 
+    public void setCur(Currency cur) {
+        this.cur = cur;
+    }
+
+    public BigDecimal getDailyCharge() {
+        return dailyCharge;
+    }
+
+    public void setDailyCharge(BigDecimal dailyCharge) {
+        this.dailyCharge = dailyCharge;
+    }
+
+    public BigDecimal getChargePerTwentyKm() {
+        return chargePerTwentyKm;
+    }
+
+    public void setChargePerTwentyKm(BigDecimal chargePerTwentyKm) {
+        this.chargePerTwentyKm = chargePerTwentyKm;
+    }
 
     public Vehicle getVehicle() {
         return vehicle;
@@ -114,11 +151,11 @@ public class RentOutAd extends Advertisement {
     }
 
     public Currency getNok() {
-        return nok;
+        return cur;
     }
 
-    public void setNok(Currency nok) {
-        this.nok = nok;
+    public void setNok(Currency cur) {
+        this.cur = cur;
     }
 
     public TreeMap<LocalDate, LocalDate> getAvailableWithin() {
