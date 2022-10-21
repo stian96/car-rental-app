@@ -5,7 +5,7 @@ plugins {
     id 'org.beryx.jlink' version '2.24.1'
 }
 
-group 'com.example.java_project'
+group 'com.example'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -13,16 +13,9 @@ repositories {
 }
 
 ext {
-    junitVersion = '5.9.0'
+    junitVersion = '5.8.1'
 }
-sourceSets {
-    main {
-        resources {
-            srcDirs = ["src/main/java"]
-            includes = ["**/*.fxml"]
-        }
-    }
-}
+
 sourceCompatibility = '17'
 targetCompatibility = '17'
 
@@ -32,7 +25,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'com.example.java_project'
-    mainClass = 'com.example.java_project.Main'
+    mainClass = 'com.example.java_project.HelloApplication'
 }
 
 javafx {
@@ -44,7 +37,6 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
-    implementation 'org.xerial:sqlite-jdbc:3.39.3.0'
 }
 
 test {
