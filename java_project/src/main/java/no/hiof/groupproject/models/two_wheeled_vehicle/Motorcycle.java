@@ -6,11 +6,11 @@ import no.hiof.groupproject.models.vehicle_types.Vehicle;
 public class Motorcycle extends Vehicle {
     private String helmetProvided;
 
-    public Motorcycle(String ID, String regNumber, String manufacturer, String model,
+    public Motorcycle(String regNumber, String manufacturer, String model,
                       String fuelType, String gearType, int modelYear,
                       String helmetProvided) {
 
-        super(ID, regNumber, manufacturer, model, fuelType, gearType, modelYear);
+        super(regNumber, manufacturer, model, fuelType, gearType, modelYear);
         this.helmetProvided = helmetProvided;
     }
 

@@ -1,6 +1,9 @@
 package no.hiof.groupproject.models;
 
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.tools.geocode.Location;
+
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
@@ -13,13 +16,17 @@ charge for every 20 kilometers driven during the rental period.
 An example of initialisation is:
     RentOutAd roa = new RentOutAd(
                     new User("Sam", "Davies", "1111", "hunter2", "123412341234", "sam@sam.no", "12345678"),
-                    new Car(),
-                    BigDecimal.valueOf(200), BigDecimal.valueOf(10)
+                    new Car("12341234", "audi", "tt", "petrol",
+                    "automatic", 2013, 5, 1500, "a nice one"),
+                    BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
                     );
  */
 
 public class RentOutAd extends Advertisement {
 
+    //auto-incremental id
+    private static int count = 1;
+    private int id;
 
     private Vehicle vehicle;
     //currency in norwegian kroner (NOK) set during initialisation
@@ -32,14 +39,26 @@ public class RentOutAd extends Advertisement {
     private TreeMap<LocalDate, LocalDate> availableWithin;
     //array of confirmed bookings connected to a singular advertisement
     private ArrayList<Booking> confirmedBookings;
+    //where the vehicle is located - the location is based on a string of a city eg "Sarpsborg" or "Bergen"
+    private Location location;
 
     public RentOutAd(User user, Vehicle vehicle,
-                     BigDecimal dailyCharge, BigDecimal chargePerTwentyKm) {
+                     BigDecimal dailyCharge, BigDecimal chargePerTwentyKm, String city) {
         super(user);
+
+        this.id = count;
+        //increments the id by 1
+        count++;
+
         this.vehicle = vehicle;
         this.cur = Currency.getInstance("NOK");
         this.dailyCharge = dailyCharge;
         this.chargePerTwentyKm = chargePerTwentyKm;
+        try {
+            this.location = new Location(city);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -117,6 +136,24 @@ public class RentOutAd extends Advertisement {
     //function used to remove rental periods that are now expired
     public void refreshPeriods() {
         availableWithin.entrySet().removeIf(entry -> LocalDate.now().isAfter(entry.getValue()));
+    }
+
+    @Override
+    public int getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
     }
 
     public Currency getCur() {

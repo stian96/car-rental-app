@@ -4,14 +4,22 @@ import no.hiof.groupproject.models.User;
 
 public abstract class Vehicle {
     /* update the necessary instance variable needed */
-    private String vehicle_id, regNo, manufacturer;
+
+    //auto-incremental id
+    private static int count = 1;
+    private int id;
+
+    private String regNo, manufacturer;
     private String model, engineType, gearType;
     private int modelYear;
 
-    public Vehicle(String ID, String regNumber, String manufacturer, String model, String engineType,
+    public Vehicle(String regNumber, String manufacturer, String model, String engineType,
                    String gearType, int modelYear) {
 
-        this.vehicle_id = ID;
+        this.id = count;
+        //increments the id by 1
+        count++;
+
         this.regNo = regNumber;
         this.manufacturer = manufacturer;
         this.model = model;
@@ -20,12 +28,12 @@ public abstract class Vehicle {
         this.modelYear = modelYear;
     }
 
-    public String getVehicle_id() {
-        return vehicle_id;
+    public int getId() {
+        return id;
     }
 
-    public void setVehicle_id(String vehicle_id) {
-        this.vehicle_id = vehicle_id;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getRegNo() {

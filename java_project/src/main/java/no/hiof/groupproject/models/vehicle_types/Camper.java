@@ -9,9 +9,9 @@ public class Camper extends Vehicle {
     /* check if the camper includes the above if true
      * there should be additional rates */
 
-    public Camper(String ID, String regNumber, String manufacturer, String model, String fuelType,
+    public Camper(String regNumber, String manufacturer, String model, String fuelType,
                   String gearType, int modelYear){
-        super(ID, regNumber, manufacturer, model, fuelType, gearType, modelYear);
+        super(regNumber, manufacturer, model, fuelType, gearType, modelYear);
     }
 
 }

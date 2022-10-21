@@ -84,4 +84,53 @@ public class Location {
     public String getLocationInfo(JsonNode object) {
         return object.get(1).get("display_name").asText();
     }
+
+    //returns a string if Location is already instantiated in the format:
+    //  Sarpsborg, Viken, 1707, Norge
+    public String getThisLocationInfo() throws IOException {
+        String dataFromApi = this.getDataFromApi();
+        return this.MapToJsonNodeObject(dataFromApi).get(1).get("display_name").asText();
+    }
+
+    /*
+    The following functions return the by, fylke, postnr, and land of the instantiated class
+    Example of use:
+        System.out.println(roa.getLocation().getBy() + " is in the county of "
+                    + roa.getLocation().getFylke() + " with a postcode of "
+                    + roa.getLocation().getPostNr() + " in the country "
+                    + roa.getLocation().getLand());
+    returns the output:
+        "Sarpsborg is in the fylke Viken with a postcode of 1707 in the country Norge"
+     */
+    public String getBy() throws IOException {
+        String str = this.getThisLocationInfo();
+        str = str.replaceAll(" ", "");
+        String[] splitStr = str.split(",");
+
+        return splitStr[0];
+    }
+
+    public String getFylke() throws IOException {
+        String str = this.getThisLocationInfo();
+        str = str.replaceAll(" ", "");
+        String[] splitStr = str.split(",");
+
+        return splitStr[1];
+    }
+
+    public String getPostNr() throws IOException {
+        String str = this.getThisLocationInfo();
+        str = str.replaceAll(" ", "");
+        String[] splitStr = str.split(",");
+
+        return splitStr[2];
+    }
+
+    public String getLand() throws IOException {
+        String str = this.getThisLocationInfo();
+        str = str.replaceAll(" ", "");
+        String[] splitStr = str.split(",");
+
+        return splitStr[3];
+    }
 }
