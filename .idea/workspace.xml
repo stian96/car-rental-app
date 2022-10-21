@@ -4,25 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="66728865-2760-454a-a84f-253ea72cb8c1" name="Changes" comment="my branch">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.idea/dataSources.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.idea/sqldialects.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/sqlite/db/test.db" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/com/example/java_project/LogInController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/com/example/java_project/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/com/example/java_project/SignUpController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/com/example/java_project/SignUpFacebookController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/com/example/java_project/SignUpGoogleController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/com/example/java_project/ToGoCarPageController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/no/hiof/groupproject/models/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/no/hiof/groupproject/tools/VerifyDrivingLicense.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/no/hiof/groupproject/tools/db/ConnectDB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/no/hiof/groupproject/tools/db/CreateDB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/no/hiof/groupproject/tools/db/DeleteFromDB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/no/hiof/groupproject/tools/db/InsertDB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/no/hiof/groupproject/tools/db/UpdateDB.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/test/java/no/hiof/groupproject/models/UserProfileTest.java" beforeDir="false" />
+    <list default="true" id="f8e87fba-d58c-4e22-9c5b-cb4a4af4a295" name="Changes" comment="Adding SignUpGoogleController and fxml">
+      <change beforePath="$PROJECT_DIR$/java_project/build/resources/main/com/example/java_project/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/build/resources/main/com/example/java_project/LogIn.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java_project/src/main/resources/com/example/java_project/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/src/main/resources/com/example/java_project/LogIn.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,12 +29,7 @@
         </task>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="java_project" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
