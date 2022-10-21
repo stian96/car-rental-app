@@ -8,10 +8,10 @@ public class Car extends Vehicle {
     private String carType;
 
     public Car(String ID, String regNumber, String manufacturer, String model,
-               String fuelType, String gearBox, int modelYear, User owner,
+               String fuelType, String gearBox, int modelYear,
                int vehicleStatus, int seatingCapacity, int towingAbility, String carType) {
 
-        super(ID, regNumber, manufacturer, model, fuelType, gearBox, modelYear, owner);
+        super(ID, regNumber, manufacturer, model, fuelType, gearBox, modelYear);
         this.seatingCapacity = seatingCapacity;
         this.towingAbility = towingAbility;
         this.carType = carType;

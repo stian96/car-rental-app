@@ -8,10 +8,10 @@ public class Truck extends Vehicle {
 
 
     public Truck(String ID, String regNumber, String manufacturer, String model, String fuelType,
-                 String gearType, int modelYear, User owner, int towingCapacity,
+                 String gearType, int modelYear, int towingCapacity,
                  int storageSpace, int seatingCapacity, String measurement) {
 
-        super(ID, regNumber, manufacturer, model, fuelType, gearType, modelYear, owner);
+        super(ID, regNumber, manufacturer, model, fuelType, gearType, modelYear);
         this.towingCapacity = towingCapacity;
         this.storageSpace = storageSpace;
         this.seatingCapacity = seatingCapacity;

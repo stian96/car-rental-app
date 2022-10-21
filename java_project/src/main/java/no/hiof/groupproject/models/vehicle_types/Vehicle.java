@@ -7,10 +7,9 @@ public abstract class Vehicle {
     private String vehicle_id, regNo, manufacturer;
     private String model, engineType, gearType;
     private int modelYear;
-    private User owner;
 
     public Vehicle(String ID, String regNumber, String manufacturer, String model, String engineType,
-                   String gearType, int modelYear, User owner) {
+                   String gearType, int modelYear) {
 
         this.vehicle_id = ID;
         this.regNo = regNumber;
@@ -19,7 +18,6 @@ public abstract class Vehicle {
         this.engineType = engineType;
         this.gearType = gearType;
         this.modelYear = modelYear;
-        this.owner = owner;
     }
 
     public String getVehicle_id() {
@@ -76,14 +74,6 @@ public abstract class Vehicle {
 
     public void setModelYear(int modelYear) {
         this.modelYear = modelYear;
-    }
-
-    public User getOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
     }
 
 }

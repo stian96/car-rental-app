@@ -1,5 +1,6 @@
 package no.hiof.groupproject.models;
 
+import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
