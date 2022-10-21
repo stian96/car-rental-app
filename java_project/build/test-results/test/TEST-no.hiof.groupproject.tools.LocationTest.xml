@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="no.hiof.groupproject.tools.LocationTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-10-20T12:22:37" hostname="Stians-MacBook-Air.local" time="3.278">
+  <properties/>
+  <testcase name="VerifyThatSendGetRequestIsExecuted()" classname="no.hiof.groupproject.tools.LocationTest" time="0.184"/>
+  <testcase name="OnGoodConnectionCheckResponseReturn200()" classname="no.hiof.groupproject.tools.LocationTest" time="0.532"/>
+  <testcase name="VerifyThatGetDataFromApiReturnsData()" classname="no.hiof.groupproject.tools.LocationTest" time="1.326"/>
+  <testcase name="VerifyThatDataIsMappedToJsonNodeObject()" classname="no.hiof.groupproject.tools.LocationTest" time="0.689"/>
+  <testcase name="VerifyThatGetLocationInfoReturnNiceFormattedString()" classname="no.hiof.groupproject.tools.LocationTest" time="0.506"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
