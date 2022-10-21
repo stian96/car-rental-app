@@ -19,13 +19,18 @@ public abstract class Advertisement {
     //date that the advertisement was last edited
     private LocalDate dateLastChanged;
 
-    public Advertisement(int id, User user, LocalDate dateCreated, LocalDate dateLastChanged) {
+    public Advertisement(User user) {
         this.id = count;
         //increments the id by 1
         count++;
         this.user = user;
-        this.dateCreated = dateCreated;
-        this.dateLastChanged = dateLastChanged;
+        this.dateCreated = LocalDate.now();
+        updateDateLastChanged();
+    }
+
+    // used when data is changed/updated
+    public void updateDateLastChanged() {
+        this.dateLastChanged = LocalDate.now();
     }
 
     public int getId() {

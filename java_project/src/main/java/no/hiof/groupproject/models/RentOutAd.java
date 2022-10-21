@@ -19,17 +19,18 @@ public class RentOutAd extends Advertisement {
     //array of confirmed bookings connected to a singular advertisement
     private ArrayList<Booking> confirmedBookings;
 
-    public RentOutAd(int id, User user, LocalDate dateCreated, LocalDate dateLastChanged, Vehicle vehicle,
-                     Currency nok, ArrayList<Period> availableWithin, ArrayList<Booking> confirmedBookings) {
-        super(id, user, dateCreated, dateLastChanged);
+    public RentOutAd(User user, Vehicle vehicle,
+                     Currency nok) {
+        super(user);
         this.vehicle = vehicle;
-        this.nok = nok;
+        this.nok = Currency.getInstance("NOK");
     }
 
 
     //function to set a new period of time that the vehicle is available within
     public void addNewPeriod(LocalDate dateFrom, LocalDate dateTo) {
         availableWithin.put(dateFrom, dateTo);
+        updateDateLastChanged();
     }
 
     //function to add a new booking, ensuring the date is available, and no other booking happens at the same time
@@ -93,6 +94,7 @@ public class RentOutAd extends Advertisement {
             //42.2024-12-24.26
             booking.setStrId(booking.getStrId() + "." + this.getUser().getId());
             confirmedBookings.add(booking);
+            updateDateLastChanged();
         }
     }
 

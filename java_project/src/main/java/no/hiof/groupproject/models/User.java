@@ -17,7 +17,7 @@ public class User {
     //relevant for receiving payment via card, paypal, vipps etc.
     private String bankAccountNr, email, tlfNr;
 
-    public User(int id, String firstName, String lastName, String postNr, String password,
+    public User(String firstName, String lastName, String postNr, String password,
                 String bankAccountNr, String email, String tlfNr) {
         this.id = count;
         //increments the id by 1
