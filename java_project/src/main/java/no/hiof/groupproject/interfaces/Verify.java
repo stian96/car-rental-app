@@ -1,4 +1,4 @@
-package no.hiof.groupproject.tools.Interface;
+package no.hiof.groupproject.interfaces;
 public interface Verify {
 
     Boolean verifyLicenseNumber(String number);

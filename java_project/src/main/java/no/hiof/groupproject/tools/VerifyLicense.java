@@ -1,6 +1,6 @@
-package no.hiof.groupproject.tools.Tool;
+package no.hiof.groupproject.tools;
 
-import no.hiof.groupproject.tools.Interface.Verify;
+import no.hiof.groupproject.interfaces.Verify;
 
 import java.time.LocalDate;
 import java.util.regex.Pattern;

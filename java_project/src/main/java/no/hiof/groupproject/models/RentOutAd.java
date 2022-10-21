@@ -1,6 +1,6 @@
 package no.hiof.groupproject.models;
 
-import no.hiof.groupproject.models.payment_methods.Payment;
+import no.hiof.groupproject.models.vehicle_types.Vehicle;
 
 import java.time.LocalDate;
 import java.time.Period;
@@ -52,8 +52,6 @@ public class RentOutAd extends Advertisement {
     public void refreshPeriods() {
         availableWithin.entrySet().removeIf(entry -> LocalDate.now().isAfter(entry.getValue()));
     }
-
-
 
     public Vehicle getVehicle() {
         return vehicle;
