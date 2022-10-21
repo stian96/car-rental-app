@@ -20,6 +20,7 @@ public class Main {
                 BigDecimal.valueOf(200), BigDecimal.valueOf(10)
         );
 
+        GenericQueryDB.query("INSERT INTO people(name,age) VALUES('jesper', 14)");
 
     }
 }
