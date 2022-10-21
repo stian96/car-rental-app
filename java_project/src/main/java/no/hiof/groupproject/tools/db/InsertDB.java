@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /*
-A loose coupled adaptor which inserts data into the database.
+Inserts data into the database.
 Create this class and then call the insert() method along with the following arguments:
     InsertDB db = new InsertDB();
     db.insert(String table, String col1, int col2);

@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /*
-A loose coupled adaptor which creates a database in a specified path.
+Creates a database in a specified path.
 Simply import this class and call the static method via:
     CreateDB.createNewDatabase("exampleName.db");
 The code was taken from https://www.sqlitetutorial.net/sqlite-java/create-database/ at 13:00

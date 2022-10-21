@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /*
-A loose coupled adaptor which updates rows in a database.
+Updates rows in a database.
 Create this class and then call the update() method along with the following arguments:
     UpdateDB db = new UpdateDB();
     db.update(String table, String colFrom, String valFrom, String colTo, String valTo);

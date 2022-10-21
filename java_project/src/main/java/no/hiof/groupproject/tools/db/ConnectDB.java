@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 /*
-A loose coupled adaptor which establishes a connection to a database.
+Establishes a connection to a database.
 Simply import this class and call the static method via:
     ConnectDB.connect();
 The code was taken from https://www.sqlitetutorial.net/sqlite-java/sqlite-jdbc-driver/ at 13:00

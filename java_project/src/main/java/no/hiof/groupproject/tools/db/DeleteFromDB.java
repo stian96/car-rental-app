@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 /*
-A loose coupled adaptor which deletes rows from a database.
+Deletes rows from a database.
 Create this class and then call the delete() method along with the following arguments:
     DeleteFromDB db = new DeleteFromDB();
     db.delete(String table, String col, int val);
