@@ -4,18 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d9c482b-ba7c-4cf7-bf6e-0a42fcbca8e4" name="Changes" comment="added new function to UserProfile class and new test in UserprofileTest">
+    <list default="true" id="4d9c482b-ba7c-4cf7-bf6e-0a42fcbca8e4" name="Changes" comment="added commentary to UserProfile">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.gradle/7.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/7.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.gradle/7.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/7.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/build/reports/tests/test/classes/no.hiof.groupproject.models.UserProfileTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/build/reports/tests/test/classes/no.hiof.groupproject.models.UserProfileTest.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/build/reports/tests/test/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/build/reports/tests/test/packages/no.hiof.groupproject.models.html" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/build/reports/tests/test/packages/no.hiof.groupproject.models.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/build/test-results/test/TEST-no.hiof.groupproject.models.UserProfileTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/build/test-results/test/TEST-no.hiof.groupproject.models.UserProfileTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/build/tmp/compileTestJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/build/tmp/compileTestJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java_project/src/main/resources/com/example/java_project/LogIn.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/src/main/resources/com/example/java_project/LogIn.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -433,7 +423,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666635892406</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="added new function to UserProfile class and new test in UserprofileTest">
+      <created>1666636051960</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1666636051960</updated>
+    </task>
+    <task id="LOCAL-00026" summary="added commentary to UserProfile">
+      <created>1666636481723</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1666636481723</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -492,6 +496,7 @@
     <MESSAGE value="changes to LogIn.fxml" />
     <MESSAGE value="adding resource file to .build" />
     <MESSAGE value="added new function to UserProfile class and new test in UserprofileTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="added new function to UserProfile class and new test in UserprofileTest" />
+    <MESSAGE value="added commentary to UserProfile" />
+    <option name="LAST_COMMIT_MESSAGE" value="added commentary to UserProfile" />
   </component>
 </project>
