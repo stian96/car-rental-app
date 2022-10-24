@@ -17,12 +17,20 @@ public class UserProfile {
     public double calculateAverageRating(HashMap<User, Integer> ratings){
         double sum = 0;
         int count = ratings.size();
-        double result = 0;
+        double result;
         for(int values : ratings.values()){
             sum += values;
-            result = sum/((double) count); //Fix later : round to one or two decimal places
+            result = sum/((double) count);//Fix later : round to one or two decimal places
+            averageRating = result;
         }
-        return result;
+        return averageRating;
+    }
+    public  double addNewRating(User user ,Integer rate){
+        if(!ratings.containsKey(user)){
+            ratings.put(user,rate);
+            return calculateAverageRating(ratings);
+        }
+        return 0;
     }
 
     //Will need ratings might be a class of its own?

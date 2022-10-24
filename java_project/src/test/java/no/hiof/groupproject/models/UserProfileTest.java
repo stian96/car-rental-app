@@ -25,5 +25,13 @@ class UserProfileTest {
         assertEquals(3.0, val);
 
     }
+    @Test
+    public void check_stuff(){
+        ratings.put(user,1);
+        ratings.put(user1,5);
+
+        double val = userProfile.addNewRating(user2,3);
+        assertEquals(3.0, val);
+    }
 
 }
