@@ -25,6 +25,13 @@ public class UserProfile {
         }
         return averageRating;
     }
+
+    /** Method that gets new rating to add to the ratings hashmap.
+     *
+     * @param user checks if user is in the hashmap already.
+     * @param rate new rating to place in the hashmap.
+     * @return average of the total ratings
+     */
     public  double addNewRating(User user ,Integer rate){
         if(!ratings.containsKey(user)){
             ratings.put(user,rate);
