@@ -4,19 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d9c482b-ba7c-4cf7-bf6e-0a42fcbca8e4" name="Changes" comment="Fixed functions in two controllers">
+    <list default="true" id="4d9c482b-ba7c-4cf7-bf6e-0a42fcbca8e4" name="Changes" comment="Added new test to UserProfileTest">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.gradle/7.2/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/7.2/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.gradle/7.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/7.2/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.gradle/7.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/7.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/build/resources/main/com/example/java_project/SignUpFacebook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/build/resources/main/com/example/java_project/SignUpFacebook.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/no/hiof/groupproject/models/UserProfile.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/src/main/java/no/hiof/groupproject/models/UserProfile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java_project/src/test/java/no/hiof/groupproject/models/UserProfileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/src/test/java/no/hiof/groupproject/models/UserProfileTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -102,7 +91,7 @@
       <recent name="no.hiof.groupproject.models" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.UserProfileTest.check_add_rating_work">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.java_project.Main" />
       <module name="java_project.main" />
@@ -115,29 +104,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="LogInControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/java_project" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;no.hiof.groupproject.Controller.LogInControllerTest&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
     </configuration>
     <configuration name="UserProfileTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -153,6 +119,29 @@
             <option value=":test" />
             <option value="--tests" />
             <option value="&quot;no.hiof.groupproject.models.UserProfileTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UserProfileTest.check_add_rating_work" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/java_project" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;no.hiof.groupproject.models.UserProfileTest.check_add_rating_work&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -232,18 +221,18 @@
     <list>
       <item itemvalue="Application.Main" />
       <item itemvalue="Gradle.java_project [configJavafxRun]" />
+      <item itemvalue="Gradle.UserProfileTest.check_add_rating_work" />
       <item itemvalue="Gradle.UserProfileTest.check_calculate_average_works" />
       <item itemvalue="Gradle.UserProfileTest.check_stuff" />
       <item itemvalue="Gradle.UserProfileTest" />
-      <item itemvalue="Gradle.LogInControllerTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.UserProfileTest.check_add_rating_work" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Gradle.UserProfileTest" />
         <item itemvalue="Gradle.UserProfileTest.check_calculate_average_works" />
         <item itemvalue="Gradle.UserProfileTest.check_stuff" />
-        <item itemvalue="Gradle.LogInControllerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -494,7 +483,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666687277409</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Added new test to UserProfileTest">
+      <created>1666688830161</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1666688830161</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -531,7 +527,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="changes" />
     <MESSAGE value="changes to the files to run gui" />
     <MESSAGE value="controller files to .com" />
     <MESSAGE value="changed location of fxml files" />
@@ -556,6 +551,7 @@
     <MESSAGE value="added commentary to UserProfile" />
     <MESSAGE value="Testing UserProfileTest" />
     <MESSAGE value="Fixed functions in two controllers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed functions in two controllers" />
+    <MESSAGE value="Added new test to UserProfileTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added new test to UserProfileTest" />
   </component>
 </project>
