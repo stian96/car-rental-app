@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d9c482b-ba7c-4cf7-bf6e-0a42fcbca8e4" name="Changes" comment="Testing UserProfileTest">
+    <list default="true" id="4d9c482b-ba7c-4cf7-bf6e-0a42fcbca8e4" name="Changes" comment="Fixed functions in two controllers">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java_project/.gradle/7.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/7.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java_project/.gradle/7.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/7.2/executionHistory/executionHistory.lock" afterDir="false" />
@@ -13,8 +13,6 @@
       <change beforePath="$PROJECT_DIR$/java_project/.gradle/7.2/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/7.2/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java_project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/java_project/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/java/com/example/java_project/SignUpFacebookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/src/main/java/com/example/java_project/SignUpFacebookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java_project/src/main/resources/com/example/java_project/SignUpFacebook.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/java_project/src/main/resources/com/example/java_project/SignUpFacebook.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -487,7 +485,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666683924535</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="Fixed functions in two controllers">
+      <created>1666685288512</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1666685288512</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
@@ -548,6 +553,7 @@
     <MESSAGE value="added new function to UserProfile class and new test in UserprofileTest" />
     <MESSAGE value="added commentary to UserProfile" />
     <MESSAGE value="Testing UserProfileTest" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing UserProfileTest" />
+    <MESSAGE value="Fixed functions in two controllers" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed functions in two controllers" />
   </component>
 </project>
