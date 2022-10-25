@@ -91,7 +91,7 @@
       <recent name="no.hiof.groupproject.models" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.UserProfileTest">
+  <component name="RunManager">
     <configuration name="LogInControllerTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -437,7 +437,21 @@
       <option name="project" value="LOCAL" />
       <updated>1666636481723</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="added commentary to UserProfile">
+      <created>1666636490200</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1666636490200</updated>
+    </task>
+    <task id="LOCAL-00028" summary="added commentary to UserProfile">
+      <created>1666636602482</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1666636602482</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">
