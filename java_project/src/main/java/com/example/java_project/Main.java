@@ -1,5 +1,4 @@
 package com.example.java_project;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -18,12 +17,12 @@ public class Main extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         stg = stage;
-        stage.setResizable(false);
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LogIn.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("ToGoCar");
-        stage.setScene(scene);
-        stage.show();
+            stage.setResizable(false);
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("logIn.fxml"));
+            Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+            stage.setTitle("ToGoCar");
+            stage.setScene(scene);
+            stage.show();
     }
 
 

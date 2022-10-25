@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.ToGoCarPageController" >
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="240.0" style="-fx-background-color: #f1c232;">
+         <children>
+            <ImageView fitHeight="40.0" fitWidth="60.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@car.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="92.0" layoutY="26.0" text="ToGoCar">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Button fx:id="button_registerCar" layoutX="55.0" layoutY="82.0" mnemonicParsing="false" onAction="#userRegisterCar" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Register a car">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_bookCar" layoutX="53.0" layoutY="125.0" mnemonicParsing="false" onAction="#userBookCar" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Book a car">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="button_profile" layoutX="55.0" layoutY="174.0" mnemonicParsing="false" onAction="#userProfile" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Profile">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="button_logOut" layoutX="54.0" layoutY="309.0" mnemonicParsing="false" onAction="#userLogOut" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Log Out">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0" />
+               </font></Button>
+            <Button fx:id="button_message" layoutX="52.0" layoutY="220.0" mnemonicParsing="false" onAction="#message_menu" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Message">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="12.0" />
+               </font>
+            </Button>
+            <Button fx:id="button_customerService" layoutX="52.0" layoutY="267.0" mnemonicParsing="false" onAction="#customerService" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Customer Service">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="11.0" />
+               </font>
+            </Button>
+         </children></AnchorPane>
+      <AnchorPane prefHeight="400.0" prefWidth="360.0" style="-fx-background-color: #9fc5e8;" />
+   </children>
+</HBox>

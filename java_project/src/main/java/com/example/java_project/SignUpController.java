@@ -1,12 +1,13 @@
 package com.example.java_project;
 
-
+import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -29,8 +30,7 @@ public class SignUpController {
     @FXML
     private Label validEmail;
 
-    public SignUpController( TextField tf_userName, PasswordField tf_password, Button button_login, Button button_signUp, Button button_signUpGoogle, Button button_signUpFacebook, Label validEmail) {
-
+    public SignUpController(TextField tf_userName, PasswordField tf_password, Button button_login, Button button_signUp, Button button_signUpGoogle, Button button_signUpFacebook, Label validEmail) {
         this.tf_userName = tf_userName;
         this.tf_password = tf_password;
         this.button_login = button_login;
@@ -39,17 +39,16 @@ public class SignUpController {
         this.button_signUpFacebook = button_signUpFacebook;
         this.validEmail = validEmail;
     }
-    public SignUpController(){}
+
+    public SignUpController() {
+    }
 
     public void userLogIn(ActionEvent event) throws IOException {
         LogInCheck();
     }
 
-
-
-
     public void userSignUp(ActionEvent event) throws IOException{
-        isVerified();
+        SignUpCheck();
     }
 
     public void signUpGoogle(ActionEvent event) throws IOException {
@@ -60,13 +59,16 @@ public class SignUpController {
         SignUpCheckFacebook();
     }
 
-    public void isVerified() throws IOException {
+
+    public void SignUpCheck() throws IOException {
         Main m = new Main();
-        HashMap<String,String> signUp = new HashMap<>();
-        signUp.put("miley1@gmail.com", "miley1");
-        signUp.put("miley2@gmail.com", "miley2");
-        signUp.put("miley3@gmail.com", "miley3");
-        for (Map.Entry<String, String> entry : signUp.entrySet()) {
+        HashMap<String, String> signUpInfo = new HashMap<String, String>();
+        signUpInfo.put("John", "cool");
+        signUpInfo.put("John1", "cool1");
+        signUpInfo.put("John2", "cool2");
+        signUpInfo.put("John3", "cool3");
+        signUpInfo.put("John4", "cool4");
+        for (Map.Entry<String, String> entry : signUpInfo.entrySet()) {
             String key = entry.getKey();
             String value = entry.getValue();
             if (tf_userName.getText().toString().equals(key) && tf_password.getText().toString().equals(value)) {
@@ -84,22 +86,21 @@ public class SignUpController {
 
     }
 
-    private void LogInCheck() throws IOException {
+    public void LogInCheck() throws IOException {
         Main m = new Main();
         m.changeScene("logIn.fxml");
 
     }
 
-    private void SignUpCheckGoogle() throws IOException {
+    public void SignUpCheckGoogle() throws IOException {
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("SignUpGoogle.fxml");
 
     }
 
-    private void SignUpCheckFacebook() throws IOException {
+    public void SignUpCheckFacebook() throws IOException {
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("SignUpFacebook.fxml");
 
     }
-
 }
