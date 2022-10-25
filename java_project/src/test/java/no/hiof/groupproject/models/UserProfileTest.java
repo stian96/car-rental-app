@@ -9,11 +9,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class UserProfileTest {
     UserProfile userProfile = new UserProfile();
     private HashMap<User, Integer> ratings = new HashMap<>();
-    User user = new User(1,"Jillian","Andes","1526","jack1",
+
+    User user = new User("Jillian","Andes","1526","jack1",
             "10333922","gigi@gmail.com","6256728272");
-    User user1 = new User(2,"Jillian","Andes","1526","jack1",
+    User user1 = new User("Jillian","Andes","1526","jack1",
             "10333922","gigi@gmail.com","6256728272");
-    User user2 = new User(1,"Jillian","Andes","1526","jack1",
+    User user2 = new User("Jillian","Andes","1526","jack1",
             "10333922","gigi@gmail.com","6256728272");
 
     @Test
@@ -26,12 +27,13 @@ class UserProfileTest {
 
     }
     @Test
-    public void check_stuff(){
+    public void check_add_rating_works(){
         ratings.put(user,1);
         ratings.put(user1,5);
 
         double val = userProfile.addNewRating(user2,3);
         assertEquals(3.0, val);
     }
+
 
 }

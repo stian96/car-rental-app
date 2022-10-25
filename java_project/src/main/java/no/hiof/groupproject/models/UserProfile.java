@@ -8,6 +8,8 @@ public class UserProfile {
 
     //variables should be User, array of Advertisements, rating (together with a system for averaging ratings),
     //display picture, description
+    //Will need ratings might be a class of its own?
+    //bio field
     private User user;
     private ArrayList<Advertisement> advertisements;
     private HashMap<User, Integer> ratings = new HashMap<>(); // Hashmap that stores all the users and their ratings of current user
@@ -40,8 +42,7 @@ public class UserProfile {
         return 0;
     }
 
-    //Will need ratings might be a class of its own?
-    //bio field
+
 
     public UserProfile() {
         this.advertisements = new ArrayList<>();
