@@ -6,7 +6,6 @@ import static org.junit.jupiter.api.Assertions.*;
 class VerifyInsuranceTest {
 
     VerifyInsurance insuranceTest = new VerifyInsurance();
-    // Hello.
 
     @Test
     void TestIfFunctionReturnInsuredIfInsured() {
