@@ -3,7 +3,7 @@ package no.hiof.groupproject.tools;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
-/*
+
 class VerifyDrivingLicenseTest {
 
     VerifyLicense test = new VerifyLicense("98 45 123456 1", "2008-05-12",
@@ -37,4 +37,4 @@ class VerifyDrivingLicenseTest {
 
 }
 
- */
+
