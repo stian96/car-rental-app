@@ -1,35 +1,79 @@
 package no.hiof.groupproject.models;
 
+import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.tools.geocode.Location;
+
+import java.io.IOException;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
 
 /*
 A subclass of Advertisement designed to be used for users wanting to rent out their car.
+RentOutAd has two different costs - first is a charge for each day the vehicle is rented, second is an additional
+charge for every 20 kilometers driven during the rental period.
+An example of initialisation is:
+    RentOutAd roa = new RentOutAd(
+                    new User("Sam", "Davies", "1111", "hunter2", "123412341234", "sam@sam.no", "12345678"),
+                    new Car("12341234", "audi", "tt", "petrol",
+                    "automatic", 2013, 5, 1500, "a nice one"),
+                    BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
+                    );
  */
 
 public class RentOutAd extends Advertisement {
 
+    //auto-incremental id
+    private static int count = 1;
+    private int id;
 
     private Vehicle vehicle;
-    private Currency nok;
+    //currency in norwegian kroner (NOK) set during initialisation
+    private Currency cur;
+    //BigDecimal used for currencies - BigDecimal.valueOf(<long> or <double>)
+    private BigDecimal dailyCharge;
+    private BigDecimal chargePerTwentyKm;
     //treemap of the time that the vehicle is available to be rented within
     //sorted array from oldest -> newest date based on the key
     private TreeMap<LocalDate, LocalDate> availableWithin;
     //array of confirmed bookings connected to a singular advertisement
     private ArrayList<Booking> confirmedBookings;
+    //where the vehicle is located - the location is based on a string of a city eg "Sarpsborg" or "Bergen"
+    private Location location;
+    //strings based on Location so that the API is only queried on initialisation.
+    //handy if API is temporarily unavailable
+    private String by, fylke, postnr, land;
 
-    public RentOutAd(int id, User user, LocalDate dateCreated, LocalDate dateLastChanged, Vehicle vehicle,
-                     Currency nok, ArrayList<Period> availableWithin, ArrayList<Booking> confirmedBookings) {
-        super(id, user, dateCreated, dateLastChanged);
+    public RentOutAd(User user, Vehicle vehicle,
+                     BigDecimal dailyCharge, BigDecimal chargePerTwentyKm, String city) {
+        super(user);
+
+        this.id = count;
+        //increments the id by 1
+        count++;
+
         this.vehicle = vehicle;
-        this.nok = nok;
+        this.cur = Currency.getInstance("NOK");
+        this.dailyCharge = dailyCharge;
+        this.chargePerTwentyKm = chargePerTwentyKm;
+        try {
+            this.location = new Location(city);
+            by = this.location.getBy();
+            fylke = this.location.getFylke();
+            postnr = this.location.getPostNr();
+            land = this.location.getLand();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
 
     //function to set a new period of time that the vehicle is available within
     public void addNewPeriod(LocalDate dateFrom, LocalDate dateTo) {
         availableWithin.put(dateFrom, dateTo);
+        updateDateLastChanged();
     }
 
     //function to add a new booking, ensuring the date is available, and no other booking happens at the same time
@@ -93,6 +137,7 @@ public class RentOutAd extends Advertisement {
             //42.2024-12-24.26
             booking.setStrId(booking.getStrId() + "." + this.getUser().getId());
             confirmedBookings.add(booking);
+            updateDateLastChanged();
         }
     }
 
@@ -101,7 +146,69 @@ public class RentOutAd extends Advertisement {
         availableWithin.entrySet().removeIf(entry -> LocalDate.now().isAfter(entry.getValue()));
     }
 
+    public String getBy() {
+        return by;
+    }
 
+    public void setBy(String by) {
+        this.by = by;
+    }
+
+    public String getFylke() {
+        return fylke;
+    }
+
+    public void setFylke(String fylke) {
+        this.fylke = fylke;
+    }
+
+    public String getPostnr() {
+        return postnr;
+    }
+
+    public void setPostnr(String postnr) {
+        this.postnr = postnr;
+    }
+
+    public String getLand() {
+        return land;
+    }
+
+    public void setLand(String land) {
+        this.land = land;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Currency getCur() {
+        return cur;
+    }
+
+    public void setCur(Currency cur) {
+        this.cur = cur;
+    }
+
+    public BigDecimal getDailyCharge() {
+        return dailyCharge;
+    }
+
+    public void setDailyCharge(BigDecimal dailyCharge) {
+        this.dailyCharge = dailyCharge;
+    }
+
+    public BigDecimal getChargePerTwentyKm() {
+        return chargePerTwentyKm;
+    }
+
+    public void setChargePerTwentyKm(BigDecimal chargePerTwentyKm) {
+        this.chargePerTwentyKm = chargePerTwentyKm;
+    }
 
     public Vehicle getVehicle() {
         return vehicle;
@@ -112,11 +219,11 @@ public class RentOutAd extends Advertisement {
     }
 
     public Currency getNok() {
-        return nok;
+        return cur;
     }
 
-    public void setNok(Currency nok) {
-        this.nok = nok;
+    public void setNok(Currency cur) {
+        this.cur = cur;
     }
 
     public TreeMap<LocalDate, LocalDate> getAvailableWithin() {
