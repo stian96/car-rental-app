@@ -5,7 +5,7 @@ plugins {
     id 'org.beryx.jlink' version '2.24.1'
 }
 
-group 'com.example'
+group 'com.example.java_project'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -13,9 +13,16 @@ repositories {
 }
 
 ext {
-    junitVersion = '5.8.1'
+    junitVersion = '5.9.0'
 }
-
+sourceSets {
+    main {
+        resources {
+            srcDirs = ["src/main/java"]
+            includes = ["**/*.fxml"]
+        }
+    }
+}
 sourceCompatibility = '17'
 targetCompatibility = '17'
 
@@ -25,7 +32,7 @@ tasks.withType(JavaCompile) {
 
 application {
     mainModule = 'com.example.java_project'
-    mainClass = 'com.example.java_project.HelloApplication'
+    mainClass = 'com.example.java_project.Main'
 }
 
 javafx {
@@ -37,6 +44,28 @@ dependencies {
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+    implementation 'org.xerial:sqlite-jdbc:3.39.3.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.13.4.2'
+    implementation 'io.vertx:vertx-core:4.3.4'
+    testImplementation 'org.mockito:mockito-inline:4.8.0'
+    testImplementation 'org.mockito:mockito-junit-jupiter:4.8.0'
+
+    //serialisation dependencies
+    /*
+    implementation('org.hibernate:hibernate-core:6.1.4.Final') {
+        //exclude group: 'com.sun.activation', module: 'jakarta.activation'
+    }
+    implementation ('org.hibernate.orm:hibernate-community-dialects:6.1.4.Final') {
+        //exclude group: 'com.sun.activation', module: 'jakarta.activation'
+    }
+    implementation 'org.hibernate:hibernate-validator:8.0.0.Final'
+    implementation 'jakarta.xml.bind:jakarta.xml.bind-api:3.0.0'
+
+     */
+
+
+
+
 }
 
 test {
