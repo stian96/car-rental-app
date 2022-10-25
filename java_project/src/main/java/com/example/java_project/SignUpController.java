@@ -92,13 +92,13 @@ public class SignUpController {
 
     private void SignUpCheckGoogle() throws IOException {
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("SignUpGoogle.fxml");
 
     }
 
     private void SignUpCheckFacebook() throws IOException {
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("SignUpFacebook.fxml");
 
     }
 

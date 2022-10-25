@@ -15,12 +15,13 @@ import java.util.Map;
 
 public class SignUpFacebookController {
 
+
     @FXML
     private TextField tf_userName;
     @FXML
     private PasswordField tf_password;
     @FXML
-    private Button button_signUpFacebook;
+    private Button button_signUpFacebook ;
     @FXML
     private Button button_login;
     @FXML
