@@ -10,11 +10,11 @@ public class Camper extends Vehicle {
      * there should be additional rates */
 
     public Camper(String regNumber, String manufacturer, String model, String engineType, String gearType,
-                  int modelYear, int seatingCapacity, int towingAbility, int bedCapacity, int dimensions,
+                  int modelYear, int seatingCapacity, int towingCapacity, int bedCapacity, int dimensions,
                   boolean includesToilet, boolean includesKitchen) {
         super(regNumber, manufacturer, model, engineType, gearType, modelYear);
         this.seatingCapacity = seatingCapacity;
-        this.towingAbility = towingAbility;
+        this.towingAbility = towingCapacity;
         this.bedCapacity = bedCapacity;
         this.dimensions = dimensions;
         this.includesToilet = includesToilet;
@@ -30,11 +30,11 @@ public class Camper extends Vehicle {
         this.seatingCapacity = seatingCapacity;
     }
 
-    public int getTowingAbility() {
+    public int gettowingCapacity() {
         return towingAbility;
     }
 
-    public void setTowingAbility(int towingAbility) {
+    public void settowingCapacity(int towingAbility) {
         this.towingAbility = towingAbility;
     }
 
