@@ -4,6 +4,7 @@ package no.hiof.groupproject;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import no.hiof.groupproject.interfaces.deserialiseUser;
+import no.hiof.groupproject.interfaces.deserialiseVehicle;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.vehicle_types.Car;
@@ -38,6 +39,10 @@ public class Main {
 
         Vehicle car = new Car("12341234", "audi", "tt", "petrol",
                 "automatic", 2013, 5, 1500);
+
+        Vehicle car2 = deserialiseVehicle.deserialiseSpecificId(1);
+        System.out.println(car2.getRegNo() + " is a " + car2.getManufacturer() + " " + car2.getModel() + " from "
+                + car2.getModelYear());
 
         /*
         RentOutAd roa = new RentOutAd(

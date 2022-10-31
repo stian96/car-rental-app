@@ -39,7 +39,7 @@ public class RetrieveUserDB {
 
     public static User retrieveFromEmail(String email) {
 
-        String sql = "SELECT * FROM users WHERE users_id = " + email;
+        String sql = "SELECT * FROM users WHERE email = " + email;
 
         User returnedUser = null;
         try (Connection conn = ConnectDB.connect();
