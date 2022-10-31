@@ -25,7 +25,7 @@ An example of initialisation is:
 public class RentOutAd extends Advertisement {
 
     //auto-incremental id
-    private static int count = 1;
+    //private static int count = 1;
     private int id;
 
     private Vehicle vehicle;
@@ -49,9 +49,9 @@ public class RentOutAd extends Advertisement {
                      BigDecimal dailyCharge, BigDecimal chargePerTwentyKm, String city) {
         super(user);
 
-        this.id = count;
+        //this.id = count;
         //increments the id by 1
-        count++;
+        //count++;
 
         this.vehicle = vehicle;
         this.cur = Currency.getInstance("NOK");
@@ -135,7 +135,6 @@ public class RentOutAd extends Advertisement {
         if (dateDoesNotClash) {
             //creates a booking in the format of <renter id>.<date booking begins>.<vehicle owner id>
             //42.2024-12-24.26
-            booking.setStrId(booking.getStrId() + "." + this.getUser().getId());
             confirmedBookings.add(booking);
             updateDateLastChanged();
         }

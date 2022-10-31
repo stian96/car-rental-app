@@ -10,7 +10,7 @@ for a specific vehicle or date.
 public abstract class Advertisement {
 
     //auto-incremental id
-    private static int count = 1;
+    //private static int count = 1;
     private int id;
 
     private User user;
@@ -20,9 +20,9 @@ public abstract class Advertisement {
     private LocalDate dateLastChanged;
 
     public Advertisement(User user) {
-        this.id = count;
+        //this.id = count;
         //increments the id by 1
-        count++;
+        //count++;
         this.user = user;
         this.dateCreated = LocalDate.now();
         updateDateLastChanged();

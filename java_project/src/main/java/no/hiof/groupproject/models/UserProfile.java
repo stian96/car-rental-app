@@ -34,7 +34,7 @@ public class UserProfile {
      * @param rate new rating to place in the hashmap.
      * @return average of the total ratings
      */
-    public  double addNewRating(User user ,Integer rate){
+    public double addNewRating(User user ,Integer rate){
         if(!ratings.containsKey(user)){
             ratings.put(user,rate);
             return calculateAverageRating(ratings);

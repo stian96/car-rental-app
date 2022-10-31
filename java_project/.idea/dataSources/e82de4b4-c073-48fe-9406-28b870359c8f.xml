@@ -1313,198 +1313,179 @@
     <argument id="481" parent="165">
       <Position>1</Position>
     </argument>
-    <table id="482" parent="166" name="people"/>
-    <table id="483" parent="166" name="sqlite_master">
+    <table id="482" parent="166" name="sqlite_master">
       <System>1</System>
     </table>
-    <table id="484" parent="166" name="sqlite_sequence">
+    <table id="483" parent="166" name="sqlite_sequence">
       <System>1</System>
     </table>
-    <table id="485" parent="166" name="users"/>
-    <table id="486" parent="166" name="vehicles"/>
-    <column id="487" parent="482" name="people_pk">
-      <DataType>INTEGER|0s</DataType>
-      <NotNull>1</NotNull>
-      <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
-    </column>
-    <column id="488" parent="482" name="name">
-      <DataType>VARCHAR(255)|0s</DataType>
-      <Position>2</Position>
-    </column>
-    <column id="489" parent="482" name="age">
-      <DataType>integer(2)|0s</DataType>
-      <Position>3</Position>
-    </column>
-    <key id="490" parent="482">
-      <ColNames>people_pk</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="491" parent="483" name="type">
+    <table id="484" parent="166" name="users"/>
+    <table id="485" parent="166" name="vehicles"/>
+    <column id="486" parent="482" name="type">
       <DataType>TEXT|0s</DataType>
       <Position>1</Position>
     </column>
-    <column id="492" parent="483" name="name">
+    <column id="487" parent="482" name="name">
       <DataType>TEXT|0s</DataType>
       <Position>2</Position>
     </column>
-    <column id="493" parent="483" name="tbl_name">
+    <column id="488" parent="482" name="tbl_name">
       <DataType>TEXT|0s</DataType>
       <Position>3</Position>
     </column>
-    <column id="494" parent="483" name="rootpage">
+    <column id="489" parent="482" name="rootpage">
       <DataType>INT|0s</DataType>
       <Position>4</Position>
     </column>
-    <column id="495" parent="483" name="sql">
+    <column id="490" parent="482" name="sql">
       <DataType>TEXT|0s</DataType>
       <Position>5</Position>
     </column>
-    <column id="496" parent="484" name="name">
+    <column id="491" parent="483" name="name">
       <Position>1</Position>
     </column>
-    <column id="497" parent="484" name="seq">
+    <column id="492" parent="483" name="seq">
       <Position>2</Position>
     </column>
-    <column id="498" parent="485" name="users_id">
+    <column id="493" parent="484" name="users_id">
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="499" parent="485" name="firstName">
+    <column id="494" parent="484" name="firstName">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="500" parent="485" name="lastName">
+    <column id="495" parent="484" name="lastName">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="501" parent="485" name="postNr">
+    <column id="496" parent="484" name="postNr">
       <DataType>varchar(4)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="502" parent="485" name="password">
+    <column id="497" parent="484" name="password">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="503" parent="485" name="bankAccountNr">
+    <column id="498" parent="484" name="bankAccountNr">
       <DataType>varchar(11)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="504" parent="485" name="email">
+    <column id="499" parent="484" name="email">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="505" parent="485" name="tlfNr">
+    <column id="500" parent="484" name="tlfNr">
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <index id="506" parent="485" name="users_users_id_uindex">
+    <index id="501" parent="484" name="users_users_id_uindex">
       <ColNames>users_id</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="507" parent="485" name="users_email_uindex">
+    <index id="502" parent="484" name="users_email_uindex">
       <ColNames>email</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="508" parent="485" name="users_pk">
+    <key id="503" parent="484" name="users_pk">
       <ColNames>users_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>users_users_id_uindex</UnderlyingIndexName>
     </key>
-    <column id="509" parent="486" name="vehicles_id">
+    <column id="504" parent="485" name="vehicles_id">
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="510" parent="486" name="vehicleSubclass">
+    <column id="505" parent="485" name="vehicleSubclass">
       <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>2</Position>
     </column>
-    <column id="511" parent="486" name="regNo">
+    <column id="506" parent="485" name="regNo">
       <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>3</Position>
     </column>
-    <column id="512" parent="486" name="manufacturer">
+    <column id="507" parent="485" name="manufacturer">
       <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>4</Position>
     </column>
-    <column id="513" parent="486" name="model">
+    <column id="508" parent="485" name="model">
       <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>5</Position>
     </column>
-    <column id="514" parent="486" name="engineType">
+    <column id="509" parent="485" name="engineType">
       <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>6</Position>
     </column>
-    <column id="515" parent="486" name="gearType">
+    <column id="510" parent="485" name="gearType">
       <DataType>VARCHAR(255)|0s</DataType>
       <NotNull>1</NotNull>
       <Position>7</Position>
     </column>
-    <column id="516" parent="486" name="modelYear">
+    <column id="511" parent="485" name="modelYear">
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <Position>8</Position>
     </column>
-    <column id="517" parent="486" name="seatingCapacity">
+    <column id="512" parent="485" name="seatingCapacity">
       <DataType>INTEGER|0s</DataType>
       <Position>9</Position>
     </column>
-    <column id="518" parent="486" name="bedCapacity">
+    <column id="513" parent="485" name="bedCapacity">
       <DataType>INTEGER|0s</DataType>
       <Position>10</Position>
     </column>
-    <column id="519" parent="486" name="towingCapacity">
+    <column id="514" parent="485" name="towingCapacity">
       <DataType>INTEGER|0s</DataType>
       <Position>11</Position>
     </column>
-    <column id="520" parent="486" name="storageSpace">
+    <column id="515" parent="485" name="storageSpace">
       <DataType>INTEGER|0s</DataType>
       <Position>12</Position>
     </column>
-    <column id="521" parent="486" name="dimensions">
+    <column id="516" parent="485" name="dimensions">
       <DataType>INTEGER|0s</DataType>
       <Position>13</Position>
     </column>
-    <column id="522" parent="486" name="helmetProvided">
+    <column id="517" parent="485" name="helmetProvided">
       <DataType>VARCHAR(255)|0s</DataType>
       <Position>14</Position>
     </column>
-    <column id="523" parent="486" name="includesToilet">
+    <column id="518" parent="485" name="includesToilet">
       <DataType>int(1)|0s</DataType>
       <Position>15</Position>
     </column>
-    <column id="524" parent="486" name="includesKitchen">
+    <column id="519" parent="485" name="includesKitchen">
       <DataType>integer(1)|0s</DataType>
       <Position>16</Position>
     </column>
-    <index id="525" parent="486" name="vehicles_vehicles_id_uindex">
+    <index id="520" parent="485" name="vehicles_vehicles_id_uindex">
       <ColNames>vehicles_id</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <index id="526" parent="486" name="vehicles_regNo_uindex">
+    <index id="521" parent="485" name="vehicles_regNo_uindex">
       <ColNames>regNo</ColNames>
       <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
-    <key id="527" parent="486" name="vehicles_pk">
+    <key id="522" parent="485" name="vehicles_pk">
       <ColNames>vehicles_id</ColNames>
       <Primary>1</Primary>
       <UnderlyingIndexName>vehicles_vehicles_id_uindex</UnderlyingIndexName>

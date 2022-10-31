@@ -14,6 +14,12 @@ public class Moped extends Vehicle {
         this.helmetProvided = helmetProvided;
         super.setVehicleSubclass("moped");
 
+        if (!existsInDb()) {
+            serialise();
+        }
+        //the id is automatically incremented when inserted into the database
+        //the autoincrement id is fetched and assigned to this instance
+        this.setId(getAutoIncrementId());
     }
 
 
