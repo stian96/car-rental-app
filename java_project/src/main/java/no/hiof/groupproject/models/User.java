@@ -1,5 +1,13 @@
 package no.hiof.groupproject.models;
 
+import no.hiof.groupproject.tools.db.ConnectDB;
+import no.hiof.groupproject.tools.db.InsertUserDB;
+
+import java.io.ObjectOutputStream;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class User {
 
     //auto-incremental id
@@ -29,6 +37,11 @@ public class User {
         this.bankAccountNr = bankAccountNr;
         this.email = email;
         this.tlfNr = tlfNr;
+        serialise();
+    }
+
+    public void serialise() {
+        InsertUserDB.insert(this);
     }
 
     public int getId() {

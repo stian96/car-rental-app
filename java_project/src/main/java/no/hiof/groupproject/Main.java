@@ -22,10 +22,13 @@ public class Main {
         //testing instantiation of rentOutAd using dependency injection
         /*
         GenericQueryDB.query("INSERT INTO people(name,age) VALUES('jesper', 14)");
+        */
+
 
         User user = new User("sam", "davies", "1111", "hunter2",
                 "1234123412341234", "sam@sam.no", "12341234");
 
+        /*
         Vehicle car = new Car("12341234", "audi", "tt", "petrol",
                 "automatic", 2013, 5, 1500, "a nice one");
 
@@ -35,6 +38,9 @@ public class Main {
                 BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
                 );
 
+         */
+
+        /*
         System.out.println(roa.getLocation().getThisLocationInfo());
         System.out.println(roa.getLocation().getBy() + " is in the county of "
                 + roa.getLocation().getFylke() + " with a postcode of "
