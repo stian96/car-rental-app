@@ -12,6 +12,7 @@ public class Motorcycle extends Vehicle {
 
         super(regNumber, manufacturer, model, fuelType, gearType, modelYear);
         this.helmetProvided = helmetProvided;
+        super.setVehicleSubclass("motorcycle");
     }
 
 

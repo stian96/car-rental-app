@@ -6,19 +6,20 @@ public abstract class Vehicle {
     /* update the necessary instance variable needed */
 
     //auto-incremental id
-    private static int count = 1;
+    //private static int count = 1;
     private int id;
 
     private String regNo, manufacturer;
     private String model, engineType, gearType;
     private int modelYear;
+    private String vehicleSubclass;
 
     public Vehicle(String regNumber, String manufacturer, String model, String engineType,
                    String gearType, int modelYear) {
 
-        this.id = count;
+        //this.id = count;
         //increments the id by 1
-        count++;
+        //count++;
 
         this.regNo = regNumber;
         this.manufacturer = manufacturer;
@@ -72,7 +73,7 @@ public abstract class Vehicle {
         return gearType;
     }
 
-    public void setGearbox(String gearType) {
+    public void setGearType(String gearType) {
         this.gearType = gearType;
     }
 
@@ -84,4 +85,11 @@ public abstract class Vehicle {
         this.modelYear = modelYear;
     }
 
+    public String getVehicleSubclass() {
+        return vehicleSubclass;
+    }
+
+    public void setVehicleSubclass(String vehicleSubclass) {
+        this.vehicleSubclass = vehicleSubclass;
+    }
 }

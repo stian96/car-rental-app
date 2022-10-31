@@ -1,20 +1,17 @@
 package no.hiof.groupproject.models.vehicle_types;
 
-import no.hiof.groupproject.models.User;
-
 public class Car extends Vehicle {
     private int seatingCapacity;
-    private int towingAbility;
-    private String carType;
+    private int towingCapacity;
 
     public Car(String regNumber, String manufacturer, String model,
                String fuelType, String gearBox, int modelYear,
-               int seatingCapacity, int towingAbility, String carType) {
+               int seatingCapacity, int towingCapacity) {
 
         super(regNumber, manufacturer, model, fuelType, gearBox, modelYear);
         this.seatingCapacity = seatingCapacity;
-        this.towingAbility = towingAbility;
-        this.carType = carType;
+        this.towingCapacity = towingCapacity;
+        super.setVehicleSubclass("car");
 
     }
 
@@ -26,19 +23,11 @@ public class Car extends Vehicle {
         this.seatingCapacity = seatingCapacity;
     }
 
-    public int getTowingAbility() {
-        return towingAbility;
+    public int getTowingCapacity() {
+        return towingCapacity;
     }
 
-    public void setTowingAbility(int towingAbility) {
-        this.towingAbility = towingAbility;
-    }
-
-    public String getCarType() {
-        return carType;
-    }
-
-    public void setCarType(String carType) {
-        this.carType = carType;
+    public void setTowingCapacity(int towingCapacity) {
+        this.towingCapacity = towingCapacity;
     }
 }
