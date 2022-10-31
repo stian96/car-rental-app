@@ -13,7 +13,8 @@ public class InsertUserDB {
 
     public static void insert(User user) {
 
-        String sql = "INSERT INTO users (firstName, lastName, postNr, password, bankAccountNr, email, tlfNr) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO users (firstName, lastName, postNr, password, bankAccountNr, email, tlfNr) " +
+                "VALUES(?,?,?,?,?,?,?)";
 
         try (Connection conn = ConnectDB.connect();
              PreparedStatement str = conn.prepareStatement(sql)) {

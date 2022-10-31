@@ -15,14 +15,7 @@ repositories {
 ext {
     junitVersion = '5.9.0'
 }
-sourceSets {
-    main {
-        resources {
-            srcDirs = ["src/main/java"]
-            includes = ["**/*.fxml"]
-        }
-    }
-}
+
 sourceCompatibility = '17'
 targetCompatibility = '17'
 

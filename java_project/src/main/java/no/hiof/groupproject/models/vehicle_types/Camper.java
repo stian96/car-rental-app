@@ -4,7 +4,7 @@ import no.hiof.groupproject.models.User;
 
 
 public class Camper extends Vehicle {
-    private int seatingCapacity, towingAbility, bedCapacity, dimensions;
+    private int seatingCapacity, towingCapacity, bedCapacity, dimensions;
     private boolean includesToilet, includesKitchen;
     /* check if the camper includes the above if true
      * there should be additional rates */
@@ -14,7 +14,7 @@ public class Camper extends Vehicle {
                   boolean includesToilet, boolean includesKitchen) {
         super(regNumber, manufacturer, model, engineType, gearType, modelYear);
         this.seatingCapacity = seatingCapacity;
-        this.towingAbility = towingCapacity;
+        this.towingCapacity = towingCapacity;
         this.bedCapacity = bedCapacity;
         this.dimensions = dimensions;
         this.includesToilet = includesToilet;
@@ -30,12 +30,12 @@ public class Camper extends Vehicle {
         this.seatingCapacity = seatingCapacity;
     }
 
-    public int gettowingCapacity() {
-        return towingAbility;
+    public int getTowingCapacity() {
+        return towingCapacity;
     }
 
-    public void settowingCapacity(int towingAbility) {
-        this.towingAbility = towingAbility;
+    public void setTowingCapacity(int towingAbility) {
+        this.towingCapacity = towingAbility;
     }
 
     public int getBedCapacity() {
@@ -54,7 +54,7 @@ public class Camper extends Vehicle {
         this.dimensions = dimensions;
     }
 
-    public boolean isIncludesToilet() {
+    public boolean getIncludesToilet() {
         return includesToilet;
     }
 
@@ -62,11 +62,13 @@ public class Camper extends Vehicle {
         this.includesToilet = includesToilet;
     }
 
-    public boolean isIncludesKitchen() {
+    public boolean getIncludesKitchen() {
         return includesKitchen;
     }
 
     public void setIncludesKitchen(boolean includesKitchen) {
         this.includesKitchen = includesKitchen;
     }
+
+
 }

@@ -1,8 +1,7 @@
 package no.hiof.groupproject.models.vehicle_types;
 
 public class Truck extends Vehicle {
-    private int towingCapacity, storageSpace, seatingCapacity;
-    private int dimensions;
+    private int towingCapacity, storageSpace, seatingCapacity, dimensions;
 
 
     public Truck(String regNumber, String manufacturer, String model, String fuelType,

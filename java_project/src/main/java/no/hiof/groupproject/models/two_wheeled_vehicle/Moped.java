@@ -17,7 +17,7 @@ public class Moped extends Vehicle {
     }
 
 
-    public String isHelmetProvided() {
+    public String getHelmetProvided() {
         return helmetProvided;
     }
 
