@@ -6,6 +6,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/*
+A class used to serialise a User into a database for permanent storage.
+ */
 public class InsertUserDB {
 
     public static void insert(User user) {

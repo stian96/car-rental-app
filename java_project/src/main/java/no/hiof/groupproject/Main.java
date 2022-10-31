@@ -3,6 +3,7 @@ package no.hiof.groupproject;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import no.hiof.groupproject.interfaces.deserialiseUser;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.vehicle_types.Car;
@@ -26,7 +27,13 @@ public class Main {
 
 
         User user = new User("sam", "davies", "1111", "hunter2",
-                "1234123412341234", "sam@sam.no", "12341234");
+                "12341234123", "sam@sam.no", "12341234");
+        User user3 = new User("gsdfg", "qweqwe", "1111", "hunter2",
+                "12341234123", "sam@sam.no", "12341234");
+
+
+        User user2 = deserialiseUser.deserialiseSpecificId(1);
+        System.out.println(user2.getFirstName() + " lives at " + user2.getPostNr());
 
         /*
         Vehicle car = new Car("12341234", "audi", "tt", "petrol",
