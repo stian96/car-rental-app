@@ -12,11 +12,12 @@ public class Moped extends Vehicle {
 
         super(regNumber, manufacturer, model, fuelType, gearType, modelYear);
         this.helmetProvided = helmetProvided;
+        super.setVehicleSubclass("moped");
 
     }
 
 
-    public String isHelmetProvided() {
+    public String getHelmetProvided() {
         return helmetProvided;
     }
 

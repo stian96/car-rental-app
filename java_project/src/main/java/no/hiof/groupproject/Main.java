@@ -3,6 +3,8 @@ package no.hiof.groupproject;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import no.hiof.groupproject.interfaces.deserialiseUser;
+import no.hiof.groupproject.interfaces.deserialiseVehicle;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.vehicle_types.Car;
@@ -22,19 +24,36 @@ public class Main {
         //testing instantiation of rentOutAd using dependency injection
         /*
         GenericQueryDB.query("INSERT INTO people(name,age) VALUES('jesper', 14)");
+        */
+
 
         User user = new User("sam", "davies", "1111", "hunter2",
-                "1234123412341234", "sam@sam.no", "12341234");
+                "12341234123", "sam@sam.no", "12341234");
+        User user3 = new User("gsdfg", "qweqwe", "1111", "hunter2",
+                "12341234123", "sam@sam.no", "12341234");
+
+
+        User user2 = deserialiseUser.deserialiseSpecificId(1);
+        System.out.println(user2.getFirstName() + " lives at " + user2.getPostNr());
+
 
         Vehicle car = new Car("12341234", "audi", "tt", "petrol",
-                "automatic", 2013, 5, 1500, "a nice one");
+                "automatic", 2013, 5, 1500);
 
+        Vehicle car2 = deserialiseVehicle.deserialiseSpecificId(1);
+        System.out.println(car2.getRegNo() + " is a " + car2.getManufacturer() + " " + car2.getModel() + " from "
+                + car2.getModelYear());
+
+        /*
         RentOutAd roa = new RentOutAd(
                 user,
                 car,
                 BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
                 );
 
+         */
+
+        /*
         System.out.println(roa.getLocation().getThisLocationInfo());
         System.out.println(roa.getLocation().getBy() + " is in the county of "
                 + roa.getLocation().getFylke() + " with a postcode of "

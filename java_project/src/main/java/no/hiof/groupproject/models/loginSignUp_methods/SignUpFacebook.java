@@ -1,6 +1,6 @@
 package no.hiof.groupproject.models.loginSignUp_methods;
 
-public class SignUpFacebook extends Registration{
+public class SignUpFacebook extends SignUpViaAccount{
     public SignUpFacebook(String email, String password) {
         super(email, password);
     }

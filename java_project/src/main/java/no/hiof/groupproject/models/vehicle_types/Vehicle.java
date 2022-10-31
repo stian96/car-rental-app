@@ -1,24 +1,31 @@
 package no.hiof.groupproject.models.vehicle_types;
 
 import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.tools.db.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public abstract class Vehicle {
     /* update the necessary instance variable needed */
 
     //auto-incremental id
-    private static int count = 1;
+    //private static int count = 1;
     private int id;
 
     private String regNo, manufacturer;
     private String model, engineType, gearType;
     private int modelYear;
+    private String vehicleSubclass;
 
     public Vehicle(String regNumber, String manufacturer, String model, String engineType,
                    String gearType, int modelYear) {
 
-        this.id = count;
+        //this.id = count;
         //increments the id by 1
-        count++;
+        //count++;
 
         this.regNo = regNumber;
         this.manufacturer = manufacturer;
@@ -26,6 +33,54 @@ public abstract class Vehicle {
         this.engineType = engineType;
         this.gearType = gearType;
         this.modelYear = modelYear;
+    }
+
+    //serialises the Vehicle class and inserts the values into the database
+    public void serialise() {
+        InsertVehicleDB.insert(this);
+    }
+
+    //returns a copy of the current instance of the Vehicle class based on this.id
+    //NOT CURRENTLY IN USE, but the logic behind the code may be useful later on
+    public Vehicle deserialise() {
+        return RetrieveVehicleDB.retrieveFromId(this.id);
+    }
+
+    //used in conjunction with an autoincremented vehicles_id value in the database
+    public int getAutoIncrementId() {
+        String sql = "SELECT * FROM vehicles WHERE regNo = " + this.regNo;
+
+        int i = 0;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            i = queryResult.getInt("vehicles_id");
+            return i;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return i;
+    }
+
+    //used to check if the regNo is stored in the database already. Returns true if the regNo is present
+    public boolean existsInDb() {
+        String sql = "SELECT COUNT(*) AS amount FROM vehicles WHERE regNo = " + this.regNo;
+
+        boolean ans = false;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+            return ans;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
     }
 
     public int getId() {
@@ -72,7 +127,7 @@ public abstract class Vehicle {
         return gearType;
     }
 
-    public void setGearbox(String gearType) {
+    public void setGearType(String gearType) {
         this.gearType = gearType;
     }
 
@@ -84,4 +139,11 @@ public abstract class Vehicle {
         this.modelYear = modelYear;
     }
 
+    public String getVehicleSubclass() {
+        return vehicleSubclass;
+    }
+
+    public void setVehicleSubclass(String vehicleSubclass) {
+        this.vehicleSubclass = vehicleSubclass;
+    }
 }
