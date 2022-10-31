@@ -5,13 +5,14 @@ public class Car extends Vehicle {
     private int towingCapacity;
 
     public Car(String regNumber, String manufacturer, String model,
-               String fuelType, String gearBox, int modelYear,
+               String fuelType, String gearType, int modelYear,
                int seatingCapacity, int towingCapacity) {
 
-        super(regNumber, manufacturer, model, fuelType, gearBox, modelYear);
+        super(regNumber, manufacturer, model, fuelType, gearType, modelYear);
         this.seatingCapacity = seatingCapacity;
         this.towingCapacity = towingCapacity;
         super.setVehicleSubclass("car");
+        serialise();
 
     }
 

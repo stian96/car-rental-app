@@ -1,6 +1,8 @@
 package no.hiof.groupproject.models.vehicle_types;
 
 import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.tools.db.InsertUserDB;
+import no.hiof.groupproject.tools.db.InsertVehicleDB;
 
 public abstract class Vehicle {
     /* update the necessary instance variable needed */
@@ -27,6 +29,11 @@ public abstract class Vehicle {
         this.engineType = engineType;
         this.gearType = gearType;
         this.modelYear = modelYear;
+    }
+
+    //serialises the Vehicle class and inserts the values into the database
+    public void serialise() {
+        InsertVehicleDB.insert(this);
     }
 
     public int getId() {

@@ -35,10 +35,11 @@ public class Main {
         User user2 = deserialiseUser.deserialiseSpecificId(1);
         System.out.println(user2.getFirstName() + " lives at " + user2.getPostNr());
 
-        /*
-        Vehicle car = new Car("12341234", "audi", "tt", "petrol",
-                "automatic", 2013, 5, 1500, "a nice one");
 
+        Vehicle car = new Car("12341234", "audi", "tt", "petrol",
+                "automatic", 2013, 5, 1500);
+
+        /*
         RentOutAd roa = new RentOutAd(
                 user,
                 car,
