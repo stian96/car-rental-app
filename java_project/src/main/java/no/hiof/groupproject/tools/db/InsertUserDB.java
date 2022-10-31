@@ -6,15 +6,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-/*
-Inserts data into the database.
-Create this class and then call the insert() method along with the following arguments:
-    InsertDB db = new InsertDB();
-    db.insert(String table, String col1, int col2);
-The code is -LOOSELY BASED- on the code from https://www.sqlitetutorial.net/sqlite-java/insert/ taken at 13:00
-on the 14/10/2022.
-@author sqlitetutorial.net
- */
 public class InsertUserDB {
 
     public static void insert(User user) {
