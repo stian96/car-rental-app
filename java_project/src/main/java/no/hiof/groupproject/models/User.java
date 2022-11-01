@@ -1,5 +1,6 @@
 package no.hiof.groupproject.models;
 
+import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.interfaces.Serialise;
 import no.hiof.groupproject.tools.db.ConnectDB;
@@ -11,7 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class User implements Serialise, GetAutoIncrementId {
+public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
 
     //auto-incremental id
     //private static int count = 1;
@@ -81,6 +82,7 @@ public class User implements Serialise, GetAutoIncrementId {
     }
 
     //used to check if the email is stored in the database already. Returns true if the email is present
+    @Override
     public boolean existsInDb() {
         String sql = "SELECT COUNT(*) AS amount FROM users WHERE email = " + this.email;
 

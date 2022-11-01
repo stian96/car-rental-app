@@ -1,10 +1,19 @@
 package no.hiof.groupproject.models;
 
+import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
+import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.tools.db.ConnectDB;
+import no.hiof.groupproject.tools.db.GenericQueryDB;
+import no.hiof.groupproject.tools.db.InsertBookingDB;
 import no.hiof.groupproject.tools.geocode.Location;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
@@ -24,9 +33,6 @@ An example of initialisation is:
 
 public class RentOutAd extends Advertisement {
 
-    //auto-incremental id
-    //private static int count = 1;
-    private int id;
 
     private Vehicle vehicle;
     //currency in norwegian kroner (NOK) set during initialisation
@@ -57,6 +63,7 @@ public class RentOutAd extends Advertisement {
         this.cur = Currency.getInstance("NOK");
         this.dailyCharge = dailyCharge;
         this.chargePerTwentyKm = chargePerTwentyKm;
+        this.setAdvertisementSubclass("rentoutad");
         try {
             this.location = new Location(city);
             by = this.location.getBy();
@@ -67,11 +74,19 @@ public class RentOutAd extends Advertisement {
             e.printStackTrace();
         }
 
+        if (!existsInDb()) {
+            serialise();
+        }
+        this.setId(getAutoIncrementId());
+
     }
 
 
     //function to set a new period of time that the vehicle is available within
     public void addNewPeriod(LocalDate dateFrom, LocalDate dateTo) {
+        //saves the period in the database table 'availableWithin'
+        GenericQueryDB.query("INSERT INTO availableWithin (availableWithin_id_fk, dateFrom, dateTo)" +
+                "VALUES(" + this.getId() + "," + dateFrom.toString() + "," + dateTo.toString() + ")");
         availableWithin.put(dateFrom, dateTo);
         updateDateLastChanged();
     }
@@ -136,6 +151,9 @@ public class RentOutAd extends Advertisement {
             //creates a booking in the format of <renter id>.<date booking begins>.<vehicle owner id>
             //42.2024-12-24.26
             confirmedBookings.add(booking);
+            if (!booking.existsInDb()) {
+                InsertBookingDB.insert(booking);
+            }
             updateDateLastChanged();
         }
     }
@@ -143,6 +161,45 @@ public class RentOutAd extends Advertisement {
     //function used to remove rental periods that are now expired
     public void refreshPeriods() {
         availableWithin.entrySet().removeIf(entry -> LocalDate.now().isAfter(entry.getValue()));
+    }
+
+    @Override
+    public boolean existsInDb() {
+        String sql = "SELECT COUNT(*) AS amount FROM advertisements WHERE user_fk = " + this.getUser().getId() +
+                " AND vehicle_fk = " + this.vehicle.getId();
+
+        boolean ans = false;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+            return ans;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    @Override
+    public int getAutoIncrementId() {
+        String sql = "SELECT * FROM advertisements WHERE user_fk = " + this.getUser().getId() +
+                " AND vehicle_fk = " + this.vehicle.getId();
+
+        int i = 0;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            i = queryResult.getInt("advertisements_id");
+            return i;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return i;
     }
 
     public String getBy() {
@@ -240,6 +297,7 @@ public class RentOutAd extends Advertisement {
     public void setConfirmedBookings(ArrayList<Booking> confirmedBookings) {
         this.confirmedBookings = confirmedBookings;
     }
+
 }
 
 

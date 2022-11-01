@@ -1,5 +1,14 @@
 package no.hiof.groupproject.models;
 
+import no.hiof.groupproject.interfaces.ExistsInDb;
+import no.hiof.groupproject.interfaces.GetAutoIncrementId;
+import no.hiof.groupproject.interfaces.Serialise;
+import no.hiof.groupproject.tools.db.*;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 
 /*
@@ -7,7 +16,7 @@ An abstract class that is used for both advertisements relating to renting out a
 for a specific vehicle or date.
  */
 
-public abstract class Advertisement {
+public abstract class Advertisement implements Serialise, GetAutoIncrementId, ExistsInDb {
 
     //auto-incremental id
     //private static int count = 1;
@@ -18,6 +27,7 @@ public abstract class Advertisement {
     private LocalDate dateCreated;
     //date that the advertisement was last edited
     private LocalDate dateLastChanged;
+    private String advertisementSubclass;
 
     public Advertisement(User user) {
         //this.id = count;
@@ -28,9 +38,18 @@ public abstract class Advertisement {
         updateDateLastChanged();
     }
 
+    @Override
+    public void serialise() {
+        InsertAdvertisementDB.insert(this);
+    }
+
     // used when data is changed/updated
     public void updateDateLastChanged() {
         this.dateLastChanged = LocalDate.now();
+        //updates the database at the same time
+        GenericQueryDB.query("UPDATE advertisements SET dateLastChanged = " + this.dateLastChanged.toString() +
+                " WHERE advertisements_id = " + this.id);
+
     }
 
     public int getId() {
@@ -63,5 +82,13 @@ public abstract class Advertisement {
 
     public void setDateLastChanged(LocalDate dateLastChanged) {
         this.dateLastChanged = dateLastChanged;
+    }
+
+    public String getAdvertisementSubclass() {
+        return advertisementSubclass;
+    }
+
+    public void setAdvertisementSubclass(String advertisementSubclass) {
+        this.advertisementSubclass = advertisementSubclass;
     }
 }

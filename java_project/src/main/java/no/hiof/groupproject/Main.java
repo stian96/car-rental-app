@@ -3,11 +3,13 @@ package no.hiof.groupproject;
 
 import no.hiof.groupproject.interfaces.DeserialiseUser;
 import no.hiof.groupproject.interfaces.DeserialiseVehicle;
+import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -36,14 +38,14 @@ public class Main {
         System.out.println(car2.getRegNo() + " is a " + car2.getManufacturer() + " " + car2.getModel() + " from "
                 + car2.getModelYear());
 
-        /*
+
         RentOutAd roa = new RentOutAd(
                 user,
                 car,
                 BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
                 );
 
-         */
+        System.out.println(roa.getDateCreated().toString());
 
         /*
         System.out.println(roa.getLocation().getThisLocationInfo());

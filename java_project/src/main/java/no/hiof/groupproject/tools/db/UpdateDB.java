@@ -15,7 +15,7 @@ on the 14/10/2022.
  */
 public class UpdateDB {
 
-    public void update(String table, String colFrom, String valFrom, String colTo, String valTo) {
+    public static void update(String table, String colFrom, String valFrom, String colTo, String valTo) {
 
         //choose a table, then a column, then a value. All rows with that value will then be deleted
         // eg UPDATE people SET name = 'sam' WHERE name = 'samuel'

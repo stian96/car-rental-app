@@ -1,5 +1,6 @@
 package no.hiof.groupproject.models.vehicle_types;
 
+import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.interfaces.Serialise;
 import no.hiof.groupproject.tools.db.*;
@@ -9,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public abstract class Vehicle implements Serialise, GetAutoIncrementId {
+public abstract class Vehicle implements Serialise, GetAutoIncrementId, ExistsInDb {
     /* update the necessary instance variable needed */
 
     //auto-incremental id
@@ -67,6 +68,7 @@ public abstract class Vehicle implements Serialise, GetAutoIncrementId {
     }
 
     //used to check if the regNo is stored in the database already. Returns true if the regNo is present
+    @Override
     public boolean existsInDb() {
         String sql = "SELECT COUNT(*) AS amount FROM vehicles WHERE regNo = " + this.regNo;
 

@@ -1,7 +1,16 @@
 package no.hiof.groupproject.models;
 
+import no.hiof.groupproject.interfaces.ExistsInDb;
+import no.hiof.groupproject.interfaces.Serialise;
 import no.hiof.groupproject.models.payment_methods.Payment;
+import no.hiof.groupproject.tools.db.ConnectDB;
+import no.hiof.groupproject.tools.db.InsertBookingDB;
+import no.hiof.groupproject.tools.db.InsertVehicleDB;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.Date;
@@ -11,7 +20,7 @@ A class used to hold data relating to a specific singular booking. This class is
 class.
  */
 
-public class Booking {
+public class Booking implements Serialise, ExistsInDb {
 
     private String strId;
     //the person renting the vehicle
@@ -39,6 +48,37 @@ public class Booking {
         this.bookedTo = bookedTo;
         this.bookedWithin = Period.between(bookedFrom, bookedTo);
         this.payment = payment;
+
+        if (!existsInDb()) {
+            serialise();
+        }
+
+    }
+
+    @Override
+    public boolean existsInDb() {
+        String sql = "SELECT COUNT(*) AS amount FROM bookings WHERE bookings_id = " + renter.getId() + "." +
+                bookedFrom.toString() + "." + owner.getId();
+
+        boolean ans = false;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+            return ans;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    @Override
+    public void serialise() {
+        InsertBookingDB.insert(this);
     }
 
     public User getOwner() {
