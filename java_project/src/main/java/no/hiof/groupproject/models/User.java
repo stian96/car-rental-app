@@ -1,6 +1,7 @@
 package no.hiof.groupproject.models;
 
-import no.hiof.groupproject.interfaces.getUserAutoIncrementId;
+import no.hiof.groupproject.interfaces.GetAutoIncrementId;
+import no.hiof.groupproject.interfaces.Serialise;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.InsertUserDB;
 import no.hiof.groupproject.tools.db.RetrieveUserDB;
@@ -10,7 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class User {
+public class User implements Serialise, GetAutoIncrementId {
 
     //auto-incremental id
     //private static int count = 1;
@@ -50,6 +51,7 @@ public class User {
     }
 
     //serialises the User class and inserts the values into the database
+    @Override
     public void serialise() {
             InsertUserDB.insert(this);
     }
@@ -61,6 +63,7 @@ public class User {
     }
 
     //used in conjunction with an autoincremented users_id value in the database
+    @Override
     public int getAutoIncrementId() {
         String sql = "SELECT * FROM users WHERE email = " + this.email;
 

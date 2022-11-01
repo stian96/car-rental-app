@@ -1,21 +1,13 @@
 package no.hiof.groupproject;
 
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import no.hiof.groupproject.interfaces.deserialiseUser;
-import no.hiof.groupproject.interfaces.deserialiseVehicle;
-import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.interfaces.DeserialiseUser;
+import no.hiof.groupproject.interfaces.DeserialiseVehicle;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.db.GenericQueryDB;
 
-import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.sql.PreparedStatement;
-import java.util.Currency;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -33,14 +25,14 @@ public class Main {
                 "12341234123", "sam@sam.no", "12341234");
 
 
-        User user2 = deserialiseUser.deserialiseSpecificId(1);
+        User user2 = DeserialiseUser.deserialiseSpecificId(1);
         System.out.println(user2.getFirstName() + " lives at " + user2.getPostNr());
 
 
         Vehicle car = new Car("12341234", "audi", "tt", "petrol",
                 "automatic", 2013, 5, 1500);
 
-        Vehicle car2 = deserialiseVehicle.deserialiseSpecificId(1);
+        Vehicle car2 = DeserialiseVehicle.deserialiseSpecificId(1);
         System.out.println(car2.getRegNo() + " is a " + car2.getManufacturer() + " " + car2.getModel() + " from "
                 + car2.getModelYear());
 

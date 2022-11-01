@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 //used to retrieve an int value of the id/primary key (users_id) based on a specific email
-public interface getUserAutoIncrementId {
+public interface GetUserAutoIncrementId {
 
     static int getSpecificAutoIncrementId(String email) {
         String sql = "SELECT * FROM users WHERE email = " + email;

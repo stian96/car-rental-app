@@ -1,6 +1,7 @@
 package no.hiof.groupproject.models.vehicle_types;
 
-import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.interfaces.GetAutoIncrementId;
+import no.hiof.groupproject.interfaces.Serialise;
 import no.hiof.groupproject.tools.db.*;
 
 import java.sql.Connection;
@@ -8,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public abstract class Vehicle {
+public abstract class Vehicle implements Serialise, GetAutoIncrementId {
     /* update the necessary instance variable needed */
 
     //auto-incremental id
@@ -36,6 +37,7 @@ public abstract class Vehicle {
     }
 
     //serialises the Vehicle class and inserts the values into the database
+    @Override
     public void serialise() {
         InsertVehicleDB.insert(this);
     }
@@ -47,6 +49,7 @@ public abstract class Vehicle {
     }
 
     //used in conjunction with an autoincremented vehicles_id value in the database
+    @Override
     public int getAutoIncrementId() {
         String sql = "SELECT * FROM vehicles WHERE regNo = " + this.regNo;
 
