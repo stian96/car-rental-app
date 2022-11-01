@@ -22,22 +22,25 @@ public class InsertAvailableWithinDB {
         String sql = "INSERT INTO availableWithin (availableWithin_id_fk, dateFrom, dateTo)" +
                 "VALUES(?,?,?)";
 
-        for (Map.Entry<LocalDate, LocalDate> set : ((RentOutAd) advertisement).getAvailableWithin().entrySet()) {
-            try (Connection conn = ConnectDB.connect();
-                 PreparedStatement str = conn.prepareStatement(sql)) {
+        if (((RentOutAd) advertisement).getAvailableWithin() != null) {
+            for (Map.Entry<LocalDate, LocalDate> set : ((RentOutAd) advertisement).getAvailableWithin().entrySet()) {
+                try (Connection conn = ConnectDB.connect();
+                     PreparedStatement str = conn.prepareStatement(sql)) {
 
 
-                if (!AvailableWithinExistsInDb.existsInDb(advertisement, set)) {
-                    str.setInt(1, advertisement.getId());
-                    str.setString(2, set.getKey().toString());
-                    str.setString(3, set.getValue().toString());
-                    str.executeUpdate();
+                    if (!AvailableWithinExistsInDb.existsInDb(advertisement, set)) {
+                        str.setInt(1, advertisement.getId());
+                        str.setString(2, set.getKey().toString());
+                        str.setString(3, set.getValue().toString());
+                        str.executeUpdate();
+                    }
+
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
                 }
-
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
             }
         }
+
 
     }
 }
