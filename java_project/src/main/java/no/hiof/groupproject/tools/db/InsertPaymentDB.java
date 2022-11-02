@@ -32,8 +32,8 @@ public class InsertPaymentDB {
                 str.setString(5, ((Paypal) payment).getEmail());
                 str.setString(6, ((Paypal) payment).getPwd());
             } else if (Objects.equals(payment.getPaymentType(), "vipps")) {
-                str.setString(5, ((Vipps) payment).getTlfnr());
-                str.setString(6, ((Vipps) payment).getPincode());
+                str.setString(7, ((Vipps) payment).getTlfnr());
+                str.setString(8, ((Vipps) payment).getPincode());
             }
             str.executeUpdate();
         } catch (SQLException e) {

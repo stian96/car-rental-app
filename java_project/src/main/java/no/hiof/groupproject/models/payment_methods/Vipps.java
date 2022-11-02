@@ -48,7 +48,7 @@ public class Vipps extends Payment {
 
     @Override
     public boolean existsInDb() {
-        String sql = "SELECT COUNT(*) AS amount FROM payments WHERE tlfnr = " + this.tlfnr;
+        String sql = "SELECT COUNT(*) AS amount FROM payments WHERE tlfnr = \'" + this.tlfnr + "\'";
 
         boolean ans = false;
         try (Connection conn = ConnectDB.connect();
@@ -68,7 +68,7 @@ public class Vipps extends Payment {
 
     @Override
     public int getAutoIncrementId() {
-        String sql = "SELECT * FROM payments WHERE tlfnr = " + this.tlfnr;
+        String sql = "SELECT * FROM payments WHERE tlfnr = \'" + this.tlfnr + "\'";
 
         int i = 0;
         try (Connection conn = ConnectDB.connect();

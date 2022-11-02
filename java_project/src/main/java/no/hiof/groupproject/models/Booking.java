@@ -20,7 +20,7 @@ A class used to hold data relating to a specific singular booking. This class is
 class.
  */
 
-public class Booking implements Serialise, ExistsInDb {
+public class Booking implements ExistsInDb, Serialise {
 
     private String strId;
     //the person renting the vehicle
@@ -44,6 +44,7 @@ public class Booking implements Serialise, ExistsInDb {
         this.strId = renter.getId() + "." + bookedFrom.toString() + "." + owner.getId();
 
         this.renter = renter;
+        this.owner = owner;
         this.bookedFrom = bookedFrom;
         this.bookedTo = bookedTo;
         this.bookedWithin = Period.between(bookedFrom, bookedTo);
@@ -57,8 +58,7 @@ public class Booking implements Serialise, ExistsInDb {
 
     @Override
     public boolean existsInDb() {
-        String sql = "SELECT COUNT(*) AS amount FROM bookings WHERE bookings_id = " + renter.getId() + "." +
-                bookedFrom.toString() + "." + owner.getId();
+        String sql = "SELECT COUNT(*) AS amount FROM bookings WHERE bookings_id = " + strId;
 
         boolean ans = false;
         try (Connection conn = ConnectDB.connect();
@@ -80,6 +80,7 @@ public class Booking implements Serialise, ExistsInDb {
     public void serialise() {
         InsertBookingDB.insert(this);
     }
+
 
     public User getOwner() {
         return owner;

@@ -63,7 +63,7 @@ public class CreditDebit extends Payment {
 
     @Override
     public boolean existsInDb() {
-        String sql = "SELECT COUNT(*) AS amount FROM payments WHERE cardNumber = " + this.card_number;
+        String sql = "SELECT COUNT(*) AS amount FROM payments WHERE cardNumber = \'" + this.card_number + "\'";
 
         boolean ans = false;
         try (Connection conn = ConnectDB.connect();

@@ -66,6 +66,7 @@ public class RentOutAd extends Advertisement {
         this.chargePerTwentyKm = chargePerTwentyKm;
         this.setAdvertisementSubclass("rentoutad");
         availableWithin = new TreeMap<>();
+        confirmedBookings = new ArrayList<>();
         try {
             this.location = new Location(city);
             by = this.location.getBy();
@@ -154,9 +155,6 @@ public class RentOutAd extends Advertisement {
             //creates a booking in the format of <renter id>.<date booking begins>.<vehicle owner id>
             //42.2024-12-24.26
             confirmedBookings.add(booking);
-            if (!booking.existsInDb()) {
-                InsertBookingDB.insert(booking);
-            }
             updateDateLastChanged();
         }
     }

@@ -26,10 +26,7 @@ public class InsertUserDB {
             str.setString(5, user.getBankAccountNr());
             str.setString(6, user.getEmail());
             str.setString(7, user.getTlfNr());
-
-            if (user.getdLicense() != null) {
-                str.setString(8, user.getdLicense().getLicenseNumber());
-            }
+            str.setString(8, user.getdLicense().getLicenseNumber());
 
             str.executeUpdate();
         } catch (SQLException e) {

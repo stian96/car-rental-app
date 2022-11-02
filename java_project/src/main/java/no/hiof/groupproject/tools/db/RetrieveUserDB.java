@@ -72,9 +72,6 @@ public class RetrieveUserDB {
             returnedUser = new User(firstName, lastName, postNr, password, bankAccountNr, email, tlfNr, dLicense);
             returnedUser.setId(idNumber);
 
-            returnedUser = new User(firstName, lastName, postNr, password, bankAccountNr, email, tlfNr, dLicense);
-            returnedUser.setId(idNumber);
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }

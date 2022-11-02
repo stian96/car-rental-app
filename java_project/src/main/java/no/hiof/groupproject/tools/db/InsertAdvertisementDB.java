@@ -38,14 +38,11 @@ public class InsertAdvertisementDB implements AvailableWithinExistsInDb {
                 str.setString(10, ((RentOutAd) advertisement).getPostnr());
                 str.setString(11, ((RentOutAd) advertisement).getLand());
                 //loops through all confirmed bookings and saves them
+                /*
                 if (((RentOutAd) advertisement).getConfirmedBookings() != null) {
-                    for (Booking booking : ((RentOutAd) advertisement).getConfirmedBookings()) {
-                        if (!booking.existsInDb()) {
-                            //saves both the booking and the payment used for said booking
-                            InsertBookingDB.insert(booking);
-                        }
-                    }
+                    InsertBookingDB.insert(((RentOutAd) advertisement).getConfirmedBookings());
                 }
+                 */
 
 
                 //serialises any availableWithin periods that aren't already stored in the database

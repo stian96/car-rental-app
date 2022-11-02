@@ -49,7 +49,7 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
         }
         //the id is automatically incremented when inserted into the database
         //the autoincrement id is fetched and assigned to this instance
-        this.id = getAutoIncrementId();
+        this.setId(getAutoIncrementId());
     }
 
     //serialises the User class and inserts the values into the database
@@ -67,7 +67,7 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
     //used in conjunction with an autoincremented users_id value in the database
     @Override
     public int getAutoIncrementId() {
-        String sql = "SELECT * FROM users WHERE email = " + this.email;
+        String sql = "SELECT * FROM users WHERE email = \'" + this.email + "\'";
 
         int i = 0;
         try (Connection conn = ConnectDB.connect();

@@ -3,8 +3,12 @@ package no.hiof.groupproject;
 
 import no.hiof.groupproject.interfaces.DeserialiseUser;
 import no.hiof.groupproject.interfaces.DeserialiseVehicle;
+import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.models.payment_methods.Payment;
+import no.hiof.groupproject.models.payment_methods.Paypal;
+import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.VerifyLicense;
@@ -31,7 +35,7 @@ public class Main {
         User user = new User("sam", "davies", "1111", "hunter2",
                 "12341234123", "sam@sam.no", "12341234", license);
         User user3 = new User("gsdfg", "qweqwe", "1111", "hunter2",
-                "12341234123", "sam@sam.no", "12341234", license);
+                "12341234123", "sam@samland.no", "12341234", license);
 
 
         User user2 = DeserialiseUser.deserialiseSpecificId(1);
@@ -58,6 +62,8 @@ public class Main {
         System.out.println(LocalDate.parse("2022-08-01"));
         roa.addNewPeriod(LocalDate.parse("2022-08-01"), LocalDate.parse("2022-12-23"));
         roa.addNewPeriod(LocalDate.parse("2022-12-26"), LocalDate.parse("2023-12-23"));
+        roa.addBooking(new Booking(user, user3, LocalDate.parse("2022-11-10"), LocalDate.parse("2022-11-15"),
+                new Vipps("12345678", "1234")));
 
         TreeMap<LocalDate, LocalDate> testing = new TreeMap<>();
 
@@ -66,6 +72,14 @@ public class Main {
 
 
         System.out.println(roa.getDateCreated().toString());
+        System.out.println("\n\n\n" + user.getAutoIncrementId());
+        System.out.println("\n\n\n" + car.getAutoIncrementId());
+
+        Vipps blah = new Vipps("55664477", "5435");
+        System.out.println(blah.getId());
+
+        Paypal blah2 = new Paypal("sam@sam.eg", "asdawfw");
+        System.out.println(blah2.getId());
 
 
 

@@ -54,7 +54,7 @@ public abstract class PaymentViaAccount extends Payment {
 
     @Override
     public int getAutoIncrementId() {
-        String sql = "SELECT * FROM payments WHERE email = " + this.email;
+        String sql = "SELECT * FROM payments WHERE email = \'" + this.email + "\'";
 
         int i = 0;
         try (Connection conn = ConnectDB.connect();
