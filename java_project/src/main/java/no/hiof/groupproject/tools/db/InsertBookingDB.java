@@ -4,6 +4,7 @@ import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
 import no.hiof.groupproject.models.Advertisement;
 import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.payment_methods.*;
 
 import java.sql.Array;
 import java.sql.Connection;
@@ -32,7 +33,17 @@ public class InsertBookingDB {
             str.setInt(3, booking.getOwner().getId());
             str.setString(4, booking.getBookedFrom().toString());
             str.setString(5, booking.getBookedTo().toString());
-            str.setInt(6, booking.getPayment().getId());
+            Payment payment = booking.getPayment();
+            //NOT REDUNDANT - causes getId() to have a default value of 0 otherwise
+            if (Objects.equals(booking.getPayment().getPaymentType(), "creditdebit")) {
+                str.setInt(6, ((CreditDebit) payment).getId());
+            } else if (Objects.equals(booking.getPayment().getPaymentType(), "googlepay")) {
+                str.setInt(6, ((GooglePay) payment).getId());
+            } else if (Objects.equals(booking.getPayment().getPaymentType(), "paypal")) {
+                str.setInt(6, ((Paypal) payment).getId());
+            } else if (Objects.equals(booking.getPayment().getPaymentType(), "vipps")) {
+                str.setInt(6, ((Vipps) payment).getId());
+            }
             str.executeUpdate();
 
         } catch (SQLException e) {

@@ -58,7 +58,7 @@ public class Booking implements ExistsInDb, Serialise {
 
     @Override
     public boolean existsInDb() {
-        String sql = "SELECT COUNT(*) AS amount FROM bookings WHERE bookings_id = " + strId;
+        String sql = "SELECT COUNT(*) AS amount FROM bookings WHERE bookings_id = \'" + strId + "\'";
 
         boolean ans = false;
         try (Connection conn = ConnectDB.connect();
