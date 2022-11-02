@@ -1,6 +1,9 @@
 package no.hiof.groupproject.models;
 
-import no.hiof.groupproject.interfaces.getUserAutoIncrementId;
+import no.hiof.groupproject.interfaces.ExistsInDb;
+import no.hiof.groupproject.interfaces.GetAutoIncrementId;
+import no.hiof.groupproject.interfaces.Serialise;
+import no.hiof.groupproject.tools.VerifyLicense;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.InsertUserDB;
 import no.hiof.groupproject.tools.db.RetrieveUserDB;
@@ -10,7 +13,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class User {
+public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
 
     //auto-incremental id
     //private static int count = 1;
@@ -18,9 +21,7 @@ public class User {
 
     //integration of a driving license class here would be great - so that VerifyDrivingLicense could be used when
     //a GUI button to rent a car is activated
-    //private DrivingLicence dLicense:
-
-
+    private VerifyLicense dLicense;
     private String firstName, lastName, postNr;
     //obviously the password would be encrypted in a final build
     private String password;
@@ -28,7 +29,7 @@ public class User {
     private String bankAccountNr, email, tlfNr;
 
     public User(String firstName, String lastName, String postNr, String password,
-                String bankAccountNr, String email, String tlfNr) {
+                String bankAccountNr, String email, String tlfNr, VerifyLicense dLicense) {
         //this.id = count;
         //increments the id by 1
         //count++;
@@ -39,6 +40,8 @@ public class User {
         this.bankAccountNr = bankAccountNr;
         this.email = email;
         this.tlfNr = tlfNr;
+        this.dLicense = dLicense;
+
 
         //if no User with the same email is in the database then the User class is serialised and saved
         if (!existsInDb()) {
@@ -46,10 +49,11 @@ public class User {
         }
         //the id is automatically incremented when inserted into the database
         //the autoincrement id is fetched and assigned to this instance
-        this.id = getAutoIncrementId();
+        this.setId(getAutoIncrementId());
     }
 
     //serialises the User class and inserts the values into the database
+    @Override
     public void serialise() {
             InsertUserDB.insert(this);
     }
@@ -61,8 +65,9 @@ public class User {
     }
 
     //used in conjunction with an autoincremented users_id value in the database
+    @Override
     public int getAutoIncrementId() {
-        String sql = "SELECT * FROM users WHERE email = " + this.email;
+        String sql = "SELECT * FROM users WHERE email = \'" + this.email + "\'";
 
         int i = 0;
         try (Connection conn = ConnectDB.connect();
@@ -78,6 +83,7 @@ public class User {
     }
 
     //used to check if the email is stored in the database already. Returns true if the email is present
+    @Override
     public boolean existsInDb() {
         String sql = "SELECT COUNT(*) AS amount FROM users WHERE email = " + this.email;
 
@@ -159,5 +165,13 @@ public class User {
 
     public void setTlfNr(String tlfNr) {
         this.tlfNr = tlfNr;
+    }
+
+    public VerifyLicense getdLicense() {
+        return dLicense;
+    }
+
+    public void setdLicense(VerifyLicense dLicense) {
+        this.dLicense = dLicense;
     }
 }
