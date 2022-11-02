@@ -1,6 +1,7 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.tools.VerifyLicense;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -25,7 +26,10 @@ public class InsertUserDB {
             str.setString(5, user.getBankAccountNr());
             str.setString(6, user.getEmail());
             str.setString(7, user.getTlfNr());
-            str.setString(8, user.getdLicense().getLicenseNumber());
+
+            if (user.getdLicense() != null) {
+                str.setString(8, user.getdLicense().getLicenseNumber());
+            }
 
             str.executeUpdate();
         } catch (SQLException e) {

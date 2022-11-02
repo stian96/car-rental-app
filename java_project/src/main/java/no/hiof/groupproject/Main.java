@@ -28,22 +28,25 @@ public class Main {
 
         User user = new User("sam", "davies", "1111", "hunter2",
                 "12341234123", "sam@sam.no", "12341234", license);
-        //User user3 = new User("gsdfg", "qweqwe", "1111", "hunter2",
-        //        "12341234123", "sam@sam.no", "12341234");
+        User user3 = new User("gsdfg", "qweqwe", "1111", "hunter2",
+                "12341234123", "sam@sam.no", "12341234", license);
 
 
-        //User user2 = DeserialiseUser.deserialiseSpecificId(1);
-        //System.out.println(user2.getFirstName() + " lives at " + user2.getPostNr());
+        User user2 = DeserialiseUser.deserialiseSpecificId(1);
+        System.out.println(user2.getFirstName() + " lives at " + user2.getPostNr() + " and has a license from " +
+                user2.getdLicense().getCountryOfIssue());
 
 
         Vehicle car = new Car("12341234", "audi", "tt", "petrol",
                 "automatic", 2013, 5, 1500);
 
-        //Vehicle car2 = DeserialiseVehicle.deserialiseSpecificId(1);
-        //System.out.println(car2.getRegNo() + " is a " + car2.getManufacturer() + " " + car2.getModel() + " from "
-        //        + car2.getModelYear());
 
 
+        Vehicle car2 = DeserialiseVehicle.deserialiseSpecificId(1);
+        System.out.println(car2.getRegNo() + " is a " + car2.getManufacturer() + " " + car2.getModel() + " from "
+                + car2.getModelYear());
+
+/*
         RentOutAd roa = new RentOutAd(
                 user,
                 car,
@@ -52,6 +55,8 @@ public class Main {
 
         System.out.println(roa.getDateCreated().toString());
 
+
+ */
         /*
         System.out.println(roa.getLocation().getThisLocationInfo());
         System.out.println(roa.getLocation().getBy() + " is in the county of "

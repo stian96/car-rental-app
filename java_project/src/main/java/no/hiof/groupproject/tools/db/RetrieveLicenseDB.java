@@ -11,6 +11,13 @@ import java.time.LocalDate;
 
 /*
 Returns a specific User in the database based on either the id or email of the User, both of which are unique values
+
+!NOTE
+!NOTE
+!NOTE: this was problematic to deserialise, and thus I found it simpler to simply create an inner join on RetrieveUserDB
+and create a User with a License inside there
+!NOTE
+!NOTE
  */
 public class RetrieveLicenseDB {
 
@@ -36,11 +43,11 @@ public class RetrieveLicenseDB {
         return dLicense;
     }
 
-     */
+
 
     public static VerifyLicense retrieveFromLicenseNr(String licenseNumber) {
 
-        String sql = "SELECT * FROM licenses WHERE licenseNumber = " + licenseNumber;
+        String sql = "SELECT * FROM users  INNER JOIN licenses ON license=licenseNumber WHERE license = " + licenseNumber;
 
         VerifyLicense dLicense = null;
         try (Connection conn = ConnectDB.connect();
@@ -49,8 +56,8 @@ public class RetrieveLicenseDB {
             ResultSet queryResult = str.executeQuery();
             String dateOfIssue = queryResult.getString("dateOfIssue");
             String countryOfIssue = queryResult.getString("countryOfIssue");
-            int ownerId = queryResult.getInt("users_fk");
 
+            System.out.println("\n\n" + licenseNumber + dateOfIssue + countryOfIssue + "\n\n");
             dLicense = new VerifyLicense(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
 
         } catch (SQLException e) {
@@ -58,4 +65,6 @@ public class RetrieveLicenseDB {
         }
         return dLicense;
     }
+
+     */
 }
