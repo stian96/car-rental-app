@@ -5,6 +5,7 @@ import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.GenericQueryDB;
+import no.hiof.groupproject.tools.db.InsertAvailableWithinDB;
 import no.hiof.groupproject.tools.db.InsertBookingDB;
 import no.hiof.groupproject.tools.geocode.Location;
 
@@ -64,6 +65,7 @@ public class RentOutAd extends Advertisement {
         this.dailyCharge = dailyCharge;
         this.chargePerTwentyKm = chargePerTwentyKm;
         this.setAdvertisementSubclass("rentoutad");
+        availableWithin = new TreeMap<>();
         try {
             this.location = new Location(city);
             by = this.location.getBy();
@@ -84,10 +86,11 @@ public class RentOutAd extends Advertisement {
 
     //function to set a new period of time that the vehicle is available within
     public void addNewPeriod(LocalDate dateFrom, LocalDate dateTo) {
-        //saves the period in the database table 'availableWithin'
-        GenericQueryDB.query("INSERT INTO availableWithin (availableWithin_id_fk, dateFrom, dateTo)" +
-                "VALUES(" + this.getId() + "," + dateFrom.toString() + "," + dateTo.toString() + ")");
         availableWithin.put(dateFrom, dateTo);
+        String insertDateFrom = dateFrom.toString();
+        System.out.println("the date is " + insertDateFrom);
+        //saves the period in the database table 'availableWithin'
+        InsertAvailableWithinDB.insert(this, availableWithin);
         updateDateLastChanged();
     }
 

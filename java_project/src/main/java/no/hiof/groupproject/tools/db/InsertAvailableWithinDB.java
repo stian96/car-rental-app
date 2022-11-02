@@ -14,6 +14,7 @@ import java.util.TreeMap;
 
 /*
 A class used to serialise a TreeMap of dates available to book into a database for permanent storage.
+IMPORTANT: SQLite table 'availableWithin' has a multiple column constraint to prevent the same periods being added
  */
 public class InsertAvailableWithinDB {
 

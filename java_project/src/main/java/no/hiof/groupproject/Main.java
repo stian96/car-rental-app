@@ -12,6 +12,8 @@ import no.hiof.groupproject.tools.VerifyLicense;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -46,17 +48,27 @@ public class Main {
         System.out.println(car2.getRegNo() + " is a " + car2.getManufacturer() + " " + car2.getModel() + " from "
                 + car2.getModelYear());
 
-/*
+
         RentOutAd roa = new RentOutAd(
                 user,
                 car,
                 BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
                 );
 
+        System.out.println(LocalDate.parse("2022-08-01"));
+        roa.addNewPeriod(LocalDate.parse("2022-08-01"), LocalDate.parse("2022-12-23"));
+        roa.addNewPeriod(LocalDate.parse("2022-12-26"), LocalDate.parse("2023-12-23"));
+
+        TreeMap<LocalDate, LocalDate> testing = new TreeMap<>();
+
+        testing.put(LocalDate.parse("2022-08-01"), LocalDate.parse("2022-12-23"));
+
+
+
         System.out.println(roa.getDateCreated().toString());
 
 
- */
+
         /*
         System.out.println(roa.getLocation().getThisLocationInfo());
         System.out.println(roa.getLocation().getBy() + " is in the county of "
