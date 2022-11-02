@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSource name="test.db">
-  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.32">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.43">
     <root id="1">
       <ServerVersion>3.39.2</ServerVersion>
     </root>
@@ -1323,10 +1323,10 @@
     <table id="485" parent="166" name="users"/>
     <table id="486" parent="166" name="vehicles"/>
     <column id="487" parent="482" name="people_pk">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="488" parent="482" name="name">
       <DataType>VARCHAR(255)|0s</DataType>
@@ -1339,6 +1339,7 @@
     <key id="490" parent="482">
       <ColNames>people_pk</ColNames>
       <Primary>1</Primary>
+      <UnderlyingIndexColNames>people_pk</UnderlyingIndexColNames>
     </key>
     <column id="491" parent="483" name="type">
       <DataType>TEXT|0s</DataType>
@@ -1408,12 +1409,10 @@
     </column>
     <index id="506" parent="485" name="users_users_id_uindex">
       <ColNames>users_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="507" parent="485" name="users_email_uindex">
       <ColNames>email</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="508" parent="485" name="users_pk">
@@ -1422,10 +1421,10 @@
       <UnderlyingIndexName>users_users_id_uindex</UnderlyingIndexName>
     </key>
     <column id="509" parent="486" name="vehicles_id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="510" parent="486" name="vehicleSubclass">
       <DataType>VARCHAR(255)|0s</DataType>
@@ -1496,12 +1495,10 @@
     </column>
     <index id="525" parent="486" name="vehicles_vehicles_id_uindex">
       <ColNames>vehicles_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="526" parent="486" name="vehicles_regNo_uindex">
       <ColNames>regNo</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="527" parent="486" name="vehicles_pk">
