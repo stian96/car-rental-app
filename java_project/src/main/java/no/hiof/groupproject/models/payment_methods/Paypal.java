@@ -16,4 +16,7 @@ public class Paypal extends PaymentViaAccount {
     }
 
 
+    public Paypal() {
+        super();
+    }
 }

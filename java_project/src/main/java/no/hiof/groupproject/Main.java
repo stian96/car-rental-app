@@ -7,9 +7,11 @@ import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.tools.VerifyLicense;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -21,22 +23,25 @@ public class Main {
         */
 
 
+        VerifyLicense license = new VerifyLicense("98 45 123456 1", LocalDate.parse("2008-05-12"),
+                "Norway");
+
         User user = new User("sam", "davies", "1111", "hunter2",
-                "12341234123", "sam@sam.no", "12341234");
-        User user3 = new User("gsdfg", "qweqwe", "1111", "hunter2",
-                "12341234123", "sam@sam.no", "12341234");
+                "12341234123", "sam@sam.no", "12341234", license);
+        //User user3 = new User("gsdfg", "qweqwe", "1111", "hunter2",
+        //        "12341234123", "sam@sam.no", "12341234");
 
 
-        User user2 = DeserialiseUser.deserialiseSpecificId(1);
-        System.out.println(user2.getFirstName() + " lives at " + user2.getPostNr());
+        //User user2 = DeserialiseUser.deserialiseSpecificId(1);
+        //System.out.println(user2.getFirstName() + " lives at " + user2.getPostNr());
 
 
         Vehicle car = new Car("12341234", "audi", "tt", "petrol",
                 "automatic", 2013, 5, 1500);
 
-        Vehicle car2 = DeserialiseVehicle.deserialiseSpecificId(1);
-        System.out.println(car2.getRegNo() + " is a " + car2.getManufacturer() + " " + car2.getModel() + " from "
-                + car2.getModelYear());
+        //Vehicle car2 = DeserialiseVehicle.deserialiseSpecificId(1);
+        //System.out.println(car2.getRegNo() + " is a " + car2.getManufacturer() + " " + car2.getModel() + " from "
+        //        + car2.getModelYear());
 
 
         RentOutAd roa = new RentOutAd(
@@ -65,6 +70,7 @@ public class Main {
         Configuration factory = new Configuration();
         factory.configure("hibernate.cfg.xml");
          */
+
 
     }
 }

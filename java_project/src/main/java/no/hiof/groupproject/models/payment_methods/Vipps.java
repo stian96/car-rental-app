@@ -42,6 +42,10 @@ public class Vipps extends Payment {
 
     }
 
+    public Vipps() {
+
+    }
+
     @Override
     public boolean existsInDb() {
         String sql = "SELECT COUNT(*) AS amount FROM payments WHERE tlfnr = " + this.tlfnr;

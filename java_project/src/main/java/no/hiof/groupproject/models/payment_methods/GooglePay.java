@@ -15,4 +15,7 @@ public class GooglePay extends PaymentViaAccount {
     }
 
 
+    public GooglePay() {
+
+    }
 }

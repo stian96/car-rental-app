@@ -51,6 +51,10 @@ public class CreditDebit extends Payment {
         this.setId(getAutoIncrementId());
     }
 
+    public CreditDebit() {
+
+    }
+
     //creates a pair that can be inserted as a value so that the dummy
     //hashmap used for testing has 3 values instead of 2
     public void storeCCVDateInPair() {

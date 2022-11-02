@@ -28,6 +28,10 @@ public abstract class PaymentViaAccount extends Payment {
 
     }
 
+    public PaymentViaAccount() {
+
+    }
+
     @Override
     public boolean existsInDb() {
         String sql = "SELECT COUNT(*) AS amount FROM payments WHERE email = " + this.email;
