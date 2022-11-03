@@ -15,6 +15,7 @@ import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.License;
 import no.hiof.groupproject.tools.db.RetrieveLicenseDB;
 import no.hiof.groupproject.tools.db.RetrieveRatingDB;
+import no.hiof.groupproject.tools.db.RetrieveUserProfileDB;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -91,6 +92,10 @@ public class Main {
             System.out.println("\n\nUser giving ratings: " + rating.getKey().getFirstName() + " " +
                     rating.getKey().getLastName() + "\nRating score: " + rating.getValue());
         };
+
+        UserProfile up2 = RetrieveUserProfileDB.retrieve(1);
+        System.out.println(up2.getUser().getFirstName() + " " + up2.getUser().getLastName() + " has an average rating " +
+                "of " + up2.getAverageRating());
 
 
 
