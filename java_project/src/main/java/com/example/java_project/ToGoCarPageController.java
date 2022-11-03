@@ -1,14 +1,12 @@
 package com.example.java_project;
 
-import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
-
 import java.io.IOException;
 
-public class ToGoCarPageController{
+public class ToGoCarPageController {
 
     @FXML
     private Button button_registerCar;
@@ -110,28 +108,28 @@ public class ToGoCarPageController{
 
     private void registerAcar() throws IOException{
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
     }
     private void bookAcar() throws IOException{
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
     }
     private void user_profile() throws IOException{
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("Profile.fxml");
     }
     private void MessageCheck() throws IOException{
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
     }
     private void CustomerServicePage() throws IOException{
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
     }
 
     private void LogOutCheck() throws IOException{
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
     }
 
 }
