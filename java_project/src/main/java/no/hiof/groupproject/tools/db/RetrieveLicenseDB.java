@@ -1,7 +1,6 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.tools.VerifyLicense;
+import no.hiof.groupproject.tools.License;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -21,12 +20,32 @@ and create a User with a License inside there
  */
 public class RetrieveLicenseDB {
 
-    /*
-    public static VerifyLicense retrieveFromId(int id) {
+    public static License retrieveFromLicenseNr(String licenseNumber) {
 
-        String sql = "SELECT * FROM licenses WHERE user_fk = " + id;
+        String sql = "SELECT * FROM licenses WHERE licenseNumber = \'" + licenseNumber + "\'";
 
-        VerifyLicense dLicense = null;
+        License dLicense = null;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            String dateOfIssue = queryResult.getString("dateOfIssue");
+            String countryOfIssue = queryResult.getString("countryOfIssue");
+
+            dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return dLicense;
+    }
+
+
+    public static License retrieveFromId(int id) {
+
+        String sql = "SELECT * FROM users INNER JOIN licenses ON license=licenseNumber WHERE users_id = " + id;
+
+        License dLicense = null;
         try (Connection conn = ConnectDB.connect();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
@@ -35,7 +54,7 @@ public class RetrieveLicenseDB {
             String dateOfIssue = queryResult.getString("dateOfIssue");
             String countryOfIssue = queryResult.getString("countryOfIssue");
 
-            dLicense = new VerifyLicense(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
+            dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -43,28 +62,4 @@ public class RetrieveLicenseDB {
         return dLicense;
     }
 
-
-
-    public static VerifyLicense retrieveFromLicenseNr(String licenseNumber) {
-
-        String sql = "SELECT * FROM users  INNER JOIN licenses ON license=licenseNumber WHERE license = " + licenseNumber;
-
-        VerifyLicense dLicense = null;
-        try (Connection conn = ConnectDB.connect();
-             PreparedStatement str = conn.prepareStatement(sql)) {
-
-            ResultSet queryResult = str.executeQuery();
-            String dateOfIssue = queryResult.getString("dateOfIssue");
-            String countryOfIssue = queryResult.getString("countryOfIssue");
-
-            System.out.println("\n\n" + licenseNumber + dateOfIssue + countryOfIssue + "\n\n");
-            dLicense = new VerifyLicense(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        return dLicense;
-    }
-
-     */
 }

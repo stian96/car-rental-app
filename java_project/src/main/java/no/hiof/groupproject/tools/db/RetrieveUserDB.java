@@ -1,7 +1,7 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.tools.VerifyLicense;
+import no.hiof.groupproject.tools.License;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,7 +35,7 @@ public class RetrieveUserDB {
             String dateOfIssue = queryResult.getString("dateOfIssue");
             String countryOfIssue = queryResult.getString("countryOfIssue");
 
-            VerifyLicense dLicense = new VerifyLicense(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
+            License dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
 
             returnedUser = new User(firstName, lastName, postNr, password, bankAccountNr, email, tlfNr, dLicense);
             returnedUser.setId(id);
@@ -48,7 +48,7 @@ public class RetrieveUserDB {
 
     public static User retrieveFromEmail(String email) {
 
-        String sql = "SELECT * FROM users INNER JOIN licenses ON license=licenseNumber WHERE email = " + email;
+        String sql = "SELECT * FROM users WHERE email = " + email;
 
         User returnedUser = null;
 
@@ -64,10 +64,8 @@ public class RetrieveUserDB {
             String bankAccountNr = queryResult.getString("bankAccountNr");
             String tlfNr = queryResult.getString("tlfNr");
             String licenseNumber = queryResult.getString("license");
-            String dateOfIssue = queryResult.getString("dateOfIssue");
-            String countryOfIssue = queryResult.getString("countryOfIssue");
 
-            VerifyLicense dLicense = new VerifyLicense(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
+            License dLicense = RetrieveLicenseDB.retrieveFromLicenseNr(licenseNumber);
 
             returnedUser = new User(firstName, lastName, postNr, password, bankAccountNr, email, tlfNr, dLicense);
             returnedUser.setId(idNumber);

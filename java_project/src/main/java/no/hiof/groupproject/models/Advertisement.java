@@ -47,8 +47,9 @@ public abstract class Advertisement implements Serialise, GetAutoIncrementId, Ex
     public void updateDateLastChanged() {
         this.dateLastChanged = LocalDate.now();
         //updates the database at the same time
-        GenericQueryDB.query("UPDATE advertisements SET dateLastChanged = " + this.dateLastChanged.toString() +
-                " WHERE advertisements_id = " + this.id);
+        //NOTE - escaping the apostrophe is critical to set the correct date
+        GenericQueryDB.query("UPDATE advertisements SET dateLastChanged = \'" + this.dateLastChanged.toString() +
+                "\' WHERE advertisements_id = " + this.id);
 
     }
 

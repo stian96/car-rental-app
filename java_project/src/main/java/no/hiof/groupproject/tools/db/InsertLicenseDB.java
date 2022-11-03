@@ -1,19 +1,17 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.payment_methods.*;
-import no.hiof.groupproject.tools.VerifyLicense;
+import no.hiof.groupproject.tools.License;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.Objects;
 
 /*
 A class used to serialise a Booking into a database for permanent storage.
  */
 public class InsertLicenseDB {
 
-    public static void insert(VerifyLicense dLicense) {
+    public static void insert(License dLicense) {
 
         String sql = "INSERT INTO licenses (licenseNumber, dateOfIssue, countryOfIssue)" +
                 "VALUES(?,?,?)";
