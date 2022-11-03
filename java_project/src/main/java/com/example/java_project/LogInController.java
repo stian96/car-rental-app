@@ -34,14 +34,6 @@ public class LogInController {
     @FXML
     protected Button button_signUp;
 
-
-    public LogInController(){
-
-
-    }
-
-
-
     public void userLogIn(ActionEvent event) throws IOException {
         Main m = new Main();
         User u = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
@@ -63,48 +55,10 @@ public class LogInController {
         SignUpCheck();
     }
 
-    public void isVerified() throws IOException {
-        Main m = new Main();
-
-        User u= RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
-        if(u.getEmail().equals(tf_password.getText())){
-            wrongLogin.setText("success");
-            m.changeScene("ToGoCar.fxml");
-        }else if (tf_password.getText().isEmpty() && tf_password.getText().isEmpty()){
-            wrongLogin.setText("Please enter Email and password");
-        }
-
-
-
-
-    }
     private void SignUpCheck() throws IOException {
         Main m = new Main();
         m.changeScene("SignUp.fxml");
 
     }
-    /*
-     HashMap<String, String> loginverification = new HashMap<>();
-        loginverification.put("john1@gmail.com", "john1");
-        loginverification.put("john2@gmail.com", "john2");
-        loginverification.put("john3@gmail.com", "john3");
-        for (Map.Entry<String, String> entry : loginverification.entrySet()) {
-            String key = entry.getKey();
-            String value = entry.getValue();
-            if (tf_userName.getText().equals(key) && tf_password.getText().equals(value)) {
-                wrongLogin.setText("Success!");
-                m.changeScene("ToGoCar.fxml");
-            }else if (tf_userName.getText().isEmpty() && tf_password.getText().isEmpty()) {
-                wrongLogin.setText("Please enter Email and Password.");
-            }
-            else {
-                wrongLogin.setText("Wrong email or password");
-            }
 
-
-        }
-
-
-
-     */
 }
