@@ -3,6 +3,7 @@ package no.hiof.groupproject.models;
 import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.Serialise;
 import no.hiof.groupproject.models.payment_methods.Payment;
+import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.InsertBookingDB;
 import no.hiof.groupproject.tools.db.InsertVehicleDB;
@@ -34,8 +35,9 @@ public class Booking implements ExistsInDb, Serialise {
     private Period bookedWithin;
     //the payment method connected to the booking
     private Payment payment;
+    private Vehicle vehicle;
 
-    public Booking(User renter, User owner, LocalDate bookedFrom, LocalDate bookedTo, Payment payment) {
+    public Booking(User renter, User owner, LocalDate bookedFrom, LocalDate bookedTo, Payment payment, Vehicle vehicle) {
         //creates a booking in the format of <renter id>.<date booking begins>.<vehicle owner id>
         //42.2024-12-24.26
         //the final id is added in the RentOutAd class
@@ -49,6 +51,7 @@ public class Booking implements ExistsInDb, Serialise {
         this.bookedTo = bookedTo;
         this.bookedWithin = Period.between(bookedFrom, bookedTo);
         this.payment = payment;
+        this.vehicle = vehicle;
 
         //does not serialise on initialisation - addBooking() in RentOutAd() is responsible
         //because it needs to be valid
@@ -134,5 +137,13 @@ public class Booking implements ExistsInDb, Serialise {
 
     public void setPayment(Payment payment) {
         this.payment = payment;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 }

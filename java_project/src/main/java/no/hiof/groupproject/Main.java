@@ -10,6 +10,7 @@ import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.License;
+import no.hiof.groupproject.tools.db.RetrieveBookingsDB;
 import no.hiof.groupproject.tools.db.RetrieveLicenseDB;
 import no.hiof.groupproject.tools.db.RetrieveRatingDB;
 import no.hiof.groupproject.tools.db.RetrieveUserProfileDB;
@@ -60,9 +61,9 @@ public class Main {
         roa.addNewPeriod(LocalDate.parse("2022-08-01"), LocalDate.parse("2022-12-23"));
         roa.addNewPeriod(LocalDate.parse("2022-12-26"), LocalDate.parse("2023-12-23"));
         roa.addBooking(new Booking(user, user3, LocalDate.parse("2022-11-10"), LocalDate.parse("2022-11-15"),
-                new Vipps("12345678", "1234")));
+                new Vipps("12345678", "1234"), car));
         roa.addBooking(new Booking(user, user3, LocalDate.parse("2022-11-16"), LocalDate.parse("2022-11-17"),
-                new Vipps("12345678", "1234")));
+                new Vipps("12345678", "1234"), car2));
 
         TreeMap<LocalDate, LocalDate> testing = new TreeMap<>();
 
@@ -92,6 +93,7 @@ public class Main {
                 + roa.getLocation().getPostNr() + " in the country "
                 + roa.getLocation().getLand());
 
+        System.out.println(RetrieveBookingsDB.retrieve(roa));
 
     }
 }

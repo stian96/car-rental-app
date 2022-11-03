@@ -22,8 +22,8 @@ public class InsertBookingDB {
 
     public static void insert(Booking booking) {
 
-        String sql = "INSERT INTO bookings (bookings_id, renter_fk, owner_fk, bookedFrom, bookedTo, payment_fk)" +
-                "VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO bookings (bookings_id, renter_fk, owner_fk, bookedFrom, bookedTo, payment_fk, vehicle_fk)" +
+                "VALUES(?,?,?,?,?,?,?)";
 
 
         try (Connection conn = ConnectDB.connect();
@@ -33,6 +33,7 @@ public class InsertBookingDB {
             str.setInt(3, booking.getOwner().getId());
             str.setString(4, booking.getBookedFrom().toString());
             str.setString(5, booking.getBookedTo().toString());
+            str.setInt(7, booking.getVehicle().getId());
             Payment payment = booking.getPayment();
             //NOT REDUNDANT - causes getId() to have a default value of 0 otherwise
             if (Objects.equals(booking.getPayment().getPaymentType(), "creditdebit")) {
