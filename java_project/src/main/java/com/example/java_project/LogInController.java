@@ -6,7 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
+import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.tools.db.RetrieveUserDB;
 
 
 import java.io.IOException;
@@ -54,8 +55,17 @@ public class LogInController {
 
     public void isVerified() throws IOException {
         Main m = new Main();
+        User u;
 
-        HashMap<String, String> loginverification = new HashMap<>();
+
+    }
+    private void SignUpCheck() throws IOException {
+        Main m = new Main();
+        m.changeScene("SignUp.fxml");
+
+    }
+    /*
+     HashMap<String, String> loginverification = new HashMap<>();
         loginverification.put("john1@gmail.com", "john1");
         loginverification.put("john2@gmail.com", "john2");
         loginverification.put("john3@gmail.com", "john3");
@@ -74,11 +84,5 @@ public class LogInController {
 
 
         }
-
-    }
-    private void SignUpCheck() throws IOException {
-        Main m = new Main();
-        m.changeScene("SignUp.fxml");
-
-    }
+     */
 }
