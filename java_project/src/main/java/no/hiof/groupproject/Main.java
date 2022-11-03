@@ -64,22 +64,13 @@ public class Main {
         roa.addNewPeriod(LocalDate.parse("2022-12-26"), LocalDate.parse("2023-12-23"));
         roa.addBooking(new Booking(user, user3, LocalDate.parse("2022-11-10"), LocalDate.parse("2022-11-15"),
                 new Vipps("12345678", "1234")));
+        roa.addBooking(new Booking(user, user3, LocalDate.parse("2022-11-16"), LocalDate.parse("2022-11-17"),
+                new Vipps("12345678", "1234")));
+
 
         TreeMap<LocalDate, LocalDate> testing = new TreeMap<>();
 
         testing.put(LocalDate.parse("2022-08-01"), LocalDate.parse("2022-12-23"));
-
-
-
-        System.out.println(roa.getDateCreated().toString());
-        System.out.println("\n\n\n" + user.getAutoIncrementId());
-        System.out.println("\n\n\n" + car.getAutoIncrementId());
-
-        Vipps blah = new Vipps("55664477", "5435");
-        System.out.println(blah.getId());
-
-        Paypal blah2 = new Paypal("sam@sam.eg", "asdawfw");
-        System.out.println(blah2.getId());
 
 
 

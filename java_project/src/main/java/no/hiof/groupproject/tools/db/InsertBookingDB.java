@@ -49,6 +49,6 @@ public class InsertBookingDB {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-        System.out.println("\n\nhello " + booking.getRenter().getId());
+
     }
 }

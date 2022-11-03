@@ -110,12 +110,15 @@ public class RentOutAd extends Advertisement {
 
         if (dateAvailable) {
             //creating a sorted map of bookings
-            Map<LocalDate, LocalDate> sortedBookings = new TreeMap<>();
+            TreeMap<LocalDate, LocalDate> sortedBookings = new TreeMap<>();
+            TreeMap<LocalDate, LocalDate> dateIsFree = new TreeMap<>();
+
 
             //initialising variables
             LocalDate dateTo = null;
             LocalDate dateFrom = null;
 
+            /*
             //flags for the following for loop
             boolean iteration = true;
             boolean turn = false;
@@ -126,6 +129,7 @@ public class RentOutAd extends Advertisement {
             //    on second iteration the booking's first date is set to a variable, turn flag is set to false,
             //    then a set is put into the TreeMap, and the turn flag is set to true.
             //        on the third iteration the loop is repeated
+
             for (Booking book : confirmedBookings) {
                 if (iteration) {
                     dateTo = book.getBookedTo();
@@ -141,9 +145,71 @@ public class RentOutAd extends Advertisement {
                     turn = true;
                 }
             }
+
+             */
+
+            /*        ***************************************************************************************
+                  if a booking exists from the 10th to the 12th, then another booking can only be valid if it is
+                  AFTER the 12th, but not ON the 12th
+                      ***************************************************************************************
+            basically does the same thing as the commented out block of code above
+            just had to alter behaviour of the code based on iff ArrayList was:
+            -empty, -contained a single object, -2 objects, -3 or more
+            important otherwise NullPointerException is given in cases where sortedBookings.higherEntry(set.getKey())
+            didn't exist
+             */
+            if (!confirmedBookings.isEmpty()) {
+                for (Booking book : confirmedBookings) {
+                    //sorts bookings based on date
+                    dateTo = book.getBookedTo();
+                    dateFrom = book.getBookedFrom();
+                    sortedBookings.put(dateFrom, dateTo);
+                }
+                if (confirmedBookings.size() > 2) {
+
+                    for (Map.Entry<LocalDate, LocalDate> set : sortedBookings.entrySet()) {
+                        if (sortedBookings.higherEntry(set.getKey()) == null) {
+                            dateIsFree.put(set.getValue(), LocalDate.parse("2099-01-01"));
+                        } else {
+                            Map.Entry<LocalDate, LocalDate> next = sortedBookings.higherEntry(set.getKey());
+                            dateIsFree.put(set.getValue(), next.getKey());
+                        }
+                    }
+
+                } else if (confirmedBookings.size() == 2) {
+                    LocalDate firstVal = null;
+                    LocalDate secondKey = null;
+                    LocalDate secondVal = null;
+                    int count = 1;
+
+                    for (Map.Entry<LocalDate, LocalDate> set : sortedBookings.entrySet()) {
+                        if (count == 1) {
+                            firstVal = set.getValue();
+                            count++;
+                        } else if (count == 2) {
+                            secondKey = set.getKey();
+                            secondVal = set.getValue();
+                        }
+                    }
+                    
+                    dateIsFree.put(firstVal, secondKey);
+                    dateIsFree.put(secondVal, LocalDate.parse("2099-01-01"));
+                } else if (confirmedBookings.size() == 1) {
+                    for (Map.Entry<LocalDate, LocalDate> set : sortedBookings.entrySet()) {
+                        Map.Entry<LocalDate, LocalDate> next = sortedBookings.higherEntry(set.getKey());
+                        Map.Entry<LocalDate, LocalDate> prev = sortedBookings.lowerEntry(set.getKey());
+                        dateIsFree.put(set.getValue(), LocalDate.parse("2099-01-01"));
+                    }
+                }
+            } else {
+                //if the arrayList is empty then we can assume that there are no date clashes
+                dateDoesNotClash = true;
+
+            }
+
             //sets a flag if the booking does not clash with another booking
-            for (Map.Entry<LocalDate, LocalDate> set : sortedBookings.entrySet()) {
-                if (booking.getBookedFrom().isAfter(set.getKey()) && booking.getBookedTo().isAfter(set.getValue())) {
+            for (Map.Entry<LocalDate, LocalDate> set : dateIsFree.entrySet()) {
+                if (booking.getBookedFrom().isAfter(set.getKey()) && booking.getBookedTo().isBefore(set.getValue())) {
                     dateDoesNotClash = true;
                 }
             }
@@ -155,6 +221,8 @@ public class RentOutAd extends Advertisement {
             //creates a booking in the format of <renter id>.<date booking begins>.<vehicle owner id>
             //42.2024-12-24.26
             confirmedBookings.add(booking);
+            //serialises booking
+            InsertBookingDB.insert(booking);
             updateDateLastChanged();
         }
     }

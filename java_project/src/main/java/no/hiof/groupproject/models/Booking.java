@@ -50,9 +50,8 @@ public class Booking implements ExistsInDb, Serialise {
         this.bookedWithin = Period.between(bookedFrom, bookedTo);
         this.payment = payment;
 
-        if (!existsInDb()) {
-            serialise();
-        }
+        //does not serialise on initialisation - addBooking() in RentOutAd() is responsible
+        //because it needs to be valid
 
     }
 
@@ -80,7 +79,6 @@ public class Booking implements ExistsInDb, Serialise {
     public void serialise() {
         InsertBookingDB.insert(this);
     }
-
 
     public User getOwner() {
         return owner;
