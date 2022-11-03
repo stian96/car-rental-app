@@ -1,5 +1,6 @@
 package no.hiof.groupproject.tools.db;
 
+import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.UserProfile;
 
@@ -12,14 +13,14 @@ import java.util.HashMap;
 import java.util.TreeMap;
 
 /*
-Returns a specific TreeMap of all valid rental periods in the database based on a specific User
+Returns a specific TreeMap of all valid rental periods in the database based on a specific RentOutAd
  */
 public class RetrieveAvailableWithinDB {
 
-    public static TreeMap<LocalDate, LocalDate> retrieve(User user) {
+    public static TreeMap<LocalDate, LocalDate> retrieve(RentOutAd rentOutAd) {
 
         String sql = "SELECT dateFrom, dateTo FROM availableWithin " +
-                "WHERE availableWithin_id_fk = " + user.getId();
+                "WHERE availableWithin_id_fk = " + rentOutAd.getUser().getId();
 
         TreeMap<LocalDate, LocalDate> availableWithin = new TreeMap<>();
 

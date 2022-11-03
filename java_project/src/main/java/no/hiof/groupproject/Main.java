@@ -10,10 +10,7 @@ import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.License;
-import no.hiof.groupproject.tools.db.RetrieveBookingsDB;
-import no.hiof.groupproject.tools.db.RetrieveLicenseDB;
-import no.hiof.groupproject.tools.db.RetrieveRatingDB;
-import no.hiof.groupproject.tools.db.RetrieveUserProfileDB;
+import no.hiof.groupproject.tools.db.*;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -69,15 +66,15 @@ public class Main {
 
         testing.put(LocalDate.parse("2022-08-01"), LocalDate.parse("2022-12-23"));
 
-        License lic2 = DeserialiseLicense.retrieveFromLicenseNr("98 45 123456 1");
+        License lic2 = DeserialiseLicense.deserialiseFromLicenseNr("98 45 123456 1");
         System.out.println(lic2.getCountryOfIssue());
-        License lic3 = DeserialiseLicense.retrieveFromId(1);
+        License lic3 = DeserialiseLicense.deserialiseFromId(1);
         System.out.println(lic3.getCountryOfIssue());
 
         UserProfile up = new UserProfile(user);
         up.addNewRating(user4, 5);
         up.addNewRating(user3, 4);
-        HashMap<User, Integer> ratings = DeserialiseRating.retrieve(up);
+        HashMap<User, Integer> ratings = DeserialiseRating.deserialise(up);
         for (Map.Entry<User, Integer> rating : ratings.entrySet()) {
             System.out.println("\n\nUser giving ratings: " + rating.getKey().getFirstName() + " " +
                     rating.getKey().getLastName() + "\nRating score: " + rating.getValue());
@@ -94,6 +91,9 @@ public class Main {
                 + roa.getLocation().getLand());
 
         System.out.println(RetrieveBookingsDB.retrieve(roa));
+        Booking book = RetrieveBookingDB.retrieve("1.2022-11-16.2");
+        System.out.println(book.getStrId());
+
 
     }
 }
