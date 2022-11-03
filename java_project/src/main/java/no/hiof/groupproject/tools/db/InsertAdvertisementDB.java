@@ -46,7 +46,7 @@ public class InsertAdvertisementDB implements AvailableWithinExistsInDb {
 
 
                 //serialises any availableWithin periods that aren't already stored in the database
-                InsertAvailableWithinDB.insert(advertisement, ((RentOutAd) advertisement).getAvailableWithin());
+                //InsertAvailableWithinDB.insert(advertisement, ((RentOutAd) advertisement).getAvailableWithin());
 
             }
             str.executeUpdate();

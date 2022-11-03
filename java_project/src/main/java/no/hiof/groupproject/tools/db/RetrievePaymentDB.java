@@ -1,7 +1,6 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.models.payment_methods.*;
-import no.hiof.groupproject.tools.License;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

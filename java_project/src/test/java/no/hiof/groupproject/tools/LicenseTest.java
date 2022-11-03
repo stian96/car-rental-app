@@ -1,5 +1,6 @@
 package no.hiof.groupproject.tools;
 
+import no.hiof.groupproject.models.License;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;

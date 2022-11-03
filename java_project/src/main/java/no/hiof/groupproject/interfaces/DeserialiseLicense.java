@@ -1,6 +1,6 @@
 package no.hiof.groupproject.interfaces;
 
-import no.hiof.groupproject.tools.License;
+import no.hiof.groupproject.models.License;
 import no.hiof.groupproject.tools.db.RetrieveLicenseDB;
 
 public interface DeserialiseLicense {

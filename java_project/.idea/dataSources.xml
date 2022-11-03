@@ -5,7 +5,7 @@
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\samd9\OneDrive\Documents\software_eng_group_project\Group_Project\java_project\sqlite\db\test.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:sqlite\db\test.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>

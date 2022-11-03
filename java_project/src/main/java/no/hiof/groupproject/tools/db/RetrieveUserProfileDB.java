@@ -1,15 +1,12 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.interfaces.DeserialiseUser;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.UserProfile;
-import no.hiof.groupproject.tools.License;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.HashMap;
 
 /*

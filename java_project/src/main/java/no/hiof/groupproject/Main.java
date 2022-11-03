@@ -6,7 +6,7 @@ import no.hiof.groupproject.models.*;
 import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.License;
+import no.hiof.groupproject.models.License;
 import no.hiof.groupproject.tools.db.*;
 
 import java.io.IOException;

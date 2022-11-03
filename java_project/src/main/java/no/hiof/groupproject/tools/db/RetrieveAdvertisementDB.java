@@ -5,10 +5,7 @@ import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.License;
-import no.hiof.groupproject.tools.geocode.Location;
 
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

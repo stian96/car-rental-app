@@ -1,14 +1,11 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.UserProfile;
-import no.hiof.groupproject.tools.License;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.time.LocalDate;
 
 /*
 Returns a specific AverageRating double in the form of String from the database based on a specific UserProfile
