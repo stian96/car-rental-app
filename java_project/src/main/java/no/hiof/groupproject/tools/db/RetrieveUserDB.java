@@ -48,7 +48,7 @@ public class RetrieveUserDB {
 
     public static User retrieveFromEmail(String email) {
 
-        String sql = "SELECT * FROM users WHERE email = " + email;
+        String sql = "SELECT * FROM users WHERE email = \'" + email + "\'";
 
         User returnedUser = null;
 
