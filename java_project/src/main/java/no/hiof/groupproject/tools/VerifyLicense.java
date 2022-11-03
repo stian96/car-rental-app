@@ -25,9 +25,8 @@ public class VerifyLicense implements Serialise, ExistsInDb {
         this.dateOfIssue = dateOfIssue;
         this.countryOfIssue = countryOfIssue;
 
-        if (!existsInDb()) {
-            serialise();
-        }
+        //serialisation done in User as long as license doesn't exist in the DB, and licenseNumber
+        //and dateOfIssue are valid
 
     }
 

@@ -40,7 +40,13 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
         this.bankAccountNr = bankAccountNr;
         this.email = email;
         this.tlfNr = tlfNr;
-        this.dLicense = dLicense;
+        if (dLicense.verifyLicenseNumber() && dLicense.verifyDateOfIssue()) {
+            this.dLicense = dLicense;
+            if (!dLicense.existsInDb()) {
+                dLicense.serialise();
+            }
+        }
+
 
 
         //if no User with the same email is in the database then the User class is serialised and saved
