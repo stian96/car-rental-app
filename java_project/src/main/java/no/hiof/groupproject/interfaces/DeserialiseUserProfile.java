@@ -6,7 +6,7 @@ import no.hiof.groupproject.tools.db.RetrieveUserDB;
 import no.hiof.groupproject.tools.db.RetrieveUserProfileDB;
 
 public interface DeserialiseUserProfile {
-    //returns a User based on a specific users_id primary key
+    //returns a UserProfile based on a specific User id
     static UserProfile deserialise(int id) {
         return RetrieveUserProfileDB.retrieve(id);
     }

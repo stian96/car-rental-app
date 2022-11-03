@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.HashMap;
 
 /*
-Returns a specific User in the database based on either the id or email of the User, both of which are unique values
+Returns a specific UserProfile in the database based on the User id
 */
 public class RetrieveUserProfileDB {
 
