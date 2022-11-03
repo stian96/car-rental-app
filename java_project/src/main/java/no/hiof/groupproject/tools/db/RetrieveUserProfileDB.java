@@ -32,6 +32,7 @@ public class RetrieveUserProfileDB {
             returnedUserProfile = new UserProfile(user);
             HashMap<User, Integer> ratings = RetrieveRatingDB.retrieve(returnedUserProfile);
             returnedUserProfile.setRatings(ratings);
+            returnedUserProfile.setAverageRating(Double.parseDouble(RetrieveAverageRatingDB.retrieve(returnedUserProfile)));
 
 
         } catch (SQLException e) {

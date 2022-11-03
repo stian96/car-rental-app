@@ -1,10 +1,7 @@
 package no.hiof.groupproject;
 
 
-import no.hiof.groupproject.interfaces.DeserialiseLicense;
-import no.hiof.groupproject.interfaces.DeserialiseRating;
-import no.hiof.groupproject.interfaces.DeserialiseUser;
-import no.hiof.groupproject.interfaces.DeserialiseVehicle;
+import no.hiof.groupproject.interfaces.*;
 import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
@@ -28,12 +25,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
-        //testing instantiation of rentOutAd using dependency injection
-        /*
-        GenericQueryDB.query("INSERT INTO people(name,age) VALUES('jesper', 14)");
-        */
-
-
+        //the following code is used to test serialisation and deserialisation of the database
+        //                             *********** IMPORTANT ***********
+        //SQLite errors in the console is just feedback - often preventing duplicate entries (e.g UNIQUE constraints)
+        //                             *********************************
         License license = new License("98 45 123456 1", LocalDate.parse("2008-05-12"),
                 "Norway");
 
@@ -44,21 +39,16 @@ public class Main {
         User user4 = new User("wwww", "test", "1111", "hunter2",
                 "12341234123", "test@test.no", "12341234", license);
 
-
         User user2 = DeserialiseUser.deserialiseSpecificId(1);
         System.out.println(user2.getFirstName() + " lives at " + user2.getPostNr() + " and has a license from " +
                 user2.getdLicense().getCountryOfIssue());
 
-
         Vehicle car = new Car("12341234", "audi", "tt", "petrol",
                 "automatic", 2013, 5, 1500);
-
-
 
         Vehicle car2 = DeserialiseVehicle.deserialiseSpecificId(1);
         System.out.println(car2.getRegNo() + " is a " + car2.getManufacturer() + " " + car2.getModel() + " from "
                 + car2.getModelYear());
-
 
         RentOutAd roa = new RentOutAd(
                 user,
@@ -73,7 +63,6 @@ public class Main {
                 new Vipps("12345678", "1234")));
         roa.addBooking(new Booking(user, user3, LocalDate.parse("2022-11-16"), LocalDate.parse("2022-11-17"),
                 new Vipps("12345678", "1234")));
-
 
         TreeMap<LocalDate, LocalDate> testing = new TreeMap<>();
 
@@ -91,22 +80,18 @@ public class Main {
         for (Map.Entry<User, Integer> rating : ratings.entrySet()) {
             System.out.println("\n\nUser giving ratings: " + rating.getKey().getFirstName() + " " +
                     rating.getKey().getLastName() + "\nRating score: " + rating.getValue());
-        };
+        }
 
-        UserProfile up2 = RetrieveUserProfileDB.retrieve(1);
+        UserProfile up2 = DeserialiseUserProfile.deserialise(1);
         System.out.println(up2.getUser().getFirstName() + " " + up2.getUser().getLastName() + " has an average rating " +
                 "of " + up2.getAverageRating());
 
-
-
-        /*
         System.out.println(roa.getLocation().getThisLocationInfo());
         System.out.println(roa.getLocation().getBy() + " is in the county of "
                 + roa.getLocation().getFylke() + " with a postcode of "
                 + roa.getLocation().getPostNr() + " in the country "
                 + roa.getLocation().getLand());
 
-         */
 
     }
 }
