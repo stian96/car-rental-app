@@ -27,7 +27,7 @@ class UserProfileTest {
         ratings.put(user,1);
         ratings.put(user1,5);
         ratings.put(user2,3);
-        double val = userProfile.calculateAverageRating(ratings);
+        double val = userProfile.calculateAverageRating();
         assertEquals(3.0, val);
 
     }

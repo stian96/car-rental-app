@@ -36,6 +36,8 @@ public class Main {
                 "12341234123", "sam@sam.no", "12341234", license);
         User user3 = new User("gsdfg", "qweqwe", "1111", "hunter2",
                 "12341234123", "sam@samland.no", "12341234", license);
+        User user4 = new User("wwww", "test", "1111", "hunter2",
+                "12341234123", "test@test.no", "12341234", license);
 
 
         User user2 = DeserialiseUser.deserialiseSpecificId(1);
@@ -78,8 +80,8 @@ public class Main {
         System.out.println(lic3.getCountryOfIssue());
 
         UserProfile up = new UserProfile(user);
-        up.addNewRating(user3, 3);
-        up.addNewRating(user3, 5);
+        up.addNewRating(user4, 5);
+        up.addNewRating(user3, 4);
 
 
 

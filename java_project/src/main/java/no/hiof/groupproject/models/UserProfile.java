@@ -4,6 +4,8 @@ import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.Serialise;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.InsertRatingDB;
+import no.hiof.groupproject.tools.db.InsertUserProfileDB;
+import no.hiof.groupproject.tools.db.RetrieveAverageRatingDB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,10 +31,20 @@ public class UserProfile implements Serialise, ExistsInDb {
         advertisements = new ArrayList<>();
         ratings = new HashMap<>();
 
+        if (!existsInDb()) {
+            serialise();
+        } else {
+            RetrieveAverageRatingDB.update(this);
+        }
+
+    }
+
+    public UserProfile() {
+
     }
 
     /** Method to calculates the average rating for the User*/
-    public double calculateAverageRating(HashMap<User, Integer> ratings){
+    public double calculateAverageRating(){
         double sum = 0;
         int count = ratings.size();
         double result;
@@ -41,6 +53,8 @@ public class UserProfile implements Serialise, ExistsInDb {
             result = sum/((double) count);//Fix later : round to one or two decimal places
             averageRating = result;
         }
+        //updates the averageRating column in userProfiles table after each refresh
+        RetrieveAverageRatingDB.update(this);
         return averageRating;
     }
 
@@ -56,11 +70,11 @@ public class UserProfile implements Serialise, ExistsInDb {
             //if the userGivingRating hasn't rated user before then the following code is executed
             ratings.put(userGivingRating, rating);
             InsertRatingDB.insert(user, userGivingRating, rating);
-            return calculateAverageRating(ratings);
+            return calculateAverageRating();
         } else if (ratingExistsInDb(userGivingRating) && userGivingRating.getId() != user.getId()){
             //if the userGivingRating wishes to update their rating:
             InsertRatingDB.update(user, userGivingRating, rating);
-            return calculateAverageRating(ratings);
+            return calculateAverageRating();
         }
         return 0;
     }
@@ -108,7 +122,7 @@ public class UserProfile implements Serialise, ExistsInDb {
 
     @Override
     public void serialise() {
-
+        InsertUserProfileDB.insert(this);
     }
     public void AddAdvertisement(Advertisement advertisement) {
         advertisements.add(advertisement);
@@ -130,4 +144,19 @@ public class UserProfile implements Serialise, ExistsInDb {
         this.advertisements = advertisements;
     }
 
+    public HashMap<User, Integer> getRatings() {
+        return ratings;
+    }
+
+    public void setRatings(HashMap<User, Integer> ratings) {
+        this.ratings = ratings;
+    }
+
+    public double getAverageRating() {
+        return averageRating;
+    }
+
+    public void setAverageRating(double averageRating) {
+        this.averageRating = averageRating;
+    }
 }
