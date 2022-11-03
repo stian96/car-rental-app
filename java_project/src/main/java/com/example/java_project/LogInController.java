@@ -6,7 +6,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-
+import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.tools.db.RetrieveUserDB;
 
 
 import java.io.IOException;
@@ -14,9 +15,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LogInController {
-
-
-
 
     @FXML
     protected Label wrongLogin;
@@ -29,29 +27,32 @@ public class LogInController {
     @FXML
     protected Button button_signUp;
 
-    public LogInController(Label wrongLogin, TextField tf_userName, PasswordField tf_password, Button button_login, Button button_signUp) {
-
-        this.wrongLogin = wrongLogin;
-        this.tf_userName = tf_userName;
-        this.tf_password = tf_password;
-        this.button_logIn = button_login;
-        this.button_signUp = button_signUp;
-    }
-
     public LogInController(){
         super();
 
     }
 
-
     public void userLogIn(ActionEvent event) throws IOException {
-        isVerified();
+        Main m = new Main();
+        User u = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
+        String password = tf_password.getText();
+        String email = tf_userName.getText();
+        if(u.getEmail().equals(email) && u.getPassword().equals(password)){
+            wrongLogin.setText("success");
+            m.changeScene("ToGoCar.fxml");
+        }
+        else if (tf_userName.getText().isEmpty() && tf_password.getText().isEmpty()) {
+            wrongLogin.setText("Please enter Email and Password.");
+        }
+        else {
+            wrongLogin.setText("Wrong email or password");
+        }
     }
 
     public void userSignUp(ActionEvent event) throws IOException{
         SignUpCheck();
     }
-
+/*
     public void isVerified() throws IOException {
         Main m = new Main();
 
@@ -75,7 +76,7 @@ public class LogInController {
 
         }
 
-    }
+    }*/
     private void SignUpCheck() throws IOException {
         Main m = new Main();
         m.changeScene("SignUp.fxml");
