@@ -13,10 +13,13 @@ import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.License;
 import no.hiof.groupproject.tools.db.RetrieveLicenseDB;
+import no.hiof.groupproject.tools.db.RetrieveRatingDB;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TreeMap;
 
 public class Main {
@@ -82,6 +85,11 @@ public class Main {
         UserProfile up = new UserProfile(user);
         up.addNewRating(user4, 5);
         up.addNewRating(user3, 4);
+        HashMap<User, Integer> ratings = RetrieveRatingDB.retrieve(up);
+        for (Map.Entry<User, Integer> rating : ratings.entrySet()) {
+            System.out.println("\n\nUser giving ratings: " + rating.getKey().getFirstName() + " " +
+                    rating.getKey().getLastName() + "\nRating score: " + rating.getValue());
+        };
 
 
 
