@@ -2,10 +2,7 @@ package no.hiof.groupproject;
 
 
 import no.hiof.groupproject.interfaces.*;
-import no.hiof.groupproject.models.Booking;
-import no.hiof.groupproject.models.RentOutAd;
-import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.models.UserProfile;
+import no.hiof.groupproject.models.*;
 import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
@@ -93,6 +90,14 @@ public class Main {
         System.out.println(RetrieveBookingsDB.retrieve(roa));
         Booking book = RetrieveBookingDB.retrieve("1.2022-11-16.2");
         System.out.println(book.getStrId());
+
+        Advertisement roa2 = DeserialiseAdvertisement.deserialise(4);
+        RentOutAd roa2Downcast = ((RentOutAd) roa2);
+        System.out.println(roa2Downcast.getDateCreated() + " and the fylke is " + roa2Downcast.getFylke());
+
+        for (Booking booking : roa2Downcast.getConfirmedBookings()) {
+            System.out.println("\nBooking: " + booking.getStrId());
+        }
 
 
     }

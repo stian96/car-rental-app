@@ -33,7 +33,7 @@ public class InsertAdvertisementDB implements AvailableWithinExistsInDb {
                 str.setString(5, ((RentOutAd) advertisement).getCur().toString());
                 str.setString(6, ((RentOutAd) advertisement).getDailyCharge().toString());
                 str.setString(7, ((RentOutAd) advertisement).getChargePerTwentyKm().toString());
-                str.setString(8, ((RentOutAd) advertisement).getBy());
+                str.setString(8, ((RentOutAd) advertisement).getTown());
                 str.setString(9, ((RentOutAd) advertisement).getFylke());
                 str.setString(10, ((RentOutAd) advertisement).getPostnr());
                 str.setString(11, ((RentOutAd) advertisement).getLand());
