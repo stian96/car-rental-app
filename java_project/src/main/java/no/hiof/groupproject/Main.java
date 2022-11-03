@@ -7,6 +7,7 @@ import no.hiof.groupproject.interfaces.DeserialiseVehicle;
 import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.models.UserProfile;
 import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
@@ -76,6 +77,10 @@ public class Main {
         License lic3 = DeserialiseLicense.retrieveFromId(1);
         System.out.println(lic3.getCountryOfIssue());
 
+        UserProfile up = new UserProfile(user);
+        up.addNewRating(user3, 3);
+        up.addNewRating(user3, 5);
+
 
 
         /*
@@ -86,17 +91,6 @@ public class Main {
                 + roa.getLocation().getLand());
 
          */
-
-
-
-
-
-        //serialisation test
-        /*
-        Configuration factory = new Configuration();
-        factory.configure("hibernate.cfg.xml");
-         */
-
 
     }
 }
