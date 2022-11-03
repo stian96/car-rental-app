@@ -1,6 +1,7 @@
 package no.hiof.groupproject;
 
 
+import no.hiof.groupproject.interfaces.DeserialiseLicense;
 import no.hiof.groupproject.interfaces.DeserialiseUser;
 import no.hiof.groupproject.interfaces.DeserialiseVehicle;
 import no.hiof.groupproject.models.Booking;
@@ -10,6 +11,7 @@ import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.License;
+import no.hiof.groupproject.tools.db.RetrieveLicenseDB;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -68,6 +70,11 @@ public class Main {
         TreeMap<LocalDate, LocalDate> testing = new TreeMap<>();
 
         testing.put(LocalDate.parse("2022-08-01"), LocalDate.parse("2022-12-23"));
+
+        License lic2 = DeserialiseLicense.retrieveFromLicenseNr("98 45 123456 1");
+        System.out.println(lic2.getCountryOfIssue());
+        License lic3 = DeserialiseLicense.retrieveFromId(1);
+        System.out.println(lic3.getCountryOfIssue());
 
 
 
