@@ -7,7 +7,7 @@ import java.sql.*;
 import java.util.HashMap;
 
 /*
-Returns a specific User in the database based on either the id or email of the User, both of which are unique values
+Returns a specific HashMap of all ratings in the database based on a specific UserProfile
  */
 public class RetrieveRatingDB {
 
@@ -22,10 +22,11 @@ public class RetrieveRatingDB {
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 
-                while (rs.next()) {
-                    ratings.put(RetrieveUserDB.retrieveFromId(rs.getInt("userGivingRating")),
-                            rs.getInt("rating"));
-                }
+            //loops through rows in the sql SELECT statement
+            while (rs.next()) {
+                ratings.put(RetrieveUserDB.retrieveFromId(rs.getInt("userGivingRating")),
+                        rs.getInt("rating"));
+            }
             return ratings;
         } catch (SQLException e) {
             System.out.println(e.getMessage());

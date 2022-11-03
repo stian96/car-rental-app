@@ -2,6 +2,7 @@ package no.hiof.groupproject;
 
 
 import no.hiof.groupproject.interfaces.DeserialiseLicense;
+import no.hiof.groupproject.interfaces.DeserialiseRating;
 import no.hiof.groupproject.interfaces.DeserialiseUser;
 import no.hiof.groupproject.interfaces.DeserialiseVehicle;
 import no.hiof.groupproject.models.Booking;
@@ -85,7 +86,7 @@ public class Main {
         UserProfile up = new UserProfile(user);
         up.addNewRating(user4, 5);
         up.addNewRating(user3, 4);
-        HashMap<User, Integer> ratings = RetrieveRatingDB.retrieve(up);
+        HashMap<User, Integer> ratings = DeserialiseRating.retrieve(up);
         for (Map.Entry<User, Integer> rating : ratings.entrySet()) {
             System.out.println("\n\nUser giving ratings: " + rating.getKey().getFirstName() + " " +
                     rating.getKey().getLastName() + "\nRating score: " + rating.getValue());
