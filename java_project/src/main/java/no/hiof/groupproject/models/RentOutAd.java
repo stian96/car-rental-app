@@ -271,11 +271,11 @@ public class RentOutAd extends Advertisement {
         return i;
     }
 
-    public String getBy() {
+    public String getTown() {
         return by;
     }
 
-    public void setBy(String by) {
+    public void setTown(String by) {
         this.by = by;
     }
 

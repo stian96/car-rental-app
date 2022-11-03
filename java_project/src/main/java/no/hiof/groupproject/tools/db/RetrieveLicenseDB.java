@@ -9,14 +9,8 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 /*
-Returns a specific User in the database based on either the id or email of the User, both of which are unique values
+Returns a specific License in the database based on either the id of the User or licenseNumber, both of which are unique
 
-!NOTE
-!NOTE
-!NOTE: this was problematic to deserialise, and thus I found it simpler to simply create an inner join on RetrieveUserDB
-and create a User with a License inside there
-!NOTE
-!NOTE
  */
 public class RetrieveLicenseDB {
 
