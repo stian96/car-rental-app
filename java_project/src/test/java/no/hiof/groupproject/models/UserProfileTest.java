@@ -1,6 +1,6 @@
 package no.hiof.groupproject.models;
 
-import no.hiof.groupproject.tools.VerifyLicense;
+import no.hiof.groupproject.tools.License;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -12,7 +12,7 @@ class UserProfileTest {
     UserProfile userProfile = new UserProfile();
     private HashMap<User, Integer> ratings = new HashMap<>();
 
-    VerifyLicense license = new VerifyLicense("98 45 123456 1", LocalDate.parse("2008-05-12"),
+    License license = new License("98 45 123456 1", LocalDate.parse("2008-05-12"),
             "Norway");
 
     User user = new User("Jillian","Andes","1526","jack1",

@@ -6,17 +6,14 @@ import no.hiof.groupproject.interfaces.DeserialiseVehicle;
 import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.models.payment_methods.Payment;
-import no.hiof.groupproject.models.payment_methods.Paypal;
 import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.VerifyLicense;
+import no.hiof.groupproject.tools.License;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.Map;
 import java.util.TreeMap;
 
 public class Main {
@@ -29,7 +26,7 @@ public class Main {
         */
 
 
-        VerifyLicense license = new VerifyLicense("98 45 123456 1", LocalDate.parse("2008-05-12"),
+        License license = new License("98 45 123456 1", LocalDate.parse("2008-05-12"),
                 "Norway");
 
         User user = new User("sam", "davies", "1111", "hunter2",

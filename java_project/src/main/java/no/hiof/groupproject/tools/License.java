@@ -1,11 +1,10 @@
 package no.hiof.groupproject.tools;
 
 import no.hiof.groupproject.interfaces.ExistsInDb;
-import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.interfaces.Serialise;
+import no.hiof.groupproject.interfaces.VerifyLicense;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.InsertLicenseDB;
-import no.hiof.groupproject.tools.db.InsertUserDB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,13 +13,13 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.regex.Pattern;
 
-public class VerifyLicense implements Serialise, ExistsInDb {
+public class License implements Serialise, ExistsInDb, VerifyLicense {
 
     private String licenseNumber;
     private LocalDate dateOfIssue;
     private String countryOfIssue;
 
-    public VerifyLicense(String licenseNumber, LocalDate dateOfIssue, String countryOfIssue) {
+    public License(String licenseNumber, LocalDate dateOfIssue, String countryOfIssue) {
         this.licenseNumber = licenseNumber;
         this.dateOfIssue = dateOfIssue;
         this.countryOfIssue = countryOfIssue;
@@ -30,10 +29,12 @@ public class VerifyLicense implements Serialise, ExistsInDb {
 
     }
 
+    @Override
     public Boolean verifyLicenseNumber() {
         return Pattern.matches("\\d\\d \\d\\d 123456 1", this.licenseNumber);
     }
 
+    @Override
     public Boolean verifyDateOfIssue() {
         LocalDate now = LocalDate.now();
         LocalDate usersDate = LocalDate.parse(this.dateOfIssue.toString());
@@ -41,6 +42,7 @@ public class VerifyLicense implements Serialise, ExistsInDb {
         return usersDate.isBefore(now);
     }
 
+    @Override
     public String verifyCountryOfIssue() {
         if (this.countryOfIssue.equalsIgnoreCase("Norway"))
             return "Valid";

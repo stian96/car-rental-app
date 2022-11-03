@@ -1,7 +1,7 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.tools.VerifyLicense;
+import no.hiof.groupproject.tools.License;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -35,7 +35,7 @@ public class RetrieveUserDB {
             String dateOfIssue = queryResult.getString("dateOfIssue");
             String countryOfIssue = queryResult.getString("countryOfIssue");
 
-            VerifyLicense dLicense = new VerifyLicense(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
+            License dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
 
             returnedUser = new User(firstName, lastName, postNr, password, bankAccountNr, email, tlfNr, dLicense);
             returnedUser.setId(id);
@@ -67,7 +67,7 @@ public class RetrieveUserDB {
             String dateOfIssue = queryResult.getString("dateOfIssue");
             String countryOfIssue = queryResult.getString("countryOfIssue");
 
-            VerifyLicense dLicense = new VerifyLicense(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
+            License dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
 
             returnedUser = new User(firstName, lastName, postNr, password, bankAccountNr, email, tlfNr, dLicense);
             returnedUser.setId(idNumber);

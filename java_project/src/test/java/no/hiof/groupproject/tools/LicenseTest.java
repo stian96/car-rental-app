@@ -6,9 +6,9 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class VerifyLicenseTest {
+class LicenseTest {
 
-    VerifyLicense test = new VerifyLicense("98 45 123456 1", LocalDate.parse("2008-05-12"),
+    License test = new License("98 45 123456 1", LocalDate.parse("2008-05-12"),
             "Norway");
 
     @Test
@@ -19,7 +19,7 @@ class VerifyLicenseTest {
     @Test
     void CheckIfFunctionReturnFalseOnWrongPattern() {
 
-        VerifyLicense test = new VerifyLicense("fdsgfdsg", LocalDate.parse("2008-05-12"),
+        License test = new License("fdsgfdsg", LocalDate.parse("2008-05-12"),
                 "Norway");
 
         assertEquals(false, test.verifyLicenseNumber());
@@ -37,7 +37,7 @@ class VerifyLicenseTest {
 
     @Test
     void CheckIfCountryOfIssueIsNotNorway() {
-        VerifyLicense test = new VerifyLicense("98 45 123456 1", LocalDate.parse("2008-05-12"),
+        License test = new License("98 45 123456 1", LocalDate.parse("2008-05-12"),
                 "Poland");
         String rules = "License only valid for 3 months.";
         assertEquals(rules, test.verifyCountryOfIssue());
