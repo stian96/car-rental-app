@@ -1,6 +1,7 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.tools.VerifyLicense;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,8 +14,8 @@ public class InsertUserDB {
 
     public static void insert(User user) {
 
-        String sql = "INSERT INTO users (firstName, lastName, postNr, password, bankAccountNr, email, tlfNr) " +
-                "VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO users (firstName, lastName, postNr, password, bankAccountNr, email, tlfNr, license) " +
+                "VALUES(?,?,?,?,?,?,?,?)";
 
         try (Connection conn = ConnectDB.connect();
              PreparedStatement str = conn.prepareStatement(sql)) {
@@ -25,6 +26,8 @@ public class InsertUserDB {
             str.setString(5, user.getBankAccountNr());
             str.setString(6, user.getEmail());
             str.setString(7, user.getTlfNr());
+            str.setString(8, user.getdLicense().getLicenseNumber());
+
             str.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
