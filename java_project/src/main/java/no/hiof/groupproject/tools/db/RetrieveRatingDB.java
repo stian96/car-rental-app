@@ -17,7 +17,6 @@ public class RetrieveRatingDB {
                 "WHERE user = " + userProfile.getUser().getId();
         HashMap<User, Integer> ratings = new HashMap<>();
 
-        String i = null;
         try (Connection conn = ConnectDB.connect();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
