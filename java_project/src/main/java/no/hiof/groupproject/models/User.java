@@ -3,7 +3,7 @@ package no.hiof.groupproject.models;
 import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.interfaces.Serialise;
-import no.hiof.groupproject.tools.VerifyLicense;
+import no.hiof.groupproject.tools.License;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.InsertUserDB;
 import no.hiof.groupproject.tools.db.RetrieveUserDB;
@@ -21,7 +21,7 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
 
     //integration of a driving license class here would be great - so that VerifyDrivingLicense could be used when
     //a GUI button to rent a car is activated
-    private VerifyLicense dLicense;
+    private License dLicense;
     private String firstName, lastName, postNr;
     //obviously the password would be encrypted in a final build
     private String password;
@@ -29,7 +29,7 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
     private String bankAccountNr, email, tlfNr;
 
     public User(String firstName, String lastName, String postNr, String password,
-                String bankAccountNr, String email, String tlfNr, VerifyLicense dLicense) {
+                String bankAccountNr, String email, String tlfNr, License dLicense) {
         //this.id = count;
         //increments the id by 1
         //count++;
@@ -40,7 +40,13 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
         this.bankAccountNr = bankAccountNr;
         this.email = email;
         this.tlfNr = tlfNr;
-        this.dLicense = dLicense;
+        if (dLicense.verifyLicenseNumber() && dLicense.verifyDateOfIssue()) {
+            this.dLicense = dLicense;
+            if (!dLicense.existsInDb()) {
+                dLicense.serialise();
+            }
+        }
+
 
 
         //if no User with the same email is in the database then the User class is serialised and saved
@@ -167,11 +173,11 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
         this.tlfNr = tlfNr;
     }
 
-    public VerifyLicense getdLicense() {
+    public License getdLicense() {
         return dLicense;
     }
 
-    public void setdLicense(VerifyLicense dLicense) {
+    public void setdLicense(License dLicense) {
         this.dLicense = dLicense;
     }
 }
