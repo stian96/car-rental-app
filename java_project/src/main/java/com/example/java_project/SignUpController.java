@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.tools.db.InsertUserDB;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -40,12 +42,31 @@ public class SignUpController {
 
 
     public void userSignUp(ActionEvent event) throws IOException{
-        isVerified();
+        Main m = new Main();
+        String email = tf_userName.getText().trim();
+        String password = tf_password.getText().trim();
+        User user = new User(email,password);
+        if(!email.isEmpty() && !password.isEmpty()){
+            try {
+                if(!user.existsInDb()){
+                    user.serialise();
+                    m.changeScene("ToGoCar.fxml");
+
+                }else{validEmail.setText("User already exists");
+                }
+
+            }catch (IOException e){
+                System.out.println(e.getMessage());
+            }
+
+        }
+        else{ validEmail.setText("Enter email and password");}
+
     }
 
     public void signUpGoogle(ActionEvent event) throws IOException {
-        SignUpCheckGoogle();
     }
+
 
     public void signUpFacebook(ActionEvent event) throws IOException{
         SignUpCheckFacebook();
