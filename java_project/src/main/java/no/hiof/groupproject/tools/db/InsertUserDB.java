@@ -32,4 +32,41 @@ public class InsertUserDB {
             System.out.println(e.getMessage());
         }
     }
+
+    public static void insertOnlyEmailAndPwd(User user) {
+
+        String sql = "INSERT INTO users (email, password) " +
+                "VALUES(?,?)";
+
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+            str.setString(1, user.getEmail());
+            str.setString(2, user.getPassword());
+
+            str.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    public static void updateFromEmailAndPwd(User user) {
+
+        String sql = "UPDATE users SET firstName = \'" + user.getFirstName() +
+                "\', lastName = \'" + user.getLastName() +
+                "\', postNr = \'" + user.getPostNr() +
+                "\', bankAccountNr = \'" + user.getBankAccountNr() +
+                "\', tlfNr = \'" + user.getTlfNr() +
+                "\', license = \'" + user.getdLicense().getLicenseNumber() +
+                "\' WHERE email = \'" + user.getEmail() + "\'";
+
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            str.executeUpdate();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
 }

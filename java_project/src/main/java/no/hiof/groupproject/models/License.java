@@ -1,4 +1,4 @@
-package no.hiof.groupproject.tools;
+package no.hiof.groupproject.models;
 
 import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.Serialise;
@@ -57,7 +57,7 @@ public class License implements Serialise, ExistsInDb, VerifyLicense {
 
     @Override
     public boolean existsInDb() {
-        String sql = "SELECT COUNT(*) AS amount FROM licenses WHERE licenseNumber = " + this.licenseNumber;
+        String sql = "SELECT COUNT(*) AS amount FROM licenses WHERE licenseNumber = \'" + this.licenseNumber + "\'";
 
         boolean ans = false;
         try (Connection conn = ConnectDB.connect();

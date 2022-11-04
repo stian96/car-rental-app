@@ -1,7 +1,7 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.tools.License;
+import no.hiof.groupproject.models.License;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 
 /*
-Returns a specific User in the database based on either the id or email of the User, both of which are unique values
+Returns a specific UserProfile in the database based on the User id
  */
 public class RetrieveUserDB {
 
@@ -24,20 +24,41 @@ public class RetrieveUserDB {
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
-            String firstName = queryResult.getString("firstName");
-            String lastName = queryResult.getString("lastName");
-            String postNr = queryResult.getString("postNr");
-            String password = queryResult.getString("password");
-            String bankAccountNr = queryResult.getString("bankAccountNr");
+
             String email = queryResult.getString("email");
-            String tlfNr = queryResult.getString("tlfNr");
-            String licenseNumber = queryResult.getString("license");
-            String dateOfIssue = queryResult.getString("dateOfIssue");
-            String countryOfIssue = queryResult.getString("countryOfIssue");
+            String password = queryResult.getString("password");
 
-            License dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
+            returnedUser = new User(email, password);
 
-            returnedUser = new User(firstName, lastName, postNr, password, bankAccountNr, email, tlfNr, dLicense);
+            if (queryResult.getString("firstName") != null) {
+                String firstName = queryResult.getString("firstName");
+                returnedUser.setFirstName(firstName);
+            }
+            if (queryResult.getString("lastName") != null) {
+                String lastName = queryResult.getString("lastName");
+                returnedUser.setLastName(lastName);
+            }
+            if (queryResult.getString("postNr") != null) {
+                String postNr = queryResult.getString("postNr");
+                returnedUser.setPostNr(postNr);
+            }
+            if (queryResult.getString("bankAccountNr") != null) {
+                String bankAccountNr = queryResult.getString("bankAccountNr");
+                returnedUser.setBankAccountNr(bankAccountNr);
+            }
+            if (queryResult.getString("tlfNr") != null) {
+                String tlfNr = queryResult.getString("tlfNr");
+                returnedUser.setTlfNr(tlfNr);
+            }
+            if (queryResult.getString("license") != null) {
+                String licenseNumber = queryResult.getString("license");
+                String dateOfIssue = queryResult.getString("dateOfIssue");
+                String countryOfIssue = queryResult.getString("countryOfIssue");
+
+                License dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
+                returnedUser.setdLicense(dLicense);
+            }
+
             returnedUser.setId(id);
 
         } catch (SQLException e) {
@@ -57,17 +78,38 @@ public class RetrieveUserDB {
 
             ResultSet queryResult = str.executeQuery();
             int idNumber = queryResult.getInt("users_id");
-            String firstName = queryResult.getString("firstName");
-            String lastName = queryResult.getString("lastName");
-            String postNr = queryResult.getString("postNr");
             String password = queryResult.getString("password");
-            String bankAccountNr = queryResult.getString("bankAccountNr");
-            String tlfNr = queryResult.getString("tlfNr");
-            String licenseNumber = queryResult.getString("license");
 
-            License dLicense = RetrieveLicenseDB.retrieveFromLicenseNr(licenseNumber);
+            returnedUser = new User(email, password);
 
-            returnedUser = new User(firstName, lastName, postNr, password, bankAccountNr, email, tlfNr, dLicense);
+            if (queryResult.getString("firstName") != null) {
+                String firstName = queryResult.getString("firstName");
+                returnedUser.setFirstName(firstName);
+            }
+            if (queryResult.getString("lastName") != null) {
+                String lastName = queryResult.getString("lastName");
+                returnedUser.setLastName(lastName);
+            }
+            if (queryResult.getString("postNr") != null) {
+                String postNr = queryResult.getString("postNr");
+                returnedUser.setPostNr(postNr);
+            }
+            if (queryResult.getString("bankAccountNr") != null) {
+                String bankAccountNr = queryResult.getString("bankAccountNr");
+                returnedUser.setBankAccountNr(bankAccountNr);
+            }
+            if (queryResult.getString("tlfNr") != null) {
+                String tlfNr = queryResult.getString("tlfNr");
+                returnedUser.setTlfNr(tlfNr);
+            }
+            if (queryResult.getString("license") != null) {
+                String licenseNumber = queryResult.getString("license");
+                String dateOfIssue = queryResult.getString("dateOfIssue");
+                String countryOfIssue = queryResult.getString("countryOfIssue");
+
+                License dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
+                returnedUser.setdLicense(dLicense);
+            }
             returnedUser.setId(idNumber);
 
         } catch (SQLException e) {
