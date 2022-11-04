@@ -33,18 +33,23 @@ public class LogInController {
 
     public void userLogIn(ActionEvent event) throws IOException {
         Main m = new Main();
-        User u = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
-        String password = tf_password.getText();
-        String email = tf_userName.getText();
-        if(u.getEmail().equals(email) && u.getPassword().equals(password)){
-            wrongLogin.setText("success");
-            m.changeScene("ToGoCar.fxml");
+        User u = RetrieveUserDB.retrieveFromEmail(tf_userName.getText().trim());
+        String password = tf_password.getText().trim();
+        String email = tf_userName.getText().trim();
+        if(!email.isEmpty() && !password.isEmpty()){
+            try {
+                if(!u.existsInDb()){
+                    SignUpCheck();
+                }
+                else if(u.getEmail().equals(email) && u.getPassword().equals(password)){
+                    m.changeScene("ToGoCar.fxml");
+                }
+                else {wrongLogin.setText("Wrong email or password");}
+            }catch (IOException e){
+                System.out.println(e.getMessage());
+            }
         }
-        else if (email.isEmpty() && password.isEmpty()) {
-            wrongLogin.setText("Please enter Email and Password.");
-        }
-        else {
-            wrongLogin.setText("Wrong email or password");
+        else {wrongLogin.setText("Enter email and Password");
         }
     }
 
