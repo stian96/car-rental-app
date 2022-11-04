@@ -29,16 +29,7 @@ public class SignUpController {
     @FXML
     private Label validEmail;
 
-    public SignUpController( TextField tf_userName, PasswordField tf_password, Button button_login, Button button_signUp, Button button_signUpGoogle, Button button_signUpFacebook, Label validEmail) {
 
-        this.tf_userName = tf_userName;
-        this.tf_password = tf_password;
-        this.button_login = button_login;
-        this.button_signUp = button_signUp;
-        this.button_signUpGoogle = button_signUpGoogle;
-        this.button_signUpFacebook = button_signUpFacebook;
-        this.validEmail = validEmail;
-    }
     public SignUpController(){}
 
     public void userLogIn(ActionEvent event) throws IOException {
@@ -86,7 +77,7 @@ public class SignUpController {
 
     private void LogInCheck() throws IOException {
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
 
     }
 
