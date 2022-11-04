@@ -15,14 +15,7 @@ public class ToGoCarPageController {
     @FXML
     private Button button_profile;
 
-    public ToGoCarPageController(Button button_registerCar, Button button_bookCar, Button button_profile, Button button_messages, Button button_customerService, Button button_logOut) {
-        this.button_registerCar = button_registerCar;
-        this.button_bookCar = button_bookCar;
-        this.button_profile = button_profile;
-        this.button_messages = button_messages;
-        this.button_customerService = button_customerService;
-        this.button_logOut = button_logOut;
-    }
+
 
     public ToGoCarPageController() {
     }
@@ -108,7 +101,7 @@ public class ToGoCarPageController {
 
     private void registerAcar() throws IOException{
         Main m = new Main();
-        m.changeScene("LogIn.fxml");
+        m.changeScene("RegisterACar.fxml");
     }
     private void bookAcar() throws IOException{
         Main m = new Main();
