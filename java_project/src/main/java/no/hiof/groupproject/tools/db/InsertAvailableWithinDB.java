@@ -13,35 +13,26 @@ import java.util.Map;
 import java.util.TreeMap;
 
 /*
-A class used to serialise a TreeMap of dates available to book into a database for permanent storage.
+A class used to serialise an ArrayWithin date available to book into a database for permanent storage.
 IMPORTANT: SQLite table 'availableWithin' has a multiple column constraint to prevent the same periods being added
  */
 public class InsertAvailableWithinDB {
 
-    public static void insert(Advertisement advertisement, TreeMap<LocalDate, LocalDate> availableWithin) {
+    public static void insert(Advertisement advertisement, LocalDate dateFrom, LocalDate dateTo) {
 
         String sql = "INSERT INTO availableWithin (availableWithin_id_fk, dateFrom, dateTo)" +
                 "VALUES(?,?,?)";
 
-        if (((RentOutAd) advertisement).getAvailableWithin() != null) {
-            for (Map.Entry<LocalDate, LocalDate> set : ((RentOutAd) advertisement).getAvailableWithin().entrySet()) {
-                try (Connection conn = ConnectDB.connect();
-                     PreparedStatement str = conn.prepareStatement(sql)) {
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
 
+            str.setInt(1, advertisement.getId());
+            str.setString(2, dateFrom.toString());
+            str.setString(3, dateTo.toString());
+            str.executeUpdate();
 
-                    if (!AvailableWithinExistsInDb.existsInDb(advertisement, set)) {
-                        str.setInt(1, advertisement.getId());
-                        str.setString(2, set.getKey().toString());
-                        str.setString(3, set.getValue().toString());
-                        str.executeUpdate();
-                    }
-
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                }
-            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
         }
-
-
     }
 }

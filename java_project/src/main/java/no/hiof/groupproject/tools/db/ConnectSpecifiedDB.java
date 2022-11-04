@@ -25,7 +25,7 @@ public class ConnectSpecifiedDB {
             conn = DriverManager.getConnection(specificURL);
 
             //feedback confirming database is connected
-            System.out.println("Connection to SQLite has been established.");
+            //System.out.println("Connection to SQLite has been established.");
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());

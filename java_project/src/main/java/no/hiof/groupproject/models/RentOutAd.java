@@ -88,10 +88,10 @@ public class RentOutAd extends Advertisement {
     //function to set a new period of time that the vehicle is available within
     public void addNewPeriod(LocalDate dateFrom, LocalDate dateTo) {
         availableWithin.put(dateFrom, dateTo);
-        String insertDateFrom = dateFrom.toString();
-        System.out.println("the date is " + insertDateFrom);
         //saves the period in the database table 'availableWithin'
-        InsertAvailableWithinDB.insert(this, availableWithin);
+        if (!availableWithinExistsInDb(dateFrom, dateTo)) {
+            InsertAvailableWithinDB.insert(this, dateFrom, dateTo);
+        }
         updateDateLastChanged();
     }
 
@@ -222,7 +222,10 @@ public class RentOutAd extends Advertisement {
             //42.2024-12-24.26
             confirmedBookings.add(booking);
             //serialises booking
-            InsertBookingDB.insert(booking);
+            if (!booking.existsInDb()) {
+                InsertBookingDB.insert(booking);
+            }
+
             updateDateLastChanged();
         }
     }
@@ -253,6 +256,26 @@ public class RentOutAd extends Advertisement {
         return false;
     }
 
+    public boolean availableWithinExistsInDb(LocalDate dateFrom, LocalDate dateTo) {
+        String sql = "SELECT COUNT(*) AS amount FROM availableWithin WHERE availableWithin_id_fk = " +
+                this.getId() + " AND dateFrom = \'" + dateFrom.toString() +
+                "\' AND dateTo = \'" + dateTo.toString() + "\'";
+
+        boolean ans = false;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+            return ans;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
     @Override
     public int getAutoIncrementId() {
         String sql = "SELECT * FROM advertisements WHERE user_fk = " + this.getUser().getId() +
@@ -271,11 +294,11 @@ public class RentOutAd extends Advertisement {
         return i;
     }
 
-    public String getBy() {
+    public String getTown() {
         return by;
     }
 
-    public void setBy(String by) {
+    public void setTown(String by) {
         this.by = by;
     }
 
