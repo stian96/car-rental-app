@@ -51,10 +51,37 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
         //if no User with the same email is in the database then the User class is serialised and saved
         if (!existsInDb()) {
             serialise();
+        } else {
+            /*if the User already exists, but only with email and password then the User is updated
+                              ********** NOTE ***********
+               to avoid DEADLOCKS it's best to update every field at once.
+               first create a User with just email and password, then update all the other fields at once by
+               instantiating a new User with the same email and password (use .getEmail() etc.), and then supply
+               the rest of the member values
+
+               User user6 = new User("testing@updating.fromhere", "breadismyfavouritefood");
+               User user7 = new User("ronny", "pickering", "1777", user6.getPassword(),
+                                     "12341234123", user6.getEmail(), "12341234", lic3);
+             */
+            InsertUserDB.updateFromEmailAndPwd(this);
         }
         //the id is automatically incremented when inserted into the database
         //the autoincrement id is fetched and assigned to this instance
         this.setId(getAutoIncrementId());
+    }
+
+    public User(String email, String password) {
+
+        this.email = email;
+        this.password = password;
+
+        //allows for a User to be serialised in the password with only an email and password
+        if (!existsInDb()) {
+            InsertUserDB.insertOnlyEmailAndPwd(this);
+        }
+
+        this.setId(getAutoIncrementId());
+
     }
 
     //serialises the User class and inserts the values into the database

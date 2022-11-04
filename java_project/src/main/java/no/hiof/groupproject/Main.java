@@ -99,6 +99,10 @@ public class Main {
             System.out.println("\nBooking: " + booking.getStrId());
         }
 
+        User user5 = new User("testing@this.email", "breadismyfavouritefood");
+        User user6 = new User("testing@updating.fromhere", "breadismyfavouritefood");
+        User user7 = new User("ronny", "pickering", "1777", user6.getPassword(), "12341234123", user6.getEmail(), "12341234", lic3);
+
 
     }
 }
