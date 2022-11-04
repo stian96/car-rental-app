@@ -20,9 +20,6 @@ import java.util.Map;
 
 public class LogInController {
 
-
-
-
     @FXML
     protected Label wrongLogin;
     @FXML
