@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #9fc5e8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.RegisterCarController">
+   <children>
+      <Pane prefHeight="58.0" prefWidth="600.0" style="-fx-background-color: #f1c232;">
+         <children>
+            <ImageView fitHeight="42.0" fitWidth="66.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@car.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="83.0" layoutY="21.0" text="Register Your Car">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="RegisterPrompt" layoutX="316.0" layoutY="26.0" textFill="#e02020">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="345.0" prefWidth="600.0" style="-fx-background-color: #9fc5e8;">
+         <children>
+            <Label layoutX="31.0" layoutY="15.0" text="Registration Number">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font></Label>
+            <Label layoutX="53.0" layoutY="51.0" text="Manufacturer">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font></Label>
+            <Label layoutX="77.0" layoutY="86.0" text="Model">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font></Label>
+            <Label layoutX="68.0" layoutY="122.0" text="Engine Type">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font></Label>
+            <Label layoutX="63.0" layoutY="154.0" text="Gear Type">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font></Label>
+            <Label layoutX="60.0" layoutY="192.0" text="Model Year">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font></Label>
+            <Label layoutX="53.0" layoutY="223.0" text="Seating Capacity">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font></Label>
+            <Label layoutX="45.0" layoutY="255.0" text="Towing Capacity">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font></Label>
+            <Button fx:id="button_Register" layoutX="265.0" layoutY="304.0" mnemonicParsing="false" onAction="#RegisterCar" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Register">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font>
+            </Button>
+            <TextField fx:id="tf_regNumber" layoutX="198.0" layoutY="12.0" prefHeight="25.0" prefWidth="165.0" promptText="Reg Number" />
+            <TextField fx:id="tf_manufacturer" layoutX="198.0" layoutY="48.0" prefHeight="25.0" prefWidth="165.0" promptText="Manufacturer" />
+            <TextField fx:id="tf_model" layoutX="198.0" layoutY="83.0" prefHeight="25.0" prefWidth="165.0" promptText="Car Model" />
+            <TextField fx:id="tf_EngineType" layoutX="198.0" layoutY="119.0" prefHeight="25.0" prefWidth="165.0" promptText="Engine Type" />
+            <TextField fx:id="tf_GearType" layoutX="198.0" layoutY="151.0" prefHeight="25.0" prefWidth="165.0" promptText="Gear Type" />
+            <TextField fx:id="tf_ModelYear" layoutX="198.0" layoutY="189.0" prefHeight="25.0" prefWidth="165.0" promptText="Model Year" />
+            <TextField fx:id="tf_SeatingCapacity" layoutX="198.0" layoutY="220.0" prefHeight="25.0" prefWidth="165.0" promptText="Seating Capacity" />
+            <TextField fx:id="tf_TowingCapacity" layoutX="198.0" layoutY="252.0" prefHeight="25.0" prefWidth="165.0" promptText="Towing Capacity" />
+         </children></Pane>
+   </children>
+</FlowPane>
