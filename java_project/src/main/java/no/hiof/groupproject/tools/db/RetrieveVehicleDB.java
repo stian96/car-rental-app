@@ -84,7 +84,7 @@ public class RetrieveVehicleDB {
         return returnedVehicle;
     }
 
-    public static Vehicle retrieveFromEmail(String regNo) {
+    public static Vehicle retrieveFromRegNo(String regNo) {
 
         String sql = "SELECT * FROM vehicles WHERE regNo = " + regNo;
 
