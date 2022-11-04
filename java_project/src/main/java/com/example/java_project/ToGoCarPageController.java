@@ -110,28 +110,28 @@ public class ToGoCarPageController{
 
     private void registerAcar() throws IOException{
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
     }
     private void bookAcar() throws IOException{
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
     }
     private void user_profile() throws IOException{
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
     }
     private void MessageCheck() throws IOException{
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
     }
     private void CustomerServicePage() throws IOException{
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
     }
 
     private void LogOutCheck() throws IOException{
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
     }
 
 }
