@@ -19,7 +19,7 @@
                   <Font name="Comic Sans MS Bold Italic" size="19.0" />
                </font>
             </Label>
-            <Label fx:id="RegisterPrompt" layoutX="316.0" layoutY="26.0" textFill="#e02020">
+            <Label fx:id="registerPrompt" layoutX="316.0" layoutY="26.0" textFill="#e02020">
                <font>
                   <Font name="Comic Sans MS" size="13.0" />
                </font>
