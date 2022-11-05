@@ -11,6 +11,6 @@ public interface DeserialiseVehicle {
 
     //returns a Vehicle based on a specific regNo
     static Vehicle deserialiseSpecificEmail(String regNo) {
-        return RetrieveVehicleDB.retrieveFromEmail(regNo);
+        return RetrieveVehicleDB.retrieveFromRegNo(regNo);
     }
 }
