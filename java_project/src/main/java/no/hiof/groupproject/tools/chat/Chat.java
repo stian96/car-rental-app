@@ -2,12 +2,12 @@ package no.hiof.groupproject.tools.chat;
 import no.hiof.groupproject.models.User;
 import java.util.ArrayList;
 
-public class Message {
-    private final User sender;
+public class Chat {
+    private User sender;
     private final User receiver;
     private final ArrayList<String> messageLog = new ArrayList<>();
 
-    public Message(User sender, User receiver) {
+    public Chat(User sender, User receiver) {
         this.sender = sender;
         this.receiver = receiver;
     }
@@ -39,6 +39,11 @@ public class Message {
         messageLog.clear();
     }
 
+    public User getSender() {
+        return sender;
+    }
 
-
+    public void setSender(User sender) {
+        this.sender = sender;
+    }
 }
