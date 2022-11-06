@@ -7,6 +7,7 @@ import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.models.License;
+import no.hiof.groupproject.tools.chat.Message;
 import no.hiof.groupproject.tools.db.*;
 
 import java.io.IOException;
@@ -29,6 +30,7 @@ public class Main {
 
         User user = new User("sam", "davies", "1111", "hunter2",
                 "12341234123", "sam@sam.no", "12341234", license);
+
         User user3 = new User("gsdfg", "qweqwe", "1111", "hunter2",
                 "12341234123", "sam@samland.no", "12341234", license);
         User user4 = new User("wwww", "test", "1111", "hunter2",
@@ -102,6 +104,8 @@ public class Main {
         User user5 = new User("testing@this.email", "breadismyfavouritefood");
         User user6 = new User("testing@updating.fromhere", "breadismyfavouritefood");
         User user7 = new User("ronny", "pickering", "1777", user6.getPassword(), "12341234123", user6.getEmail(), "12341234", lic3);
+
+
 
 
     }
