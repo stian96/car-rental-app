@@ -7,6 +7,7 @@ import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.models.License;
+import no.hiof.groupproject.tools.chat.Chat;
 import no.hiof.groupproject.tools.db.*;
 
 import java.io.IOException;
@@ -34,6 +35,8 @@ public class Main {
                 "12341234123", "sam@samland.no", "12341234", license);
         User user4 = new User("wwww", "test", "1111", "hunter2",
                 "12341234123", "test@test.no", "12341234", license);
+
+        /*
 
         User user2 = DeserialiseUser.deserialiseSpecificId(1);
         System.out.println(user2.getFirstName() + " lives at " + user2.getPostNr() + " and has a license from " +
@@ -103,6 +106,14 @@ public class Main {
         User user5 = new User("testing@this.email", "breadismyfavouritefood");
         User user6 = new User("testing@updating.fromhere", "breadismyfavouritefood");
         User user7 = new User("ronny", "pickering", "1777", user6.getPassword(), "12341234123", user6.getEmail(), "12341234", lic3);
+        */
 
+        Chat chat = new Chat(user, user4);
+        chat.createMessage("Hello from sender!");
+        chat.sendFromSender();
+        chat.createMessage("This is receiver.");
+        chat.sendFromReceiver();
+
+        chat.showMessageLog();
     }
 }
