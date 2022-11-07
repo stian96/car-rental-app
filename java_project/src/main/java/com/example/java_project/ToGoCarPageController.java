@@ -108,7 +108,7 @@ public class ToGoCarPageController {
 
     private void registerAcar() throws IOException{
         Main m = new Main();
-        m.changeScene("LogIn.fxml");
+        m.changeScene("RegisterACar.fxml");
     }
     private void bookAcar() throws IOException{
         Main m = new Main();

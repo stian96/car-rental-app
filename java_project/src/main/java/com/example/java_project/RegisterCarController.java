@@ -31,13 +31,10 @@ public class RegisterCarController {
     @FXML
     private Label RegisterPrompt;
 
-    public void RegisterCar(ActionEvent event){
+    public void RegisterCar(ActionEvent event) throws IOException {
         Main m = new Main();
-        try {
             m.changeScene("ToGoCar.fxml");
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
     }
 
 
