@@ -7,15 +7,14 @@ import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.models.License;
-import no.hiof.groupproject.tools.chat.Chat;
+import no.hiof.groupproject.tools.chat.ChatRoom;
+import no.hiof.groupproject.tools.chat.Message;
 import no.hiof.groupproject.tools.db.*;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -107,13 +106,5 @@ public class Main {
         User user6 = new User("testing@updating.fromhere", "breadismyfavouritefood");
         User user7 = new User("ronny", "pickering", "1777", user6.getPassword(), "12341234123", user6.getEmail(), "12341234", lic3);
         */
-
-        Chat chat = new Chat(user, user4);
-        chat.createMessage("Hello from sender!");
-        chat.sendFromSender();
-        chat.createMessage("This is receiver.");
-        chat.sendFromReceiver();
-
-        chat.showMessageLog();
     }
 }
