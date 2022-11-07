@@ -1,10 +1,13 @@
 package com.example.java_project;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.tools.db.InsertUserDB;
+import no.hiof.groupproject.tools.db.InsertVehicleDB;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 
 import java.io.IOException;
@@ -32,7 +35,10 @@ public class RegisterCarController {
     @FXML
     private Label registerPrompt;
     @FXML
-    private ChoiceBox<Integer> chooseModelYear;
+    private Button searchButton;
+
+
+
 
     public void RegisterCar(ActionEvent event){
         Main m = new Main();
@@ -46,16 +52,20 @@ public class RegisterCarController {
         String seatingCapacity = tf_SeatingCapacity.getText().trim();
         String towingCapacity= tf_TowingCapacity.getText().trim();
         Vehicle v = RetrieveVehicleDB.retrieveFromRegNo(regNo);
+
         if(!regNo.isEmpty() && !manu.isEmpty() && !model.isEmpty() && !engineType.isEmpty()
         && !gearType.isEmpty() && !modelYear.isEmpty()
                 && !seatingCapacity.isEmpty() && !towingCapacity.isEmpty()
-        ){try {
-            if(!v.existsInDb()){
+        ){
+            try {
+                if(v == null){
+
                 Vehicle c = new Car(regNo,manu,model,engineType,gearType,ConvertIntoNumeric(modelYear), /**gives null for the vehicle fix **/
                         ConvertIntoNumeric(seatingCapacity),ConvertIntoNumeric(towingCapacity));
-                        m.changeScene("ToGoPage.fxml");
-            }else {registerPrompt.setText("Already Exists");}
-        }catch (IOException e){
+
+                m.changeScene("ToGoCar.fxml");}
+            else{registerPrompt.setText("Car exists already");}}
+        catch (IOException e){
             System.out.println(e.getMessage());
         }
 
@@ -64,21 +74,7 @@ public class RegisterCarController {
     else { registerPrompt.setText("enter information");}
 
 }
-public void pickYear(ActionEvent event) throws IOException{
-        int year = getChooseModelYear().getValue();
 
-}
-public void addYearsToCB(ChoiceBox<Integer> chooseModelYear){
-        chooseModelYear.setValue(1920);
-}
-
-    public ChoiceBox<Integer> getChooseModelYear() {
-        return chooseModelYear;
-    }
-
-    public void setChooseModelYear(ChoiceBox<Integer> chooseModelYear) {
-        this.chooseModelYear = chooseModelYear;
-    }
 
     private int ConvertIntoNumeric(String xVal)
     {
@@ -90,5 +86,8 @@ public void addYearsToCB(ChoiceBox<Integer> chooseModelYear){
         {
             return 0;
         }
+    }
+
+    public void searchRegNo(ActionEvent event) {
     }
 }
