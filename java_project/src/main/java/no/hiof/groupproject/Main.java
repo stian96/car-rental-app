@@ -20,8 +20,9 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        System.out.println(FilterVehicle.filterGearType(RetrieveVehiclesDB.retrieveAllVehiclesObject(), "manual"));
+        System.out.println(FilterVehicle.filterEngineType(RetrieveVehiclesDB.retrieveAllVehiclesObject(), "petrol"));
 
+        System.out.println(RetrieveVehiclesDB.retrieveAllVehiclesAndAdvertisementsObject());
         //the following code is used to test serialisation and deserialisation of the database
         //                             *********** IMPORTANT ***********
         //SQLite errors in the console is just feedback - often preventing duplicate entries (e.g UNIQUE constraints)

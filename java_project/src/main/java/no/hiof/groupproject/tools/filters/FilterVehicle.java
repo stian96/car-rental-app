@@ -23,4 +23,27 @@ public class FilterVehicle {
         }
         return returnedList;
     }
+
+    //eg: FilterVehicle.filterEngineType(RetrieveVehiclesDB.retrieveAllVehiclesObject(), "petrol")
+    public static ArrayList<Vehicle> filterEngineType(ArrayList<Vehicle> vehicles, String choice) {
+
+        ArrayList<Vehicle> returnedList = new ArrayList<>();
+        for (Vehicle vehicle : vehicles) {
+            if (Objects.equals(vehicle.getEngineType(), choice)) {
+                returnedList.add(vehicle);
+            }
+        }
+        return returnedList;
+    }
+
+    public static ArrayList<Vehicle> filterEngineTyped(ArrayList<Vehicle> vehicles, String choice) {
+
+        ArrayList<Vehicle> returnedList = new ArrayList<>();
+        for (Vehicle vehicle : vehicles) {
+            if (Objects.equals(vehicle.getEngineType(), choice)) {
+                returnedList.add(vehicle);
+            }
+        }
+        return returnedList;
+    }
 }
