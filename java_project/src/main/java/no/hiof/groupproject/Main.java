@@ -10,6 +10,7 @@ import no.hiof.groupproject.models.License;
 import no.hiof.groupproject.tools.chat.ChatRoom;
 import no.hiof.groupproject.tools.chat.Message;
 import no.hiof.groupproject.tools.db.*;
+import no.hiof.groupproject.tools.filters.FilterVehicle;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -19,14 +20,14 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        System.out.println(RetrieveVehiclesDB.retrieveAllVehiclesObject());
+        System.out.println(FilterVehicle.filterGearType(RetrieveVehiclesDB.retrieveAllVehiclesObject(), "manual"));
 
         //the following code is used to test serialisation and deserialisation of the database
         //                             *********** IMPORTANT ***********
         //SQLite errors in the console is just feedback - often preventing duplicate entries (e.g UNIQUE constraints)
         //                             *********************************
 
-
+        /*
         License license = new License("98 45 123456 1", LocalDate.parse("2008-05-12"),
                 "Norway");
 
@@ -116,5 +117,6 @@ public class Main {
                         "manual", 1963, 2, 400),
                 BigDecimal.valueOf(400), BigDecimal.valueOf(30), "halden"
         );
+         */
     }
 }
