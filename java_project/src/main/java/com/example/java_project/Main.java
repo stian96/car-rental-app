@@ -5,9 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import no.hiof.groupproject.tools.db.ConnectDB;
 
 import java.io.IOException;
-
+import java.sql.Connection;
 
 
 public class Main extends Application {
@@ -21,12 +22,13 @@ public class Main extends Application {
         stage.setResizable(false);
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LogIn.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        //checkConnection();
         stage.setTitle("ToGoCar");
         stage.setScene(scene);
         stage.show();
     }
 
-
+    //public void checkConnection(){Connection con = ConnectDB.connect();}
 
     public void changeScene(String fxml) throws IOException {
         Parent pane;

@@ -7,6 +7,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.tools.db.InsertUserDB;
+import no.hiof.groupproject.tools.db.RetrieveUserDB;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -29,16 +32,7 @@ public class SignUpController {
     @FXML
     private Label validEmail;
 
-    public SignUpController( TextField tf_userName, PasswordField tf_password, Button button_login, Button button_signUp, Button button_signUpGoogle, Button button_signUpFacebook, Label validEmail) {
 
-        this.tf_userName = tf_userName;
-        this.tf_password = tf_password;
-        this.button_login = button_login;
-        this.button_signUp = button_signUp;
-        this.button_signUpGoogle = button_signUpGoogle;
-        this.button_signUpFacebook = button_signUpFacebook;
-        this.validEmail = validEmail;
-    }
     public SignUpController(){}
 
     public void userLogIn(ActionEvent event) throws IOException {
@@ -49,8 +43,22 @@ public class SignUpController {
 
 
     public void userSignUp(ActionEvent event) throws IOException{
-        isVerified();
+        Main m = new Main();
+        String email = tf_userName.getText().trim();
+        String password = tf_password.getText().trim();
+        User u = RetrieveUserDB.retrieveFromEmail(email);
+        if(!email.isEmpty() && !password.isEmpty()){
+            try {
+                if(!u.existsInDb()){
+                    User user = new User(email,password);
+                    LogInCheck();
+                }else{validEmail.setText("This email already exists!");}
+            }
+            catch (IOException e){
+                System.out.println(e.getMessage());}}
+        else{ validEmail.setText("Enter email and password");}
     }
+
 
     public void signUpGoogle(ActionEvent event) throws IOException {
         SignUpCheckGoogle();
@@ -60,33 +68,10 @@ public class SignUpController {
         SignUpCheckFacebook();
     }
 
-    public void isVerified() throws IOException {
-        Main m = new Main();
-        HashMap<String,String> signUp = new HashMap<>();
-        signUp.put("miley1@gmail.com", "miley1");
-        signUp.put("miley2@gmail.com", "miley2");
-        signUp.put("miley3@gmail.com", "miley3");
-        for (Map.Entry<String, String> entry : signUp.entrySet()) {
-            String key = entry.getKey();
-            String value = entry.getValue();
-            if (tf_userName.getText().toString().equals(key) && tf_password.getText().toString().equals(value)) {
-                validEmail.setText("Success!");
-                m.changeScene("ToGoCar.fxml");
-            }else if (tf_userName.getText().isEmpty() && tf_password.getText().isEmpty()) {
-                validEmail.setText("Please enter Email and Password.");
-            }
-            else {
-                validEmail.setText("Wrong email or password");
-            }
-
-
-        }
-
-    }
 
     private void LogInCheck() throws IOException {
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
 
     }
 
@@ -101,5 +86,6 @@ public class SignUpController {
         m.changeScene("SignUpFacebook.fxml");
 
     }
+
 
 }
