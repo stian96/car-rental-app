@@ -34,17 +34,20 @@ public class RetrieveAverageRatingDB {
     public static void update(UserProfile userProfile) {
 
         String avgRating = retrieve(userProfile);
-        String sql = "UPDATE userProfiles SET averageRating = \'" + avgRating +
-                "\' WHERE user_fk = " + userProfile.getUser().getId();
+        if (avgRating != null) {
+            String sql = "UPDATE userProfiles SET averageRating = \'" + avgRating +
+                    "\' WHERE user_fk = " + userProfile.getUser().getId();
 
-        try (Connection conn = ConnectDB.connect();
-             PreparedStatement str = conn.prepareStatement(sql)) {
+            try (Connection conn = ConnectDB.connect();
+                 PreparedStatement str = conn.prepareStatement(sql)) {
 
-            str.executeUpdate();
+                str.executeUpdate();
 
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
         }
+
 
     }
 
