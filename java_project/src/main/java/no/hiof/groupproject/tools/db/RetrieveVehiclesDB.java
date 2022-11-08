@@ -18,6 +18,8 @@ import java.util.Objects;
 Returns an ArrayList of all the Vehicles with RentOutAds associated with them
 Two options: retrieve ArrayList<Integer> of all vehicle ids
              retrieve ArrayList<Vehicle> of all Vehicle objects
+
+NOTE: this may be useful, but FilterAdvertisement might be more suitable since it is faster and you can filter it
  */
 public class RetrieveVehiclesDB {
 
