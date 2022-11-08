@@ -120,6 +120,11 @@ public class UserProfile implements Serialise, ExistsInDb {
         return false;
     }
 
+    //used to add a single advertisement - serialised in RentOutAd constructor
+    public void addAdvertisement(Advertisement advertisement) {
+        advertisements.add(advertisement);
+    }
+
     @Override
     public void serialise() {
         InsertUserProfileDB.insert(this);
