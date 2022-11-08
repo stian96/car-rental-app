@@ -19,11 +19,14 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws IOException {
 
+        System.out.println(RetrieveVehiclesDB.retrieveAllVehiclesObject());
 
         //the following code is used to test serialisation and deserialisation of the database
         //                             *********** IMPORTANT ***********
         //SQLite errors in the console is just feedback - often preventing duplicate entries (e.g UNIQUE constraints)
         //                             *********************************
+
+
         License license = new License("98 45 123456 1", LocalDate.parse("2008-05-12"),
                 "Norway");
 
@@ -34,8 +37,6 @@ public class Main {
                 "12341234123", "sam@samland.no", "12341234", license);
         User user4 = new User("wwww", "test", "1111", "hunter2",
                 "12341234123", "test@test.no", "12341234", license);
-
-        /*
 
         User user2 = DeserialiseUser.deserialiseSpecificId(1);
         System.out.println(user2.getFirstName() + " lives at " + user2.getPostNr() + " and has a license from " +
@@ -84,6 +85,7 @@ public class Main {
         System.out.println(up2.getUser().getFirstName() + " " + up2.getUser().getLastName() + " has an average rating " +
                 "of " + up2.getAverageRating());
 
+
         System.out.println(roa.getLocation().getThisLocationInfo());
         System.out.println(roa.getLocation().getBy() + " is in the county of "
                 + roa.getLocation().getFylke() + " with a postcode of "
@@ -105,6 +107,14 @@ public class Main {
         User user5 = new User("testing@this.email", "breadismyfavouritefood");
         User user6 = new User("testing@updating.fromhere", "breadismyfavouritefood");
         User user7 = new User("ronny", "pickering", "1777", user6.getPassword(), "12341234123", user6.getEmail(), "12341234", lic3);
-        */
+
+        User user8 = new User("blahblah@test.no", "catsanddogs");
+
+        RentOutAd roaVehicle2 = new RentOutAd(
+                user7,
+                new Car("11223344", "aston martin", "db5", "petrol",
+                        "manual", 1963, 2, 400),
+                BigDecimal.valueOf(400), BigDecimal.valueOf(30), "halden"
+        );
     }
 }
