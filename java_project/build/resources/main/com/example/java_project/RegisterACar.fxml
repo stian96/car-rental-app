@@ -65,7 +65,9 @@
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
                </font>
             </Button>
+
             <TextField fx:id="tf_regNumber" layoutX="198.0" layoutY="12.0" prefHeight="25.0" prefWidth="165.0" promptText="Reg Number" />
+
             <TextField fx:id="tf_manufacturer" layoutX="198.0" layoutY="48.0" prefHeight="25.0" prefWidth="165.0" promptText="Manufacturer" />
             <TextField fx:id="tf_model" layoutX="198.0" layoutY="83.0" prefHeight="25.0" prefWidth="165.0" promptText="Car Model" />
             <TextField fx:id="tf_EngineType" layoutX="198.0" layoutY="119.0" prefHeight="25.0" prefWidth="165.0" promptText="Engine Type" />

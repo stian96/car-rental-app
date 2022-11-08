@@ -68,14 +68,13 @@
 
             <TextField fx:id="tf_regNumber" layoutX="198.0" layoutY="12.0" prefHeight="25.0" prefWidth="165.0" promptText="Reg Number" />
 
-            <TextField fx:id="tf_manufacturer"  layoutX="198.0" layoutY="48.0" prefHeight="25.0" prefWidth="165.0" promptText="Manufacturer" />
-            <TextField fx:id="tf_model"  layoutX="198.0" layoutY="83.0" prefHeight="25.0" prefWidth="165.0" promptText="Car Model" />
-            <TextField fx:id="tf_EngineType"  layoutX="198.0" layoutY="119.0" prefHeight="25.0" prefWidth="165.0" promptText="Engine Type" />
-            <TextField fx:id="tf_GearType"  layoutX="198.0" layoutY="151.0" prefHeight="25.0" prefWidth="165.0" promptText="Gear Type" />
+            <TextField fx:id="tf_manufacturer" layoutX="198.0" layoutY="48.0" prefHeight="25.0" prefWidth="165.0" promptText="Manufacturer" />
+            <TextField fx:id="tf_model" layoutX="198.0" layoutY="83.0" prefHeight="25.0" prefWidth="165.0" promptText="Car Model" />
+            <TextField fx:id="tf_EngineType" layoutX="198.0" layoutY="119.0" prefHeight="25.0" prefWidth="165.0" promptText="Engine Type" />
+            <TextField fx:id="tf_GearType" layoutX="198.0" layoutY="151.0" prefHeight="25.0" prefWidth="165.0" promptText="Gear Type" />
             <TextField fx:id="tf_ModelYear" layoutX="198.0" layoutY="189.0" prefHeight="25.0" prefWidth="165.0" promptText="Model Year" />
             <TextField fx:id="tf_SeatingCapacity" layoutX="198.0" layoutY="220.0" prefHeight="25.0" prefWidth="165.0" promptText="Seating Capacity" />
             <TextField fx:id="tf_TowingCapacity" layoutX="198.0" layoutY="252.0" prefHeight="25.0" prefWidth="165.0" promptText="Towing Capacity" />
-            <Button fx:id="searchButton" layoutX="392.0" layoutY="12.0" mnemonicParsing="false" onAction="#searchRegNo" text="Search" />
          </children></Pane>
    </children>
 </FlowPane>
