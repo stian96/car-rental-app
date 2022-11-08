@@ -8,6 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.Objects;
 
 /*
 Returns a specific UserProfile in the database based on the User id
@@ -23,13 +24,14 @@ public class RetrieveUserProfileDB {
         try (Connection conn = ConnectDB.connect();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
-            ResultSet queryResult = str.executeQuery();
 
             User user = RetrieveUserDB.retrieveFromId(id);
             returnedUserProfile = new UserProfile(user);
             HashMap<User, Integer> ratings = RetrieveRatingDB.retrieve(returnedUserProfile);
             returnedUserProfile.setRatings(ratings);
             returnedUserProfile.setAverageRating(Double.parseDouble(RetrieveAverageRatingDB.retrieve(returnedUserProfile)));
+
+
 
 
         } catch (SQLException e) {

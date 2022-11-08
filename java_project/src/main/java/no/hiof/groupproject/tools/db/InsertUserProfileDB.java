@@ -7,6 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 /*
 A class used to serialise a User into a database for permanent storage.
@@ -26,6 +27,8 @@ public class InsertUserProfileDB {
 
             str.setInt(1, userProfile.getUser().getId());
             str.setString(2, avgRating);
+
+
 
             str.executeUpdate();
         } catch (SQLException e) {
