@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.example.java_project.LogInControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-08T07:40:18" hostname="DESKTOP-K38CI5S" time="0.085">
-  <properties/>
-  <testcase name="test_this_stuff()" classname="com.example.java_project.LogInControllerTest" time="0.085"/>
-  <system-out><![CDATA[[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
