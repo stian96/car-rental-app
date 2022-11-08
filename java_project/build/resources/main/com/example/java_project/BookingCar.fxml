@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+          xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="62.0" prefWidth="599.0" style="-fx-background-color: #9fc5e8;">
+         <children>
+            <Label layoutX="49.0" layoutY="31.0" text="Car Available">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="16.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="338.0" prefWidth="600.0" style="-fx-background-color: #f1c232;">
+         <children>
+            <Label layoutX="41.0" layoutY="44.0" text="Transmission">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="14.0" />
+               </font>
+            </Label>
+            <RadioButton layoutX="37.0" layoutY="75.0" mnemonicParsing="false" text="Manual">
+               <font>
+                  <Font size="13.0" />
+               </font></RadioButton>
+            <RadioButton layoutX="120.0" layoutY="76.0" mnemonicParsing="false" text="Automatic" />
+            <Label layoutX="41.0" layoutY="110.0" text="Engine">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font></Label>
+            <RadioButton layoutX="37.0" layoutY="146.0" mnemonicParsing="false" text="Electric">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></RadioButton>
+            <RadioButton layoutX="142.0" layoutY="146.0" mnemonicParsing="false" text="Hybrid">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></RadioButton>
+            <Label layoutX="24.0" layoutY="186.0" text="Manufacturer">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="14.0" />
+               </font></Label>
+            <ChoiceBox layoutX="142.0" layoutY="186.0" prefWidth="150.0" />
+            <Label layoutX="272.0" layoutY="46.0" text="Number of Seats">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font>
+            </Label>
+            <Slider />
+         </children>
+      </Pane>
+   </children>
+</FlowPane>
