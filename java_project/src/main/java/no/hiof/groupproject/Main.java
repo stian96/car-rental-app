@@ -1,28 +1,18 @@
 package no.hiof.groupproject;
 
 
-import no.hiof.groupproject.interfaces.*;
-import no.hiof.groupproject.models.*;
-import no.hiof.groupproject.models.payment_methods.Vipps;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.models.License;
-import no.hiof.groupproject.tools.chat.ChatRoom;
-import no.hiof.groupproject.tools.chat.Message;
 import no.hiof.groupproject.tools.db.*;
-import no.hiof.groupproject.tools.filters.FilterVehicle;
+import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
 import java.io.IOException;
-import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        System.out.println(FilterVehicle.filterEngineType(RetrieveVehiclesDB.retrieveAllVehiclesObject(), "petrol"));
+        System.out.println(FilterAdvertisement.filter(null, null, null, null,
+                null, null, null));
 
-        System.out.println(RetrieveVehiclesDB.retrieveAllVehiclesAndAdvertisementsObject());
+
         //the following code is used to test serialisation and deserialisation of the database
         //                             *********** IMPORTANT ***********
         //SQLite errors in the console is just feedback - often preventing duplicate entries (e.g UNIQUE constraints)
