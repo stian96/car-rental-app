@@ -1,6 +1,0 @@
--cp
-C:\\Users\\Ashti\\IdeaProjects\\Group_Project\\java_project\\caches\\7.2\\workerMain\\gradle-worker.jar
---add-opens
-java.base/java.util=ALL-UNNAMED
---add-opens
-java.base/java.lang=ALL-UNNAMED
