@@ -12,6 +12,7 @@ import static org.mockito.BDDMockito.willThrow;
 import static org.mockito.Mockito.*;
 
 class LogInControllerTest {
+    /*
     LogInController logInController = mock(LogInController.class);
     LogInController test = new LogInController();
     RetrieveUserDB userDB = mock(RetrieveUserDB.class);
@@ -55,6 +56,8 @@ class LogInControllerTest {
 
 
 
+
+     */
 
 
 }

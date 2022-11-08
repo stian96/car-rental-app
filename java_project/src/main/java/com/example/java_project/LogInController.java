@@ -27,7 +27,7 @@ public class LogInController {
     @FXML
     protected Button button_signUp;
 
-    public LogInController(){
+    public LogInController() {
         super();
 
     }
@@ -37,25 +37,29 @@ public class LogInController {
         User u = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
         String password = tf_password.getText();
         String email = tf_userName.getText();
-        if(!email.isEmpty() && !password.isEmpty()){
+        if (!email.isEmpty() && !password.isEmpty()) {
             try {
-                if(!u.existsInDb()){
+                if (!u.existsInDb()) {
                     SignUpCheck();
-                }
-                else if(u.getEmail().equals(email) && u.getPassword().equals(password)){
+                } else if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
                     m.changeScene("ToGoCar.fxml");
+                } else {
+                    wrongLogin.setText("Wrong email or password");
                 }
-                else {wrongLogin.setText("Wrong email or password");}
-            }catch (IOException e){
+            } catch (IOException e) {
                 System.out.println(e.getMessage());
             }
-        }}
-    public void userSignUp(ActionEvent event) throws IOException{
+        }
+    }
+
+    public void userSignUp(ActionEvent event) throws IOException {
         SignUpCheck();
     }
+
     private void SignUpCheck() throws IOException {
         Main m = new Main();
         m.changeScene("SignUp.fxml");
 
     }
+
 }
