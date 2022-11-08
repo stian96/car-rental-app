@@ -1734,12 +1734,12 @@ dateTo</ColNames>
       <DataType>INTEGER|0s</DataType>
       <Position>3</Position>
     </column>
-    <foreign-key id="591" parent="492">
+    <foreign-key id="591" parent="492" name="ratings_users_fk">
       <ColNames>user</ColNames>
       <RefColNames>users_id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="592" parent="492">
+    <foreign-key id="592" parent="492" name="ratings_usersGivingRating_fk">
       <ColNames>userGivingRating</ColNames>
       <RefColNames>users_id</RefColNames>
       <RefTableName>users</RefTableName>
@@ -1804,7 +1804,7 @@ rating</ColNames>
       <DataType>REAL|0s</DataType>
       <Position>2</Position>
     </column>
-    <foreign-key id="607" parent="496">
+    <foreign-key id="607" parent="496" name="userProfiles_users_users_id_fk">
       <ColNames>user_fk</ColNames>
       <RefColNames>users_id</RefColNames>
       <RefTableName>users</RefTableName>

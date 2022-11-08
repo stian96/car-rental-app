@@ -53,19 +53,6 @@
                </font>
             </Label>
             <Spinner layoutX="5.0" layoutY="235.0" prefHeight="25.0" prefWidth="79.0" />
-            <TableView fx:id="vehicleTable" editable="true" layoutX="152.0" prefHeight="350.0" prefWidth="446.0" VBox.vgrow="ALWAYS">
-               <columns>
-                  <TableColumn fx:id="classColumn" prefWidth="60.0" text="Class" />
-                  <TableColumn fx:id="categoryColumn" prefWidth="60.0" text="Category" />
-                  <TableColumn fx:id="characteristicsColumn" prefWidth="100.0" text="Characteristics" />
-                  <TableColumn fx:id="smokingColumn" prefWidth="50.0" text="Smoke" />
-                  <TableColumn fx:id="odometerColumn" prefWidth="70.0" text="Odometer" />
-                  <TableColumn fx:id="damagesColumn" prefWidth="158.0" text="Select" />
-               </columns>
-               <columnResizePolicy>
-                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
-               </columnResizePolicy>
-            </TableView>
             <Button layoutX="41.0" layoutY="288.0" mnemonicParsing="false" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Search">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
