@@ -12,6 +12,14 @@ public class Motorcycle extends Vehicle {
 
         super(regNumber, manufacturer, model, fuelType, gearType, modelYear);
         this.helmetProvided = helmetProvided;
+        super.setVehicleSubclass("motorcycle");
+
+        if (!existsInDb()) {
+            serialise();
+        }
+        //the id is automatically incremented when inserted into the database
+        //the autoincrement id is fetched and assigned to this instance
+        this.setId(getAutoIncrementId());
     }
 
 

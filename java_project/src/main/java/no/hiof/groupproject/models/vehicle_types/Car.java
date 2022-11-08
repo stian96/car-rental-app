@@ -1,20 +1,25 @@
 package no.hiof.groupproject.models.vehicle_types;
 
-import no.hiof.groupproject.models.User;
-
 public class Car extends Vehicle {
     private int seatingCapacity;
-    private int towingAbility;
-    private String carType;
+    private int towingCapacity;
 
     public Car(String regNumber, String manufacturer, String model,
-               String fuelType, String gearBox, int modelYear,
-               int seatingCapacity, int towingAbility, String carType) {
+               String fuelType, String gearType, int modelYear,
+               int seatingCapacity, int towingCapacity) {
 
-        super(regNumber, manufacturer, model, fuelType, gearBox, modelYear);
+        super(regNumber, manufacturer, model, fuelType, gearType, modelYear);
         this.seatingCapacity = seatingCapacity;
-        this.towingAbility = towingAbility;
-        this.carType = carType;
+        this.towingCapacity = towingCapacity;
+
+        super.setVehicleSubclass("car");
+
+        if (!existsInDb()) {
+            serialise();
+        }
+        //the id is automatically incremented when inserted into the database
+        //the autoincrement id is fetched and assigned to this instance
+        this.setId(getAutoIncrementId());
 
     }
 
@@ -26,19 +31,11 @@ public class Car extends Vehicle {
         this.seatingCapacity = seatingCapacity;
     }
 
-    public int getTowingAbility() {
-        return towingAbility;
+    public int getTowingCapacity() {
+        return towingCapacity;
     }
 
-    public void setTowingAbility(int towingAbility) {
-        this.towingAbility = towingAbility;
-    }
-
-    public String getCarType() {
-        return carType;
-    }
-
-    public void setCarType(String carType) {
-        this.carType = carType;
+    public void setTowingCapacity(int towingCapacity) {
+        this.towingCapacity = towingCapacity;
     }
 }

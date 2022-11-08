@@ -12,11 +12,18 @@ public class Moped extends Vehicle {
 
         super(regNumber, manufacturer, model, fuelType, gearType, modelYear);
         this.helmetProvided = helmetProvided;
+        super.setVehicleSubclass("moped");
 
+        if (!existsInDb()) {
+            serialise();
+        }
+        //the id is automatically incremented when inserted into the database
+        //the autoincrement id is fetched and assigned to this instance
+        this.setId(getAutoIncrementId());
     }
 
 
-    public String isHelmetProvided() {
+    public String getHelmetProvided() {
         return helmetProvided;
     }
 

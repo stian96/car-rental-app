@@ -1,21 +1,26 @@
 package no.hiof.groupproject.models.vehicle_types;
 
-import no.hiof.groupproject.models.User;
-
 public class Truck extends Vehicle {
-    private int towingCapacity, storageSpace, seatingCapacity;
-    private String measurement;
+    private int towingCapacity, storageSpace, seatingCapacity, dimensions;
 
 
     public Truck(String regNumber, String manufacturer, String model, String fuelType,
                  String gearType, int modelYear, int towingCapacity,
-                 int storageSpace, int seatingCapacity, String measurement) {
+                 int storageSpace, int seatingCapacity, int dimensions) {
 
         super(regNumber, manufacturer, model, fuelType, gearType, modelYear);
         this.towingCapacity = towingCapacity;
         this.storageSpace = storageSpace;
         this.seatingCapacity = seatingCapacity;
-        this.measurement = measurement;
+        this.dimensions = dimensions;
+        super.setVehicleSubclass("truck");
+
+        if (!existsInDb()) {
+            serialise();
+        }
+        //the id is automatically incremented when inserted into the database
+        //the autoincrement id is fetched and assigned to this instance
+        this.setId(getAutoIncrementId());
     }
 
     public int getTowingCapacity() {
@@ -42,11 +47,11 @@ public class Truck extends Vehicle {
         this.seatingCapacity = seatingCapacity;
     }
 
-    public String getMeasurement() {
-        return measurement;
+    public int getDimensions() {
+        return dimensions;
     }
 
-    public void setMeasurement(String measurement) {
-        this.measurement = measurement;
+    public void setDimensions(int dimensions) {
+        this.dimensions = dimensions;
     }
 }

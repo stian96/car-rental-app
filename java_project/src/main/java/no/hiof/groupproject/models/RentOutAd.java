@@ -1,10 +1,20 @@
 package no.hiof.groupproject.models;
 
+import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
+import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.tools.db.ConnectDB;
+import no.hiof.groupproject.tools.db.GenericQueryDB;
+import no.hiof.groupproject.tools.db.InsertAvailableWithinDB;
+import no.hiof.groupproject.tools.db.InsertBookingDB;
 import no.hiof.groupproject.tools.geocode.Location;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.*;
@@ -24,9 +34,6 @@ An example of initialisation is:
 
 public class RentOutAd extends Advertisement {
 
-    //auto-incremental id
-    private static int count = 1;
-    private int id;
 
     private Vehicle vehicle;
     //currency in norwegian kroner (NOK) set during initialisation
@@ -49,14 +56,17 @@ public class RentOutAd extends Advertisement {
                      BigDecimal dailyCharge, BigDecimal chargePerTwentyKm, String city) {
         super(user);
 
-        this.id = count;
+        //this.id = count;
         //increments the id by 1
-        count++;
+        //count++;
 
         this.vehicle = vehicle;
         this.cur = Currency.getInstance("NOK");
         this.dailyCharge = dailyCharge;
         this.chargePerTwentyKm = chargePerTwentyKm;
+        this.setAdvertisementSubclass("rentoutad");
+        availableWithin = new TreeMap<>();
+        confirmedBookings = new ArrayList<>();
         try {
             this.location = new Location(city);
             by = this.location.getBy();
@@ -67,12 +77,21 @@ public class RentOutAd extends Advertisement {
             e.printStackTrace();
         }
 
+        if (!existsInDb()) {
+            serialise();
+        }
+        this.setId(getAutoIncrementId());
+
     }
 
 
     //function to set a new period of time that the vehicle is available within
     public void addNewPeriod(LocalDate dateFrom, LocalDate dateTo) {
         availableWithin.put(dateFrom, dateTo);
+        //saves the period in the database table 'availableWithin'
+        if (!availableWithinExistsInDb(dateFrom, dateTo)) {
+            InsertAvailableWithinDB.insert(this, dateFrom, dateTo);
+        }
         updateDateLastChanged();
     }
 
@@ -91,12 +110,15 @@ public class RentOutAd extends Advertisement {
 
         if (dateAvailable) {
             //creating a sorted map of bookings
-            Map<LocalDate, LocalDate> sortedBookings = new TreeMap<>();
+            TreeMap<LocalDate, LocalDate> sortedBookings = new TreeMap<>();
+            TreeMap<LocalDate, LocalDate> dateIsFree = new TreeMap<>();
+
 
             //initialising variables
             LocalDate dateTo = null;
             LocalDate dateFrom = null;
 
+            /*
             //flags for the following for loop
             boolean iteration = true;
             boolean turn = false;
@@ -107,6 +129,7 @@ public class RentOutAd extends Advertisement {
             //    on second iteration the booking's first date is set to a variable, turn flag is set to false,
             //    then a set is put into the TreeMap, and the turn flag is set to true.
             //        on the third iteration the loop is repeated
+
             for (Booking book : confirmedBookings) {
                 if (iteration) {
                     dateTo = book.getBookedTo();
@@ -122,9 +145,71 @@ public class RentOutAd extends Advertisement {
                     turn = true;
                 }
             }
+
+             */
+
+            /*        ***************************************************************************************
+                  if a booking exists from the 10th to the 12th, then another booking can only be valid if it is
+                  AFTER the 12th, but not ON the 12th
+                      ***************************************************************************************
+            basically does the same thing as the commented out block of code above
+            just had to alter behaviour of the code based on iff ArrayList was:
+            -empty, -contained a single object, -2 objects, -3 or more
+            important otherwise NullPointerException is given in cases where sortedBookings.higherEntry(set.getKey())
+            didn't exist
+             */
+            if (!confirmedBookings.isEmpty()) {
+                for (Booking book : confirmedBookings) {
+                    //sorts bookings based on date
+                    dateTo = book.getBookedTo();
+                    dateFrom = book.getBookedFrom();
+                    sortedBookings.put(dateFrom, dateTo);
+                }
+                if (confirmedBookings.size() > 2) {
+
+                    for (Map.Entry<LocalDate, LocalDate> set : sortedBookings.entrySet()) {
+                        if (sortedBookings.higherEntry(set.getKey()) == null) {
+                            dateIsFree.put(set.getValue(), LocalDate.parse("2099-01-01"));
+                        } else {
+                            Map.Entry<LocalDate, LocalDate> next = sortedBookings.higherEntry(set.getKey());
+                            dateIsFree.put(set.getValue(), next.getKey());
+                        }
+                    }
+
+                } else if (confirmedBookings.size() == 2) {
+                    LocalDate firstVal = null;
+                    LocalDate secondKey = null;
+                    LocalDate secondVal = null;
+                    int count = 1;
+
+                    for (Map.Entry<LocalDate, LocalDate> set : sortedBookings.entrySet()) {
+                        if (count == 1) {
+                            firstVal = set.getValue();
+                            count++;
+                        } else if (count == 2) {
+                            secondKey = set.getKey();
+                            secondVal = set.getValue();
+                        }
+                    }
+                    
+                    dateIsFree.put(firstVal, secondKey);
+                    dateIsFree.put(secondVal, LocalDate.parse("2099-01-01"));
+                } else if (confirmedBookings.size() == 1) {
+                    for (Map.Entry<LocalDate, LocalDate> set : sortedBookings.entrySet()) {
+                        Map.Entry<LocalDate, LocalDate> next = sortedBookings.higherEntry(set.getKey());
+                        Map.Entry<LocalDate, LocalDate> prev = sortedBookings.lowerEntry(set.getKey());
+                        dateIsFree.put(set.getValue(), LocalDate.parse("2099-01-01"));
+                    }
+                }
+            } else {
+                //if the arrayList is empty then we can assume that there are no date clashes
+                dateDoesNotClash = true;
+
+            }
+
             //sets a flag if the booking does not clash with another booking
-            for (Map.Entry<LocalDate, LocalDate> set : sortedBookings.entrySet()) {
-                if (booking.getBookedFrom().isAfter(set.getKey()) && booking.getBookedTo().isAfter(set.getValue())) {
+            for (Map.Entry<LocalDate, LocalDate> set : dateIsFree.entrySet()) {
+                if (booking.getBookedFrom().isAfter(set.getKey()) && booking.getBookedTo().isBefore(set.getValue())) {
                     dateDoesNotClash = true;
                 }
             }
@@ -135,8 +220,12 @@ public class RentOutAd extends Advertisement {
         if (dateDoesNotClash) {
             //creates a booking in the format of <renter id>.<date booking begins>.<vehicle owner id>
             //42.2024-12-24.26
-            booking.setStrId(booking.getStrId() + "." + this.getUser().getId());
             confirmedBookings.add(booking);
+            //serialises booking
+            if (!booking.existsInDb()) {
+                InsertBookingDB.insert(booking);
+            }
+
             updateDateLastChanged();
         }
     }
@@ -146,11 +235,70 @@ public class RentOutAd extends Advertisement {
         availableWithin.entrySet().removeIf(entry -> LocalDate.now().isAfter(entry.getValue()));
     }
 
-    public String getBy() {
+    @Override
+    public boolean existsInDb() {
+        String sql = "SELECT COUNT(*) AS amount FROM advertisements WHERE user_fk = " + this.getUser().getId() +
+                " AND vehicle_fk = " + this.vehicle.getId();
+
+        boolean ans = false;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+            return ans;
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public boolean availableWithinExistsInDb(LocalDate dateFrom, LocalDate dateTo) {
+        String sql = "SELECT COUNT(*) AS amount FROM availableWithin WHERE availableWithin_id_fk = " +
+                this.getId() + " AND dateFrom = \'" + dateFrom.toString() +
+                "\' AND dateTo = \'" + dateTo.toString() + "\'";
+
+        boolean ans = false;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+            return ans;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    @Override
+    public int getAutoIncrementId() {
+        String sql = "SELECT * FROM advertisements WHERE user_fk = " + this.getUser().getId() +
+                " AND vehicle_fk = " + this.vehicle.getId();
+
+        int i = 0;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            i = queryResult.getInt("advertisements_id");
+            return i;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return i;
+    }
+
+    public String getTown() {
         return by;
     }
 
-    public void setBy(String by) {
+    public void setTown(String by) {
         this.by = by;
     }
 
@@ -241,6 +389,7 @@ public class RentOutAd extends Advertisement {
     public void setConfirmedBookings(ArrayList<Booking> confirmedBookings) {
         this.confirmedBookings = confirmedBookings;
     }
+
 }
 
 
