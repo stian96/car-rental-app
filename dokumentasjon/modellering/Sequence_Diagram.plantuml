@@ -1,0 +1,32 @@
+@startuml Deadline
+actor Leietaker as renter 
+actor Utleier as carOwner
+
+renter-> "Utleie app" as app: Reservere bil
+activate app
+
+
+database Database
+app -> Database: Gjennomfør forespørsel
+activate Database
+app <-- Database: Registrerer forespørsel
+carOwner<-- app: Varsel om ny forespørsel
+
+alt Innenfor fristen (48t)
+    carOwner <-- app: Etter 24t: vasel om å gi svar
+    renter <-- carOwner: Svar kan sendes
+else Over fristen
+    carOwner <-- app: Vasel om frist utgått
+    renter <-- carOwner !!: Svar kan ikke sendes 
+end 
+
+alt Godkjent
+    renter <-- carOwner: Aksepterer leie
+    renter -> Database: Registrerer avtale
+    renter <-- Database: Avtaleinformasjon sendes til e-mail/sms
+else Ikke godkjent
+    renter <-- carOwner: Avslår
+    renter -> Database: Registrerer avslag
+    renter <-- app: Foreslår andre utleiere
+end 
+@enduml

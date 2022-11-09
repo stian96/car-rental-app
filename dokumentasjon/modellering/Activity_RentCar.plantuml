@@ -1,0 +1,21 @@
+@startuml RentCar
+
+start
+
+:Åpne bilutleie-app;
+:Registrere seg;
+:Logge inn;
+:Velge bil og mulige preferanser;
+:Forespørsel sendes til utleier;
+
+if (forespørsel) then (akseptert)
+  :Melding om godkjent leieperiode;
+  :Bil hentes etter avtale;
+else (ikke akseptert)
+  :Melding om ikke godkjent leieperiode;
+  end
+endif
+
+stop
+
+@enduml
