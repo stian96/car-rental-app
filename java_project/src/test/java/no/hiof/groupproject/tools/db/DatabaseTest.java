@@ -2,6 +2,7 @@ package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.models.Advertisement;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -24,6 +25,13 @@ class DatabaseTest {
         File f = new File("sqlite/db/testable.db");
         assertTrue(f.exists());
     }
+
+    @Test
+    void assertsDefaultDatabaseLocationIsTestDotDb() {
+
+        assertEquals("jdbc:sqlite:sqlite/db/test.db", ConnectDB.getDb());
+    }
+
     @Test
     void assertsTablesExistInDatabase() {
 
@@ -123,6 +131,19 @@ class DatabaseTest {
         }
 
         assertFalse(ans);
+    }
+
+    @Test
+    void assertsDatabaseLocationCanBeAltered() {
+
+        ConnectDB.setDb("jdbc:sqlite:sqlite/db/test.db");
+        assertEquals("jdbc:sqlite:sqlite/db/test.db", ConnectDB.getDb());
+
+        ConnectDB.setDb("jdbc:sqlite:sqlite/db/testable.db");
+        assertEquals("jdbc:sqlite:sqlite/db/testable.db", ConnectDB.getDb());
+
+        ConnectDB.setDb("jdbc:sqlite:sqlite/db/test.db");
+        assertEquals("jdbc:sqlite:sqlite/db/test.db", ConnectDB.getDb());
     }
 
 }
