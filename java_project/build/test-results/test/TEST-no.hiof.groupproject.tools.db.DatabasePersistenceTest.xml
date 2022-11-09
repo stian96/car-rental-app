@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="no.hiof.groupproject.tools.db.DatabasePersistenceTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-11-09T15:38:58" hostname="DESKTOP-P1M6OUN" time="0.227">
+  <properties/>
+  <testcase name="assertsUserCreatesUserProfile()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.013"/>
+  <testcase name="assertsUserProfileIsSerialisedWhenUserClassIsCreated()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.171"/>
+  <testcase name="assertsUserUpgradeCreatesUserProfile()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.001"/>
+  <testcase name="assertsUserClassCanBeUpdatedAndReserialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.023"/>
+  <testcase name="assertsUserClassBasicIsSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.008"/>
+  <testcase name="assertsUserBasicDoesNotCreateUserProfile()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.001"/>
+  <testcase name="assertsUserClassIsSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.007"/>
+  <system-out><![CDATA[no such column: 'dateOfIssue'
+no such column: 'dateOfIssue'
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
