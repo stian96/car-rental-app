@@ -28,8 +28,11 @@ public class RetrieveUserProfileDB {
             User user = RetrieveUserDB.retrieveFromId(id);
             returnedUserProfile = new UserProfile(user);
             HashMap<User, Integer> ratings = RetrieveRatingDB.retrieve(returnedUserProfile);
-            returnedUserProfile.setRatings(ratings);
-            returnedUserProfile.setAverageRating(Double.parseDouble(RetrieveAverageRatingDB.retrieve(returnedUserProfile)));
+            if (!ratings.isEmpty()) {
+                returnedUserProfile.setRatings(ratings);
+                returnedUserProfile.setAverageRating(Double.parseDouble(RetrieveAverageRatingDB.retrieve(returnedUserProfile)));
+            }
+
 
 
 
