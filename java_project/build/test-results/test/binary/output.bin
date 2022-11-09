@@ -1,11 +1,2 @@
-9Sending message 'Hello' to email address: ash@gmail.com
-9Sending message 'Hello' to email address: ash@gmail.com
-6Sending message 'Hi' to email address: ash@gmail.com
-(1N[SQLITE_ERROR] SQL error or missing database (near "@hotmail": syntax error)
-(1b[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
-(2N[SQLITE_ERROR] SQL error or missing database (near "@hotmail": syntax error)
-(2b[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
-(9N[SQLITE_ERROR] SQL error or missing database (near "@hotmail": syntax error)
-(9b[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
-(:N[SQLITE_ERROR] SQL error or missing database (near "@hotmail": syntax error)
-(:b[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
+no such column: 'dateOfIssue'
+no such column: 'dateOfIssue'

@@ -9,15 +9,18 @@ import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.db.*;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
+import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
 
         //the following code is used to test serialisation and deserialisation of the database
         //                             *********** IMPORTANT ***********
