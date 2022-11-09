@@ -10,6 +10,8 @@ public class ConnectDB {
 
     public static Connection connect() {
 
-        return ConnectSpecifiedDB.connect("jdbc:sqlite:sqlite/db/test.db");
+        String db = "jdbc:sqlite:sqlite/db/test.db";
+
+        return ConnectSpecifiedDB.connect(db);
     }
 }

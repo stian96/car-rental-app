@@ -9,28 +9,31 @@ import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.db.*;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
+import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, SQLException {
 
         //the following code is used to test serialisation and deserialisation of the database
         //                             *********** IMPORTANT ***********
         //SQLite errors in the console is just feedback - often preventing duplicate entries (e.g UNIQUE constraints)
         //                             *********************************
 
-
+        /*
         for (Vehicle vehicle : FilterAdvertisement.filterToArrayListVehicle(null, null,
                 null, null,null, null, null,
                 null, null, 1)) {
             System.out.println(vehicle);
         }
-/*
+
         License license = new License("98 45 123456 1", LocalDate.parse("2008-05-12"),
                 "Norway");
 
