@@ -24,13 +24,13 @@ public class Main {
         //SQLite errors in the console is just feedback - often preventing duplicate entries (e.g UNIQUE constraints)
         //                             *********************************
 
-        /*
+
         for (Vehicle vehicle : FilterAdvertisement.filterToArrayListVehicle(null, null,
                 null, null,null, null, null,
                 null, null, 1)) {
             System.out.println(vehicle);
         }
-
+/*
         License license = new License("98 45 123456 1", LocalDate.parse("2008-05-12"),
                 "Norway");
 
