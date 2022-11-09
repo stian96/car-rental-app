@@ -75,7 +75,7 @@ public class SignUpFacebookController {
 
     public void LoginPage() throws IOException {
         Main m = new Main();
-        m.changeScene("logIn.fxml");
+        m.changeScene("LogIn.fxml");
 
     }
 

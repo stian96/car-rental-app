@@ -3,6 +3,9 @@ package com.example.java_project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 import java.io.IOException;
 
@@ -11,118 +14,59 @@ public class ToGoCarPageController {
     @FXML
     private Button button_registerCar;
     @FXML
-    private Button button_bookCar;
+    private Button button_FindCar;
+    @FXML
+    private Button button_Advertisement;
     @FXML
     private Button button_profile;
-
-
-
-    public ToGoCarPageController() {
-    }
-
-    public Button getButton_registerCar() {
-        return button_registerCar;
-    }
-
-    public void setButton_registerCar(Button button_registerCar) {
-        this.button_registerCar = button_registerCar;
-    }
-
-    public Button getButton_bookCar() {
-        return button_bookCar;
-    }
-
-    public void setButton_bookCar(Button button_bookCar) {
-        this.button_bookCar = button_bookCar;
-    }
-
-    public Button getButton_profile() {
-        return button_profile;
-    }
-
-    public void setButton_profile(Button button_profile) {
-        this.button_profile = button_profile;
-    }
-
-    public Button getButton_messages() {
-        return button_messages;
-    }
-
-    public void setButton_messages(Button button_messages) {
-        this.button_messages = button_messages;
-    }
-
-    public Button getButton_customerService() {
-        return button_customerService;
-    }
-
-    public void setButton_customerService(Button button_customerService) {
-        this.button_customerService = button_customerService;
-    }
-
-    public Button getButton_logOut() {
-        return button_logOut;
-    }
-
-    public void setButton_logOut(Button button_logOut) {
-        this.button_logOut = button_logOut;
-    }
-
     @FXML
     private Button button_messages;
     @FXML
     private Button button_customerService;
     @FXML
     private Button button_logOut;
+    @FXML
+    private TextField tf_TownName;
+    @FXML
+    private DatePicker Start_DatePicker;
+    @FXML
+    private DatePicker Return_DatePicker;
+    @FXML
+    private Label noAvailableCarWarning;
+
 
 
     public void userRegisterCar(ActionEvent event) throws IOException {
-        registerAcar();
-    }
-
-    public void userBookCar(ActionEvent event) throws IOException{
-        bookAcar();
-    }
-
-    public void userProfile(ActionEvent event) throws IOException{
-        user_profile();
-    }
-
-    public void message_menu(ActionEvent event) throws IOException{
-        MessageCheck();
-    }
-    public void customerService(ActionEvent event) throws IOException{
-        CustomerServicePage();
-    }
-    public void userLogOut(ActionEvent event) throws IOException{
-        LogOutCheck();
-    }
-
-
-    private void registerAcar() throws IOException{
         Main m = new Main();
         m.changeScene("RegisterACar.fxml");
     }
-    private void bookAcar() throws IOException{
+    public void carAdvertisement(ActionEvent event)throws IOException{
         Main m = new Main();
-        m.changeScene("LogIn.fxml");
+        m.changeScene("Advertisement.fxml");
     }
-    private void user_profile() throws IOException{
+
+    public void FindBookCar(ActionEvent event) throws IOException{
+        Main m = new Main();
+        m.changeScene("FilterCar.fxml");
+    }
+
+    public void userProfile(ActionEvent event) throws IOException{
         Main m = new Main();
         m.changeScene("Profile.fxml");
     }
-    private void MessageCheck() throws IOException{
+
+    public void message_menu(ActionEvent event) throws IOException{
         Main m = new Main();
         m.changeScene("LogIn.fxml");
     }
-    private void CustomerServicePage() throws IOException{
+    public void customerService(ActionEvent event) throws IOException{
+        Main m = new Main();
+        m.changeScene("LogIn.fxml");
+    }
+    public void userLogOut(ActionEvent event) throws IOException{
         Main m = new Main();
         m.changeScene("LogIn.fxml");
     }
 
-    private void LogOutCheck() throws IOException{
-        Main m = new Main();
-        m.changeScene("LogIn.fxml");
-    }
 
 }
