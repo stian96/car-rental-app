@@ -102,8 +102,10 @@ public class Main {
                         "manual", 1963, 2, 400),
                 BigDecimal.valueOf(400), BigDecimal.valueOf(30), "halden"
         );
-         */
 
+        System.out.println(roa.checkIfDateIsAvailable(LocalDate.parse("2022-11-16"), LocalDate.parse("2022-11-17")));
+        System.out.println(roa.checkIfDateIsAvailable(LocalDate.parse("2022-11-20"), LocalDate.parse("2022-11-22")));
+         */
 
     }
 }
