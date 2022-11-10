@@ -252,7 +252,7 @@ class DatabasePersistenceTest {
 
     @Test
     void assertsAverageRatingsCanBeCalculated() {
-        /*User user = new User("rate", "me", "1777", "ratingking",
+        User user = new User("rate", "me", "1777", "ratingking",
                 "12341234123", "rate@me.no", "12341234",
                 new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
                         "Norway"));
@@ -269,20 +269,56 @@ class DatabasePersistenceTest {
 
         int ratingFromUser2 = 5;
         int ratingFromUser3 = 3;
+        double averageRating = ((ratingFromUser2 + ratingFromUser3) / 2);
+
+        up = RetrieveUserProfileDB.retrieveFromEmail(user.getEmail());
 
         up.addNewRating(user2, ratingFromUser2);
         up.addNewRating(user3, ratingFromUser3);
 
-        assertEquals(4, ((ratingFromUser2 + ratingFromUser3) / 2));
-        assertEquals(4.0, up.calculateAverageRating());
-        System.out.println(up.getRatings());
-
-         */
+        assertEquals(4, averageRating);
+        assertEquals(averageRating, up.getAverageRating());
+        assertEquals(averageRating, Double.parseDouble(RetrieveAverageRatingDB.retrieve(up)));
     }
 
     @Test
     void assertsAverageRatingsCanBeUpdated() {
+        User user = new User("rate", "you", "1777", "ratinglover",
+                "12341234123", "rate@you.no", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
+        User user2 = new User("rate", "me", "1777", "ratingking",
+                "12341234123", "rate@me.no", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
 
+        User user3 = new User("rating", "twice", "1777", "divisionlover",
+                "12341234123", "rate@youtoo.no", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
+
+        UserProfile up = RetrieveUserProfileDB.retrieveFromEmail(user.getEmail());
+
+        int ratingFromUser2 = 5;
+        int ratingFromUser3 = 3;
+        double averageRating = ((ratingFromUser2 + ratingFromUser3) / 2);
+
+        up = RetrieveUserProfileDB.retrieveFromEmail(user.getEmail());
+
+        up.addNewRating(user2, ratingFromUser2);
+        up.addNewRating(user3, ratingFromUser3);
+
+        assertEquals(4, averageRating);
+        assertEquals(averageRating, up.getAverageRating());
+        assertEquals(averageRating, Double.parseDouble(RetrieveAverageRatingDB.retrieve(up)));
+
+        ratingFromUser3 = 1;
+        up.addNewRating(user3, ratingFromUser3);
+        averageRating = ((ratingFromUser2 + ratingFromUser3) / 2);
+
+        assertEquals(3, averageRating);
+        assertEquals(averageRating, up.getAverageRating());
+        assertEquals(averageRating, Double.parseDouble(RetrieveAverageRatingDB.retrieve(up)));
     }
 
     @Test

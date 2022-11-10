@@ -45,17 +45,11 @@ public class UserProfile implements Serialise, ExistsInDb {
 
     /** Method to calculates the average rating for the User*/
     public double calculateAverageRating(){
-        double sum = 0;
-        int count = ratings.size();
-        double result;
-        for(int values : ratings.values()){
-            sum += values;
-        }
-        result = sum/count;//Fix later : round to one or two decimal places
-        averageRating = result;
+        double avgRating = Double.parseDouble(RetrieveAverageRatingDB.retrieve(this));
+        this.setAverageRating(avgRating);
         //updates the averageRating column in userProfiles table after each refresh
         RetrieveAverageRatingDB.update(this);
-        return averageRating;
+        return avgRating;
     }
 
     /** Method that gets new rating to add to the ratings hashmap.
@@ -70,12 +64,12 @@ public class UserProfile implements Serialise, ExistsInDb {
             //if the userGivingRating hasn't rated user before then the following code is executed
             ratings.put(userGivingRating, rating);
             InsertRatingDB.insert(user, userGivingRating, rating);
-            setAverageRating(calculateAverageRating());
+            calculateAverageRating();
             return calculateAverageRating();
         } else if (ratingExistsInDb(userGivingRating) && userGivingRating.getId() != user.getId()){
             //if the userGivingRating wishes to update their rating:
             InsertRatingDB.update(user, userGivingRating, rating);
-            setAverageRating(calculateAverageRating());
+            calculateAverageRating();
             return calculateAverageRating();
         }
         return 0;

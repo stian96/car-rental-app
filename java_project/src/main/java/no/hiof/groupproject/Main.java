@@ -27,6 +27,18 @@ public class Main {
         //SQLite errors in the console is just feedback - often preventing duplicate entries (e.g UNIQUE constraints)
         //                             *********************************
 
+        double sum = 0;
+        int count = 2;
+        double result;
+
+        sum += 5;
+        sum += 3;
+
+        result = sum/count;//Fix later : round to one or two decimal places
+        double averageRating = result;
+
+        System.out.println(averageRating);;
+
         /*
         for (Vehicle vehicle : FilterAdvertisement.filterToArrayListVehicle(null, null,
                 null, null,null, null, null,
