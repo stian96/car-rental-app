@@ -149,4 +149,23 @@ class DatabasePersistenceTest {
         assertTrue(ans);
     }
 
+    @Test
+    void assertsUserCanBeEdited() {
+        User user = new User("change", "me", "1777", "change",
+                "12341234123", "hunky@dory.zs", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
+
+        User user2 = RetrieveUserDB.retrieveFromEmail(user.getEmail());
+        assertEquals(user2.getFirstName(), user.getFirstName());
+
+        user = new User("iam", "changed", "1777", "change",
+                "12341234123", "hunky@dory.zs", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
+
+        user2 = RetrieveUserDB.retrieveFromEmail(user.getEmail());
+        assertEquals(user2.getFirstName(), user.getFirstName());
+    }
+
 }
