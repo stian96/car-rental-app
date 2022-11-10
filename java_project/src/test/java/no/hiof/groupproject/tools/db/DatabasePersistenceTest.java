@@ -1,19 +1,19 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.License;
-import no.hiof.groupproject.models.RentOutAd;
-import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.models.UserProfile;
+import no.hiof.groupproject.models.*;
+import no.hiof.groupproject.models.payment_methods.CreditDebit;
+import no.hiof.groupproject.models.payment_methods.GooglePay;
+import no.hiof.groupproject.models.payment_methods.Paypal;
+import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import org.junit.jupiter.api.*;
 
-import java.io.File;
 import java.math.BigDecimal;
 import java.sql.*;
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -423,22 +423,171 @@ class DatabasePersistenceTest {
 
     @Test
     void assertsBookingsCanBeSerialised() {
+        Vehicle car = new Car("22334455", "aston martin", "db5", "petrol",
+                "manual", 1963, 2, 400);
 
+        License license = new License("98 41 123456 1", LocalDate.parse("2012-04-11"),
+                "Norway");
+
+        User owner = new User("harry", "potter", "1777", "chocolatefrogs",
+                "12341234123", "inviscloak@no.where", "12341234",
+                license);
+
+        User renter = new User("speed", "fiend", "1777", "greatscott",
+                "12341234123", "rubber@hotmail.no", "12341234",
+                license);
+
+        RentOutAd roa = new RentOutAd(
+                owner,
+                car,
+                BigDecimal.valueOf(500), BigDecimal.valueOf(25), "Halden"
+        );
+
+        roa.addNewPeriod(LocalDate.parse("2028-01-01"), LocalDate.parse("2029-01-01"));
+        roa.addNewPeriod(LocalDate.parse("2030-01-01"), LocalDate.parse("2031-01-01"));
+
+        LocalDate bookingStart = LocalDate.parse("2028-02-01");
+        LocalDate bookingEnd = LocalDate.parse("2028-03-01");
+        Paypal paypal = new Paypal("rubber@hotmail.no", "greatscott");
+
+        roa.addBooking(new Booking(
+                renter,
+                owner,
+                bookingStart,
+                bookingEnd,
+                paypal,
+                roa.getVehicle()));
+
+        Booking booking = RetrieveBookingDB.retrieve(
+                renter.getId() + "." + bookingStart + "." + owner.getId());
+
+        assertNotNull(booking);
     }
 
     @Test
     void assertsBookingsThatClashWillNotBeSerialised() {
+        Vehicle car = new Car("22334455", "aston martin", "db5", "petrol",
+                "manual", 1963, 2, 400);
 
+        License license = new License("98 41 123456 1", LocalDate.parse("2012-04-11"),
+                "Norway");
+
+        User owner = new User("harry", "potter", "1777", "chocolatefrogs",
+                "12341234123", "inviscloak@no.where", "12341234",
+                license);
+
+        User renter = new User("speed", "fiend", "1777", "greatscott",
+                "12341234123", "rubber@hotmail.no", "12341234",
+                license);
+
+        RentOutAd roa = new RentOutAd(
+                owner,
+                car,
+                BigDecimal.valueOf(500), BigDecimal.valueOf(25), "Halden"
+        );
+
+        roa.addNewPeriod(LocalDate.parse("2028-01-01"), LocalDate.parse("2029-01-01"));
+        roa.addNewPeriod(LocalDate.parse("2030-01-01"), LocalDate.parse("2031-01-01"));
+
+        LocalDate bookingStart = LocalDate.parse("2028-02-01");
+        LocalDate bookingEnd = LocalDate.parse("2028-03-01");
+
+        Paypal paypal = new Paypal("rubber@hotmail.no", "greatscott");
+
+        roa.addBooking(new Booking(
+                renter,
+                owner,
+                bookingStart,
+                bookingEnd,
+                paypal,
+                roa.getVehicle()));
+
+        AtomicReference<Booking> booking = new AtomicReference<>(RetrieveBookingDB.retrieve(
+                renter.getId() + "." + bookingStart + "." + owner.getId()));
+
+        assertNotNull(booking);
+
+        bookingStart = LocalDate.parse("2028-02-11");
+        bookingEnd = LocalDate.parse("2028-03-11");
+
+        roa.addBooking(new Booking(
+                renter,
+                owner,
+                bookingStart,
+                bookingEnd,
+                paypal,
+                roa.getVehicle()));
+
+        ;
+
+        LocalDate finalBookingStart = bookingStart;
+
+        assertThrows(NullPointerException.class, () -> booking.set(RetrieveBookingDB.retrieve(
+                renter.getId() + "." + finalBookingStart + "." + owner.getId())));
     }
 
     @Test
     void assertsBookingsWithDateBeforePresentWillNotBeSerialised() {
+        Vehicle car = new Car("22334455", "aston martin", "db5", "petrol",
+                "manual", 1963, 2, 400);
 
+        License license = new License("98 41 123456 1", LocalDate.parse("2012-04-11"),
+                "Norway");
+
+        User owner = new User("harry", "potter", "1777", "chocolatefrogs",
+                "12341234123", "inviscloak@no.where", "12341234",
+                license);
+
+        User renter = new User("speed", "fiend", "1777", "greatscott",
+                "12341234123", "rubber@hotmail.no", "12341234",
+                license);
+
+        RentOutAd roa = new RentOutAd(
+                owner,
+                car,
+                BigDecimal.valueOf(500), BigDecimal.valueOf(25), "Halden"
+        );
+
+        roa.addNewPeriod(LocalDate.parse("2028-01-01"), LocalDate.parse("2029-01-01"));
+        roa.addNewPeriod(LocalDate.parse("2030-01-01"), LocalDate.parse("2031-01-01"));
+
+        //2001 is in the past :')
+        LocalDate bookingStart = LocalDate.parse("2001-02-01");
+        LocalDate bookingEnd = LocalDate.parse("2001-03-01");
+
+        Paypal paypal = new Paypal("rubber@hotmail.no", "greatscott");
+
+        roa.addBooking(new Booking(
+                renter,
+                owner,
+                bookingStart,
+                bookingEnd,
+                paypal,
+                roa.getVehicle()));
+
+
+        final Booking[] booking = new Booking[1];
+        assertThrows(NullPointerException.class, () -> booking[0] = RetrieveBookingDB.retrieve(
+                renter.getId() + "." + bookingStart + "." + owner.getId()));
     }
 
     @Test
     void assertsPaymentsCanBeSerialised() {
 
+       Vipps vipps = new Vipps("12341234", "1234");
+       Paypal paypal = new Paypal("ex@amp.le", "password");
+       GooglePay googlePay = new GooglePay("exa@mpl.e", "pswrd");
+       CreditDebit creditDebit = new CreditDebit("1234123412341234", "777", 12, 2030);
+
+       Vipps vipps1 = ((Vipps)RetrievePaymentDB.retrieve(vipps.getId()));
+       Paypal paypal1 = ((Paypal)RetrievePaymentDB.retrieve(paypal.getId()));
+       GooglePay googlePay1 = ((GooglePay)RetrievePaymentDB.retrieve(googlePay.getId()));
+       CreditDebit creditDebit1 = ((CreditDebit)RetrievePaymentDB.retrieve(creditDebit.getId()));
+
+       assertNotNull(vipps1);
+       assertNotNull(paypal1);
+       assertNotNull(googlePay1);
+       assertNotNull(creditDebit1);
     }
 
 }
