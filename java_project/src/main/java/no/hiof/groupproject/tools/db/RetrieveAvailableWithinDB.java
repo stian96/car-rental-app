@@ -20,7 +20,7 @@ public class RetrieveAvailableWithinDB {
     public static TreeMap<LocalDate, LocalDate> retrieve(RentOutAd rentOutAd) {
 
         String sql = "SELECT dateFrom, dateTo FROM availableWithin " +
-                "WHERE availableWithin_id_fk = " + rentOutAd.getUser().getId();
+                "WHERE availableWithin_id_fk = " + rentOutAd.getId();
 
         TreeMap<LocalDate, LocalDate> availableWithin = new TreeMap<>();
 
