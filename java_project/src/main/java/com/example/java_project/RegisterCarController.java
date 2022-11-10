@@ -36,6 +36,8 @@ public class RegisterCarController {
     private Label registerPrompt;
     @FXML
     private Button searchButton;
+    @FXML
+    private Button button_exit;
 
 
 
@@ -74,6 +76,11 @@ public class RegisterCarController {
     else { registerPrompt.setText("enter information");}
 
 }
+    public void ExitButton(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("ToGoCar.fxml");
+
+    }
 
 
     private int ConvertIntoNumeric(String xVal)
