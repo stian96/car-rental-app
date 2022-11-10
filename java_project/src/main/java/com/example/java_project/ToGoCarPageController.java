@@ -2,6 +2,7 @@ package com.example.java_project;
 
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.chart.ScatterChart;
@@ -43,8 +44,37 @@ public class ToGoCarPageController {
     private DatePicker return_DatePicker;
     @FXML
     private Label noAvailableCarWarning;
+   // @FXML
+    //private ListView<Advertisement> vehicleList;
     @FXML
-    private ListView<Vehicle> vehicleList;
+    private ListView<Integer> vehicleList;
+    //ObservableList<Advertisement> observableList = FXCollections.observableArrayList();
+    ObservableList<Integer> observableList = FXCollections.observableArrayList();
+    public void FilterTown(){
+        String town = tf_TownName.getText().trim().toLowerCase();
+        FilterAdvertisement.filterToArrayListAdvertisement(null, null, null,
+                town, null, null, null,
+                null,null, null);
+    }
+
+    public void loadAds(){
+        String town = tf_TownName.getText().trim().toLowerCase();
+        for(Integer ad : FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null,
+                town, null, null, null,
+                null,null, null)){
+
+                observableList.addAll(ad);
+                vehicleList.getItems().addAll(observableList);
+        }
+    }
+
+
+    public void FindBookCar(ActionEvent event) throws IOException{
+
+       loadAds();
+
+
+        }
 
 
 /*    @FXML
@@ -104,7 +134,7 @@ public class ToGoCarPageController {
 
      */
 
-
+/*
     public String findACar() throws IOException {
         String status = "success";
         String town = tf_TownName.getText().trim();
@@ -121,18 +151,10 @@ public class ToGoCarPageController {
         return status;
     }
 
-    public void FindBookCar(ActionEvent event) throws IOException{
-
-        String town = tf_TownName.getText().trim().toLowerCase();
-
-        RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromTown(tf_TownName.getText());
-        if(ad != null && !ad.getTown().equals(town)) {
-            noAvailableCarWarning.setText("doesnt");
-        }else{noAvailableCarWarning.setText("exist");
+ */
 
 
 
-        }}
     private int ConvertIntoNumeric(String xVal)
     {
         try
