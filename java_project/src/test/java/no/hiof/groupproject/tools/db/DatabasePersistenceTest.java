@@ -349,7 +349,7 @@ class DatabasePersistenceTest {
 
     @Test
     void assertsAvailableWithinPeriodCanBeSerialised() {
-        /*Vehicle car = new Car("12341234", "audi", "tt", "petrol",
+        Vehicle car = new Car("12341234", "audi", "tt", "petrol",
                 "automatic", 2013, 5, 1500);
 
         License license = new License("98 43 123456 1", LocalDate.parse("2008-05-12"),
@@ -365,19 +365,60 @@ class DatabasePersistenceTest {
                 BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
         );
 
-        assertTrue(roa.existsInDb());
+        roa.addNewPeriod(LocalDate.parse("2030-01-01"), LocalDate.parse("2031-01-01"));
 
-         */
+        assertTrue(roa.availableWithinExistsInDb(LocalDate.parse("2030-01-01"), LocalDate.parse("2031-01-01")));
     }
 
     @Test
     void assertsRentOutAdDateCreatedIsCorrect() {
+       //first created this entry on 2022-11-09
+        Vehicle car = new Car("12341234", "audi", "tt", "petrol",
+                "automatic", 2013, 5, 1500);
 
+        License license = new License("98 43 123456 1", LocalDate.parse("2008-05-12"),
+                "Norway");
+
+        User user = new User("john", "squiglet", "1777", "mmmcars",
+                "12341234123", "rentmycar@car.no", "12341234",
+                license);
+
+        RentOutAd roa = new RentOutAd(
+                user,
+                car,
+                BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
+        );
+
+        RentOutAd roa2 = ((RentOutAd)RetrieveAdvertisementDB.retrieveFromId(roa.getId()));
+
+        assertEquals(LocalDate.parse("2022-11-09"), roa2.getDateCreated());
     }
 
     @Test
     void assertsRentOutAdDateChangedIsUpdated() {
+        //first created this test database on 2022-11-09
+        //added .addNewPeriod() on 2022-11-10
+        Vehicle car = new Car("12341234", "audi", "tt", "petrol",
+                "automatic", 2013, 5, 1500);
 
+        License license = new License("98 43 123456 1", LocalDate.parse("2008-05-12"),
+                "Norway");
+
+        User user = new User("john", "squiglet", "1777", "mmmcars",
+                "12341234123", "rentmycar@car.no", "12341234",
+                license);
+
+        RentOutAd roa = new RentOutAd(
+                user,
+                car,
+                BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
+        );
+
+        roa.addNewPeriod(LocalDate.parse("2032-01-01"), LocalDate.parse("2033-01-01"));
+
+        RentOutAd roa2 = ((RentOutAd)RetrieveAdvertisementDB.retrieveFromId(roa.getId()));
+
+        assertEquals(LocalDate.parse("2022-11-10"), roa2.getDateLastChanged());
     }
 
     @Test
