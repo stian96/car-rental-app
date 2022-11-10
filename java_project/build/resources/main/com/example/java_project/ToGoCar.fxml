@@ -24,7 +24,7 @@
                         <Font name="Comic Sans MS Bold" size="12.0" />
                     </font>
                 </Button>
-                <Button fx:id="button_profile" layoutX="58.0" layoutY="138.0" mnemonicParsing="false" onAction="#userProfile" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Profile">
+                <Button fx:id="button_profile" layoutX="58.0" layoutY="162.0" mnemonicParsing="false" onAction="#userProfile" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Profile">
                     <font>
                         <Font name="Comic Sans MS Bold" size="12.0" />
                     </font></Button>
@@ -32,7 +32,7 @@
                     <font>
                         <Font name="Comic Sans MS Bold" size="12.0" />
                     </font></Button>
-                <Button fx:id="button_message" layoutX="59.0" layoutY="200.0" mnemonicParsing="false" onAction="#message_menu" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Message">
+                <Button fx:id="button_message" layoutX="59.0" layoutY="213.0" mnemonicParsing="false" onAction="#message_menu" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Message">
                     <font>
                         <Font name="Comic Sans MS Bold" size="12.0" />
                     </font>
@@ -42,32 +42,37 @@
                         <Font name="Comic Sans MS Bold" size="11.0" />
                     </font>
                 </Button>
+            <Button fx:id="button_Advertisement" layoutX="50.0" layoutY="122.0" mnemonicParsing="false" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Advertisement">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="12.0" />
+               </font>
+            </Button>
             </children></AnchorPane>
         <AnchorPane prefHeight="400.0" prefWidth="426.0" style="-fx-background-color: #9fc5e8;">
          <children>
-                <Button fx:id="button_FindCar" layoutX="257.0" layoutY="322.0" mnemonicParsing="false" onAction="#FindBookCar" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Find Car">
+                <Button fx:id="button_FindCar" layoutX="327.0" layoutY="175.0" mnemonicParsing="false" onAction="#FindBookCar" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Find Car">
                     <font>
                         <Font name="Comic Sans MS Bold" size="12.0" />
                     </font></Button>
-            <DatePicker fx:id="Start_DatePicker" layoutX="144.0" layoutY="163.0" prefHeight="25.0" prefWidth="167.0" promptText="Select Date From" />
-            <DatePicker fx:id="Return_DatePicker" layoutX="144.0" layoutY="211.0" prefHeight="25.0" prefWidth="167.0" promptText="Select Date Until" />
+            <DatePicker fx:id="Start_DatePicker" layoutX="144.0" layoutY="134.0" prefHeight="25.0" prefWidth="167.0" promptText="Select Date From" />
+            <DatePicker fx:id="Return_DatePicker" layoutX="144.0" layoutY="176.0" prefHeight="25.0" prefWidth="167.0" promptText="Select Date Until" />
             <Label layoutX="136.0" layoutY="42.0" text="Car Search" textFill="#c31212">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="22.0" />
                </font>
             </Label>
-            <Label layoutX="47.0" layoutY="112.0" text="Post Code">
+            <Label layoutX="50.0" layoutY="91.0" text="Town Name">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
                </font>
             </Label>
-            <Label layoutX="43.0" layoutY="166.0" text="Start Date">
+            <Label layoutX="51.0" layoutY="137.0" text="Start Date">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_PostCode" layoutX="144.0" layoutY="118.0" prefHeight="25.0" prefWidth="167.0" />
-            <Label layoutX="47.0" layoutY="214.0" text="Return Date">
+            <TextField fx:id="tf_TownName" layoutX="144.0" layoutY="88.0" prefHeight="25.0" prefWidth="167.0" />
+            <Label layoutX="48.0" layoutY="179.0" text="Return Date">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
                </font>
@@ -77,6 +82,7 @@
                   <Font name="Comic Sans MS Bold Italic" size="12.0" />
                </font>
             </Label>
+            <ListView fx:id="list_view" layoutX="3.0" layoutY="236.0" prefHeight="162.0" prefWidth="387.0" />
          </children></AnchorPane>
     </children>
 </HBox>
