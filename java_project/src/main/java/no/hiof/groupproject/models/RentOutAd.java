@@ -95,15 +95,13 @@ public class RentOutAd extends Advertisement {
         updateDateLastChanged();
     }
 
-    //function to add a new booking, ensuring the date is available, and no other booking happens at the same time
-    public void addBooking(Booking booking) {
-
+    public boolean checkIfDateIsAvailable(LocalDate from, LocalDate to) {
         boolean dateAvailable = false;
         boolean dateDoesNotClash = false;
 
         for (Map.Entry<LocalDate, LocalDate> set : availableWithin.entrySet()) {
             //as long as the booking is within the available dates then the code can proceed
-            if (booking.getBookedFrom().isAfter(set.getKey()) && booking.getBookedTo().isBefore(set.getValue())) {
+            if (from.isAfter(set.getKey()) && to.isBefore(set.getValue())) {
                 dateAvailable = true;
             }
         }
@@ -191,7 +189,7 @@ public class RentOutAd extends Advertisement {
                             secondVal = set.getValue();
                         }
                     }
-                    
+
                     dateIsFree.put(firstVal, secondKey);
                     dateIsFree.put(secondVal, LocalDate.parse("2099-01-01"));
                 } else if (confirmedBookings.size() == 1) {
@@ -209,15 +207,23 @@ public class RentOutAd extends Advertisement {
 
             //sets a flag if the booking does not clash with another booking
             for (Map.Entry<LocalDate, LocalDate> set : dateIsFree.entrySet()) {
-                if (booking.getBookedFrom().isAfter(set.getKey()) && booking.getBookedTo().isBefore(set.getValue())) {
+                if (from.isAfter(set.getKey()) && to.isBefore(set.getValue())) {
                     dateDoesNotClash = true;
                 }
             }
         }
 
+        return dateDoesNotClash;
+
+
+    }
+
+    //function to add a new booking, ensuring the date is available, and no other booking happens at the same time
+    public void addBooking(Booking booking) {
+
         //if and ONLY IF the booking date is within dates available AND does not clash with other booking dates
         //then the booking will be added to a booking array
-        if (dateDoesNotClash) {
+        if (checkIfDateIsAvailable(booking.getBookedFrom(), booking.getBookedTo())) {
             //creates a booking in the format of <renter id>.<date booking begins>.<vehicle owner id>
             //42.2024-12-24.26
             confirmedBookings.add(booking);

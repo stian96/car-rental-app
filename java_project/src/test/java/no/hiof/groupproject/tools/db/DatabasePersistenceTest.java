@@ -1,11 +1,15 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.models.License;
+import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.UserProfile;
+import no.hiof.groupproject.models.vehicle_types.Car;
+import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import org.junit.jupiter.api.*;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.Arrays;
@@ -104,22 +108,7 @@ class DatabasePersistenceTest {
                 new License("98 42 123456 1", LocalDate.parse("2011-11-22"),
                         "Norway"));
 
-        String sql = "SELECT COUNT(*) AS amount FROM userProfiles WHERE user_fk = " + user.getId();
-
-        boolean ans = false;
-
-        try (Connection conn = ConnectDB.connect();
-             PreparedStatement str = conn.prepareStatement(sql)) {
-
-            ResultSet queryResult = str.executeQuery();
-            if (queryResult.getInt("amount") > 0) {
-                ans = true;
-            }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
-        assertTrue(ans);
+        assertTrue(user.existsInDb());
     }
 
 
@@ -170,7 +159,7 @@ class DatabasePersistenceTest {
     }
 
     @Test
-    void assertsRatingsCanBeSaved() {
+    void assertsRatingsCanBeSerialised() {
         User user = new User("rate", "me", "1777", "ratingking",
                 "12341234123", "rate@me.no", "12341234",
                 new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
@@ -322,23 +311,63 @@ class DatabasePersistenceTest {
     }
 
     @Test
-    void assertsVehiclesCanBeSaved() {
+    void assertsVehiclesCanBeSerialised() {
+        Vehicle car = new Car("12341234", "audi", "tt", "petrol",
+                "automatic", 2013, 5, 1500);
 
+        assertTrue(car.existsInDb());
     }
 
     @Test
-    void assertsLicensesCanBeSaved() {
+    void assertsLicensesCanBeSerialised() {
+        License license = new License("98 43 123456 1", LocalDate.parse("2008-05-12"),
+                "Norway");
 
+        assertTrue(license.existsInDb());
     }
 
     @Test
-    void assertsRentOutAdCanBeSaved() {
+    void assertsRentOutAdCanBeSerialised() {
+        Vehicle car = new Car("12341234", "audi", "tt", "petrol",
+                "automatic", 2013, 5, 1500);
 
+        License license = new License("98 43 123456 1", LocalDate.parse("2008-05-12"),
+                "Norway");
+
+        User user = new User("john", "squiglet", "1777", "mmmcars",
+                "12341234123", "rentmycar@car.no", "12341234",
+                license);
+
+        RentOutAd roa = new RentOutAd(
+                user,
+                car,
+                BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
+        );
+
+        assertTrue(roa.existsInDb());
     }
 
     @Test
-    void assertsAvailableWithinPeriodCanBeSaved() {
+    void assertsAvailableWithinPeriodCanBeSerialised() {
+        /*Vehicle car = new Car("12341234", "audi", "tt", "petrol",
+                "automatic", 2013, 5, 1500);
 
+        License license = new License("98 43 123456 1", LocalDate.parse("2008-05-12"),
+                "Norway");
+
+        User user = new User("john", "squiglet", "1777", "mmmcars",
+                "12341234123", "rentmycar@car.no", "12341234",
+                license);
+
+        RentOutAd roa = new RentOutAd(
+                user,
+                car,
+                BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
+        );
+
+        assertTrue(roa.existsInDb());
+
+         */
     }
 
     @Test
@@ -352,22 +381,22 @@ class DatabasePersistenceTest {
     }
 
     @Test
-    void assertsBookingsCanBeSaved() {
+    void assertsBookingsCanBeSerialised() {
 
     }
 
     @Test
-    void assertsBookingsThatClashWillNotBeSaved() {
+    void assertsBookingsThatClashWillNotBeSerialised() {
 
     }
 
     @Test
-    void assertsBookingsWithDateBeforePresentWillNotBeSaved() {
+    void assertsBookingsWithDateBeforePresentWillNotBeSerialised() {
 
     }
 
     @Test
-    void assertsPaymentsCanBeSaved() {
+    void assertsPaymentsCanBeSerialised() {
 
     }
 
