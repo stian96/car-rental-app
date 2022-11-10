@@ -23,7 +23,7 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">7</div>
+<div class="counter">22</div>
 <p>tests</p>
 </div>
 </td>
@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.224s</div>
+<div class="counter">24.457s</div>
 <p>duration</p>
 </div>
 </td>
@@ -78,38 +78,113 @@
 </tr>
 </thead>
 <tr>
+<td class="success">assertsAvailableWithinPeriodCanBeSerialised()</td>
+<td class="success">1.936s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsAverageRatingsCanBeCalculated()</td>
+<td class="success">0.166s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsAverageRatingsCanBeUpdated()</td>
+<td class="success">0.115s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsBookingsCanBeSerialised()</td>
+<td class="success">2.333s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsBookingsThatClashWillNotBeSerialised()</td>
+<td class="success">1.980s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsBookingsWithDateBeforePresentWillNotBeSerialised()</td>
+<td class="success">2.024s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsLicensesCanBeSerialised()</td>
+<td class="success">0.003s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsPaymentsCanBeSerialised()</td>
+<td class="success">0.066s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsRatingsCanBeSerialised()</td>
+<td class="success">0.083s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsRatingsCanBeUpdated()</td>
+<td class="success">0.125s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsRentOutAdCanBeSerialised()</td>
+<td class="success">1.919s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsRentOutAdDateChangedIsUpdated()</td>
+<td class="success">6.829s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsRentOutAdDateCreatedIsCorrect()</td>
+<td class="success">6.680s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
 <td class="success">assertsUserBasicDoesNotCreateUserProfile()</td>
-<td class="success">0.001s</td>
+<td class="success">0.015s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsUserCanBeEdited()</td>
+<td class="success">0.046s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">assertsUserClassBasicIsSerialised()</td>
-<td class="success">0.008s</td>
+<td class="success">0.015s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">assertsUserClassCanBeUpdatedAndReserialised()</td>
-<td class="success">0.023s</td>
+<td class="success">0.018s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">assertsUserClassIsSerialised()</td>
-<td class="success">0.007s</td>
+<td class="success">0.012s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">assertsUserCreatesUserProfile()</td>
-<td class="success">0.013s</td>
+<td class="success">0.027s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">assertsUserProfileIsSerialisedWhenUserClassIsCreated()</td>
-<td class="success">0.171s</td>
+<td class="success">0.042s</td>
 <td class="success">passed</td>
 </tr>
 <tr>
 <td class="success">assertsUserUpgradeCreatesUserProfile()</td>
-<td class="success">0.001s</td>
+<td class="success">0.016s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">assertsVehiclesCanBeSerialised()</td>
+<td class="success">0.007s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -117,8 +192,30 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>no such column: 'dateOfIssue'
-no such column: 'dateOfIssue'
+<pre>[SQLITE_ERROR] SQL error or missing database (near &quot;@hotmail&quot;: syntax error)
+[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
+[SQLITE_ERROR] SQL error or missing database (near &quot;@hotmail&quot;: syntax error)
+[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
+[SQLITE_ERROR] SQL error or missing database (near &quot;@hotmail&quot;: syntax error)
+[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
+[SQLITE_ERROR] SQL error or missing database (near &quot;@hotmail&quot;: syntax error)
+[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
+[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+[SQLITE_BUSY] The database file is locked (database is locked)
+[SQLITE_BUSY] The database file is locked (database is locked)
+[SQLITE_ERROR] SQL error or missing database (near &quot;@hotmail&quot;: syntax error)
+[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
+[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+[SQLITE_ERROR] SQL error or missing database (near &quot;@amp&quot;: syntax error)
+[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
+[SQLITE_ERROR] SQL error or missing database (near &quot;@mpl&quot;: syntax error)
+[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
+[SQLITE_ERROR] SQL error or missing database (near &quot;@amp&quot;: syntax error)
+[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
+[SQLITE_ERROR] SQL error or missing database (near &quot;@mpl&quot;: syntax error)
+[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: payments.email)
 </pre>
 </span>
 </div>
@@ -130,7 +227,7 @@ no such column: 'dateOfIssue'
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.2</a> at 9 Nov 2022, 16:38:58</p>
+<a href="http://www.gradle.org">Gradle 7.2</a> at 10 Nov 2022, 12:36:43</p>
 </div>
 </div>
 </body>

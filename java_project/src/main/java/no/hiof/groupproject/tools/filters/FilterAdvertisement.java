@@ -43,7 +43,7 @@ public class FilterAdvertisement {
         if (engineType != null) {
             sql = sql + " AND LOWER(engineType) = \'" + engineType.toLowerCase() + "\'";
         }
-        if (town != null) {
+        if (manufacturer != null) {
             sql = sql + " AND LOWER(manufacturer) = \'" + manufacturer.toLowerCase() + "\'";
         }
         if (town != null) {
