@@ -50,9 +50,9 @@ public class UserProfile implements Serialise, ExistsInDb {
         double result;
         for(int values : ratings.values()){
             sum += values;
-            result = sum/((double) count);//Fix later : round to one or two decimal places
-            averageRating = result;
         }
+        result = sum/count;//Fix later : round to one or two decimal places
+        averageRating = result;
         //updates the averageRating column in userProfiles table after each refresh
         RetrieveAverageRatingDB.update(this);
         return averageRating;
@@ -70,10 +70,12 @@ public class UserProfile implements Serialise, ExistsInDb {
             //if the userGivingRating hasn't rated user before then the following code is executed
             ratings.put(userGivingRating, rating);
             InsertRatingDB.insert(user, userGivingRating, rating);
+            setAverageRating(calculateAverageRating());
             return calculateAverageRating();
         } else if (ratingExistsInDb(userGivingRating) && userGivingRating.getId() != user.getId()){
             //if the userGivingRating wishes to update their rating:
             InsertRatingDB.update(user, userGivingRating, rating);
+            setAverageRating(calculateAverageRating());
             return calculateAverageRating();
         }
         return 0;

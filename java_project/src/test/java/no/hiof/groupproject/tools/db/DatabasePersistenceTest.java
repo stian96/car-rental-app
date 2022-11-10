@@ -9,6 +9,7 @@ import java.io.File;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -170,17 +171,113 @@ class DatabasePersistenceTest {
 
     @Test
     void assertsRatingsCanBeSaved() {
+        User user = new User("rate", "me", "1777", "ratingking",
+                "12341234123", "rate@me.no", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
+        User user2 = new User("rate", "you", "1777", "ratinglover",
+                "12341234123", "rate@you.no", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
 
+        UserProfile up = RetrieveUserProfileDB.retrieveFromEmail(user.getEmail());
+
+        up.addNewRating(user2, 5);
+
+        HashMap<User, Integer> ratings = RetrieveRatingDB.retrieve(up);
+
+        String sql = "SELECT COUNT(*) AS amount FROM ratings WHERE user = " + user.getId() +
+                " AND userGivingRating = " + user2.getId();
+
+        boolean ans = false;
+
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        assertTrue(ans);
+
+        assertFalse(up.getRatings().isEmpty());
+
+        assertFalse(ratings.isEmpty());
     }
 
     @Test
     void assertsRatingsCanBeUpdated() {
+        User user = new User("rate", "me", "1777", "ratingking",
+                "12341234123", "rate@me.no", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
+        User user2 = new User("rate", "you", "1777", "ratinglover",
+                "12341234123", "rate@you.no", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
 
+        UserProfile up = RetrieveUserProfileDB.retrieveFromEmail(user.getEmail());
+
+        up.addNewRating(user2, 5);
+
+        String sql = "SELECT rating FROM ratings WHERE user = " + user.getId() +
+                " AND userGivingRating = " + user2.getId();
+
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+
+            assertEquals(5, queryResult.getInt("rating"));
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        up.addNewRating(user2, 3);
+
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+
+            assertEquals(3, queryResult.getInt("rating"));
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     @Test
     void assertsAverageRatingsCanBeCalculated() {
+        /*User user = new User("rate", "me", "1777", "ratingking",
+                "12341234123", "rate@me.no", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
+        User user2 = new User("rate", "you", "1777", "ratinglover",
+                "12341234123", "rate@you.no", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
+        User user3 = new User("rating", "twice", "1777", "divisionlover",
+                "12341234123", "rate@youtoo.no", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
 
+        UserProfile up = RetrieveUserProfileDB.retrieveFromEmail(user.getEmail());
+
+        int ratingFromUser2 = 5;
+        int ratingFromUser3 = 3;
+
+        up.addNewRating(user2, ratingFromUser2);
+        up.addNewRating(user3, ratingFromUser3);
+
+        assertEquals(4, ((ratingFromUser2 + ratingFromUser3) / 2));
+        assertEquals(4.0, up.calculateAverageRating());
+        System.out.println(up.getRatings());
+
+         */
     }
 
     @Test
