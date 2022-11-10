@@ -168,4 +168,74 @@ class DatabasePersistenceTest {
         assertEquals(user2.getFirstName(), user.getFirstName());
     }
 
+    @Test
+    void assertsRatingsCanBeSaved() {
+
+    }
+
+    @Test
+    void assertsRatingsCanBeUpdated() {
+
+    }
+
+    @Test
+    void assertsAverageRatingsCanBeCalculated() {
+
+    }
+
+    @Test
+    void assertsAverageRatingsCanBeUpdated() {
+
+    }
+
+    @Test
+    void assertsVehiclesCanBeSaved() {
+
+    }
+
+    @Test
+    void assertsLicensesCanBeSaved() {
+
+    }
+
+    @Test
+    void assertsRentOutAdCanBeSaved() {
+
+    }
+
+    @Test
+    void assertsAvailableWithinPeriodCanBeSaved() {
+
+    }
+
+    @Test
+    void assertsRentOutAdDateCreatedIsCorrect() {
+
+    }
+
+    @Test
+    void assertsRentOutAdDateChangedIsUpdated() {
+
+    }
+
+    @Test
+    void assertsBookingsCanBeSaved() {
+
+    }
+
+    @Test
+    void assertsBookingsThatClashWillNotBeSaved() {
+
+    }
+
+    @Test
+    void assertsBookingsWithDateBeforePresentWillNotBeSaved() {
+
+    }
+
+    @Test
+    void assertsPaymentsCanBeSaved() {
+
+    }
+
 }
