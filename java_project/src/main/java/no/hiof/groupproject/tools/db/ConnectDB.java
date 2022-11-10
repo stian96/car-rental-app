@@ -8,8 +8,18 @@ the same DB.
  */
 public class ConnectDB {
 
+    static String db = "jdbc:sqlite:sqlite/db/test.db";
+
     public static Connection connect() {
 
-        return ConnectSpecifiedDB.connect("jdbc:sqlite:sqlite/db/test.db");
+        return ConnectSpecifiedDB.connect(db);
+    }
+
+    public static String getDb() {
+        return db;
+    }
+
+    public static void setDb(String db) {
+        ConnectDB.db = db;
     }
 }

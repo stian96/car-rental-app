@@ -17,27 +17,51 @@ public class RetrieveUserProfileDB {
 
     public static UserProfile retrieve(int id) {
 
-        String sql = "SELECT * FROM userProfiles WHERE user_fk= " + id;
+        //String sql = "SELECT * FROM userProfiles WHERE user_fk= " + id;
 
         UserProfile returnedUserProfile = null;
 
-        try (Connection conn = ConnectDB.connect();
-             PreparedStatement str = conn.prepareStatement(sql)) {
-
-
-            User user = RetrieveUserDB.retrieveFromId(id);
-            returnedUserProfile = new UserProfile(user);
-            HashMap<User, Integer> ratings = RetrieveRatingDB.retrieve(returnedUserProfile);
+        User user = RetrieveUserDB.retrieveFromId(id);
+        returnedUserProfile = new UserProfile(user);
+        HashMap<User, Integer> ratings = RetrieveRatingDB.retrieve(returnedUserProfile);
+        if (!ratings.isEmpty()) {
             returnedUserProfile.setRatings(ratings);
             returnedUserProfile.setAverageRating(Double.parseDouble(RetrieveAverageRatingDB.retrieve(returnedUserProfile)));
-
-
-
+        /*
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+         */
+
+        }
         return returnedUserProfile;
     }
 
+    public static UserProfile retrieveFromEmail(String email) {
+
+        //String sql = "SELECT * FROM userProfiles INNER JOIN users ON user_fk = users_id " +
+        //        "WHERE email = \'" + email + "\'";
+
+        UserProfile returnedUserProfile = null;
+
+        User user = RetrieveUserDB.retrieveFromEmail(email);
+        returnedUserProfile = new UserProfile(user);
+        HashMap<User, Integer> ratings = RetrieveRatingDB.retrieve(returnedUserProfile);
+        if (!ratings.isEmpty()) {
+            returnedUserProfile.setRatings(ratings);
+            returnedUserProfile.setAverageRating(Double.parseDouble(RetrieveAverageRatingDB.retrieve(returnedUserProfile)));
+        }
+        /*
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+         */
+        return returnedUserProfile;
+    }
 }
