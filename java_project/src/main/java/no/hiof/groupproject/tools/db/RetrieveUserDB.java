@@ -16,7 +16,8 @@ public class RetrieveUserDB {
 
     public static User retrieveFromId(int id) {
 
-        String sql = "SELECT * FROM users INNER JOIN licenses ON license=licenseNumber WHERE users_id = " + id;
+        String sql = "SELECT * FROM users LEFT JOIN licenses ON license=licenseNumber WHERE users_id = " + id;
+
 
         User returnedUser = null;
 
@@ -69,7 +70,7 @@ public class RetrieveUserDB {
 
     public static User retrieveFromEmail(String email) {
 
-        String sql = "SELECT * FROM users WHERE email = \'" + email + "\'";
+        String sql = "SELECT * FROM users LEFT JOIN licenses ON license=licenseNumber WHERE email = \'" + email + "\'";
 
         User returnedUser = null;
 
