@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -257,5 +258,201 @@ class DatabaseFilteringTest {
         assertFalse(result);
     }
 
+    @Test
+    void assertsFilterToManufacturer() {
+
+        ArrayList<Vehicle> listOfAds = FilterAdvertisement.filterToArrayListVehicle(
+                null, null, "aston martin",
+                null, null, null,
+                null, null, null, null);
+
+        boolean result = false;
+        for (Vehicle vehicle : listOfAds) {
+
+            if (!Objects.equals(vehicle.getManufacturer().toLowerCase(), "aston martin")) {
+                result = true;
+                break;
+            }
+        }
+
+        assertFalse(result);
+
+        if (result) {
+            result = false;
+        }
+
+        listOfAds = FilterAdvertisement.filterToArrayListVehicle(
+                null, null, "audi",
+                null, null, null,
+                null, null, null, null);
+
+        for (Vehicle vehicle : listOfAds) {
+
+            if (!Objects.equals(vehicle.getManufacturer().toLowerCase(), "audi")) {
+                result = true;
+                break;
+            }
+        }
+
+        assertFalse(result);
+
+    }
+
+    @Test
+    void assertsFilterToDailyCharge() {
+
+        ArrayList<Advertisement> listOfAds = FilterAdvertisement.filterToArrayListAdvertisement(
+                null, null, null,
+                null, 400, null,
+                null, null, null, null);
+
+        boolean result = false;
+        for (Advertisement advertisement : listOfAds) {
+
+
+            //checks to see if the dailyCharge is more than 400. if so, then result = true
+            if (((RentOutAd) advertisement).getDailyCharge().compareTo(BigDecimal.valueOf(400)) > 0) {
+                result = true;
+                break;
+            }
+        }
+
+        assertFalse(result);
+
+    }
+
+    @Test
+    void assertsFilterToChargePerTwentyKm() {
+
+        ArrayList<Advertisement> listOfAds = FilterAdvertisement.filterToArrayListAdvertisement(
+                null, null, null,
+                null, null, 15,
+                null, null, null, null);
+
+        boolean result = false;
+        for (Advertisement advertisement : listOfAds) {
+
+
+            //checks to see if the dailyCharge is more than 400. if so, then result = true
+            if (((RentOutAd) advertisement).getChargePerTwentyKm().compareTo(BigDecimal.valueOf(15)) > 0) {
+                result = true;
+                break;
+            }
+        }
+
+        assertFalse(result);
+
+    }
+
+    @Test
+    void assertsFilterToModelYear() {
+
+        ArrayList<Vehicle> listOfAds = FilterAdvertisement.filterToArrayListVehicle(
+                null, null, null,
+                null, null, null,
+                1990, null, null, null);
+
+        boolean result = false;
+        for (Vehicle vehicle : listOfAds) {
+
+
+            //checks to see if the dailyCharge is more than 400. if so, then result = true
+            if (vehicle.getModelYear() < 1990 ) {
+                result = true;
+                break;
+            }
+        }
+
+        assertFalse(result);
+
+    }
+
+    @Test
+    void assertsFilterToSeatingCapacity() {
+
+        ArrayList<Vehicle> listOfAds = FilterAdvertisement.filterToArrayListVehicle(
+                null, null, null,
+                null, null, null,
+                null, 3, null, null);
+
+        boolean result = false;
+        for (Vehicle vehicle : listOfAds) {
+
+
+            //checks to see if the dailyCharge is more than 400. if so, then result = true
+            if (((Car) vehicle).getSeatingCapacity() < 3 ) {
+                result = true;
+                break;
+            }
+        }
+
+        assertFalse(result);
+
+    }
+
+    @Test
+    void assertsFilterToAverageRating() {
+
+        ArrayList<Advertisement> listOfAds = FilterAdvertisement.filterToArrayListAdvertisement(
+                null, null, null,
+                null, null, null,
+                null, null, 4, null);
+
+        boolean result = false;
+        for (Advertisement advertisement : listOfAds) {
+
+            UserProfile up = RetrieveUserProfileDB.retrieve(advertisement.getUser().getId());
+
+            //checks to see if the dailyCharge is more than 400. if so, then result = true
+            if (up.getAverageRating() < 4) {
+                result = true;
+                break;
+            }
+        }
+
+        assertFalse(result);
+    }
+
+    @Test
+    void assertsFilterLimitCanBeSpecified() {
+
+        ArrayList<Integer> listOfAds = FilterAdvertisement.filterToArrayListAdvertisementId(
+                null, null, null,
+                null, null, null,
+                null, null, null, 2);
+
+        int counter = 0;
+        for (Integer integer : listOfAds) {
+            counter++;
+        }
+
+        assertEquals(2, counter);
+    }
+
+    @Test
+    void assertsFilterRatingSortsByHighestAutomatically() {
+
+        ArrayList<Advertisement> listOfAds = FilterAdvertisement.filterToArrayListAdvertisement(
+                null, null, null,
+                null, null, null,
+                null, null, null, 2);
+
+        double averageRatingOne = 0;
+        double averageRatingTwo = 0;
+        for (int i = 0; i < 2; i++) {
+
+            int userId = listOfAds.get(i).getUser().getId();
+            UserProfile up = RetrieveUserProfileDB.retrieve(userId);
+
+            if (i == 0) {
+                averageRatingOne = up.getAverageRating();
+            } else {
+                averageRatingTwo = up.getAverageRating();
+            }
+        }
+
+        assertTrue(averageRatingOne > averageRatingTwo);
+
+    }
 
 }
