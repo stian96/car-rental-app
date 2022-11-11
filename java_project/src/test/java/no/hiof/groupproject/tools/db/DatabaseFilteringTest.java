@@ -28,7 +28,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DatabaseFilteringTest {
 
-   @BeforeEach
+    @BeforeEach
     void initialiseDatabasePath() {
        ConnectDB.setDb("jdbc:sqlite:sqlite/db/testable.db");
    }
