@@ -1,27 +1,24 @@
 package com.example.java_project;
 
-import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.chart.ScatterChart;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
-import no.hiof.groupproject.models.Advertisement;
+import javafx.stage.Stage;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
 import no.hiof.groupproject.tools.db.RetrieveAvailableWithinDB;
+import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
-import no.hiof.groupproject.tools.geocode.Location;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ResourceBundle;
 import java.util.TreeMap;
 
 public class ToGoCarPageController  {
@@ -49,51 +46,36 @@ public class ToGoCarPageController  {
     @FXML
     private Label noAvailableCarWarning;
    @FXML
-    private ListView<Integer> vehicleList = new ListView<>() ;
+    //private
+   //ListView<Integer> vehicleList = new ListView<>() ;
+    //private ListView<Advertisement> vehicleList = new ListView<>() ;
+    private ListView<Vehicle> vehicleList = new ListView<>() ;
+   @FXML
+    void openNePage() throws IOException {
+       FXMLLoader loader = new FXMLLoader(getClass().getResource("FilterCar.fxml"));
+       Parent pane = loader.load();
+       FilterCarController f = loader.getController();
+       f.populateListView(tf_TownName.getText());
+       Stage stage = new Stage();
+       stage.setScene(new Scene(pane));
+       stage.show();
 
 
 
-    ObservableList<Integer> observableList = FXCollections.observableArrayList();
-
-
-    public void FilterTown(){
-        String town = tf_TownName.getText().trim().toLowerCase();
-        FilterAdvertisement.filterToArrayListAdvertisement(null, null, null,
-                town, null, null, null,
-                null,null, null);
-
-    }
-
-    public void getStartDate(ActionEvent event){
-        LocalDate fromDate = start_DatePicker.getValue();
-        //String myFormattedDate = fromDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        noAvailableCarWarning.setText(String.valueOf(fromDate));
-    }
-
-    public void getReturnDate(ActionEvent event){
-        LocalDate toDate = return_DatePicker.getValue();
-        //String myFormattedDate = fromDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-        noAvailableCarWarning.setText(String.valueOf(toDate));
-    }
-
-    public void initialize() {
-
-
-    }
-
-    //prints the ad id into the listview
-    public void loadAds(){
+   }
 
 
 
 
+    //ObservableList<Integer> observableList = FXCollections.observableArrayList();
+    //ObservableList<Advertisement> observableList = FXCollections.observableArrayList();
+    ObservableList<Vehicle> observableListVehicle = FXCollections.observableArrayList();
 
-                observableList.addAll(getAdId());
-            System.out.println(observableList);
-                vehicleList.getItems().addAll(observableList);
+    FilterCarController f = new FilterCarController();
 
-        }
 
+
+    //This returns the ad id based on the town inserted into the textfield
     public Integer getAdId(){
         String town = tf_TownName.getText().trim().toLowerCase();
 
@@ -104,22 +86,87 @@ public class ToGoCarPageController  {
         }
 
 
-    return getAdId();}
+        return getAdId();}
+     //RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
+    public void populateListView(){
+        RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
+        Vehicle v = RetrieveVehicleDB.retrieveFromId(roa.getVehicle().getId());
+        f.vehicleObservableList.addAll(v);
+        System.out.println(f.vehicleObservableList);
+        f.getVehicleListView().getItems().addAll(f.vehicleObservableList);
 
 
+    }
+
+    public String getTextfield(){
+        return tf_TownName.getText();
+
+    }
+
+    //returns the startDate picked using the date picker
+    public LocalDate getStartDate(){
+
+        return start_DatePicker.getValue();
+    }
+    //returns the startDate picked using the date picker
+    public LocalDate getReturnDate(){
+
+        return return_DatePicker.getValue();
+
+
+    }
+
+
+
+    //prints the ad id into the listview
+    /*
+    public void loadAds(){
+                observableList.addAll(getAdId());
+            System.out.println(observableList);
+                vehicleList.getItems().addAll(observableList);
+
+        }
+
+     */
+
+
+
+    public String findAnAvailableCar(){
+        String status = "success";
+        if(getStartDate() == null || getReturnDate() == null){
+            setNoAvailableCarWarning("pick dates");
+            status = "error";}
+        else {
+            try {
+                RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
+                if(!roa.checkIfDateIsAvailable(getStartDate(),getReturnDate())){
+                    setNoAvailableCarWarning("pick Other dates");
+                    status = "error";}
+
+
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+        return status;
+
+    }
 
 
 
 
     public void FindBookCar(ActionEvent event) throws IOException{
+           Main m = new Main();
 
+       if(event.getSource() == button_FindCar){
+           if(findAnAvailableCar().equals("success")){
+               openNePage();
+               //populateListView();
 
-
-        loadAds();
-        dateSelection();
-
-
+           }
         }
+    else noAvailableCarWarning.setText("check other dates");}
 
 
    @FXML
@@ -166,60 +213,6 @@ public class ToGoCarPageController  {
 
 
     }
-
-
-
-
-
-    /*
-
-    public void FindBookCar(ActionEvent event) throws IOException{
-        Main m = new Main();
-        if(event.getSource() == button_FindCar){
-            if(getDateFrom(event).equals("Error")){
-                try {
-                    m.changeScene("FilterCar.fxml");
-                } catch (IOException e){
-                    System.out.println(e.getMessage());
-
-                }
-            }
-        }
-
-    }
-
-    public String getDateFrom(ActionEvent event) throws IOException{
-        String status = "success";
-        LocalDate fromDate = start_DatePicker.getValue();
-        if(event.getSource() == start_DatePicker ){
-            ;
-        }
-
-
-        return status;
-    }
-
-     */
-
-/*
-    public String findACar() throws IOException {
-        String status = "success";
-        String town = tf_TownName.getText().trim();
-
-        RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromTown(tf_TownName.getText());
-        if(ad != null && ad.getTown().equals(town)){
-            setNoAvailableCarWarning("does not exist");
-
-            status = "Error";
-
-
-        }
-
-        return status;
-    }
-
- */
-
 
 
     private int ConvertIntoNumeric(String xVal)
@@ -269,80 +262,6 @@ public class ToGoCarPageController  {
 
 
 
-/*
-
-    public void FindBookCar(ActionEvent event) throws IOException{
-        Main m = new Main();
-        if(event.getSource() == button_FindCar){
-            if(findACar().equals("Error")){
-                try {
-                    m.changeScene("FilterCar.fxml");
-                } catch (IOException e){
-                    System.out.println(e.getMessage());
-
-                }
-            }
-        }
-
-    }
-
-    public String findACar() throws IOException {
-        String status = "success";
-        String town = tf_TownName.getText().trim();
-
-        RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(ConvertIntoNumeric(town));
-        if(!ad.existsInDb()){
-            setNoAvailableCarWarning("does not exist");
-
-            status = "success";
-
-
-        }else{status = "Error";}
-
-        return status;
-    }
-    private int ConvertIntoNumeric(String xVal)
-    {
-        try
-        {
-            return Integer.parseInt(xVal);
-        }
-        catch(Exception ex)
-        {
-            return 0;
-        }
-    }
-
-    Vehicle[] cars = FilterAdvertisement.filterToArrayListVehicle(null, null, null,
-                tf_TownName.getText(), null,
-                null, null, null, null, null).toArray(new Vehicle[0]);
-
-        vehicleList.setItems(FXCollections.observableArrayList(cars));
-        vehicleList.setCellFactory(lv -> {
-            ListCell<Vehicle> cell = new ListCell<>();
-
-            ContextMenu contextMenu = new ContextMenu();
-
-            MenuItem viewItem = new MenuItem();
-            viewItem.textProperty().bind(Bindings.format("View photos"));
-            viewItem.setOnAction(event -> {
-                Vehicle item = cell.getItem();
-
-            });
-            contextMenu.getItems().add(viewItem);
-
-            cell.emptyProperty().addListener((obs, wasEmpty, isNowEmpty) -> {
-                if (isNowEmpty) {
-                    cell.setContextMenu(null);
-                } else {
-                    cell.textProperty().bind(cell.itemProperty().asString());
-                    cell.setContextMenu(contextMenu);
-                }
-            });
-            return cell;
-        });
-
- */
 
 
 
