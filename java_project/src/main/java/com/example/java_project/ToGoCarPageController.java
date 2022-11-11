@@ -5,6 +5,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.chart.ScatterChart;
 import javafx.scene.control.*;
 import no.hiof.groupproject.models.Advertisement;
@@ -16,11 +17,14 @@ import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 import no.hiof.groupproject.tools.geocode.Location;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 import java.util.TreeMap;
 
-public class ToGoCarPageController {
+public class ToGoCarPageController  {
 
     @FXML
     private Button button_registerCar;
@@ -44,44 +48,85 @@ public class ToGoCarPageController {
     private DatePicker return_DatePicker;
     @FXML
     private Label noAvailableCarWarning;
-   // @FXML
-    //private ListView<Advertisement> vehicleList;
-    @FXML
-    private ListView<Integer> vehicleList;
-    //ObservableList<Advertisement> observableList = FXCollections.observableArrayList();
+   @FXML
+    private ListView<Integer> vehicleList = new ListView<>() ;
+
+
+
     ObservableList<Integer> observableList = FXCollections.observableArrayList();
+
+
     public void FilterTown(){
         String town = tf_TownName.getText().trim().toLowerCase();
         FilterAdvertisement.filterToArrayListAdvertisement(null, null, null,
                 town, null, null, null,
                 null,null, null);
+
     }
 
+    public void getStartDate(ActionEvent event){
+        LocalDate fromDate = start_DatePicker.getValue();
+        //String myFormattedDate = fromDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        noAvailableCarWarning.setText(String.valueOf(fromDate));
+    }
+
+    public void getReturnDate(ActionEvent event){
+        LocalDate toDate = return_DatePicker.getValue();
+        //String myFormattedDate = fromDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        noAvailableCarWarning.setText(String.valueOf(toDate));
+    }
+
+    public void initialize() {
+
+
+    }
+
+    //prints the ad id into the listview
     public void loadAds(){
+
+
+
+
+
+                observableList.addAll(getAdId());
+            System.out.println(observableList);
+                vehicleList.getItems().addAll(observableList);
+
+        }
+
+    public Integer getAdId(){
         String town = tf_TownName.getText().trim().toLowerCase();
-        for(Integer ad : FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null,
+
+        for(Integer id : FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null,
                 town, null, null, null,
                 null,null, null)){
-
-                observableList.addAll(ad);
-                vehicleList.getItems().addAll(observableList);
+            return id;
         }
-    }
+
+
+    return getAdId();}
+
+
+
+
 
 
     public void FindBookCar(ActionEvent event) throws IOException{
 
-       loadAds();
+
+
+        loadAds();
+        dateSelection();
 
 
         }
 
 
-/*    @FXML
-    private void FindBookCar() throws IOException {
+   @FXML
+    private void dateSelection(){
         if(start_DatePicker.getValue() == null || return_DatePicker.getValue() == null){
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Please select a date!");
+            alert.setContentText(start_DatePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
             alert.show();
             return;
         }
@@ -98,12 +143,34 @@ public class ToGoCarPageController {
             return;
         }
 
+        LocalDate fromDate = start_DatePicker.getValue();
+
+        LocalDate toDate = return_DatePicker.getValue();
+
+
+       TreeMap<LocalDate, LocalDate> availableDates = new TreeMap<>();
+       availableDates.put(fromDate,toDate);
+       RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
+       TreeMap<LocalDate, LocalDate> s = RetrieveAvailableWithinDB.retrieve(roa);
+       roa.checkIfDateIsAvailable(fromDate,toDate);
+
+       if(roa.availableWithinExistsInDb(fromDate,toDate)){
+
+           Alert alert = new Alert(Alert.AlertType.ERROR);
+           alert.setContentText("not available");
+           alert.show();
+
+       }
+
 
 
 
     }
 
- */
+
+
+
+
     /*
 
     public void FindBookCar(ActionEvent event) throws IOException{
@@ -199,6 +266,8 @@ public class ToGoCarPageController {
             Main m = new Main();
             m.changeScene("LogIn.fxml");
         }
+
+
 
 /*
 
