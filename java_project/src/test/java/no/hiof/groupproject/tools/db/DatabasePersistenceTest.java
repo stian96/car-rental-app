@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DatabasePersistenceTest {
 
-   @BeforeEach
+    @BeforeEach
     void initialiseDatabasePath() {
        ConnectDB.setDb("jdbc:sqlite:sqlite/db/testable.db");
    }
@@ -372,7 +372,7 @@ class DatabasePersistenceTest {
 
     @Test
     void assertsRentOutAdDateCreatedIsCorrect() {
-       //first created this entry on 2022-11-09
+       //first created this entry on 2022-11-011
         Vehicle car = new Car("12341234", "audi", "tt", "petrol",
                 "automatic", 2013, 5, 1500);
 
@@ -391,13 +391,12 @@ class DatabasePersistenceTest {
 
         RentOutAd roa2 = ((RentOutAd)RetrieveAdvertisementDB.retrieveFromId(roa.getId()));
 
-        assertEquals(LocalDate.parse("2022-11-09"), roa2.getDateCreated());
+        assertEquals(LocalDate.parse("2022-11-11"), roa2.getDateCreated());
     }
 
     @Test
     void assertsRentOutAdDateChangedIsUpdated() {
         //first created this test database on 2022-11-09
-        //added .addNewPeriod() on 2022-11-10
         Vehicle car = new Car("12341234", "audi", "tt", "petrol",
                 "automatic", 2013, 5, 1500);
 
@@ -418,7 +417,7 @@ class DatabasePersistenceTest {
 
         RentOutAd roa2 = ((RentOutAd)RetrieveAdvertisementDB.retrieveFromId(roa.getId()));
 
-        assertEquals(LocalDate.parse("2022-11-10"), roa2.getDateLastChanged());
+        assertEquals(LocalDate.now(), roa2.getDateLastChanged());
     }
 
     @Test

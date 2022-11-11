@@ -16,8 +16,9 @@ public class InsertMessageDB {
 
         String sql = "INSERT INTO messages (user_fk, melding, dato, tid) " + "VALUES(?,?,?,?)";
 
-        try (Connection conn = ConnectDB.connect()) {
-            PreparedStatement str = conn.prepareStatement(sql);
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
             str.setInt(1, chat.getUser().getId());
             str.setString(2, chat.getMessage());
             str.setString(3, chat.getNowDate());
@@ -27,7 +28,20 @@ public class InsertMessageDB {
         } catch (SQLException sqlException) {
             System.out.println(sqlException.getMessage());
         }
+    }
 
+    public static void insertWithPriorConnection(Message chat, Connection conn) throws SQLException {
+
+
+        String sql = "INSERT INTO messages (user_fk, melding, dato, tid) " + "VALUES(?,?,?,?)";
+
+            PreparedStatement str = conn.prepareStatement(sql);
+            str.setInt(1, chat.getUser().getId());
+            str.setString(2, chat.getMessage());
+            str.setString(3, chat.getNowDate());
+            str.setString(4, chat.getNowTime());
+
+            str.executeUpdate();
 
     }
 }
