@@ -64,4 +64,57 @@ public class RetrieveUserProfileDB {
          */
         return returnedUserProfile;
     }
+
+    public static UserProfile retrieveWithPriorConnection(int id, Connection conn) throws SQLException {
+
+        //String sql = "SELECT * FROM userProfiles WHERE user_fk= " + id;
+
+        UserProfile returnedUserProfile = null;
+
+        User user = RetrieveUserDB.retrieveFromIdWithPriorConnection(id, conn);
+        returnedUserProfile = new UserProfile(user);
+        HashMap<User, Integer> ratings = RetrieveRatingDB.retrieveWithPriorConnection(returnedUserProfile, conn);
+        if (!ratings.isEmpty()) {
+            returnedUserProfile.setRatings(ratings);
+            returnedUserProfile.setAverageRating(
+                    Double.parseDouble(RetrieveAverageRatingDB.retrieveWithPriorConnection(returnedUserProfile, conn)));
+        /*
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+         */
+
+        }
+        return returnedUserProfile;
+    }
+
+    public static UserProfile retrieveFromEmailWithPriorConnection(String email, Connection conn) throws SQLException {
+
+        //String sql = "SELECT * FROM userProfiles INNER JOIN users ON user_fk = users_id " +
+        //        "WHERE email = \'" + email + "\'";
+
+        UserProfile returnedUserProfile = null;
+
+        User user = RetrieveUserDB.retrieveFromEmailWithPriorConnection(email, conn);
+        returnedUserProfile = new UserProfile(user);
+        HashMap<User, Integer> ratings = RetrieveRatingDB.retrieveWithPriorConnection(returnedUserProfile, conn);
+        if (!ratings.isEmpty()) {
+            returnedUserProfile.setRatings(ratings);
+            returnedUserProfile.setAverageRating(
+                    Double.parseDouble(RetrieveAverageRatingDB.retrieveWithPriorConnection(returnedUserProfile, conn)));
+        }
+        /*
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+         */
+        return returnedUserProfile;
+    }
+
 }
