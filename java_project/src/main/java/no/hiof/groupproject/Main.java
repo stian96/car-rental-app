@@ -111,6 +111,8 @@ public class Main {
          */
 
         ChatRoom chat = new ChatRoom();
+        System.out.println("\nMessage log from database:");
         chat.showMessageLog();
+
     }
 }

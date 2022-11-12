@@ -16,12 +16,12 @@ public class ChatRoom implements DeserialiseMessages {
     }
 
     private ArrayList<String> getMessageLogFromDB() {
-        return messageLog = RetrieveMessagesDB.retrieveAllMessages();
+        return RetrieveMessagesDB.retrieveAllMessages();
     }
 
-
     public void showMessageLog() {
-        for (String msg : getMessageLogFromDB())
+        messageLog = getMessageLogFromDB();
+        for (String msg : messageLog)
             System.out.println(msg);
     }
 
