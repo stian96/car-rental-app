@@ -110,11 +110,10 @@ public class Main {
         System.out.println(roa.checkIfDateIsAvailable(LocalDate.parse("2022-11-20"), LocalDate.parse("2022-11-22")));
          */
 
-        // Testing out chatRoom class.
-        ChatRoom chatRoom = new ChatRoom();
-        Message test = new Message(user, "Dette er en test");
-
-
+        ChatRoom chatTest = new ChatRoom();
+        chatTest.sendMessage(new Message(user, "Hello from stian!"));
+        chatTest.sendMessage(new Message(user, "This is another message from stian."));
+        chatTest.sendMessage(new Message(user3, "Message from a new user."));
 
     }
 }
