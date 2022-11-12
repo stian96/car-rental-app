@@ -19,6 +19,8 @@ public class ProfileController {
     private Button button_backMainPage;
     @FXML
     private Button button_EditProfile;
+    @FXML
+    private Label ratingLabel;
     @FXML Label label_UserName; // this will be connected to the firstname column in user database, when the user loggged in it will show their name.
 
     @FXML
@@ -31,7 +33,13 @@ public class ProfileController {
         ;
     }
 
+    public void showRating(){
 
+    }
+
+    public void initialize(){
+
+    }
 
     public void EditProfile(ActionEvent event) throws IOException {
         Main m = new Main();

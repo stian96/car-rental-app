@@ -58,25 +58,26 @@
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
                </font>
             </Button>
-            <Label layoutX="254.0" layoutY="90.0" text="Year Model">
+            <Label layoutX="261.0" layoutY="4.0" text="Year Model">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="341.0" layoutY="95.0" />
-            <Label layoutX="271.0" layoutY="167.0" text="GPS">
+            <TextField layoutX="347.0" layoutY="2.0" />
+            <Label layoutX="286.0" layoutY="62.0" text="GPS">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="313.0" layoutY="165.0" />
+            <TextField layoutX="332.0" layoutY="60.0" />
             <RadioButton layoutX="148.0" layoutY="99.0" mnemonicParsing="false" text="Diesel" />
-            <Label layoutX="270.0" layoutY="227.0" text="Price Class">
+            <Label layoutX="265.0" layoutY="107.0" text="Price Class">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
                </font>
             </Label>
-            <TextField layoutX="341.0" layoutY="224.0" prefHeight="25.0" prefWidth="131.0" />
+            <TextField layoutX="350.0" layoutY="105.0" prefHeight="25.0" prefWidth="131.0" />
+            <ListView fx:id="vehicleListView" layoutX="261.0" layoutY="148.0" prefHeight="200.0" prefWidth="200.0" />
          </children>
       </Pane>
    </children>
