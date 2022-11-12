@@ -396,6 +396,11 @@ public class RentOutAd extends Advertisement {
         this.confirmedBookings = confirmedBookings;
     }
 
+    @Override
+    public String toString() {
+        return  vehicle.getManufacturer() + vehicle.getModel()
+                ;
+    }
 }
 
 
