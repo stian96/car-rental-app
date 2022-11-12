@@ -21,8 +21,8 @@ public class RetrieveMessagesDB {
             //loops through rows in the sql SELECT statement
             while (rs.next()) {
                 StringBuilder storedMessages = new StringBuilder();
-                String userName = rs.getString("user_name");
                 String messages = rs.getString("melding");
+                String userName = rs.getString("user_name");
 
                 storedMessages.append(userName).append(": ").append(messages);
                 returnedMessages.add(String.valueOf(storedMessages));

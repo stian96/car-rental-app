@@ -7,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class ChatRoomTest {
 
@@ -18,9 +19,9 @@ public class ChatRoomTest {
     ChatRoom chatRoom = new ChatRoom();
 
     @Test
-    void VerifyThatSendMessageStoreMessagesThatDoNotExist() {
-        Message testMsg = new Message(user, "Test that message is stored in database");
-        assertTrue(chatRoom.sendMessage(testMsg));
+    void VerifyThatSendMessageDoNotStoreMessagesThatExist() {
+        Message msg = new Message(user, "Test that message is stored in database");
+        assertFalse(chatRoom.sendMessage(msg));
     }
 
     @Test
@@ -28,9 +29,9 @@ public class ChatRoomTest {
         ArrayList<String> testLog = new ArrayList<>();
         testLog.add("sam: Hello from sam");
         testLog.add("sam: Test from the same user");
-        testLog.add("sam: Test that message is stored in database");
-        testLog.add("gsdfg: This is from another user.");
-        assertArrayEquals(testLog.toArray(), chatRoom.getMessageLog().toArray());
+
+        Object[] response = Arrays.copyOfRange(chatRoom.getMessageLog().toArray(), 0, 2);
+        assertArrayEquals(testLog.toArray(), response);
     }
 
     @Test
