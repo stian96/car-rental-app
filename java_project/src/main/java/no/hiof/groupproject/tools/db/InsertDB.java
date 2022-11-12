@@ -30,4 +30,16 @@ public class InsertDB {
             System.out.println(e.getMessage());
         }
     }
+
+    public void insertWithPriorConnection(String table, String nm, int ag, Connection conn) throws SQLException {
+
+        //eg INSERT INTO people(name,age) VALUES('sam',29)
+        String sql = "INSERT INTO " + table + "(name,age) VALUES(?,?)";
+
+        PreparedStatement str = conn.prepareStatement(sql);
+        str.setString(1, nm);
+        str.setInt(2, ag);
+        str.executeUpdate();
+
+    }
 }

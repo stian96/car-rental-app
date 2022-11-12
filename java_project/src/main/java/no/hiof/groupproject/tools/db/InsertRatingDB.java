@@ -54,5 +54,31 @@ public class InsertRatingDB {
 
     }
 
+    public static void insertWithPriorConnection(User user, User userGivingRating, int rating, Connection conn) throws SQLException {
+
+        String sql = "INSERT INTO ratings (user, userGivingRating, rating)" +
+                "VALUES(?,?,?)";
+
+        PreparedStatement str = conn.prepareStatement(sql);
+
+        str.setInt(1, user.getId());
+        str.setInt(2, userGivingRating.getId());
+        str.setInt(3, rating);
+        str.executeUpdate();
+
+    }
+
+    //used to update the rating without creating an additional row
+    public static void updateWithPriorConnection(User user, User userGivingRating, int rating, Connection conn) throws SQLException {
+
+        String sql = "UPDATE ratings SET rating = " + rating +
+                " WHERE userGivingRating = " + userGivingRating.getId() + " AND user = " + user.getId();
+
+        PreparedStatement str = conn.prepareStatement(sql);
+
+        str.executeUpdate();
+
+    }
+
 
 }

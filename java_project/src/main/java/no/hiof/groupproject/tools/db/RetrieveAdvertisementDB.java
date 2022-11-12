@@ -32,14 +32,14 @@ public class RetrieveAdvertisementDB {
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
-            User user = RetrieveUserDB.retrieveFromId(queryResult.getInt("user_fk"));
+            User user = RetrieveUserDB.retrieveFromIdWithPriorConnection(queryResult.getInt("user_fk"), conn);
             LocalDate dateCreated = LocalDate.parse(queryResult.getString("dateCreated"));
             LocalDate dateLastChanged = LocalDate.parse(queryResult.getString("dateLastChanged"));
             String subClass = queryResult.getString("advertisementSubclass");
 
             //the following code creates a RentOutAd subclass
             if (Objects.equals(subClass, "rentoutad")) {
-                Vehicle vehicle = RetrieveVehicleDB.retrieveFromId(queryResult.getInt("vehicle_fk"));
+                Vehicle vehicle = RetrieveVehicleDB.retrieveFromIdWithPriorConnection(queryResult.getInt("vehicle_fk"), conn);
                 Currency cur = Currency.getInstance(queryResult.getString("cur"));
                 BigDecimal dailyCharge =
                         BigDecimal.valueOf(Double.parseDouble(queryResult.getString("dailyCharge")));
@@ -50,8 +50,8 @@ public class RetrieveAdvertisementDB {
 
                 advertisement = new RentOutAd(user, vehicle, dailyCharge, chargePerTwentyKm, town);
 
-                TreeMap<LocalDate, LocalDate> availableWithin = RetrieveAvailableWithinDB.retrieve(advertisement);
-                ArrayList<Booking> confirmedBookings = RetrieveBookingsDB.retrieve(advertisement);
+                TreeMap<LocalDate, LocalDate> availableWithin = RetrieveAvailableWithinDB.retrieveWithPriorConnection(advertisement, conn);
+                ArrayList<Booking> confirmedBookings = RetrieveBookingsDB.retrieveWithPriorConnection(advertisement, conn);
 
                 advertisement.setDateCreated(dateCreated);
                 advertisement.setDateLastChanged(dateLastChanged);
@@ -63,6 +63,46 @@ public class RetrieveAdvertisementDB {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        }
+
+        return advertisement;
+    }
+
+    public static Advertisement retrieveFromIdWithPriorConnection(int id, Connection conn) throws SQLException {
+
+        String sql = "SELECT * FROM advertisements WHERE advertisements_id = " + id;
+
+        RentOutAd advertisement = null;
+
+
+        PreparedStatement str = conn.prepareStatement(sql);
+
+        ResultSet queryResult = str.executeQuery();
+        User user = RetrieveUserDB.retrieveFromIdWithPriorConnection(queryResult.getInt("user_fk"), conn);
+        LocalDate dateCreated = LocalDate.parse(queryResult.getString("dateCreated"));
+        LocalDate dateLastChanged = LocalDate.parse(queryResult.getString("dateLastChanged"));
+        String subClass = queryResult.getString("advertisementSubclass");
+
+        //the following code creates a RentOutAd subclass
+        if (Objects.equals(subClass, "rentoutad")) {
+            Vehicle vehicle = RetrieveVehicleDB.retrieveFromIdWithPriorConnection(queryResult.getInt("vehicle_fk"), conn);
+            Currency cur = Currency.getInstance(queryResult.getString("cur"));
+            BigDecimal dailyCharge =
+                    BigDecimal.valueOf(Double.parseDouble(queryResult.getString("dailyCharge")));
+            BigDecimal chargePerTwentyKm =
+                    BigDecimal.valueOf(Double.parseDouble(queryResult.getString("chargePerTwentyKm")));
+            //only town is required because the Location makes use of an API to generate the fylke, postnr and land
+            String town = queryResult.getString("town");
+
+            advertisement = new RentOutAd(user, vehicle, dailyCharge, chargePerTwentyKm, town);
+
+            TreeMap<LocalDate, LocalDate> availableWithin = RetrieveAvailableWithinDB.retrieveWithPriorConnection(advertisement, conn);
+            ArrayList<Booking> confirmedBookings = RetrieveBookingsDB.retrieveWithPriorConnection(advertisement, conn);
+
+            advertisement.setDateCreated(dateCreated);
+            advertisement.setDateLastChanged(dateLastChanged);
+            advertisement.setAvailableWithin(availableWithin);
+            advertisement.setConfirmedBookings(confirmedBookings);
         }
 
         return advertisement;
