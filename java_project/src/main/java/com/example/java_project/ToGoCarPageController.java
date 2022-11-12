@@ -50,6 +50,7 @@ public class ToGoCarPageController  {
    //ListView<Integer> vehicleList = new ListView<>() ;
     //private ListView<Advertisement> vehicleList = new ListView<>() ;
     private ListView<Vehicle> vehicleList = new ListView<>() ;
+   /*
    @FXML
     void openNePage() throws IOException {
        FXMLLoader loader = new FXMLLoader(getClass().getResource("FilterCar.fxml"));
@@ -62,7 +63,8 @@ public class ToGoCarPageController  {
 
 
 
-   }
+
+    */
 
 
 
@@ -161,13 +163,15 @@ public class ToGoCarPageController  {
 
        if(event.getSource() == button_FindCar){
            if(findAnAvailableCar().equals("success")){
-               openNePage();
+
                //populateListView();
 
            }
         }
     else noAvailableCarWarning.setText("check other dates");}
-
+    public void displayName(String username) {
+        noAvailableCarWarning.setText("Hello: " + username);
+    }
 
    @FXML
     private void dateSelection(){
