@@ -21,8 +21,8 @@ public class InsertMessageDB {
             str.setInt(1, chat.getUser().getId());
             str.setString(2, chat.getUser().getFirstName());
             str.setString(3, chat.getMessage());
-            str.setString(4, chat.getNowDate());
-            str.setString(5, chat.getNowTime());
+            str.setString(4, chat.formatNowDate());
+            str.setString(5, chat.formatNowTime());
 
             str.executeUpdate();
         } catch (SQLException sqlException) {
@@ -39,8 +39,8 @@ public class InsertMessageDB {
             str.setInt(1, chat.getUser().getId());
             str.setString(2, chat.getUser().getFirstName());
             str.setString(3, chat.getMessage());
-            str.setString(4, chat.getNowDate());
-            str.setString(5, chat.getNowTime());
+            str.setString(4, chat.formatNowDate());
+            str.setString(5, chat.formatNowTime());
 
             str.executeUpdate();
 

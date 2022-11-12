@@ -15,12 +15,12 @@ public class Message {
         this.time = LocalDateTime.now();
     }
 
-    public String getNowDate() {
+    public String formatNowDate() {
         DateTimeFormatter nowDate = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         return nowDate.format(time);
     }
 
-    public String getNowTime() {
+    public String formatNowTime() {
         DateTimeFormatter nowTime = DateTimeFormatter.ofPattern("HH:mm:ss");
         return nowTime.format(time);
     }

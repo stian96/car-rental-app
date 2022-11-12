@@ -29,8 +29,8 @@ public class SaveToDB implements Serialise, ExistsInDb {
         String sql = "SELECT COUNT(*) AS amount FROM messages " +
                 "WHERE user_id = \'" + saveMessage.getUser().getId() + "\' " +
                 "AND melding = \'" + saveMessage.getMessage() + "\' " +
-                "AND dato = \'" + saveMessage.getNowDate() + "\'" +
-                "AND tid = \'" + saveMessage.getNowTime() + "\'";
+                "AND dato = \'" + saveMessage.formatNowDate() + "\'" +
+                "AND tid = \'" + saveMessage.formatNowTime() + "\'";
 
         boolean ans = false;
         try (Connection conn = ConnectDB.connect();

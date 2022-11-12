@@ -15,14 +15,9 @@ public class ChatRoom implements DeserialiseMessages {
         }
     }
 
-    private ArrayList<String> getMessageLogFromDB() {
-        return RetrieveMessagesDB.retrieveAllMessages();
-    }
-
-    public void showMessageLog() {
-        messageLog = getMessageLogFromDB();
-        for (String msg : messageLog)
-            System.out.println(msg);
+    public ArrayList<String> getMessageLog() {
+        messageLog = RetrieveMessagesDB.retrieveAllMessages();
+        return messageLog;
     }
 
     public void clearMessageLog() {
