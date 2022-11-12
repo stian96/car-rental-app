@@ -1,7 +1,6 @@
 package no.hiof.groupproject.tools.chat;
 
 import no.hiof.groupproject.interfaces.DeserialiseMessages;
-import no.hiof.groupproject.tools.db.DeleteFromDB;
 import no.hiof.groupproject.tools.db.DeleteMessagesFromDB;
 import no.hiof.groupproject.tools.db.RetrieveMessagesDB;
 
@@ -26,6 +25,7 @@ public class ChatRoom implements DeserialiseMessages {
         return messageLog;
     }
 
+    // Need to write test for this method.
     public void deleteMessage(String writeMessage) {
         DeleteMessagesFromDB db = new DeleteMessagesFromDB();
         db.delete("messages", "melding", writeMessage);
