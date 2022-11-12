@@ -1,6 +1,8 @@
 package no.hiof.groupproject.tools.chat;
 
 import no.hiof.groupproject.interfaces.DeserialiseMessages;
+import no.hiof.groupproject.tools.db.DeleteFromDB;
+import no.hiof.groupproject.tools.db.DeleteMessagesFromDB;
 import no.hiof.groupproject.tools.db.RetrieveMessagesDB;
 
 import java.util.ArrayList;
@@ -22,6 +24,12 @@ public class ChatRoom implements DeserialiseMessages {
     public ArrayList<String> getMessageLog() {
         messageLog = RetrieveMessagesDB.retrieveAllMessages();
         return messageLog;
+    }
+
+    public void deleteMessage(String writeMessage) {
+        DeleteMessagesFromDB db = new DeleteMessagesFromDB();
+        db.delete("messages", "melding", writeMessage);
+
     }
 
     public void clearMessageLog() {
