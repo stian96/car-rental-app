@@ -8,10 +8,14 @@ import java.util.ArrayList;
 public class ChatRoom implements DeserialiseMessages {
     private ArrayList<String> messageLog = new ArrayList<>();
 
-    public void sendMessage(Message message) {
+    public boolean sendMessage(Message message) {
         SaveToDB save = new SaveToDB(message);
         if (!save.existsInDb()) {
             save.serialise();
+            return true;
+        }
+        else {
+            return false;
         }
     }
 
@@ -22,6 +26,10 @@ public class ChatRoom implements DeserialiseMessages {
 
     public void clearMessageLog() {
         messageLog.clear();
+    }
+
+    public ArrayList<String> getLog() {
+        return messageLog;
     }
 
 }
