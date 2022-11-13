@@ -148,6 +148,11 @@ public abstract class Vehicle implements Serialise, GetAutoIncrementId, ExistsIn
         return vehicleSubclass;
     }
 
+    @Override
+    public String toString() {
+        return  manufacturer;
+    }
+
     public void setVehicleSubclass(String vehicleSubclass) {
         this.vehicleSubclass = vehicleSubclass;
     }

@@ -58,7 +58,7 @@ public class RetrieveVehiclesDB {
             //loops through rows in the sql SELECT statement
             while (rs.next()) {
                 int id = rs.getInt("vehicle_fk");
-                Vehicle vehicle = RetrieveVehicleDB.retrieveFromId(id);
+                Vehicle vehicle = RetrieveVehicleDB.retrieveFromIdWithPriorConnection(id, conn);
                 allVehicles.add(vehicle);
             }
             return allVehicles;
@@ -83,8 +83,8 @@ public class RetrieveVehiclesDB {
             while (rs.next()) {
                 int vehicleId = rs.getInt("vehicle_fk");
                 int advertisementId = rs.getInt("advertisements_id");
-                Advertisement advertisement = RetrieveAdvertisementDB.retrieveFromId(advertisementId);
-                Vehicle vehicle = RetrieveVehicleDB.retrieveFromId(vehicleId);
+                Advertisement advertisement = RetrieveAdvertisementDB.retrieveFromIdWithPriorConnection(advertisementId, conn);
+                Vehicle vehicle = RetrieveVehicleDB.retrieveFromIdWithPriorConnection(vehicleId, conn);
                 returnedHash.put(advertisement, vehicle);
             }
             return returnedHash;

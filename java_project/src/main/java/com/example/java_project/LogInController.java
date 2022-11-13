@@ -2,15 +2,21 @@ package com.example.java_project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.tools.db.RetrieveUserDB;
 
 
 import java.io.IOException;
+import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,12 +43,25 @@ public class LogInController {
         User u = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
         String password = tf_password.getText();
         String email = tf_userName.getText();
+
         if (!email.isEmpty() && !password.isEmpty()) {
             try {
                 if (!u.existsInDb()) {
                     SignUpCheck();
                 } else if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
-                    m.changeScene("ToGoCar.fxml");
+
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("ToGoCar.fxml"));
+                    pane = loader.load();
+                    ToGoCarPageController c = loader.getController();
+                    c.displayName(firstName());
+
+                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+                    scene = new Scene(pane);
+                    stage.setScene(scene);
+                    stage.show();
+
+
+
                 } else {
                     wrongLogin.setText("Wrong email or password");
                 }
@@ -54,6 +73,27 @@ public class LogInController {
 
     public void userSignUp(ActionEvent event) throws IOException {
         SignUpCheck();
+    }
+
+    public String firstName(){
+        User u = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
+        return u.getFirstName();
+
+    }
+
+    private Stage stage;
+    private Scene scene;
+    private Parent pane;
+    public void changeScene(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ToGoCar.fxml"));
+        pane = loader.load();
+        ToGoCarPageController c = loader.getController();
+        c.displayName(firstName());
+
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(pane);
+        stage.setScene(scene);
+        stage.show();
     }
 
     private void SignUpCheck() throws IOException {

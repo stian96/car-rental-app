@@ -52,4 +52,33 @@ public class InsertBookingDB {
         }
 
     }
+
+    public static void insertWithPriorConnection(Booking booking, Connection conn) throws SQLException {
+
+        String sql = "INSERT INTO bookings (bookings_id, renter_fk, owner_fk, bookedFrom, bookedTo, payment_fk, vehicle_fk)" +
+                "VALUES(?,?,?,?,?,?,?)";
+
+
+        PreparedStatement str = conn.prepareStatement(sql);
+        str.setString(1, booking.getStrId());
+        str.setInt(2, booking.getRenter().getId());
+        str.setInt(3, booking.getOwner().getId());
+        str.setString(4, booking.getBookedFrom().toString());
+        str.setString(5, booking.getBookedTo().toString());
+        str.setInt(7, booking.getVehicle().getId());
+        Payment payment = booking.getPayment();
+        //NOT REDUNDANT - causes getId() to have a default value of 0 otherwise
+        if (Objects.equals(booking.getPayment().getPaymentType(), "creditdebit")) {
+            str.setInt(6, ((CreditDebit) payment).getId());
+        } else if (Objects.equals(booking.getPayment().getPaymentType(), "googlepay")) {
+            str.setInt(6, ((GooglePay) payment).getId());
+        } else if (Objects.equals(booking.getPayment().getPaymentType(), "paypal")) {
+            str.setInt(6, ((Paypal) payment).getId());
+        } else if (Objects.equals(booking.getPayment().getPaymentType(), "vipps")) {
+            str.setInt(6, ((Vipps) payment).getId());
+        }
+        str.executeUpdate();
+
+
+    }
 }

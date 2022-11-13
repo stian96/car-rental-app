@@ -28,13 +28,10 @@ full of instantiated Advertisements - this is because RetrieveAdvertisementDB.re
  */
 public class FilterAdvertisement {
 
-
-    //eg: FilterAdvertisement.filterToArrayListVehicle("automatic", null, null, "halden", null, null, null, null, 4, 5)
-    public static ArrayList<Vehicle> filterToArrayListVehicle(String gearType, String engineType, String manufacturer,
-                                                              String town, Integer dailyChargeMax,
-                                                              Integer chargePerTwentyKmMax,
-                                                              Integer yearMin, Integer seatingMin, Integer rating,
-                                                              Integer amountOfResults) {
+    //Statement used to filter out results
+    private static String getSQLStatement(String gearType, String engineType, String manufacturer, String town,
+                                          Integer dailyChargeMax, Integer chargePerTwentyKmMax, Integer yearMin,
+                                          Integer seatingMin, Integer rating, Integer amountOfResults) {
 
         String sql = "SELECT * FROM advertisements INNER JOIN vehicles ON vehicle_fk = vehicles_id " +
                 "INNER JOIN userProfiles uP on advertisements.user_fk = uP.user_fk " +
@@ -46,7 +43,7 @@ public class FilterAdvertisement {
         if (engineType != null) {
             sql = sql + " AND LOWER(engineType) = \'" + engineType.toLowerCase() + "\'";
         }
-        if (town != null) {
+        if (manufacturer != null) {
             sql = sql + " AND LOWER(manufacturer) = \'" + manufacturer.toLowerCase() + "\'";
         }
         if (town != null) {
@@ -76,6 +73,18 @@ public class FilterAdvertisement {
         if (amountOfResults != null) {
             sql = sql + " LIMIT " + amountOfResults;
         }
+        return sql;
+    }
+
+    //eg: FilterAdvertisement.filterToArrayListVehicle("automatic", null, null, "halden", null, null, null, null, 4, 5)
+    public static ArrayList<Vehicle> filterToArrayListVehicle(String gearType, String engineType, String manufacturer,
+                                                              String town, Integer dailyChargeMax,
+                                                              Integer chargePerTwentyKmMax,
+                                                              Integer yearMin, Integer seatingMin, Integer rating,
+                                                              Integer amountOfResults) {
+
+        String sql = getSQLStatement(gearType, engineType, manufacturer, town, dailyChargeMax, chargePerTwentyKmMax,
+                yearMin, seatingMin, rating, amountOfResults);
 
         ArrayList<Vehicle> vehicles = new ArrayList<>();
 
@@ -103,46 +112,8 @@ public class FilterAdvertisement {
                                                                 Integer yearMin, Integer seatingMin, Integer rating,
                                                                 Integer amountOfResults) {
 
-        String sql = "SELECT * FROM advertisements INNER JOIN vehicles ON vehicle_fk = vehicles_id " +
-                "INNER JOIN userProfiles uP on advertisements.user_fk = uP.user_fk " +
-                "WHERE advertisementSubclass = \'rentoutad\'";
-
-        if (gearType != null) {
-            sql = sql + " AND LOWER(gearType) = \'" + gearType.toLowerCase() + "\'";
-        }
-        if (engineType != null) {
-            sql = sql + " AND LOWER(engineType) = \'" + engineType.toLowerCase() + "\'";
-        }
-        if (town != null) {
-            sql = sql + " AND LOWER(manufacturer) = \'" + manufacturer.toLowerCase() + "\'";
-        }
-        if (town != null) {
-            sql = sql + " AND LOWER(town) = \'" + town.toLowerCase() + "\'";
-        }
-        if (dailyChargeMax != null) {
-            sql = sql + " AND dailyCharge < \'" + dailyChargeMax + "\'";
-        }
-        if (chargePerTwentyKmMax != null) {
-            sql = sql + " AND chargePerTwentyKm <= \'" + chargePerTwentyKmMax + "\'";
-        }
-        if (yearMin != null) {
-            sql = sql + " AND modelYear >= \'" + yearMin + "\'";
-        }
-        if (seatingMin != null) {
-            sql = sql + " AND seatingCapacity >= \'" + seatingMin + "\'";
-        }
-        if (rating != null) {
-            //there was a bug where rating can be a text value of 'null' after serialising and deserialising
-            // 'null' is different to <null>
-            sql = sql + " AND averageRating IS NOT NULL AND averageRating != 'null' " +
-                    "AND averageRating >= \'" + rating + "\'";
-        }
-
-        sql = sql + " ORDER BY averageRating DESC";
-
-        if (amountOfResults != null) {
-            sql = sql + " LIMIT " + amountOfResults;
-        }
+        String sql = getSQLStatement(gearType, engineType, manufacturer, town, dailyChargeMax, chargePerTwentyKmMax,
+                yearMin, seatingMin, rating, amountOfResults);
 
         ArrayList<Integer> vehicles = new ArrayList<>();
 
@@ -171,46 +142,8 @@ public class FilterAdvertisement {
                                                                           Integer rating,
                                                                           Integer amountOfResults) {
 
-        String sql = "SELECT * FROM advertisements INNER JOIN vehicles ON vehicle_fk = vehicles_id " +
-                "INNER JOIN userProfiles uP on advertisements.user_fk = uP.user_fk " +
-                "WHERE advertisementSubclass = \'rentoutad\'";
-
-        if (gearType != null) {
-            sql = sql + " AND LOWER(gearType) = \'" + gearType.toLowerCase() + "\'";
-        }
-        if (engineType != null) {
-            sql = sql + " AND LOWER(engineType) = \'" + engineType.toLowerCase() + "\'";
-        }
-        if (town != null) {
-            sql = sql + " AND LOWER(manufacturer) = \'" + manufacturer.toLowerCase() + "\'";
-        }
-        if (town != null) {
-            sql = sql + " AND LOWER(town) = \'" + town.toLowerCase() + "\'";
-        }
-        if (dailyChargeMax != null) {
-            sql = sql + " AND dailyCharge < \'" + dailyChargeMax + "\'";
-        }
-        if (chargePerTwentyKmMax != null) {
-            sql = sql + " AND chargePerTwentyKm <= \'" + chargePerTwentyKmMax + "\'";
-        }
-        if (yearMin != null) {
-            sql = sql + " AND modelYear >= \'" + yearMin + "\'";
-        }
-        if (seatingMin != null) {
-            sql = sql + " AND seatingCapacity >= \'" + seatingMin + "\'";
-        }
-        if (rating != null) {
-            //there was a bug where rating can be a text value of 'null' after serialising and deserialising
-            // 'null' is different to <null>
-            sql = sql + " AND averageRating IS NOT NULL AND averageRating != 'null' " +
-                    "AND averageRating >= \'" + rating + "\'";
-        }
-
-        sql = sql + " ORDER BY averageRating DESC";
-
-        if (amountOfResults != null) {
-            sql = sql + " LIMIT " + amountOfResults;
-        }
+        String sql = getSQLStatement(gearType, engineType, manufacturer, town, dailyChargeMax, chargePerTwentyKmMax,
+                yearMin, seatingMin, rating, amountOfResults);
 
         ArrayList<Advertisement> advertisements = new ArrayList<>();
 
@@ -240,46 +173,8 @@ public class FilterAdvertisement {
                                                                       Integer rating,
                                                                       Integer amountOfResults) {
 
-        String sql = "SELECT * FROM advertisements INNER JOIN vehicles ON vehicle_fk = vehicles_id " +
-                "INNER JOIN userProfiles uP on advertisements.user_fk = uP.user_fk " +
-                "WHERE advertisementSubclass = \'rentoutad\'";
-
-        if (gearType != null) {
-            sql = sql + " AND LOWER(gearType) = \'" + gearType.toLowerCase() + "\'";
-        }
-        if (engineType != null) {
-            sql = sql + " AND LOWER(engineType) = \'" + engineType.toLowerCase() + "\'";
-        }
-        if (town != null) {
-            sql = sql + " AND LOWER(manufacturer) = \'" + manufacturer.toLowerCase() + "\'";
-        }
-        if (town != null) {
-            sql = sql + " AND LOWER(town) = \'" + town.toLowerCase() + "\'";
-        }
-        if (dailyChargeMax != null) {
-            sql = sql + " AND dailyCharge < \'" + dailyChargeMax + "\'";
-        }
-        if (chargePerTwentyKmMax != null) {
-            sql = sql + " AND chargePerTwentyKm <= \'" + chargePerTwentyKmMax + "\'";
-        }
-        if (yearMin != null) {
-            sql = sql + " AND modelYear >= \'" + yearMin + "\'";
-        }
-        if (seatingMin != null) {
-            sql = sql + " AND seatingCapacity >= \'" + seatingMin + "\'";
-        }
-        if (rating != null) {
-            //there was a bug where rating can be a text value of 'null' after serialising and deserialising
-            // 'null' is different to <null>
-            sql = sql + " AND averageRating IS NOT NULL AND averageRating != 'null' " +
-                    "AND averageRating >= \'" + rating + "\'";
-        }
-
-        sql = sql + " ORDER BY averageRating DESC";
-
-        if (amountOfResults != null) {
-            sql = sql + " LIMIT " + amountOfResults;
-        }
+        String sql = getSQLStatement(gearType, engineType, manufacturer, town, dailyChargeMax, chargePerTwentyKmMax,
+                yearMin, seatingMin, rating, amountOfResults);
 
         ArrayList<Integer> advertisements = new ArrayList<>();
 
