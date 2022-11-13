@@ -26,8 +26,15 @@ import java.math.BigDecimal;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.time.temporal.ChronoUnit;
+
+import static java.time.temporal.ChronoUnit.DAYS;
 
 public class FilterCarController implements Initializable {
+    //method to get the number of days for booking
+    public static long countDaysBetween(LocalDate dateFrom, LocalDate dateTo){
+        return DAYS.between(dateFrom,dateTo);
+    }
     @FXML
     private TableView<Vehicle> tableViewVehicle;
     @FXML
@@ -39,7 +46,7 @@ public class FilterCarController implements Initializable {
     private DatePicker fromDatePicker, toDatePicker;
 
     @FXML
-    private Button searchButton;
+    private Button searchButton, bookButton;
     @FXML
     private RadioButton radioButton_manual,radioButton_automatic,
             radioButton_electric,radioButton_Hybrid,radioButton_Diesel;
@@ -94,16 +101,14 @@ public class FilterCarController implements Initializable {
     }
 
     public LocalDate getFromDate(){
-
         return fromDatePicker.getValue();
     }
     //returns the startDate picked using the date picker
     public LocalDate getToDate(){
-
         return toDatePicker.getValue();
-
-
     }
+
+
     public String findAnAvailableCar(){
         String status = "success";
         if(getFromDate() == null || getToDate()== null){
@@ -139,7 +144,7 @@ public class FilterCarController implements Initializable {
         }
 
     }
-
+    //Changes scene to view details of the Ad
     public void changeSceneToDetailedAdView(ActionEvent event) throws IOException, IOException {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("DetailedAdView.fxml"));
@@ -151,6 +156,24 @@ public class FilterCarController implements Initializable {
         DetailedAdViewController controller = loader.getController();
         controller.fillData((RentOutAd) vehicleListView.getSelectionModel().getSelectedItem());
         controller.adFromdate(getFromDate());
+
+        //This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(scene);
+        window.show();
+    }
+
+    public void changeSceneToBooking(ActionEvent event) throws IOException, IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("DetailedAdView.fxml"));
+        Parent pane = loader.load();
+
+        Scene scene = new Scene(pane);
+
+        //access the controller and call a method
+        BookingController booking = loader.getController();
+
 
         //This line gets the Stage information
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();

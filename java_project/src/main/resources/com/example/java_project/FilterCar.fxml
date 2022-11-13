@@ -77,6 +77,7 @@
             <Label fx:id="priceLabel" layoutX="461.0" layoutY="91.0" />
             <TextField fx:id="tf_manuName" layoutX="10.0" layoutY="159.0" promptText="Manufacturer name" />
             <Button fx:id="selectAd" layoutX="476.0" layoutY="235.0" mnemonicParsing="false" onAction="#changeSceneToDetailedAdView" text="View Details" />
+            <Button fx:id="bookButton" layoutX="486.0" layoutY="276.0" mnemonicParsing="false" onAction="#changeSceneToBooking" prefHeight="25.0" prefWidth="56.0" text="Book" />
          </children>
       </Pane>
    </children>
