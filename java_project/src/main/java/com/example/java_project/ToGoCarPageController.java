@@ -10,9 +10,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
 import no.hiof.groupproject.tools.db.RetrieveAvailableWithinDB;
+import no.hiof.groupproject.tools.db.RetrieveUserDB;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
@@ -45,6 +47,11 @@ public class ToGoCarPageController  {
     private DatePicker return_DatePicker;
     @FXML
     private Label noAvailableCarWarning;
+    @FXML
+    private void initialize(){
+        User user = Mediator.getInstance().getUser();
+        noAvailableCarWarning.setText("Hello" + user.getFirstName());
+    }
    @FXML
     //private
    //ListView<Integer> vehicleList = new ListView<>() ;
@@ -171,9 +178,7 @@ public class ToGoCarPageController  {
            }
         }
     else noAvailableCarWarning.setText("check other dates");}
-    public void displayName(String username) {
-        noAvailableCarWarning.setText("Hello: " + username);
-    }
+    //public void displayName(String username) {noAvailableCarWarning.setText("Hello: " + username);}
 
    @FXML
     private void dateSelection(){
