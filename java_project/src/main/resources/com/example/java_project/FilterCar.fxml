@@ -11,7 +11,7 @@
             <TextField fx:id="tf_townName" layoutX="14.0" layoutY="15.0" promptText="Add town name" />
             <DatePicker fx:id="fromDatePicker" layoutX="165.0" layoutY="15.0" promptText="Select From Date" />
             <DatePicker fx:id="toDatePicker" layoutX="346.0" layoutY="15.0" promptText="Select To Date" />
-            <Button fx:id="searchButton" layoutX="533.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchButtonPushed" text="Button" />
+            <Button fx:id="searchButton" layoutX="533.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchButtonPushed" text="Search" />
          </children>
       </Pane>
       <Pane prefHeight="334.0" prefWidth="598.0" style="-fx-background-color: #f1c232;">
@@ -51,7 +51,7 @@
                </font>
             </Label>
             <Spinner layoutX="5.0" layoutY="235.0" prefHeight="25.0" prefWidth="79.0" />
-            <Button layoutX="41.0" layoutY="288.0" mnemonicParsing="false" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Search">
+            <Button layoutX="41.0" layoutY="288.0" mnemonicParsing="false" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Add Filters">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
                </font>
@@ -76,6 +76,7 @@
             <Slider fx:id="priceSlider" blockIncrement="100.0" layoutX="315.0" layoutY="75.0" max="5000.0" min="100.0" />
             <Label fx:id="priceLabel" layoutX="461.0" layoutY="91.0" />
             <TextField fx:id="tf_manuName" layoutX="10.0" layoutY="159.0" promptText="Manufacturer name" />
+            <Button fx:id="selectAd" layoutX="476.0" layoutY="235.0" mnemonicParsing="false" onAction="#changeSceneToDetailedAdView" text="View Details" />
          </children>
       </Pane>
    </children>

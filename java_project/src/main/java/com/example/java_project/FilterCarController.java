@@ -6,17 +6,23 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+import no.hiof.groupproject.models.Advertisement;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
+import java.io.IOException;
 import java.math.BigDecimal;
-import java.math.MathContext;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
@@ -25,7 +31,8 @@ public class FilterCarController implements Initializable {
     @FXML
     private TableView<Vehicle> tableViewVehicle;
     @FXML
-    private ListView<Vehicle> vehicleListView = new ListView<>();
+    //private ListView<Vehicle> vehicleListView = new ListView<>();
+    private ListView<Advertisement> vehicleListView = new ListView<>();//change the name later
     @FXML
     private TextField tf_townName;
     @FXML
@@ -42,7 +49,8 @@ public class FilterCarController implements Initializable {
     private Label priceLabel;
     private double dailyPrice;
     private BigDecimal dailyChargebd;
-    ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
+   // ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
+    ObservableList<Advertisement> adObservableList = FXCollections.observableArrayList();
 
     public FilterCarController() {
     }
@@ -59,21 +67,28 @@ public class FilterCarController implements Initializable {
         return getAdId();
     }
 
-    public ListView<Vehicle> getVehicleListView() {
+    public void setVehicleListView(ListView<Advertisement> vehicleListView) {
+        this.vehicleListView = vehicleListView;
+    }
+
+    public ListView<Advertisement> getVehicleListView() {
         return vehicleListView;
     }
 
-    public void setVehicleListView(ListView<Vehicle> vehicleListView) {
+
+   /* public void setVehicleListView(ListView<Vehicle> vehicleListView) {
         this.vehicleListView = vehicleListView;
     }
+
+    */
 
     //Method to populatetheVehicleListView. Gets ad id from the Filter based on the
     public void populateListView(){
         RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
-        Vehicle v = RetrieveVehicleDB.retrieveFromId(roa.getVehicle().getId());
-        vehicleObservableList.addAll(v);
-        System.out.println(vehicleObservableList);
-        vehicleListView.getItems().addAll(vehicleObservableList);
+        //Vehicle v = RetrieveVehicleDB.retrieveFromId(roa.getVehicle().getId());
+        adObservableList.addAll(roa);
+        System.out.println(adObservableList);
+        vehicleListView.getItems().addAll(adObservableList);
 
 
     }
@@ -123,6 +138,25 @@ public class FilterCarController implements Initializable {
             }
         }
 
+    }
+
+    public void changeSceneToDetailedAdView(ActionEvent event) throws IOException, IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("DetailedAdView.fxml"));
+        Parent pane = loader.load();
+
+        Scene scene = new Scene(pane);
+
+        //access the controller and call a method
+        DetailedAdViewController controller = loader.getController();
+        controller.fillData((RentOutAd) vehicleListView.getSelectionModel().getSelectedItem());
+        controller.adFromdate(getFromDate());
+
+        //This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(scene);
+        window.show();
     }
 
     @Override
