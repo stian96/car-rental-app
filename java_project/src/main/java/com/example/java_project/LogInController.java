@@ -22,6 +22,7 @@ import java.util.Map;
 
 public class LogInController {
 
+
     @FXML
     protected Label wrongLogin;
     @FXML
@@ -50,15 +51,16 @@ public class LogInController {
                     SignUpCheck();
                 } else if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
 
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("ToGoCar.fxml"));
-                    pane = loader.load();
-                    ToGoCarPageController c = loader.getController();
-                    c.displayName(firstName());
+                    Mediator.getInstance().setUser(new User(email,password));
 
-                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                    scene = new Scene(pane);
-                    stage.setScene(scene);
-                    stage.show();
+                    Parent pane = FXMLLoader.load(getClass().getResource("ToGoCar.fxml"));
+                   //
+                    //ToGoCarPageController c = loader.getController();
+                    //c.displayName(firstName());
+
+                  Stage stage1 = Mediator.getInstance().getStage();
+                  stage1.setScene(new Scene(pane));
+                    //stage.show();
 
 
 
@@ -80,7 +82,7 @@ public class LogInController {
         return u.getFirstName();
 
     }
-
+/*
     private Stage stage;
     private Scene scene;
     private Parent pane;
@@ -95,6 +97,8 @@ public class LogInController {
         stage.setScene(scene);
         stage.show();
     }
+
+ */
 
     private void SignUpCheck() throws IOException {
         Main m = new Main();

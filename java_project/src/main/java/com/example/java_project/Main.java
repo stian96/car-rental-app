@@ -18,15 +18,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        stg = stage;
+       Mediator.getInstance().setStage(stage);
         stage.setResizable(false);
-        //FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LogIn.fxml"));
+        //Parent parent = FXMLLoader.load(getClass().getResource("LogIn.fxml"));
         //FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ToGoCar.fxml"));
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("FilterCar.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        //checkConnection();
+        //FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("FilterCar.fxml"));
+        Parent parent = FXMLLoader.load(getClass().getResource("FilterCar.fxml"));
+        //Scene scene = new Scene(fxmlLoader.load(), 600, 400);
         stage.setTitle("ToGoCar");
-        stage.setScene(scene);
+        stage.setScene(new Scene(parent,600,400));
         stage.show();
     }
 
