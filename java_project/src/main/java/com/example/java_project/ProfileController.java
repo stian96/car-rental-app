@@ -8,6 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import no.hiof.groupproject.models.Advertisement;
+import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.tools.db.RetrieveUserDB;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
 import java.io.IOException;
@@ -29,15 +31,22 @@ public class ProfileController {
     ObservableList<Advertisement> observableList = FXCollections.observableArrayList();
 
 
+
     private void loadAds(){
-        ;
+
+
+
+
     }
 
     public void showRating(){
 
     }
-
+    @FXML
     public void initialize(){
+        User user = Mediator.getInstance().getUser();
+        label_UserName.setText("Welcome" + user.getFirstName());
+
 
     }
 
