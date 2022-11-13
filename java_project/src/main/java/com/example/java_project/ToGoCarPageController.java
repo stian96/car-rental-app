@@ -90,7 +90,7 @@ public class ToGoCarPageController  {
 
         return getAdId();}
      //RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
-    public void populateListView(){
+    /*public void populateListView(){
         RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
         Vehicle v = RetrieveVehicleDB.retrieveFromId(roa.getVehicle().getId());
         f.vehicleObservableList.addAll(v);
@@ -99,6 +99,8 @@ public class ToGoCarPageController  {
 
 
     }
+
+     */
 
     public String getTextfield(){
         return tf_TownName.getText();
