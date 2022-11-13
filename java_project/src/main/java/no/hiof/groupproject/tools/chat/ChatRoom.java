@@ -25,7 +25,6 @@ public class ChatRoom implements DeserialiseMessages {
         return messageLog;
     }
 
-    // Need to write test for this method.
     public void deleteMessage(String writeMessage) {
         DeleteMessagesFromDB db = new DeleteMessagesFromDB();
         db.delete("messages", "melding", writeMessage);
