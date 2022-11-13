@@ -18,7 +18,7 @@ public class ChatRoomTest {
 
     ChatRoom chatRoom = new ChatRoom();
 
-    // Need to write a test fro serialise in database.
+    // Need to write a test for serialise in database.
 
     @Test
     void VerifyThatSendMessageDoNotStoreMessagesThatExist() {
