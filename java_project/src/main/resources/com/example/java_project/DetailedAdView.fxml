@@ -23,7 +23,7 @@
             <Label text="Label" GridPane.rowIndex="2" />
             <Label text="Label" GridPane.rowIndex="3" />
             <Label text="Label" GridPane.rowIndex="4" />
-            <Label text="Label" />
+            <Label text="Owner" />
             <TextField fx:id="tf_modelName" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
