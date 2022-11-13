@@ -76,6 +76,7 @@
             <Slider fx:id="priceSlider" blockIncrement="100.0" layoutX="315.0" layoutY="75.0" max="5000.0" min="100.0" />
             <Label fx:id="priceLabel" layoutX="461.0" layoutY="91.0" />
             <TextField fx:id="tf_manuName" layoutX="10.0" layoutY="159.0" promptText="Manufacturer name" />
+            <Button fx:id="selectAd" layoutX="476.0" layoutY="235.0" mnemonicParsing="false" onAction="#changeSceneToDetailedAdView" text="Button" />
          </children>
       </Pane>
    </children>
