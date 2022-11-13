@@ -29,7 +29,6 @@ public class ChatRoom implements DeserialiseMessages {
     public void deleteMessage(String writeMessage) {
         DeleteMessagesFromDB db = new DeleteMessagesFromDB();
         db.delete("messages", "melding", writeMessage);
-
     }
 
     public void clearMessageLog() {

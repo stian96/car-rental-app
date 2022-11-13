@@ -18,9 +18,11 @@ public class ChatRoomTest {
 
     ChatRoom chatRoom = new ChatRoom();
 
+    // Need to write a test fro serialise in database.
+
     @Test
     void VerifyThatSendMessageDoNotStoreMessagesThatExist() {
-        Message msg = new Message(user, "Test that message is stored in database");
+        Message msg = new Message(user, "Hello from sam");
         assertFalse(chatRoom.sendMessage(msg));
     }
 
