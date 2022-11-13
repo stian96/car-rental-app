@@ -2,6 +2,9 @@ package no.hiof.groupproject.tools.chat;
 
 import no.hiof.groupproject.models.License;
 import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.tools.db.ConnectDB;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,7 +21,20 @@ public class ChatRoomTest {
 
     ChatRoom chatRoom = new ChatRoom();
 
-    // Need to write a test for serialise in database.
+    @BeforeEach
+    void initialiseDatabasePath() {
+        ConnectDB.setDb("jdbc:sqlite:sqlite/db/testable.db");
+    }
+    @AfterEach
+    void rewindDatabasePath() {
+        ConnectDB.setDb("jdbc:sqlite:sqlite/db/test.db");
+    }
+
+    @Test
+    void VerifyThatSendMessageSerialiseMessages() {
+        assertTrue(chatRoom.sendMessage(new Message(user, "A brand new message!")));
+        chatRoom.deleteMessage("A brand new message!");
+    }
 
     @Test
     void VerifyThatSendMessageDoNotStoreMessagesThatExist() {
