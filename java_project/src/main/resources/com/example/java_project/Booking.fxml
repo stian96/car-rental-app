@@ -1,14 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.java_project.BookingController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f1c232;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.BookingController">
+   <children>
+      <Label layoutX="32.0" layoutY="14.0" text="Booking...">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="64.0" text="Model: ">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="31.0" layoutY="101.0" text="Vehicle Model:">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="37.0" layoutY="141.0" text="Book From: ">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font></Label>
+      <Button fx:id="button_book" layoutX="456.0" layoutY="321.0" mnemonicParsing="false" onAction="#btn_book" prefHeight="25.0" prefWidth="79.0" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Book">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font></Button>
+      <Label layoutX="300.0" layoutY="141.0" text="Book To:">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font></Label>
+      <Label layoutX="32.0" layoutY="189.0" text="Total Amount:">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="14.0" />
+         </font></Label>
+      <Label layoutX="35.0" layoutY="232.0" text="Choose Payment:">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="14.0" />
+         </font></Label>
+      <RadioButton fx:id="rb_card" layoutX="36.0" layoutY="266.0" mnemonicParsing="false" onAction="#radioCard" text="Card">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rb_paypal" layoutX="31.0" layoutY="295.0" mnemonicParsing="false" onAction="#radi" text="Paypal">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="rb_googlePay" layoutX="125.0" layoutY="295.0" mnemonicParsing="false" onAction="#radioGoogle" text="GooglePay">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="rb_Vipps" layoutX="125.0" layoutY="266.0" mnemonicParsing="false" onAction="#radioVipps" text="Vipps">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="12.0" />
+         </font></RadioButton>
+      <Label fx:id="label_model" layoutX="111.0" layoutY="66.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_vehicleModel" layoutX="150.0" layoutY="103.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="book_from" layoutX="125.0" layoutY="142.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="book_to" layoutX="369.0" layoutY="142.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="total_Amount" layoutX="150.0" layoutY="192.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Button fx:id="button_back" layoutX="378.0" layoutY="322.0" mnemonicParsing="false" onAction="#btn_back" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Go Back">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
