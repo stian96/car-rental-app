@@ -13,7 +13,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
+import javafx.stage.*;
 import no.hiof.groupproject.models.Advertisement;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
@@ -25,12 +26,14 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.EventObject;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.time.temporal.ChronoUnit;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-public class FilterCarController implements Initializable {
+public class FilterCarController  implements Initializable  {
     //method to get the number of days for booking
     public static long countDaysBetween(LocalDate dateFrom, LocalDate dateTo){
         return DAYS.between(dateFrom,dateTo);
@@ -46,7 +49,7 @@ public class FilterCarController implements Initializable {
     private DatePicker fromDatePicker, toDatePicker;
 
     @FXML
-    private Button searchButton, bookButton;
+    private Button searchButton, bookButton,selectAd ;
     @FXML
     private RadioButton radioButton_manual,radioButton_automatic,
             radioButton_electric,radioButton_Hybrid,radioButton_Diesel;
@@ -99,6 +102,8 @@ public class FilterCarController implements Initializable {
 
 
     }
+
+
 
     public LocalDate getFromDate(){
         return fromDatePicker.getValue();
@@ -155,24 +160,110 @@ public class FilterCarController implements Initializable {
         //access the controller and call a method
         DetailedAdViewController controller = loader.getController();
         controller.fillData((RentOutAd) vehicleListView.getSelectionModel().getSelectedItem());
-        controller.adFromdate(getFromDate());
+
+
+
 
         //This line gets the Stage information
         Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
         window.setScene(scene);
         window.show();
+
+
+        /*
+
+
+
+        RentOutAd RentOutAd;
+        controller.fillData(RentOutAd)vehicleListView.getSelectionModel().getSelectedItem()  ;
+
+        loader.setController(controller);
+        Parent layout;
+        try {
+            layout = loader.load();
+            Scene scene = new Scene(layout);
+            // this is the popup stage
+            Stage popupStage = new Stage();
+            // now
+            controller.setStage(popupStage);
+            if (this.main != null) {
+                popupStage.initOwner(main.getStage());
+            }
+            popupStage.initModality(Modality.WINDOW_MODAL);
+            popupStage.setScene(scene);
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "There was an error trying to load the popup fxml file.").show();
+        }
+
+         */
+
+
+        /*
+        DetailedAdViewController controller = new DetailedAdViewController();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailedAdView.fxml"));
+        loader.setController(controller);
+        p.getContent().add(Parent)loader.load()
+
+         */
+
+
+
+
+
+
     }
+    /*
+
+    public void showDetails() throws IOException {
+
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("DetailedAdView.fxml"));
+        // initializing the controller
+        DetailedAdViewController popupController = new DetailedAdViewController();
+        popupController.fillData((RentOutAd) vehicleListView.getSelectionModel().getSelectedItem());
+
+        //loader.setController(popupController);
+        Parent layout;
+        try {
+            layout = loader.load();
+            Scene scene = new Scene(layout);
+            // this is the popup stage
+            Stage popupStage = new Stage();
+            // now
+            popupController.setStage(popupStage);
+            if(this.main!=null) {
+                popupStage.initOwner(main.getStage());
+            }
+            popupStage.initModality(Modality.WINDOW_MODAL);
+            popupStage.setScene(scene);
+            popupStage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "There was an error trying to load the popup fxml file.").show();
+        }
+
+
+
+}
+
+     */
+
 
     public void changeSceneToBooking(ActionEvent event) throws IOException, IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("DetailedAdView.fxml"));
+        loader.setLocation(getClass().getResource("Booking.fxml"));
         Parent pane = loader.load();
 
         Scene scene = new Scene(pane);
 
         //access the controller and call a method
         BookingController booking = loader.getController();
+        booking.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
+        booking.adFromDate(getFromDate());
 
 
         //This line gets the Stage information
