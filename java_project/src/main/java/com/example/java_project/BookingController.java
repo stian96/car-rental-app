@@ -26,8 +26,8 @@ public class BookingController {
     private Label book_to;
     @FXML
     private Label total_Amount;
-    //@FXML
-   // private RadioButton rb_card,rb_paypal,rb_Vipps,rb_googlePay;
+    @FXML
+    private RadioButton rb_card,rb_paypal,rb_Vipps,rb_googlePay;
 
     @FXML
     private Button button_back;
