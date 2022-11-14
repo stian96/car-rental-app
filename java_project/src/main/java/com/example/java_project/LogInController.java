@@ -35,7 +35,7 @@ public class LogInController {
     protected Button button_signUp;
 
     public LogInController() {
-        super();
+
 
     }
     public void userLogIn(ActionEvent event) throws IOException {
