@@ -1,5 +1,6 @@
 package no.hiof.groupproject.models;
 
+import javafx.beans.property.SimpleObjectProperty;
 import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
 import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
@@ -398,7 +399,8 @@ public class RentOutAd extends Advertisement {
 
     @Override
     public String toString() {
-        return  vehicle.getManufacturer() + vehicle.getModel()
+        return "Owner:" + getUser().getFirstName() + " |manufacturer: " + vehicle.getManufacturer() + " |Model: " + vehicle.getModel() +
+                " |Daily charge: " + dailyCharge
                 ;
     }
 }
