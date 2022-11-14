@@ -10,7 +10,7 @@ public class RetrieveMessagesDB {
 
     public static ArrayList<String> retrieveAllMessages() {
 
-        String sql = "SELECT * FROM messages WHERE user_id > 0 ORDER BY tid";
+        String sql = "SELECT * FROM messages WHERE user_id > 0 ORDER BY dato, tid";
 
         ArrayList<String> returnedMessages = new ArrayList<>();
 
