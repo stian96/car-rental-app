@@ -47,11 +47,14 @@ public class ToGoCarPageController  {
     private DatePicker return_DatePicker;
     @FXML
     private Label noAvailableCarWarning;
+    /*
     @FXML
     private void initialize(){
         User user = Mediator.getInstance().getUser();
         noAvailableCarWarning.setText("Hello" + user.getFirstName());
     }
+
+     */
    @FXML
     //private
    //ListView<Integer> vehicleList = new ListView<>() ;
