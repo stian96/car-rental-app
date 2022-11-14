@@ -5,7 +5,8 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #9fc5e8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.DetailedAdViewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #9fc5e8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.java_project.DetailedAdViewController">
    <children>
       <Label layoutX="111.0" layoutY="16.0" text="Owner">
          <font>
@@ -41,7 +42,7 @@
       <Line endX="343.66668701171875" endY="-1.52587890625E-5" layoutX="175.0" layoutY="256.0" startX="-100.0" />
       <Line endX="341.66668701171875" layoutX="166.0" layoutY="296.0" startX="-100.0" />
       <Line endX="-4.333343505859375" endY="270.3333435058594" layoutX="263.0" layoutY="56.0" startX="-4.333343505859375" startY="-46.0" />
-      <Button fx:id="button_back" layoutX="476.0" layoutY="358.0" mnemonicParsing="false" onAction="#buttonBack" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Go Back">
+      <Button fx:id="button_back" layoutX="476.0" layoutY="358.0" mnemonicParsing="false" onAction="#changeSceneToFilterCar" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Go Back">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="13.0" />
          </font>
