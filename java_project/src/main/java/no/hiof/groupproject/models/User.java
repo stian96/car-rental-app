@@ -207,4 +207,19 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
     public void setdLicense(License dLicense) {
         this.dLicense = dLicense;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", dLicense=" + dLicense +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", postNr='" + postNr + '\'' +
+                ", password='" + password + '\'' +
+                ", bankAccountNr='" + bankAccountNr + '\'' +
+                ", email='" + email + '\'' +
+                ", tlfNr='" + tlfNr + '\'' +
+                '}';
+    }
 }
