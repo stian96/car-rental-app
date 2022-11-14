@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #9fc5e8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="com.example.java_project.RegisterCarController">
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #9fc5e8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.RegisterCarController">
    <children>
       <Pane prefHeight="58.0" prefWidth="600.0" style="-fx-background-color: #f1c232;">
          <children>
@@ -61,7 +60,7 @@ fx:controller="com.example.java_project.RegisterCarController">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
                </font></Label>
-            <Button fx:id="button_Register" layoutX="265.0" layoutY="304.0" mnemonicParsing="false" onAction="#RegisterCar" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Register">
+            <Button fx:id="button_Register" layoutX="281.0" layoutY="304.0" mnemonicParsing="false" onAction="#RegisterCar" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Register">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
                </font>
@@ -76,6 +75,11 @@ fx:controller="com.example.java_project.RegisterCarController">
             <TextField fx:id="tf_ModelYear" layoutX="198.0" layoutY="189.0" prefHeight="25.0" prefWidth="165.0" promptText="Model Year" />
             <TextField fx:id="tf_SeatingCapacity" layoutX="198.0" layoutY="220.0" prefHeight="25.0" prefWidth="165.0" promptText="Seating Capacity" />
             <TextField fx:id="tf_TowingCapacity" layoutX="198.0" layoutY="252.0" prefHeight="25.0" prefWidth="165.0" promptText="Towing Capacity" />
+            <Button fx:id="button_exit" layoutX="198.0" layoutY="305.0" mnemonicParsing="false" onAction="#ExitButton" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Exit">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font>
+            </Button>
          </children></Pane>
    </children>
 </FlowPane>
