@@ -38,6 +38,28 @@ public class LogInController {
         super();
 
     }
+    public void userLogIn(ActionEvent event) throws IOException {
+        Main m = new Main();
+        User u = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
+        String password = tf_password.getText();
+        String email = tf_userName.getText();
+
+        if(!email.isEmpty() && !password.isEmpty()){
+            try {
+                if(!u.existsInDb()){
+                    SignUpCheck();
+                }
+                else if(u.getEmail().equals(email) && u.getPassword().equals(password)){
+                    m.changeScene("ToGoCar.fxml");
+                }
+                else {wrongLogin.setText("Wrong email or password");}
+            }catch (IOException e){
+                    System.out.println(e.getMessage());}}
+
+        else {wrongLogin.setText("Enter email and Password");}}
+
+
+    /*
 
     public void userLogIn(ActionEvent event) throws IOException {
         Main m = new Main();
@@ -51,15 +73,19 @@ public class LogInController {
                     SignUpCheck();
                 } else if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
 
+
+
                     Mediator.getInstance().setUser(new User(email,password));
 
                     Parent pane = FXMLLoader.load(getClass().getResource("ToGoCar.fxml"));
+
+
                    //
                     //ToGoCarPageController c = loader.getController();
                     //c.displayName(firstName());
 
-                  Stage stage1 = Mediator.getInstance().getStage();
-                  stage1.setScene(new Scene(pane));
+                 // Stage stage1 = Mediator.getInstance().getStage();
+                  //stage1.setScene(new Scene(pane));
                     //stage.show();
 
 
@@ -72,6 +98,11 @@ public class LogInController {
             }
         }
     }
+
+     */
+
+
+
 
     public void userSignUp(ActionEvent event) throws IOException {
         SignUpCheck();
