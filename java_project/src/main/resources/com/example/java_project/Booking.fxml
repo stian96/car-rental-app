@@ -40,12 +40,13 @@
          <font>
             <Font name="Comic Sans MS Bold Italic" size="14.0" />
          </font></Label>
+
       <RadioButton fx:id="rb_card" layoutX="36.0" layoutY="266.0" mnemonicParsing="false" onAction="#radioCard" text="Card">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="12.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="rb_paypal" layoutX="31.0" layoutY="295.0" mnemonicParsing="false" onAction="#radi" text="Paypal">
+      <RadioButton fx:id="rb_paypal" layoutX="31.0" layoutY="295.0" mnemonicParsing="false" onAction="#radioPayPal" text="Paypal">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="12.0" />
          </font>
