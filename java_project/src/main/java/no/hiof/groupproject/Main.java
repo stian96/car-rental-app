@@ -110,8 +110,13 @@ public class Main {
         System.out.println(roa.checkIfDateIsAvailable(LocalDate.parse("2022-11-20"), LocalDate.parse("2022-11-22")));
          */
 
+
         ChatRoom chat = new ChatRoom();
-        System.out.println("\nMessage log from database:");
+
+        // SendMessage method store the message in the database table 'messages'.
+        chat.sendMessage(new Message(user, "Hello this is a new message!"));
+
+        // chat.getMessageLog - retrieves all the messages from the database table 'messages'
         for (String msg : chat.getMessageLog()) {
             System.out.println(msg);
         }
