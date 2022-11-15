@@ -62,7 +62,8 @@ public class RegisterCarController {
             try {
                 if(v == null){
 
-                Vehicle c = new Car(regNo,manu,model,engineType,gearType,ConvertIntoNumeric(modelYear), /**gives null for the vehicle fix **/
+                Vehicle c = new Car(regNo,manu,model,engineType,gearType,
+                        ConvertIntoNumeric(modelYear), /**gives null for the vehicle fix **/
                         ConvertIntoNumeric(seatingCapacity),ConvertIntoNumeric(towingCapacity));
 
                 m.changeScene("ToGoCar.fxml");}

@@ -51,45 +51,19 @@ public class ToGoCarPageController  implements Initializable {
     @FXML
     private Label noAvailableCarWarning;
 
-    /*
-    @FXML
-    private void initialize(){
-        User user = Mediator.getInstance().getUser();
-        noAvailableCarWarning.setText("Hello" + user.getFirstName());
-    }
 
-     */
-   @FXML
-    //private
-   //ListView<Integer> vehicleList = new ListView<>() ;
-    //private ListView<Advertisement> vehicleList = new ListView<>() ;
+
     private ListView<Vehicle> vehicleList = new ListView<>() ;
-   /*
-   @FXML
-    void openNePage() throws IOException {
-       FXMLLoader loader = new FXMLLoader(getClass().getResource("FilterCar.fxml"));
-       Parent pane = loader.load();
-       FilterCarController f = loader.getController();
-       f.populateListView(tf_TownName.getText());
-       Stage stage = new Stage();
-       stage.setScene(new Scene(pane));
-       stage.show();
 
 
 
-
-    */
-
-    public void onFindCarButtonPress(){
-
-    }
 
 
     //ObservableList<Integer> observableList = FXCollections.observableArrayList();
     //ObservableList<Advertisement> observableList = FXCollections.observableArrayList();
     ObservableList<Vehicle> observableListVehicle = FXCollections.observableArrayList();
 
-    FilterCarController f = new FilterCarController();
+
 
 
 
@@ -103,20 +77,8 @@ public class ToGoCarPageController  implements Initializable {
             return id;
         }
 
-
         return getAdId();}
-     //RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
-    /*public void populateListView(){
-        RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
-        Vehicle v = RetrieveVehicleDB.retrieveFromId(roa.getVehicle().getId());
-        f.vehicleObservableList.addAll(v);
-        System.out.println(f.vehicleObservableList);
-        f.getVehicleListView().getItems().addAll(f.vehicleObservableList);
 
-
-    }
-
-     */
 
     public String getTextfield(){
         return tf_TownName.getText();

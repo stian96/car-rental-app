@@ -120,7 +120,7 @@ public class BookingController implements Initializable {
 
     public void btn_back(ActionEvent event)throws IOException {
         Main m = new Main();
-        m.changeScene("Advertisement.fxml");
+        m.changeScene("FilterCar.fxml");
     }
 
     public void btn_book(ActionEvent event)throws IOException {

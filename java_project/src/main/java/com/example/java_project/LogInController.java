@@ -22,7 +22,7 @@ import java.util.Map;
 
 public class LogInController {
 
-
+    public static User user;
     @FXML
     protected Label wrongLogin;
     @FXML
@@ -33,7 +33,7 @@ public class LogInController {
     protected Button button_logIn;
     @FXML
     protected Button button_signUp;
-    public static User user;
+
 
     public LogInController() {
 

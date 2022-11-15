@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.FilterCarController">
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.FindACarToRent">
    <children>
       <Pane prefHeight="52.0" prefWidth="599.0" style="-fx-background-color: #9fc5e8;">
          <children>
@@ -78,6 +78,7 @@
             <TextField fx:id="tf_manuName" layoutX="10.0" layoutY="159.0" promptText="Manufacturer name" />
             <Button fx:id="selectAd" layoutX="237.0" layoutY="322.0" mnemonicParsing="false" onAction="#changeSceneToDetailedAdView" text="View Details" />
             <Button fx:id="bookButton" layoutX="365.0" layoutY="322.0" mnemonicParsing="false" onAction="#changeSceneToBooking" prefHeight="25.0" prefWidth="56.0" text="Book" />
+            <Button fx:id="bt_viewOwner" layoutX="451.0" layoutY="322.0" mnemonicParsing="false" onAction="#viewOwner" text="View Owner profile" />
          </children>
       </Pane>
    </children>

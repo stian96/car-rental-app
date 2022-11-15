@@ -17,6 +17,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.*;
 import no.hiof.groupproject.models.Advertisement;
 import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.UserProfile;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
@@ -33,7 +34,7 @@ import java.time.temporal.ChronoUnit;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
-public class FilterCarController  implements Initializable  {
+public class FindACarToRent implements Initializable  {
     //method to get the number of days for booking
     public static long countDaysBetween(LocalDate dateFrom, LocalDate dateTo){
         return DAYS.between(dateFrom,dateTo);
@@ -62,8 +63,6 @@ public class FilterCarController  implements Initializable  {
    // ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
     ObservableList<Advertisement> adObservableList = FXCollections.observableArrayList();
 
-    public FilterCarController() {
-    }
 
     //mathod to find the ad id using filter based on town name
     public Integer getAdId(){
@@ -86,11 +85,7 @@ public class FilterCarController  implements Initializable  {
     }
 
 
-   /* public void setVehicleListView(ListView<Vehicle> vehicleListView) {
-        this.vehicleListView = vehicleListView;
-    }
 
-    */
 
     //Method to populatetheVehicleListView. Gets ad id from the Filter based on the
     public void populateListView(){
@@ -160,8 +155,6 @@ public class FilterCarController  implements Initializable  {
         //access the controller and call a method
         DetailedAdViewController controller = loader.getController();
         controller.fillData((RentOutAd) vehicleListView.getSelectionModel().getSelectedItem());
-
-
 
 
         //This line gets the Stage information
@@ -273,6 +266,26 @@ public class FilterCarController  implements Initializable  {
 
         window.setScene(scene);
         window.show();
+    }
+
+    public void viewOwner(ActionEvent  event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Profile.fxml"));
+        Parent pane = loader.load();
+
+        Scene scene = new Scene(pane);
+
+        //access the controller and call a method
+        UserProfileController p = new UserProfileController();
+        p.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
+
+
+        //This line gets the Stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(scene);
+        window.show();
+
     }
 
     @Override
