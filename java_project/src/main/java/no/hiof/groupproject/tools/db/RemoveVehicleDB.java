@@ -1,17 +1,17 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.Advertisement;
-
-import java.sql.*;
-import java.util.ArrayList;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 //Returns a specific TreeMap of all valid rental periods in the database based on a specific User
 
-public class RemoveUserDB {
+public class RemoveVehicleDB {
 
     public static void remove(int id) {
 
-        String sql = "DELETE FROM users WHERE users_id = " + id;
+        String sql = "DELETE FROM vehicles WHERE vehicles_id = " + id;
 
         //foreign keys are automatically turned off on connection to database
         //here I turn them on again so that ON DELETE CASCADE works properly
@@ -28,8 +28,7 @@ public class RemoveUserDB {
 
     public static void removeWithPriorConnection(int id, Connection conn) throws SQLException {
 
-        String sql = "DELETE FROM users WHERE users_id = " + id;
-
+        String sql = "DELETE FROM vehicles WHERE vehicles_id = " + id;
 
         PreparedStatement str = conn.prepareStatement(sql);
         Statement str2 = conn.createStatement();
