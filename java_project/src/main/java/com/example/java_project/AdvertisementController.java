@@ -3,6 +3,7 @@ package com.example.java_project;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import no.hiof.groupproject.models.Advertisement;
 
 import java.io.IOException;
 
@@ -10,8 +11,6 @@ public class AdvertisementController {
 
     @FXML
     private Label noAvailableCarWarning;
-    @FXML
-    private TextField tf_SearchVehicle;
     @FXML
     private RadioButton rd_Nok;
     @FXML
@@ -28,6 +27,12 @@ public class AdvertisementController {
     private Button button_SearchAds;
     @FXML
     private Button button_Exit;
+
+    @FXML
+    private Button button_Save;
+
+    @FXML
+    private ChoiceBox<Advertisement> advertisementChoiceBox;
 
 
     public void searchAdvertisement(ActionEvent event) throws IOException{
