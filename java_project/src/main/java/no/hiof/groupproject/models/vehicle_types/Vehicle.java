@@ -88,6 +88,10 @@ public abstract class Vehicle implements Serialise, GetAutoIncrementId, ExistsIn
         return false;
     }
 
+    public void removeVehicleAndCascade() {
+        RemoveVehicleDB.remove(this.getId());
+    }
+
     public int getId() {
         return id;
     }
