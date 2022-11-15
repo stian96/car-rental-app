@@ -6,6 +6,8 @@ import no.hiof.groupproject.models.*;
 import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.tools.chat.ChatRoom;
+import no.hiof.groupproject.tools.chat.Message;
 import no.hiof.groupproject.tools.db.*;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
@@ -27,7 +29,7 @@ public class Main {
         //SQLite errors in the console is just feedback - often preventing duplicate entries (e.g UNIQUE constraints)
         //                             *********************************
 
-        /*
+
         for (Vehicle vehicle : FilterAdvertisement.filterToArrayListVehicle(null, null,
                 null, null,null, null, null,
                 null, null, 1)) {
@@ -44,6 +46,7 @@ public class Main {
                 "12341234123", "sam@samland.no", "12341234", license);
         User user4 = new User("wwww", "test", "1111", "hunter2",
                 "12341234123", "test@test.no", "12341234", license);
+        /*
 
         Vehicle car = new Car("12341234", "audi", "tt", "petrol",
                 "automatic", 2013, 5, 1500);
@@ -106,6 +109,17 @@ public class Main {
         System.out.println(roa.checkIfDateIsAvailable(LocalDate.parse("2022-11-16"), LocalDate.parse("2022-11-17")));
         System.out.println(roa.checkIfDateIsAvailable(LocalDate.parse("2022-11-20"), LocalDate.parse("2022-11-22")));
          */
+
+
+        ChatRoom chat = new ChatRoom();
+
+        // SendMessage method store the message in the database table 'messages'.
+        chat.sendMessage(new Message(user, "Hello this is a new message!"));
+
+        // chat.getMessageLog - retrieves all the messages from the database table 'messages'
+        for (String msg : chat.getMessageLog()) {
+            System.out.println(msg);
+        }
 
     }
 }
