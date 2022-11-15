@@ -12,9 +12,9 @@ import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -26,6 +26,36 @@ public class Main {
         //                             *********** IMPORTANT ***********
         //SQLite errors in the console is just feedback - often preventing duplicate entries (e.g UNIQUE constraints)
         //                             *********************************
+
+
+        //kode til stian som kan brukes for å vise resultater
+        HashMap<Integer, String> thing = new HashMap<>();
+        ArrayList<Integer> thingWithInts = FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null, null, null, null, null, null, null, null);
+
+        for (int i : thingWithInts) {
+            String sql = "SELECT * FROM advertisements INNER JOIN vehicles ON vehicle_fk = vehicles_id WHERE advertisements_id = " + i;
+            String string = null;
+            try (Connection conn = ConnectDB.connect();
+                 PreparedStatement str = conn.prepareStatement(sql)) {
+
+                ResultSet queryResult = str.executeQuery();
+
+                    string = queryResult.getString("modelYear") + " " +
+                            queryResult.getString("manufacturer") + " " +
+                            queryResult.getString("model") + " - " +
+                            queryResult.getString("town");
+
+                } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            thing.put(i, string);
+        }
+
+        for (Map.Entry<Integer, String> result : thing.entrySet()) {
+            System.out.println("\n\n" + result.getKey() + "     " + result.getValue() + "\n\n");
+        }
+
+
 
         /*
         for (Vehicle vehicle : FilterAdvertisement.filterToArrayListVehicle(null, null,
