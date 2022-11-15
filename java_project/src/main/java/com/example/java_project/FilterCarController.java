@@ -279,6 +279,8 @@ public class FilterCarController  implements Initializable  {
     public void initialize(URL location, ResourceBundle resources) {
 
 
+
+
         priceSlider.valueProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {

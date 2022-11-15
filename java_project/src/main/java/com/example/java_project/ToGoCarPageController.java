@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -19,11 +20,13 @@ import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ResourceBundle;
 import java.util.TreeMap;
 
-public class ToGoCarPageController  {
+public class ToGoCarPageController  implements Initializable {
 
     @FXML
     private Button button_registerCar;
@@ -47,6 +50,7 @@ public class ToGoCarPageController  {
     private DatePicker return_DatePicker;
     @FXML
     private Label noAvailableCarWarning;
+
     /*
     @FXML
     private void initialize(){
@@ -76,7 +80,9 @@ public class ToGoCarPageController  {
 
     */
 
+    public void onFindCarButtonPress(){
 
+    }
 
 
     //ObservableList<Integer> observableList = FXCollections.observableArrayList();
@@ -129,6 +135,8 @@ public class ToGoCarPageController  {
 
 
     }
+
+
 
 
 
@@ -265,6 +273,11 @@ public class ToGoCarPageController  {
             Main m = new Main();
             m.changeScene("LogIn.fxml");
         }
+
+        public void findACar(ActionEvent event) throws IOException {
+        Main m = new Main();
+        m.changeScene("FilterCar.fxml");
+        }
         public void customerService(ActionEvent event) throws IOException{
             Main m = new Main();
             m.changeScene("LogIn.fxml");
@@ -275,9 +288,8 @@ public class ToGoCarPageController  {
         }
 
 
-
-
-
-
-
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        noAvailableCarWarning.setText("Hello: " + LogInController.user.getFirstName() + " " + LogInController.user.getLastName());
+    }
 }

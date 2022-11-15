@@ -33,6 +33,7 @@ public class LogInController {
     protected Button button_logIn;
     @FXML
     protected Button button_signUp;
+    public static User user;
 
     public LogInController() {
 
@@ -50,7 +51,9 @@ public class LogInController {
                     SignUpCheck();
                 }
                 else if(u.getEmail().equals(email) && u.getPassword().equals(password)){
+                    user = u;
                     m.changeScene("ToGoCar.fxml");
+
                 }
                 else {wrongLogin.setText("Wrong email or password");}
             }catch (IOException e){

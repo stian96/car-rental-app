@@ -20,6 +20,8 @@ public class PaymentPageController {
     @FXML
     private Button button_addPayment;
 
+    public static Payment payment;
+
     public void btn_AddPayment(ActionEvent event)throws IOException {
         Main m = new Main();
         String email = tf_EmailAdd.getText();
@@ -29,6 +31,8 @@ public class PaymentPageController {
         try{
             if(!p.existsInDb()){
                 Payment pay = InsertPaymentDB.insert(p);
+                payment = p;
+                m.changeScene("Booking.fxml");
 
             }
 

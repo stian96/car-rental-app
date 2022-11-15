@@ -7,10 +7,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.models.payment_methods.Payment;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.tools.db.InsertBookingDB;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
 
 import java.io.IOException;
@@ -46,7 +49,9 @@ public class BookingController implements Initializable {
     int id;
 
     User owner, renter;
+    Vehicle vehicle;
     int vehicleId;
+    Payment pay;
 
     LocalDate getFromDate, getToDate;
     @FXML
@@ -60,7 +65,7 @@ public class BookingController implements Initializable {
     ad = roa;
     this.id = roa.getAutoIncrementId();
     this.owner = roa.getUser();
-    this.vehicleId = roa.getVehicle().getId();
+    this.vehicle= roa.getVehicle();
 
     label_model.setText(roa.getVehicle().getManufacturer());
     label_vehicleModel.setText(roa.getVehicle().getModel());
@@ -73,8 +78,8 @@ public class BookingController implements Initializable {
     }
 
     public void adToDate(LocalDate localDate){
-    fromDate = localDate;
-    book_to.setText(String.valueOf(fromDate));
+    toDate = localDate;
+    book_to.setText(String.valueOf(toDate));
     }
 
     public void fillAmount(BigDecimal s){
@@ -119,10 +124,21 @@ public class BookingController implements Initializable {
     }
 
     public void btn_book(ActionEvent event)throws IOException {
-        //RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(id);
+       User owner = this.owner;
+        User renter  = LogInController.user;
+        LocalDate fromDate = this.fromDate;
+        LocalDate toDate = this.toDate;
+        Vehicle vehicle = this.vehicle;
+        Payment payment = PaymentPageController.payment;
+        Booking book = new Booking(owner,renter,fromDate,toDate,payment,vehicle);
+        try{
+            if(!book.existsInDb()){
+                Booking b = InsertBookingDB.insert(book);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
-
-        System.out.println(owner.getFirstName());
 
     }
 
@@ -131,6 +147,7 @@ public class BookingController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         paymentToggleGroups = new ToggleGroup();
         this.rb_paypal.setToggleGroup(paymentToggleGroups);
+
 
 
 
