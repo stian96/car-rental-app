@@ -264,6 +264,8 @@ public class FilterCarController  implements Initializable  {
         BookingController booking = loader.getController();
         booking.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
         booking.adFromDate(getFromDate());
+        booking.adToDate(getToDate());
+        booking.fillAmount(BigDecimal.valueOf(countDaysBetween(getFromDate(),getToDate())));
 
 
         //This line gets the Stage information

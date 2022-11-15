@@ -6,7 +6,7 @@
 
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #9fc5e8;" xmlns="http://javafx.com/javafx/17.0.2-ea"
- xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.PaymentPage">
+ xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.PaymentPageController">
    <children>
       <Label layoutX="25.0" layoutY="26.0" text="Payment Page">
          <font>
