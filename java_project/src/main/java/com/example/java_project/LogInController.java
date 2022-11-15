@@ -13,12 +13,8 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.tools.db.RetrieveUserDB;
-
-
 import java.io.IOException;
-import java.util.EventObject;
-import java.util.HashMap;
-import java.util.Map;
+
 
 public class LogInController {
 
@@ -33,6 +29,8 @@ public class LogInController {
     @FXML
     protected Button button_signUp;
 
+    public static User user;
+
     public LogInController() {
         super();
 
@@ -40,15 +38,15 @@ public class LogInController {
 
     public void userLogIn(ActionEvent event) throws IOException {
         Main m = new Main();
-        User u = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
+        user = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
         String password = tf_password.getText();
         String email = tf_userName.getText();
 
         if (!email.isEmpty() && !password.isEmpty()) {
             try {
-                if (!u.existsInDb()) {
+                if (!user.existsInDb()) {
                     SignUpCheck();
-                } else if (u.getEmail().equals(email) && u.getPassword().equals(password)) {
+                } else if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
 
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("ToGoCar.fxml"));
                     pane = loader.load();
