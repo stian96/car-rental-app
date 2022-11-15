@@ -1,3 +1,2 @@
-@[SQLITE_BUSY] The database file is locked (database is locked)
-@[SQLITE_BUSY] The database file is locked (database is locked)
-a[no.hiof.groupproject.models.RentOutAd@56febdc, no.hiof.groupproject.models.RentOutAd@3b8ee898]
+g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
