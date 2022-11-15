@@ -1,13 +1,16 @@
 package com.example.java_project;
 
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import no.hiof.groupproject.models.Advertisement;
+import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,67 +21,67 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 
+
 public class AdvertisementController implements Initializable {
 
+    @FXML
+    private TextField regNumberField;
+    @FXML
+    private Label regNumberLabel;
+    @FXML
+    private TextField dailyChargeField;
+    @FXML
+    private Label dailyChargeLabel;
+    @FXML
+    private RadioButton nokRadioButton;
+    @FXML
+    private RadioButton euroRadioButton;
+    @FXML
+    private Label currencyLabel;
+    @FXML
+    private DatePicker availableFrom;
+    @FXML
+    private DatePicker availableTo;
+    @FXML
+    private TextField townField;
+    @FXML
+    private TextField fylkeField;
+    @FXML
+    private TextField postNrField;
+    @FXML
+    private TextField chargePerTwentyField;
+    @FXML
+    private TextField countryField;
+    @FXML
+    private Button registerButton;
 
-    public TextField regNumberField;
-    public Label regNumberLabel;
-    public TextField dailyChargeField;
-    public Label dailyChargeLabel;
-    public RadioButton nokRadioButton;
-    public RadioButton euroRadioButton;
-    public Label currencyLabel;
-    public DatePicker availableFrom;
-    public DatePicker availableTo;
+    @FXML
+    private void buttonClick(ActionEvent event) {
+        String userCar = regNumberField.getText();
+        int vehicleID = getVehicleId(userCar);
+
+
+    }
+
+    public Integer getVehicleId(String regNumber) {
+        int vehicleId = 0;
+        String sql = "SELECT * FROM vehicles WHERE regNo = " + regNumber;
+
+        try (Connection connection = ConnectDB.connect()) {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            ResultSet rs = statement.executeQuery();
+            vehicleId = rs.getInt("vehicles_id");
+        } catch (SQLException sqlException) {
+            System.out.println(sqlException.getMessage());
+        }
+        return vehicleId;
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        HashMap<Integer, String> advertisementInfo = getAdvertisementInfo();
+        registerButton.setOnAction(this::buttonClick);
 
-        for (Map.Entry<Integer, String> set : advertisementInfo.entrySet()) {
-        }
-
-    }
-
-    public void searchAdvertisement(ActionEvent event) throws IOException {
-        Main m = new Main();
-        m.changeScene("ToGoCar.fxml");
-    }
-
-    public void ExitAds(ActionEvent event) throws IOException {
-        Main m = new Main();
-        m.changeScene("ToGoCar.fxml");
-    }
-
-
-    public HashMap<Integer, String> getAdvertisementInfo() {
-        HashMap<Integer, String> addMap = new HashMap<>();
-        ArrayList<Integer> thingWithInts = FilterAdvertisement.filterToArrayListAdvertisementId(null,
-                null, null, null, null, null,
-                null, null, null, null);
-
-        for (int i : thingWithInts) {
-            String sql = "SELECT * FROM advertisements " +
-                    "INNER JOIN vehicles ON vehicle_fk = vehicles_id " +
-                    "WHERE advertisements_id = " + i;
-
-            String string = null;
-            try (Connection conn = ConnectDB.connect();
-                 PreparedStatement str = conn.prepareStatement(sql)) {
-
-                ResultSet queryResult = str.executeQuery();
-
-                string = queryResult.getString("modelYear") + " " +
-                        queryResult.getString("manufacturer") + " " +
-                        queryResult.getString("model") + " - " +
-                        queryResult.getString("town");
-
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());
-            }
-            addMap.put(i, string);
-        }
-        return addMap;
     }
 
 }
