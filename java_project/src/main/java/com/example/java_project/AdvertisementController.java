@@ -2,12 +2,14 @@ package com.example.java_project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import no.hiof.groupproject.models.Advertisement;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class AdvertisementController {
+public class AdvertisementController implements Initializable {
 
     @FXML
     private Label noAvailableCarWarning;
@@ -31,9 +33,12 @@ public class AdvertisementController {
     @FXML
     private Button button_Save;
 
-    @FXML
-    private ChoiceBox<Advertisement> advertisementChoiceBox;
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+
+    }
 
     public void searchAdvertisement(ActionEvent event) throws IOException{
         Main m = new Main();
@@ -44,10 +49,5 @@ public class AdvertisementController {
         Main m = new Main();
         m.changeScene("ToGoCar.fxml");
     }
-
-
-
-
-
 
 }
