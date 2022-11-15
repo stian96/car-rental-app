@@ -16,17 +16,25 @@
          </children></Pane>
       <Pane prefHeight="341.0" prefWidth="604.0" style="-fx-background-color: #9fc5e8;">
          <children>
-            <TextField fx:id="regNumberField" layoutX="222.0" layoutY="25.0" />
-            <Label fx:id="regNumberLabel" layoutX="135.0" layoutY="30.0" text="Reg Number" />
-            <TextField fx:id="dailyChargeField" layoutX="222.0" layoutY="130.0" />
-            <Label fx:id="dailyChargeLabel" layoutX="135.0" layoutY="130.0" text="Daily Charge" />
-            <RadioButton fx:id="nokRadioButton" layoutX="230.0" layoutY="80.0" mnemonicParsing="false" text="Nok" />
-            <RadioButton fx:id="euroRadioButton" layoutX="315.0" layoutY="80.0" mnemonicParsing="false" text="Euro" />
-            <Label fx:id="currencyLabel" layoutX="135.0" layoutY="80.0" text="Currency" />
-            <DatePicker fx:id="availableFrom" layoutX="120.0" layoutY="246.0" prefWidth="150.0" />
-            <DatePicker fx:id="availableTo" layoutX="342.0" layoutY="247.0" prefHeight="26.0" prefWidth="150.0" />
-            <Label layoutX="127.0" layoutY="215.0" prefHeight="17.0" prefWidth="132.0" text="        Available From" />
-            <Label layoutX="378.0" layoutY="215.0" prefHeight="17.0" prefWidth="91.0" text=" Available To" />
+            <TextField fx:id="regNumberField" layoutX="110.0" layoutY="25.0" />
+            <Label fx:id="regNumberLabel" layoutX="20.0" layoutY="30.0" text="Reg Number" />
+            <TextField fx:id="dailyChargeField" layoutX="110.0" layoutY="130.0" />
+            <Label fx:id="dailyChargeLabel" layoutX="15.0" layoutY="135.0" text="Daily Charge" />
+            <RadioButton fx:id="nokRadioButton" layoutX="110.0" layoutY="80.0" mnemonicParsing="false" text="Nok" />
+            <RadioButton fx:id="euroRadioButton" layoutX="210.0" layoutY="80.0" mnemonicParsing="false" text="Euro" />
+            <Label fx:id="currencyLabel" layoutX="25.0" layoutY="80.0" text="Currency" />
+            <DatePicker fx:id="availableFrom" layoutX="111.0" layoutY="280.0" prefHeight="26.0" prefWidth="159.0" />
+            <DatePicker fx:id="availableTo" layoutX="344.0" layoutY="280.0" prefHeight="26.0" prefWidth="159.0" />
+            <Label layoutX="127.0" layoutY="250.0" prefHeight="17.0" prefWidth="132.0" text="        Available From" />
+            <Label layoutX="380.0" layoutY="250.0" prefHeight="17.0" prefWidth="91.0" text=" Available To" />
+            <TextField fx:id="townField" layoutX="404.0" layoutY="26.0" />
+            <TextField fx:id="fylkeField" layoutX="404.0" layoutY="85.0" />
+            <TextField fx:id="postNrField" layoutX="404.0" layoutY="135.0" />
+            <Label layoutX="330.0" layoutY="30.0" text="Town" />
+            <Label layoutX="330.0" layoutY="90.0" text="County" />
+            <Label layoutX="330.0" layoutY="140.0" text="Postal code" />
+            <TextField fx:id="chargePerTwentyField" layoutX="110.0" layoutY="188.0" />
+            <Label layoutX="10.0" layoutY="193.0" text="Charge Pr 20Km" />
          </children></Pane>
    </children>
 </FlowPane>
