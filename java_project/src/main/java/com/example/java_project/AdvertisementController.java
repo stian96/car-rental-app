@@ -20,29 +20,7 @@ import java.util.ResourceBundle;
 
 public class AdvertisementController implements Initializable {
 
-    @FXML
-    private ChoiceBox<String> advertisementBox;
-    @FXML
-    private Label noAvailableCarWarning;
-    @FXML
-    private RadioButton rd_Nok;
-    @FXML
-    private RadioButton rd_Euro;
-    @FXML
-    private TextField tf_dailyCharge;
-    @FXML
-    private TextField tf_KMpHour;
-    @FXML
-    private DatePicker dp_To;
-    @FXML
-    private DatePicker dp_From;
-    @FXML
-    private Button button_SearchAds;
-    @FXML
-    private Button button_Exit;
 
-    @FXML
-    private Button button_Save;
 
 
     @Override
@@ -50,7 +28,6 @@ public class AdvertisementController implements Initializable {
         HashMap<Integer, String> advertisementInfo = getAdvertisementInfo();
 
         for (Map.Entry<Integer, String> set : advertisementInfo.entrySet()) {
-            advertisementBox.getItems().add(set.getValue());
         }
 
     }
