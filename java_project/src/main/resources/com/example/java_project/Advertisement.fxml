@@ -21,7 +21,7 @@
          </children></Pane>
       <Pane prefHeight="341.0" prefWidth="600.0" style="-fx-background-color: #9fc5e8;">
          <children>
-            <Label layoutX="123.0" layoutY="11.0" text="Search Vehicle">
+            <Label layoutX="100.0" layoutY="11.0" text="Pick Advertisements">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="15.0" />
                </font>

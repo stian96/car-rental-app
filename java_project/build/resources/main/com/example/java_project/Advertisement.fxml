@@ -21,13 +21,12 @@
          </children></Pane>
       <Pane prefHeight="341.0" prefWidth="600.0" style="-fx-background-color: #9fc5e8;">
          <children>
-            <Label layoutX="123.0" layoutY="11.0" text="Search Vehicle">
+            <Label layoutX="80.0" layoutY="11.0" text="Search Advertisements">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="tf_SearchVehicle" layoutX="241.0" layoutY="9.0" />
-            <Button fx:id="button_SearchAds" layoutX="335.0" layoutY="281.0" mnemonicParsing="false" onAction="#searchAdvertisement" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Search">
+            <Button fx:id="button_SearchAds" layoutX="425.0" layoutY="8.0" mnemonicParsing="false" onAction="#searchAdvertisement" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Search">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
                </font>
@@ -71,7 +70,9 @@
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
                </font></RadioButton>
-            <Button fx:id="button_Exit" layoutX="215.0" layoutY="282.0" mnemonicParsing="false" onAction="#ExitAds" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Exit" />
+            <Button fx:id="button_Exit" layoutX="215.0" layoutY="282.0" mnemonicParsing="false" onAction="#ExitAds" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Exit" />
+            <Button fx:id="button_Save" layoutX="380.0" layoutY="282.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Save" />
+            <ChoiceBox fx:id="advertisementBox" layoutX="241.0" layoutY="9.0" prefHeight="26.0" prefWidth="159.0" />
          </children></Pane>
    </children>
 </FlowPane>

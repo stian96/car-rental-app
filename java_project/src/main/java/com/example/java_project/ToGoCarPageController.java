@@ -256,11 +256,4 @@ public class ToGoCarPageController  {
             Main m = new Main();
             m.changeScene("Advertisement.fxml");
     }
-
-
-
-
-
-
-
 }
