@@ -23,7 +23,10 @@
             <RadioButton fx:id="nokRadioButton" layoutX="230.0" layoutY="80.0" mnemonicParsing="false" text="Nok" />
             <RadioButton fx:id="euroRadioButton" layoutX="315.0" layoutY="80.0" mnemonicParsing="false" text="Euro" />
             <Label fx:id="currencyLabel" layoutX="135.0" layoutY="80.0" text="Currency" />
-            <DatePicker layoutX="153.0" layoutY="246.0" prefWidth="150.0" />
+            <DatePicker fx:id="availableFrom" layoutX="120.0" layoutY="246.0" prefWidth="150.0" />
+            <DatePicker fx:id="availableTo" layoutX="342.0" layoutY="247.0" prefHeight="26.0" prefWidth="150.0" />
+            <Label layoutX="127.0" layoutY="215.0" prefHeight="17.0" prefWidth="132.0" text="        Available From" />
+            <Label layoutX="378.0" layoutY="215.0" prefHeight="17.0" prefWidth="91.0" text=" Available To" />
          </children></Pane>
    </children>
 </FlowPane>

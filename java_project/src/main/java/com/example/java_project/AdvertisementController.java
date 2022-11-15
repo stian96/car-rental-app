@@ -21,7 +21,15 @@ import java.util.ResourceBundle;
 public class AdvertisementController implements Initializable {
 
 
-
+    public TextField regNumberField;
+    public Label regNumberLabel;
+    public TextField dailyChargeField;
+    public Label dailyChargeLabel;
+    public RadioButton nokRadioButton;
+    public RadioButton euroRadioButton;
+    public Label currencyLabel;
+    public DatePicker availableFrom;
+    public DatePicker availableTo;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
