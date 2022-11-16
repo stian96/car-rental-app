@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.java_project.Message"
-            prefHeight="400.0" prefWidth="600.0" >
-
-</AnchorPane>
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.MessageController">
+   <children>
+      <AnchorPane prefHeight="400.0" prefWidth="599.0" style="-fx-background-color: #f1c232;">
+         <children>
+            <Button fx:id="button_send" layoutX="494.0" layoutY="334.0" mnemonicParsing="false" onAction="#btnSend" prefHeight="27.0" prefWidth="66.0" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Send">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font>
+            </Button>
+            <TextArea fx:id="textArea_send" layoutX="81.0" layoutY="297.0" prefHeight="73.0" prefWidth="402.0" promptText="Write message here" style="-fx-background-color: #9fc5e8;">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font>
+            </TextArea>
+            <ScrollPane fx:id="scroolPane_chat" layoutX="59.0" layoutY="82.0" pannable="true" prefHeight="194.0" prefWidth="492.0" style="-fx-background-color: #9fc5e8;">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+              </content>
+            </ScrollPane>
+            <Label layoutX="97.0" layoutY="28.0" prefHeight="17.0" prefWidth="93.0" text="ChatBox">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="18.0" />
+               </font></Label>
+            <Button fx:id="button_toGoCar" layoutX="475.0" layoutY="28.0" mnemonicParsing="false" style="-fx-background-color: #9fc5e8;" text="To Go Car Page">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</HBox>
