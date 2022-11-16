@@ -19,14 +19,14 @@ public class UpdateDB {
 
         //choose a table, then a column, then a value. All rows with that value will then be deleted
         // eg UPDATE people SET name = 'sam' WHERE name = 'samuel'
-        String sql = "UPDATE " + table + " SET " + colFrom + " = ? WHERE "  + colTo + " = " + " ?";
+        String sql = "UPDATE " + table + " SET " + colTo + " = ? WHERE "  + colFrom + " = " + " ?";
 
         try (Connection conn = ConnectDB.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             //sets the row value
-            pstmt.setString(1, valFrom);
-            pstmt.setString(2, valTo);
+            pstmt.setString(1, valTo);
+            pstmt.setString(2, valFrom);
             //updates the stated rows
             pstmt.executeUpdate();
 

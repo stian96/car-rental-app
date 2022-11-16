@@ -13,11 +13,16 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.tools.db.RetrieveUserDB;
-import java.io.IOException;
 
+
+import java.io.IOException;
+import java.util.EventObject;
+import java.util.HashMap;
+import java.util.Map;
 
 public class LogInController {
 
+    public static User user;
     @FXML
     protected Label wrongLogin;
     @FXML
@@ -29,45 +34,30 @@ public class LogInController {
     @FXML
     protected Button button_signUp;
 
-    public static User user;
-
-    public LogInController() {
-        super();
-
-    }
-
+    //This method is when the user clicks on the login. Checks if user in DB if not creates new user and
+    //saves to DB
     public void userLogIn(ActionEvent event) throws IOException {
         Main m = new Main();
-        user = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
+        User u = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
         String password = tf_password.getText();
         String email = tf_userName.getText();
 
-        if (!email.isEmpty() && !password.isEmpty()) {
+        if(!email.isEmpty() && !password.isEmpty()){
             try {
-                if (!user.existsInDb()) {
+                if(!u.existsInDb()){
                     SignUpCheck();
-                } else if (user.getEmail().equals(email) && user.getPassword().equals(password)) {
-
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("ToGoCar.fxml"));
-                    pane = loader.load();
-                    ToGoCarPageController c = loader.getController();
-                    c.displayName(firstName());
-
-                    stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-                    scene = new Scene(pane);
-                    stage.setScene(scene);
-                    stage.show();
-
-
-
-                } else {
-                    wrongLogin.setText("Wrong email or password");
                 }
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-    }
+                else if(u.getEmail().equals(email) && u.getPassword().equals(password)){
+                    user = u;
+                    m.changeScene("ToGoCar.fxml");
+
+                }
+                else {wrongLogin.setText("Wrong email or password");}
+            }catch (IOException e){
+                    System.out.println(e.getMessage());}}
+
+        else {wrongLogin.setText("Enter email and Password");}}
+
 
     public void userSignUp(ActionEvent event) throws IOException {
         SignUpCheck();
@@ -79,20 +69,6 @@ public class LogInController {
 
     }
 
-    private Stage stage;
-    private Scene scene;
-    private Parent pane;
-    public void changeScene(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("ToGoCar.fxml"));
-        pane = loader.load();
-        ToGoCarPageController c = loader.getController();
-        c.displayName(firstName());
-
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        scene = new Scene(pane);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     private void SignUpCheck() throws IOException {
         Main m = new Main();

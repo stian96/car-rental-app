@@ -3,9 +3,7 @@ package no.hiof.groupproject.models;
 import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.interfaces.Serialise;
-import no.hiof.groupproject.tools.db.ConnectDB;
-import no.hiof.groupproject.tools.db.InsertUserDB;
-import no.hiof.groupproject.tools.db.RetrieveUserDB;
+import no.hiof.groupproject.tools.db.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -41,9 +39,6 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
         this.tlfNr = tlfNr;
         if (dLicense.verifyLicenseNumber() && dLicense.verifyDateOfIssue()) {
             this.dLicense = dLicense;
-            if (!dLicense.existsInDb()) {
-                dLicense.serialise();
-            }
         }
 
 
@@ -84,6 +79,8 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
         this.setId(getAutoIncrementId());
 
     }
+
+
 
     //serialises the User class and inserts the values into the database
     @Override
@@ -134,6 +131,10 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
             System.out.println(e.getMessage());
         }
         return false;
+    }
+
+    public void deleteUserAndCascade() {
+        RemoveUserDB.remove(this.getId());
     }
 
     public int getId() {
@@ -206,5 +207,20 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
 
     public void setdLicense(License dLicense) {
         this.dLicense = dLicense;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", dLicense=" + dLicense +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", postNr='" + postNr + '\'' +
+                ", password='" + password + '\'' +
+                ", bankAccountNr='" + bankAccountNr + '\'' +
+                ", email='" + email + '\'' +
+                ", tlfNr='" + tlfNr + '\'' +
+                '}';
     }
 }

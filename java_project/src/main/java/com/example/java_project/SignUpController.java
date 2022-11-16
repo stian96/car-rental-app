@@ -32,8 +32,9 @@ public class SignUpController {
     @FXML
     private Label validEmail;
 
+    public static String emails;
+    public static String pass;
 
-    public SignUpController(){}
 
     public void userLogIn(ActionEvent event) throws IOException {
         LogInCheck();
@@ -51,6 +52,8 @@ public class SignUpController {
             try {
                 if(!u.existsInDb()){
                     User user = new User(email,password);
+                    emails = email;
+                    pass = password;
                     LogInCheck();
                 }else{validEmail.setText("This email already exists!");}
             }
@@ -71,7 +74,7 @@ public class SignUpController {
 
     private void LogInCheck() throws IOException {
         Main m = new Main();
-        m.changeScene("LogIn.fxml");
+        m.changeScene("UpdateProfile.fxml");
 
     }
 

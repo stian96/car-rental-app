@@ -1,12 +1,10 @@
 package no.hiof.groupproject.models;
 
+import javafx.beans.property.SimpleObjectProperty;
 import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
 import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.db.ConnectDB;
-import no.hiof.groupproject.tools.db.GenericQueryDB;
-import no.hiof.groupproject.tools.db.InsertAvailableWithinDB;
-import no.hiof.groupproject.tools.db.InsertBookingDB;
+import no.hiof.groupproject.tools.db.*;
 import no.hiof.groupproject.tools.geocode.Location;
 
 import java.io.IOException;
@@ -300,6 +298,23 @@ public class RentOutAd extends Advertisement {
         return i;
     }
 
+    //test to remove a specific booking based on its id
+    public void removeBooking(String strId) {
+
+        Booking bookingToRemove = null;
+
+        for (Booking booking : confirmedBookings) {
+            if (Objects.equals(booking.getStrId(), strId)) {
+                bookingToRemove = booking;
+            }
+        }
+        if (bookingToRemove != null) {
+            confirmedBookings.remove(bookingToRemove);
+            RemoveBookingDB.remove(strId);
+        }
+
+    }
+
     public String getTown() {
         return by;
     }
@@ -398,7 +413,8 @@ public class RentOutAd extends Advertisement {
 
     @Override
     public String toString() {
-        return  vehicle.getManufacturer() + vehicle.getModel()
+        return "Owner:" + getUser().getFirstName() + " |manufacturer: " + vehicle.getManufacturer() + " |Model: " + vehicle.getModel() +
+                " |Daily charge: " + dailyCharge
                 ;
     }
 }
