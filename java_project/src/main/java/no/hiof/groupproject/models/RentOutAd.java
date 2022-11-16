@@ -77,6 +77,7 @@ public class RentOutAd extends Advertisement {
 
         if (!existsInDb()) {
             serialise();
+            updateDateLastChanged();
         }
 
 
@@ -91,8 +92,9 @@ public class RentOutAd extends Advertisement {
         //saves the period in the database table 'availableWithin'
         if (!availableWithinExistsInDb(dateFrom, dateTo)) {
             InsertAvailableWithinDB.insert(this, dateFrom, dateTo);
+            updateDateLastChanged();
         }
-        updateDateLastChanged();
+
     }
 
     public boolean checkIfDateIsAvailable(LocalDate from, LocalDate to) {
@@ -230,9 +232,8 @@ public class RentOutAd extends Advertisement {
             //serialises booking
             if (!booking.existsInDb()) {
                 InsertBookingDB.insert(booking);
+                updateDateLastChanged();
             }
-
-            updateDateLastChanged();
         }
     }
 

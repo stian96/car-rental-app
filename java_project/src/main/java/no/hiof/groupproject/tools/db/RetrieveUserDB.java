@@ -120,22 +120,13 @@ public class RetrieveUserDB {
     }
 /*
     public static User retrieveFromIdWithPriorConnection(int id, Connection conn) throws SQLException {
-
         String sql = "SELECT * FROM users LEFT JOIN licenses ON license=licenseNumber WHERE users_id = " + id;
-
-
         User returnedUser = null;
-
         PreparedStatement str = conn.prepareStatement(sql);
-
-
         ResultSet queryResult = str.executeQuery();
-
         String email = queryResult.getString("email");
         String password = queryResult.getString("password");
-
         returnedUser = new User(email, password);
-
         if (queryResult.getString("firstName") != null) {
             String firstName = queryResult.getString("firstName");
             returnedUser.setFirstName(firstName);
@@ -160,30 +151,20 @@ public class RetrieveUserDB {
             String licenseNumber = queryResult.getString("license");
             String dateOfIssue = queryResult.getString("dateOfIssue");
             String countryOfIssue = queryResult.getString("countryOfIssue");
-
             License dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
             returnedUser.setdLicense(dLicense);
         }
-
         returnedUser.setId(id);
-
         return returnedUser;
     }
-
     public static User retrieveFromEmailWithPriorConnection(String email, Connection conn) throws SQLException {
-
         String sql = "SELECT * FROM users LEFT JOIN licenses ON license=licenseNumber WHERE email = \'" + email + "\'";
-
         User returnedUser = null;
-
         PreparedStatement str = conn.prepareStatement(sql);
-
         ResultSet queryResult = str.executeQuery();
         int idNumber = queryResult.getInt("users_id");
         String password = queryResult.getString("password");
-
         returnedUser = new User(email, password);
-
         if (queryResult.getString("firstName") != null) {
             String firstName = queryResult.getString("firstName");
             returnedUser.setFirstName(firstName);
@@ -208,12 +189,10 @@ public class RetrieveUserDB {
             String licenseNumber = queryResult.getString("license");
             String dateOfIssue = queryResult.getString("dateOfIssue");
             String countryOfIssue = queryResult.getString("countryOfIssue");
-
             License dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
             returnedUser.setdLicense(dLicense);
         }
         returnedUser.setId(idNumber);
-
         return returnedUser;
     }*/
 }

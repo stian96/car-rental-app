@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="no.hiof.groupproject.models.UpdateUserTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-11-16T17:40:52" hostname="DESKTOP-P1M6OUN" time="0.212">
+  <properties/>
+  <testcase name="assertsUserPostNrCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.034"/>
+  <testcase name="assertsUserTlfNrCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.029"/>
+  <testcase name="assertsUserPasswordCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.033"/>
+  <testcase name="assertsUserLicenseCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.027"/>
+  <testcase name="assertsUserLastNameCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.033"/>
+  <testcase name="assertsUserFirstNameCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.026"/>
+  <testcase name="assertsUserBankAccountNrCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.026"/>
+  <system-out><![CDATA[98 47 123456 1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

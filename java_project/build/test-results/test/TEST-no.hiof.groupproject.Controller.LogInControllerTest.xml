@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="no.hiof.groupproject.Controller.LogInControllerTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-16T17:40:40" hostname="DESKTOP-P1M6OUN" time="0.016">
+  <properties/>
+  <testcase name="checkMemberValiduser()" classname="no.hiof.groupproject.Controller.LogInControllerTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

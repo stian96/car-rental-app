@@ -1387,11 +1387,13 @@
     </column>
     <foreign-key id="507" parent="482">
       <ColNames>user_fk</ColNames>
+      <OnDelete>cascade</OnDelete>
       <RefColNames>users_id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
     <foreign-key id="508" parent="482">
       <ColNames>vehicle_fk</ColNames>
+      <OnDelete>cascade</OnDelete>
       <RefColNames>vehicles_id</RefColNames>
       <RefTableName>vehicles</RefTableName>
     </foreign-key>
@@ -1419,6 +1421,7 @@
     </column>
     <foreign-key id="514" parent="483">
       <ColNames>availableWithin_id_fk</ColNames>
+      <OnDelete>cascade</OnDelete>
       <RefColNames>advertisements_id</RefColNames>
       <RefTableName>advertisements</RefTableName>
     </foreign-key>
@@ -1624,11 +1627,13 @@ dato</ColNames>
     </column>
     <foreign-key id="558" parent="488" name="ratings_users_fk">
       <ColNames>user</ColNames>
+      <OnDelete>cascade</OnDelete>
       <RefColNames>users_id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
     <foreign-key id="559" parent="488" name="ratings_usersGivingRating_fk">
       <ColNames>userGivingRating</ColNames>
+      <OnDelete>cascade</OnDelete>
       <RefColNames>users_id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
@@ -1682,6 +1687,7 @@ rating</ColNames>
     </column>
     <foreign-key id="571" parent="491" name="userProfiles_users_users_id_fk">
       <ColNames>user_fk</ColNames>
+      <OnDelete>cascade</OnDelete>
       <RefColNames>users_id</RefColNames>
       <RefTableName>users</RefTableName>
     </foreign-key>
