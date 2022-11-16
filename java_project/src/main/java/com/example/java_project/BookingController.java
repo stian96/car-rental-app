@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
@@ -25,6 +26,8 @@ import java.util.ResourceBundle;
 import static java.time.temporal.ChronoUnit.DAYS;
 
 public class BookingController implements Initializable {
+    /** Things to fix here: The payment must be added before booking button pressed**/
+
     public static long
     countDaysBetween(LocalDate dateFrom, LocalDate dateTo){
         return DAYS.between(dateFrom,dateTo);
@@ -124,6 +127,7 @@ public class BookingController implements Initializable {
     }
 
     public void btn_book(ActionEvent event)throws IOException {
+
        User owner = this.owner;
         User renter  = LogInController.user;
         LocalDate fromDate = this.fromDate;
@@ -151,5 +155,7 @@ public class BookingController implements Initializable {
 
 
 
-    }
-}
+
+
+    }}
+

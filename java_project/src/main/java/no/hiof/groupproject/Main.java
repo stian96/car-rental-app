@@ -30,7 +30,7 @@ public class Main {
 
         //kode til stian som kan brukes for å vise resultater
         HashMap<Integer, String> thing = new HashMap<>();
-        ArrayList<Integer> thingWithInts = FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null, null, null, null, null, null, null, null);
+        ArrayList<Integer> thingWithInts = FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null, "sarpsborg", null, null, null, null, null, null);
 
         for (int i : thingWithInts) {
             String sql = "SELECT * FROM advertisements INNER JOIN vehicles ON vehicle_fk = vehicles_id WHERE advertisements_id = " + i;

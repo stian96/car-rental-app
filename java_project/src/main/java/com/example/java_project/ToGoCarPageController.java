@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -20,6 +21,7 @@ import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -217,8 +219,22 @@ public class ToGoCarPageController  implements Initializable {
         }
 
         public void userRegisterCar(ActionEvent event) throws IOException {
-            Main m = new Main();
-            m.changeScene("RegisterACar.fxml");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("RegisterACar.fxml"));
+            Parent pane = loader.load();
+
+            Scene scene = new Scene(pane);
+
+            //access the controller and call a method
+
+
+
+            //This line gets the Stage information
+            Stage window = new Stage();
+
+            window.setScene(scene);
+            window.show();
+
         }
         public void carAdvertisement(ActionEvent event)throws IOException{
             Main m = new Main();

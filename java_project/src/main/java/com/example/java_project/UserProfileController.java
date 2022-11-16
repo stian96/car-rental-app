@@ -48,7 +48,7 @@ public class UserProfileController implements Initializable {
     UserProfile userProfile1;
     User logIn = LogInController.user;
     User user;
-    private RentOutAd ad;
+    private RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(LogInController.user.getId());
     //RetrieveUserProfileDB.retrieve(LogInController.user.getId());
    /*
     private ObservableList<Advertisement> getAds(){
@@ -89,6 +89,8 @@ public class UserProfileController implements Initializable {
     public void fillData(RentOutAd roa){
         ad = roa;
         this.user = roa.getUser();
+        this.userProfile1 = RetrieveUserProfileDB.retrieve(user.getId());
+        label_UserName.setText(roa.getUser().getFirstName());
         //this.userProfile1 = RetrieveUserProfileDB.retrieve(roa.getUser().getId());
         //ratingLabel.setText(roa.getUser().getFirstName());
         //System.out.println(userProfile);
@@ -122,6 +124,6 @@ public class UserProfileController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        label_UserName.setText(ad.getUser().getFirstName());
+       // label_UserName.setText(ad.getUser().getFirstName());
     }
 }

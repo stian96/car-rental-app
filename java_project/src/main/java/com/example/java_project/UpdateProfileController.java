@@ -36,17 +36,9 @@ public class UpdateProfileController {
 
     // action button for create profile
     public void UpdateProfile(ActionEvent event) throws IOException {
-        CheckUpdateProfile();
-    }
-
-    public void CheckUpdateProfile() throws IOException {
-
-        Main m = new Main();
-
-        if(tf_userName.getText().isEmpty()){
-
-        }
-        m.changeScene("ToGoCar.fxml");
 
     }
+
+
+
 }

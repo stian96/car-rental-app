@@ -13,24 +13,23 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.layout.Pane;
 import javafx.stage.*;
 import no.hiof.groupproject.models.Advertisement;
 import no.hiof.groupproject.models.RentOutAd;
-import no.hiof.groupproject.models.UserProfile;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
-import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.EventObject;
-import java.util.Optional;
-import java.util.ResourceBundle;
-import java.time.temporal.ChronoUnit;
+import java.util.*;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
@@ -44,6 +43,7 @@ public class FindACarToRent implements Initializable  {
     @FXML
     //private ListView<Vehicle> vehicleListView = new ListView<>();
     private ListView<Advertisement> vehicleListView = new ListView<>();//change the name later
+   //rivate ListView<HashMap> vehicleListView = new ListView<>();
     @FXML
     private TextField tf_townName;
     @FXML
@@ -59,9 +59,14 @@ public class FindACarToRent implements Initializable  {
     @FXML
     private Label priceLabel;
     private double dailyPrice;
+    private ToggleGroup transmissionToggleGroups, engineToggleGroup;
     private BigDecimal dailyChargebd;
    // ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
     ObservableList<Advertisement> adObservableList = FXCollections.observableArrayList();
+
+    ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null,
+            null, null, null, null,
+            null,null, null);
 
 
     //mathod to find the ad id using filter based on town name
@@ -76,15 +81,10 @@ public class FindACarToRent implements Initializable  {
         return getAdId();
     }
 
-    public void setVehicleListView(ListView<Advertisement> vehicleListView) {
-        this.vehicleListView = vehicleListView;
+
+    public void addFilters(){
+
     }
-
-    public ListView<Advertisement> getVehicleListView() {
-        return vehicleListView;
-    }
-
-
 
 
     //Method to populatetheVehicleListView. Gets ad id from the Filter based on the
@@ -96,7 +96,61 @@ public class FindACarToRent implements Initializable  {
         vehicleListView.getItems().addAll(adObservableList);
 
 
+
+
     }
+    public void radioButtonChanged() {
+
+        if(this.transmissionToggleGroups.getSelectedToggle().equals(this.radioButton_manual)){
+
+
+
+        }
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+ public void populateListViewWithHashMap(){
+       String town = tf_townName.getText().trim().toLowerCase();
+    HashMap<Integer, String> thing = new HashMap<>();
+    ArrayList<Integer> thingWithInts = FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null, town, null, null, null, null, null, null);
+
+        for (int i : thingWithInts) {
+        String sql = "SELECT * FROM advertisements INNER JOIN vehicles ON vehicle_fk = vehicles_id WHERE advertisements_id = " + i;
+        String string = null;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+
+            string = queryResult.getString("modelYear") + " " +
+                    queryResult.getString("manufacturer") + " " +
+                    queryResult.getString("model") + " - " +
+                    queryResult.getString("town");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        thing.put(i, string);
+    }
+
+        for (Map.Entry<Integer, String> result : thing.entrySet()) {
+        //System.out.println("\n\n" + result.getKey() + "     " + result.getValue() + "\n\n");
+
+
+
+
+    }}
+
 
 
 
@@ -154,7 +208,7 @@ public class FindACarToRent implements Initializable  {
 
         //access the controller and call a method
         DetailedAdViewController controller = loader.getController();
-        controller.fillData((RentOutAd) vehicleListView.getSelectionModel().getSelectedItem());
+        //controller.fillData((RentOutAd) vehicleListView.getSelectionModel().getSelectedItem());
 
 
         //This line gets the Stage information
@@ -194,13 +248,6 @@ public class FindACarToRent implements Initializable  {
          */
 
 
-        /*
-        DetailedAdViewController controller = new DetailedAdViewController();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailedAdView.fxml"));
-        loader.setController(controller);
-        p.getContent().add(Parent)loader.load()
-
-         */
 
 
 
@@ -255,14 +302,14 @@ public class FindACarToRent implements Initializable  {
 
         //access the controller and call a method
         BookingController booking = loader.getController();
-        booking.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
+       // booking.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
         booking.adFromDate(getFromDate());
         booking.adToDate(getToDate());
         booking.fillAmount(BigDecimal.valueOf(countDaysBetween(getFromDate(),getToDate())));
 
 
         //This line gets the Stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = new Stage();
 
         window.setScene(scene);
         window.show();
@@ -277,19 +324,28 @@ public class FindACarToRent implements Initializable  {
 
         //access the controller and call a method
         UserProfileController p = new UserProfileController();
-        p.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
+       // p.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
 
 
         //This line gets the Stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = new Stage();
 
         window.setScene(scene);
         window.show();
 
     }
 
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+         transmissionToggleGroups = new ToggleGroup();
+        this.radioButton_manual.setToggleGroup(transmissionToggleGroups);
+        this.radioButton_automatic.setToggleGroup(transmissionToggleGroups);
+
+        engineToggleGroup = new ToggleGroup();
+        this.radioButton_Diesel.setToggleGroup(engineToggleGroup);
+        this.radioButton_electric.setToggleGroup(engineToggleGroup);
+        this.radioButton_automatic.setToggleGroup(engineToggleGroup);
 
 
 
@@ -304,6 +360,8 @@ public class FindACarToRent implements Initializable  {
                 priceLabel.setText(String.valueOf(dailyPrice));
 
             }
+
+
         });
 
 
