@@ -1,24 +1,41 @@
 package no.hiof.groupproject.tools.chat;
 
+import no.hiof.groupproject.interfaces.DeserialiseMessages;
+import no.hiof.groupproject.tools.db.DeleteMessagesFromDB;
+import no.hiof.groupproject.tools.db.RetrieveMessagesDB;
+
 import java.util.ArrayList;
 
-public class ChatRoom {
-    private Message messageToSend;
-    private final ArrayList<String> messageLog = new ArrayList<>();
+public class ChatRoom implements DeserialiseMessages {
+    private ArrayList<String> messageLog = new ArrayList<>();
 
-    public void sendMessage(Message messageToSend) {
-        this.messageToSend = messageToSend;
-
-        String username = messageToSend.getUser().getFirstName();
-        messageLog.add(username + ": " + messageToSend.getMessage() + " " + messageToSend.getNowTime());
+    public boolean sendMessage(Message message) {
+        SaveToDB save = new SaveToDB(message);
+        if (!save.existsInDb()) {
+            save.serialise();
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
-    public void showMessages() {
-        for (String msg : messageLog)
-            System.out.println(msg);
+    public ArrayList<String> getMessageLog() {
+        messageLog = RetrieveMessagesDB.retrieveAllMessages();
+        return messageLog;
     }
 
-    public Message getMessageToSend() {
-        return messageToSend;
+    public void deleteMessage(String writeMessage) {
+        DeleteMessagesFromDB db = new DeleteMessagesFromDB();
+        db.delete("messages", "melding", writeMessage);
     }
+
+    public void clearMessageLog() {
+        messageLog.clear();
+    }
+
+    public ArrayList<String> getLog() {
+        return messageLog;
+    }
+
 }
