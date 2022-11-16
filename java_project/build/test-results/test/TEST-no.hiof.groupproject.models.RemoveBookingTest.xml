@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="no.hiof.groupproject.models.RemoveBookingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-16T17:40:48" hostname="DESKTOP-P1M6OUN" time="2.071">
+<testsuite name="no.hiof.groupproject.models.RemoveBookingTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-16T19:39:57" hostname="DESKTOP-P1M6OUN" time="2.078">
   <properties/>
-  <testcase name="assertsBookingIsRemovedFromArrayListAndDatabase()" classname="no.hiof.groupproject.models.RemoveBookingTest" time="2.071"/>
+  <testcase name="assertsBookingIsRemovedFromArrayListAndDatabase()" classname="no.hiof.groupproject.models.RemoveBookingTest" time="2.078"/>
   <system-out><![CDATA[[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
 [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
 ]]></system-out>
