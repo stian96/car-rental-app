@@ -13,31 +13,21 @@ import java.sql.Connection;
 
 public class Main extends Application {
 
-   private static Stage stg;
-    private Stage stage;
+    private static Stage stg;
 
 
     @Override
     public void start(Stage stage) throws IOException {
-
-        this.stage = stage;
         stg = stage;
-
         stage.setResizable(false);
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LogIn.fxml"));
-        //FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("ToGoCar.fxml"));
-       //FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("FilterCar.fxml"));
-        //FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("PaymentPage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        FXMLLoader fxmlLoader1 = new FXMLLoader(Main.class.getResource("Advertisement.fxml"));
+        FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("ToGoCar.fxml"));
+        FXMLLoader fxmlLoader3 = new FXMLLoader(Main.class.getResource("FilterCar.fxml"));
+        Scene scene = new Scene(fxmlLoader1.load(), 600, 400);
         //checkConnection();
         stage.setTitle("ToGoCar");
         stage.setScene(scene);
         stage.show();
-
-
-    }
-    public Stage getStage(){
-        return stage;
     }
 
     //public void checkConnection(){Connection con = ConnectDB.connect();}
