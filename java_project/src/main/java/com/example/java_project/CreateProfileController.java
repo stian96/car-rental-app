@@ -46,10 +46,6 @@ public class CreateProfileController implements Initializable {
 
 
 
-
-
-
-
     // action button for create profile
 
    public void UpdateProfile(ActionEvent event) throws IOException {
@@ -71,11 +67,11 @@ public class CreateProfileController implements Initializable {
         if(firstName.equals("") || lastName.equals("") || email.equals("") ||
                 password.equals("") || phoneNum.equals("") || bankAccNum.equals("")
                 || postNumber.equals("") || dLicenseNum.equals("") || countryOfIssue.equals("")
-        ) showErrorlabels();
+        ) {showErrorlabels();}
         else {
-            User u = RetrieveUserDB.retrieveFromEmail(email);
+           User user = new User(firstName,lastName,postNumber,password,bankAccNum,email,phoneNum,l);
             button_UpdateProfile.setText("Added");
-            m.changeScene("ToGoCar.fxml");
+            //m.changeScene("ToGoCar.fxml");
         }
 
     }
