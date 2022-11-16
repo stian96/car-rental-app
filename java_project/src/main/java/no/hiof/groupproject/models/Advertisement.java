@@ -35,7 +35,7 @@ public abstract class Advertisement implements Serialise, GetAutoIncrementId, Ex
         //count++;
         this.user = user;
         this.dateCreated = LocalDate.now();
-        updateDateLastChanged();
+        dateLastChanged = LocalDate.now();
     }
 
     @Override

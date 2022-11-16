@@ -38,7 +38,7 @@ public class RetrieveAverageRatingDB {
             String sql = "UPDATE userProfiles SET averageRating = \'" + avgRating +
                     "\' WHERE user_fk = " + userProfile.getUser().getId();
 
-            try (Connection conn = ConnectDB.connectReadOnly();
+            try (Connection conn = ConnectDB.connect();
                  PreparedStatement str = conn.prepareStatement(sql)) {
 
                 str.executeUpdate();
