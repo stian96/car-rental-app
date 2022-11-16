@@ -56,16 +56,8 @@ public class ToGoCarPageController  implements Initializable {
 
 
     public void userRegisterCar(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("RegisterACar.fxml"));
-        Parent pane = loader.load();
-
-        Scene scene = new Scene(pane);
-
-        Stage window = new Stage();
-
-        window.setScene(scene);
-        window.show();}
+        Main m = new Main();
+        m.changeScene("RegistrationCar.fxml");}
 
     public void carAdvertisement(ActionEvent event)throws IOException{
         Main m = new Main();
