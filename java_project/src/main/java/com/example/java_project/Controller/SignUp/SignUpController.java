@@ -1,4 +1,4 @@
-package com.example.java_project.Controller;
+package com.example.java_project.Controller.SignUp;
 
 
 import com.example.java_project.Main;

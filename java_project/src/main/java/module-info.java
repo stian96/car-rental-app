@@ -31,5 +31,7 @@ module com.example.java_project {
     opens com.example.java_project.Other to javafx.fxml;
     exports com.example.java_project.Controller.Profile;
     opens com.example.java_project.Controller.Profile to javafx.fxml;
+    exports com.example.java_project.Controller.SignUp;
+    opens com.example.java_project.Controller.SignUp to javafx.fxml;
 
 }

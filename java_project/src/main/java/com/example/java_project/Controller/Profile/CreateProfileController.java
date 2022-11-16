@@ -1,6 +1,6 @@
 package com.example.java_project.Controller.Profile;
 
-import com.example.java_project.Controller.SignUpController;
+import com.example.java_project.Controller.SignUp.SignUpController;
 import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
