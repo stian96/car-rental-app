@@ -16,6 +16,8 @@ import java.net.URL;
 
 import java.util.ResourceBundle;
 
+import static com.fasterxml.jackson.databind.type.LogicalType.Array;
+
 
 public class AdvertisementController implements Initializable {
 
@@ -36,24 +38,53 @@ public class AdvertisementController implements Initializable {
     private Button registerButton;
 
     @FXML
-    private void buttonClick(ActionEvent event) {
-        Vehicle vehicle = RetrieveVehicleDB.retrieveFromRegNo(regNumberField.getText());
-        User user = LogInController.user;
+    private Label error1;
+    @FXML
+    private Label error2;
+    @FXML
+    private Label error3;
+    @FXML
+    private Label error4;
+    @FXML
+    private Label error5;
+    @FXML
+    private Label error6;
+    @FXML
+    private Label errorLabel;
 
-        BigDecimal dailyCharge = BigDecimal.valueOf(Long.parseLong(dailyChargeField.getText()));
-        BigDecimal perTwentyKm = BigDecimal.valueOf(Long.parseLong(chargePerTwentyField.getText()));
-        String town = townField.getText();
-
-
-        RentOutAd add = new RentOutAd(user, vehicle, dailyCharge, perTwentyKm, town);
-        add.addNewPeriod(availableFrom.getValue(), availableTo.getValue());
-
-        registerButton.setText("Success!");
-    }
 
     @FXML
-    private void onMouseHover(ActionEvent event) {
+    private void buttonClick(ActionEvent event) {
+        String regNumber = regNumberField.getText();
+        String dailyCharge = dailyChargeField.getText();
+        String perTwentyKm = chargePerTwentyField.getText();
+        String town = townField.getText();
 
+        if (regNumber.equals("") || dailyCharge.equals("") || perTwentyKm.equals("") || town.equals(""))
+            showErrorLabels();
+
+        else {
+            createAdvertisement(regNumber, dailyCharge, perTwentyKm, town);
+            registerButton.setText("Success!");
+        }
+}
+
+    public void createAdvertisement(String regNo, String dailyCharge, String per20, String city) {
+        Vehicle vehicle = RetrieveVehicleDB.retrieveFromRegNo(regNo);
+        User user = LogInController.user;
+
+        BigDecimal dailyC = BigDecimal.valueOf(Long.parseLong(dailyCharge));
+        BigDecimal perTwentyKm = BigDecimal.valueOf(Long.parseLong(per20));
+
+        RentOutAd add = new RentOutAd(user, vehicle, dailyC, perTwentyKm, city);
+        add.addNewPeriod(availableFrom.getValue(), availableTo.getValue());
+
+    }
+
+    public void showErrorLabels() {
+        Label[] labelList = {error1, error2, error3, error4, error5, error6, errorLabel};
+        for (Label element : labelList)
+                element.setVisible(true);
     }
 
     @Override
