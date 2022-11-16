@@ -241,7 +241,7 @@ public class ToGoCarPageController  {
 
         public void message_menu(ActionEvent event) throws IOException{
             Main m = new Main();
-            m.changeScene("LogIn.fxml");
+            m.changeScene("Message.fxml");
         }
         public void customerService(ActionEvent event) throws IOException{
             Main m = new Main();

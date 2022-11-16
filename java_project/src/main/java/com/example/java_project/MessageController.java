@@ -23,20 +23,16 @@ public class MessageController {
     private Button button_send;
     @FXML
     private Button button_toGoCar;
-
     public void btnSend(ActionEvent event) throws IOException {
         Main m = new Main();
+        User user = LogInController.user;
         ChatRoom chat = new ChatRoom();
         String message = textArea_send.getText();
-        //
-        //      chat.sendMessage(new Message(user, "Hello this is a new message!"));
-
+        String viewMessage = scroolPane_chat.getAccessibleText();
 
         for (String msg : chat.getMessageLog()) {
-            System.out.println(msg);
+
         }
-
-
     }
 
     public void btnTogoCar(ActionEvent event) throws IOException{
