@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 
 import java.io.IOException;
@@ -48,6 +50,17 @@ public class ToGoCarPageController  implements Initializable {
         button_FindCar.setOnAction(this::findACar);
         button_customerService.setOnAction(this::customerService);
         button_logOut.setOnAction(this::userLogOut);
+    }
+
+    // Add icons to the buttons
+    public ImageView addIcon(String imagePath) {
+        //Creating a graphic (image)
+        Image img = new Image("UIControls/logo.png");
+        ImageView view = new ImageView(img);
+        view.setFitHeight(80);
+        view.setPreserveRatio(true);
+
+        return view;
     }
 
     public void userRegisterCar(ActionEvent event) {
