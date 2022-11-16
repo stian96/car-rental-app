@@ -292,6 +292,10 @@ public class FindACarToRent implements Initializable  {
 
      */
 
+    public void manualChecked(){
+
+    }
+
 
     public void changeSceneToBooking(ActionEvent event) throws IOException, IOException {
         FXMLLoader loader = new FXMLLoader();

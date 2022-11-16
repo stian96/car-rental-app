@@ -1,32 +1,16 @@
 package com.example.java_project;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-import no.hiof.groupproject.models.RentOutAd;
-import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
-import no.hiof.groupproject.tools.db.RetrieveAvailableWithinDB;
-import no.hiof.groupproject.tools.db.RetrieveUserDB;
-import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
-import no.hiof.groupproject.tools.filters.FilterAdvertisement;
+
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.net.URL;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
-import java.util.TreeMap;
+
 
 public class ToGoCarPageController  implements Initializable {
 
@@ -89,6 +73,8 @@ public class ToGoCarPageController  implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        noAvailableCarWarning.setText("Hello: " + LogInController.user.getFirstName() + " " + LogInController.user.getLastName());
+       // noAvailableCarWarning.setText("Hello: " + LogInController.user.getFirstName() + " " + LogInController.user.getLastName());
     }
+
+
 }

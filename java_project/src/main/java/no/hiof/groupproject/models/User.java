@@ -80,6 +80,8 @@ public class User implements Serialise, GetAutoIncrementId, ExistsInDb {
 
     }
 
+
+
     //serialises the User class and inserts the values into the database
     @Override
     public void serialise() {
