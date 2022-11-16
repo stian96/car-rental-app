@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
@@ -50,9 +52,9 @@ public class ToGoCarPageController  implements Initializable {
         button_FindCar.setOnAction(this::findACar);
         button_customerService.setOnAction(this::customerService);
         button_logOut.setOnAction(this::userLogOut);
+        buttonStyle();
 
     }
-
 
     public void userRegisterCar(ActionEvent event) {
         Main m = new Main();
@@ -113,5 +115,28 @@ public class ToGoCarPageController  implements Initializable {
         } catch (IOException ioException) {
             System.out.println(ioException.getMessage());
         }
+    }
+
+    public void buttonStyle() {
+        button_registerCar.setOnMouseEntered(e -> button_registerCar.setStyle("-fx-background-color: #c9b502;"));
+        button_registerCar.setOnMouseExited(e -> button_registerCar.setStyle("-fx-background-color:  #f1c232;"));
+
+        button_Advertisement.setOnMouseEntered(e -> button_Advertisement.setStyle("-fx-background-color: #c9b502;"));
+        button_Advertisement.setOnMouseExited(e -> button_Advertisement.setStyle("-fx-background-color:  #f1c232;"));
+
+        button_profile.setOnMouseEntered(e -> button_profile.setStyle("-fx-background-color: #c9b502;"));
+        button_profile.setOnMouseExited(e -> button_profile.setStyle("-fx-background-color:  #f1c232;"));
+
+        button_FindCar.setOnMouseEntered(e -> button_FindCar.setStyle("-fx-background-color: #c9b502;"));
+        button_FindCar.setOnMouseExited(e -> button_FindCar.setStyle("-fx-background-color:  #f1c232;"));
+
+        button_customerService.setOnMouseEntered(e -> button_customerService.setStyle("-fx-background-color: #c9b502;"));
+        button_customerService.setOnMouseExited(e -> button_customerService.setStyle("-fx-background-color:  #f1c232;"));
+
+        button_logOut.setOnMouseEntered(e -> button_logOut.setStyle("-fx-background-color: #c9b502;"));
+        button_logOut.setOnMouseExited(e -> button_logOut.setStyle("-fx-background-color:  #f1c232;"));
+
+        button_messages.setOnMouseEntered(e -> button_messages.setStyle("-fx-background-color: #c9b502;"));
+        button_messages.setOnMouseExited(e -> button_messages.setStyle("-fx-background-color:  #f1c232;"));
     }
 }
