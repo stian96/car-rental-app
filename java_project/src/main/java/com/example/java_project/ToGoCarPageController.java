@@ -55,7 +55,7 @@ public class ToGoCarPageController  implements Initializable {
     public void userRegisterCar(ActionEvent event) {
         Main m = new Main();
         try {
-            m.changeScene("RegistrationCar.fxml");
+            m.changeScene("RegisterACar.fxml");
         } catch (IOException ioException) {
             System.out.println(ioException.getMessage());
         }
@@ -73,7 +73,7 @@ public class ToGoCarPageController  implements Initializable {
   public void userProfile(ActionEvent event) {
         Main m = new Main();
         try {
-          m.changeScene("Profile.fxml");
+          m.changeScene("UpdateProfile.fxml");
         } catch (IOException ioException) {
           System.out.println(ioException.getMessage());
         }
