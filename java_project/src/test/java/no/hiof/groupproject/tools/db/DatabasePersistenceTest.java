@@ -600,4 +600,47 @@ class DatabasePersistenceTest {
         assertTrue(license.existsInDb());
     }
 
+    @Test
+    void assertsInsertAndDeleteFromDB() {
+
+        InsertDB.insert("payments", "paymentType, tlfnr", "'vipps', 96286479");
+
+        String sql = "SELECT COUNT(*) AS amount FROM payments WHERE tlfnr = 96286479";
+
+        boolean ans = false;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        assertTrue(ans);
+
+        DeleteFromDB.delete("payments", "tlfnr", "96286479");
+
+        ans = false;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        assertFalse(ans);
+
+
+
+    }
+
 }
