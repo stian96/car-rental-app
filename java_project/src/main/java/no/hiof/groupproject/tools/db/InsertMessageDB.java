@@ -14,15 +14,15 @@ public class InsertMessageDB {
     public static void insert(Message chat) {
 
 
-        String sql = "INSERT INTO messages (user_fk, melding, dato, tid) " + "VALUES(?,?,?,?)";
+        String sql = "INSERT INTO messages (user_id, user_name, melding, dato, tid) " + "VALUES(?,?,?,?,?)";
 
         try (Connection conn = ConnectDB.connect();
              PreparedStatement str = conn.prepareStatement(sql)) {
-
             str.setInt(1, chat.getUser().getId());
-            str.setString(2, chat.getMessage());
-            str.setString(3, chat.getNowDate());
-            str.setString(4, chat.getNowTime());
+            str.setString(2, chat.getUser().getFirstName());
+            str.setString(3, chat.getMessage());
+            str.setString(4, chat.formatNowDate());
+            str.setString(5, chat.formatNowTime());
 
             str.executeUpdate();
         } catch (SQLException sqlException) {
@@ -33,13 +33,14 @@ public class InsertMessageDB {
     public static void insertWithPriorConnection(Message chat, Connection conn) throws SQLException {
 
 
-        String sql = "INSERT INTO messages (user_fk, melding, dato, tid) " + "VALUES(?,?,?,?)";
+        String sql = "INSERT INTO messages (user_id, user_name, melding, dato, tid) " + "VALUES(?,?,?,?,?)";
 
             PreparedStatement str = conn.prepareStatement(sql);
             str.setInt(1, chat.getUser().getId());
-            str.setString(2, chat.getMessage());
-            str.setString(3, chat.getNowDate());
-            str.setString(4, chat.getNowTime());
+            str.setString(2, chat.getUser().getFirstName());
+            str.setString(3, chat.getMessage());
+            str.setString(4, chat.formatNowDate());
+            str.setString(5, chat.formatNowTime());
 
             str.executeUpdate();
 
