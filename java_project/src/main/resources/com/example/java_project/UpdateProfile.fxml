@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f1c232;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.UpdateProfileController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #f1c232;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.CreateProfileController">
    <children>
       <ImageView fitHeight="38.0" fitWidth="60.0" layoutX="6.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -32,7 +32,7 @@
             <Font name="Comic Sans MS Bold Italic" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="tf_userName" layoutX="234.0" layoutY="55.0" prefHeight="4.0" prefWidth="180.0" promptText="First name" />
+      <TextField fx:id="tf_firstName" layoutX="234.0" layoutY="55.0" prefHeight="4.0" prefWidth="180.0" promptText="First name" />
       <TextField fx:id="tf_lastName" layoutX="234.0" layoutY="94.0" prefHeight="25.0" prefWidth="180.0" promptText="Last name" />
       <TextField fx:id="tf_emailAdd" layoutX="234.0" layoutY="132.0" prefHeight="25.0" prefWidth="180.0" promptText="Email add" />
       <Label layoutX="99.0" layoutY="167.0" text="Password">
@@ -64,16 +64,18 @@
             <Font name="Comic Sans MS Bold Italic" size="13.0" />
          </font>
       </Button>
-      <Label layoutX="53.0" layoutY="298.0" text="Driving licensed number">
+      <Label layoutX="53.0" layoutY="298.0" text="DL info:">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="tf_drivingLicense" layoutX="234.0" layoutY="295.0" prefHeight="25.0" prefWidth="180.0" promptText="Driving licensed number" />
+      <TextField fx:id="tf_drivingLicense" layoutX="107.0" layoutY="295.0" prefHeight="25.0" prefWidth="149.0" promptText="Driving licensed number" />
       <Label fx:id="UpdatePrompt" layoutX="315.0" layoutY="20.0" textFill="#f81212">
          <font>
             <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Label>
+      <TextField fx:id="dateTxtField" layoutX="260.0" layoutY="295.0" prefHeight="25.0" prefWidth="110.0" promptText="Date of Issue" />
+      <TextField fx:id="countryTxtField" layoutX="393.0" layoutY="295.0" prefHeight="25.0" prefWidth="119.0" promptText="Country of Issue" />
    </children>
 </AnchorPane>

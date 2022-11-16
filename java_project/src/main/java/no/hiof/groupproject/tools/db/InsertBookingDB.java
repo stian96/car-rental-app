@@ -1,18 +1,11 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
-import no.hiof.groupproject.models.Advertisement;
 import no.hiof.groupproject.models.Booking;
-import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.payment_methods.*;
 
-import java.sql.Array;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Map;
 import java.util.Objects;
 
 /*
@@ -20,7 +13,7 @@ A class used to serialise a Booking into a database for permanent storage.
  */
 public class InsertBookingDB {
 
-    public static void insert(Booking booking) {
+    public static Booking insert(Booking booking) {
 
         String sql = "INSERT INTO bookings (bookings_id, renter_fk, owner_fk, bookedFrom, bookedTo, payment_fk, vehicle_fk)" +
                 "VALUES(?,?,?,?,?,?,?)";
@@ -51,6 +44,7 @@ public class InsertBookingDB {
             System.out.println(e.getMessage());
         }
 
+        return booking;
     }
 
     public static void insertWithPriorConnection(Booking booking, Connection conn) throws SQLException {

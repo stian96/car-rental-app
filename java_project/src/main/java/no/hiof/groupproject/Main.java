@@ -6,17 +6,15 @@ import no.hiof.groupproject.models.*;
 import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.chat.ChatRoom;
-import no.hiof.groupproject.tools.chat.Message;
 import no.hiof.groupproject.tools.db.*;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
 import java.io.File;
 import java.io.IOException;
 import java.math.BigDecimal;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
@@ -30,6 +28,36 @@ public class Main {
         //                             *********************************
 
 
+        //kode til stian som kan brukes for å vise resultater
+        HashMap<Integer, String> thing = new HashMap<>();
+        ArrayList<Integer> thingWithInts = FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null, "sarpsborg", null, null, null, null, null, null);
+
+        for (int i : thingWithInts) {
+            String sql = "SELECT * FROM advertisements INNER JOIN vehicles ON vehicle_fk = vehicles_id WHERE advertisements_id = " + i;
+            String string = null;
+            try (Connection conn = ConnectDB.connect();
+                 PreparedStatement str = conn.prepareStatement(sql)) {
+
+                ResultSet queryResult = str.executeQuery();
+
+                    string = queryResult.getString("modelYear") + " " +
+                            queryResult.getString("manufacturer") + " " +
+                            queryResult.getString("model") + " - " +
+                            queryResult.getString("town");
+
+                } catch (SQLException e) {
+                System.out.println(e.getMessage());
+            }
+            thing.put(i, string);
+        }
+
+        for (Map.Entry<Integer, String> result : thing.entrySet()) {
+            System.out.println("\n\n" + result.getKey() + "     " + result.getValue() + "\n\n");
+        }
+
+
+
+        /*
         for (Vehicle vehicle : FilterAdvertisement.filterToArrayListVehicle(null, null,
                 null, null,null, null, null,
                 null, null, 1)) {
@@ -46,7 +74,6 @@ public class Main {
                 "12341234123", "sam@samland.no", "12341234", license);
         User user4 = new User("wwww", "test", "1111", "hunter2",
                 "12341234123", "test@test.no", "12341234", license);
-        /*
 
         Vehicle car = new Car("12341234", "audi", "tt", "petrol",
                 "automatic", 2013, 5, 1500);
@@ -109,16 +136,6 @@ public class Main {
         System.out.println(roa.checkIfDateIsAvailable(LocalDate.parse("2022-11-16"), LocalDate.parse("2022-11-17")));
         System.out.println(roa.checkIfDateIsAvailable(LocalDate.parse("2022-11-20"), LocalDate.parse("2022-11-22")));
          */
-
-        ChatRoom chat = new ChatRoom();
-
-        // SendMessage method store the message in the database table 'messages'.
-        chat.sendMessage(new Message(user, "Hello this is a new message!"));
-
-        // chat.getMessageLog - retrieves all the messages from the database table 'messages'
-        for (String msg : chat.getMessageLog()) {
-            System.out.println(msg);
-        }
 
     }
 }

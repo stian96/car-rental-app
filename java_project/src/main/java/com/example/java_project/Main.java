@@ -20,8 +20,10 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         stg = stage;
         stage.setResizable(false);
-        FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("LogIn.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
+        FXMLLoader fxmlLoader1 = new FXMLLoader(Main.class.getResource("Advertisement.fxml"));
+        FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("ToGoCar.fxml"));
+        FXMLLoader fxmlLoader3 = new FXMLLoader(Main.class.getResource("FilterCar.fxml"));
+        Scene scene = new Scene(fxmlLoader1.load(), 600, 400);
         //checkConnection();
         stage.setTitle("ToGoCar");
         stage.setScene(scene);
@@ -32,9 +34,12 @@ public class Main extends Application {
 
     public void changeScene(String fxml) throws IOException {
         Parent pane;
-        pane = FXMLLoader.load(getClass().getResource(fxml));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxml));
+        pane = loader.load();
         stg.getScene().setRoot(pane);
     }
+
+
 
 
     public static void main(String[] args) {

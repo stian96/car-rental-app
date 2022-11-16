@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.AdvertisementController">
+   <children>
+      <Pane prefHeight="61.0" prefWidth="600.0" style="-fx-background-color: #f1c232;">
+         <children>
+            <Label layoutX="45.0" layoutY="22.0" text="Create Advertisement">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="22.0" />
+               </font>
+            </Label>
+            <Button id="1" fx:id="menuButton" layoutX="457.0" layoutY="24.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #f1c232;" text="Main menu">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children></Pane>
+      <Pane accessibleText="hello" prefHeight="341.0" prefWidth="604.0" style="-fx-background-color: #9fc5e8;">
+         <children>
+            <TextField fx:id="regNumberField" layoutX="140.0" layoutY="35.0" />
+            <Label fx:id="regNumberLabel" layoutX="50.0" layoutY="40.0" text="Reg Number" />
+            <TextField fx:id="dailyChargeField" layoutX="140.0" layoutY="140.0" />
+            <Label fx:id="dailyChargeLabel" layoutX="50.0" layoutY="145.0" text="Daily Charge" />
+            <DatePicker fx:id="availableFrom" layoutX="380.0" layoutY="75.0" prefHeight="26.0" prefWidth="159.0" />
+            <DatePicker fx:id="availableTo" layoutX="380.0" layoutY="190.0" prefHeight="26.0" prefWidth="159.0" />
+            <Label layoutX="420.0" layoutY="44.0" prefHeight="17.0" prefWidth="91.0" text="Available From" />
+            <Label layoutX="420.0" layoutY="162.0" prefHeight="17.0" prefWidth="91.0" text=" Available To" />
+            <TextField fx:id="townField" layoutX="140.0" layoutY="85.0" />
+            <Label layoutX="60.0" layoutY="90.0" text="City" />
+            <TextField fx:id="chargePerTwentyField" layoutX="140.0" layoutY="200.0" />
+            <Label layoutX="40.0" layoutY="200.0" text="Charge Pr 20Km" />
+            <Button fx:id="registerButton" cacheShape="false" centerShape="false" focusTraversable="false" layoutX="249.0" layoutY="271.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="106.0" scaleShape="false" style="-fx-background-color: #f1c232;" text="Register">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Label fx:id="error1" layoutX="310.0" layoutY="40.0" text="*" textFill="RED" visible="false" />
+            <Label fx:id="error2" layoutX="310.0" layoutY="90.0" text="*" textFill="RED" visible="false" />
+            <Label fx:id="error3" layoutX="310.0" layoutY="145.0" text="*" textFill="RED" visible="false" />
+            <Label fx:id="error4" layoutX="310.0" layoutY="205.0" text="*" textFill="RED" visible="false" />
+            <Label fx:id="error5" layoutX="548.0" layoutY="82.0" text="*" textFill="RED" visible="false" />
+            <Label fx:id="error6" layoutX="548.0" layoutY="195.0" text="*" textFill="RED" visible="false" />
+            <Label fx:id="errorLabel" layoutX="67.0" layoutY="271.0" text="Fill in marked fields." textFill="RED" visible="false" />
+         </children></Pane>
+   </children>
+</FlowPane>
