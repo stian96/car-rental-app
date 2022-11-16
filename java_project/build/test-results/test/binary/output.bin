@@ -1,0 +1,5 @@
+@[SQLITE_BUSY] The database file is locked (database is locked)
+g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+@[SQLITE_BUSY] The database file is locked (database is locked)
+@[SQLITE_BUSY] The database file is locked (database is locked)
+@[SQLITE_BUSY] The database file is locked (database is locked)

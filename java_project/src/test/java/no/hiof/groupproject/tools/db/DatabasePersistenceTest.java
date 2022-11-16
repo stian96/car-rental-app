@@ -638,9 +638,15 @@ class DatabasePersistenceTest {
         }
 
         assertFalse(ans);
+    }
 
+    @Test
+    void assertsAllVehiclesCanBeDeserialised() {
 
-
+        assertFalse(RetrieveVehiclesDB.retrieveAllVehiclesAndAdvertisementsId().isEmpty());
+        assertFalse(RetrieveVehiclesDB.retrieveAllVehiclesId().isEmpty());
+        assertFalse(RetrieveVehiclesDB.retrieveAllVehiclesObject().isEmpty());
+        assertFalse(RetrieveVehiclesDB.retrieveAllVehiclesAndAdvertisementsObject().isEmpty());
     }
 
 }

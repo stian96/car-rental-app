@@ -77,6 +77,8 @@ public class RentOutAd extends Advertisement {
         if (!existsInDb()) {
             serialise();
         }
+
+
         this.setId(getAutoIncrementId());
 
     }
