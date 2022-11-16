@@ -38,43 +38,76 @@ public class ToGoCarPageController  implements Initializable {
     private Label noAvailableCarWarning;
 
 
-
-    public void userRegisterCar(ActionEvent event) throws IOException {
-        Main m = new Main();
-        m.changeScene("RegistrationCar.fxml");}
-
-    public void carAdvertisement(ActionEvent event)throws IOException{
-        Main m = new Main();
-        m.changeScene("Advertisement.fxml");}
-
-
-  public void userProfile(ActionEvent event) throws IOException{
-        Main m = new Main();
-        m.changeScene("Profile.fxml");
-        }
-
-  public void message_menu(ActionEvent event) throws IOException{
-        Main m = new Main();
-        m.changeScene("LogIn.fxml");
-        }
- public void findACar(ActionEvent event) throws IOException {
-        Main m = new Main();
-        m.changeScene("FilterCar.fxml");
-        }
- public void customerService(ActionEvent event) throws IOException{
-        Main m = new Main();
-        m.changeScene("LogIn.fxml");
-        }
- public void userLogOut(ActionEvent event) throws IOException{
-        Main m = new Main();
-        m.changeScene("LogIn.fxml");
-        }
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       // noAvailableCarWarning.setText("Hello: " + LogInController.user.getFirstName() + " " + LogInController.user.getLastName());
+        // noAvailableCarWarning.setText("Hello: " + LogInController.user.getFirstName() + " " + LogInController.user.getLastName());
+        button_Advertisement.setOnAction(this::carAdvertisement);
+        button_registerCar.setOnAction(this::userRegisterCar);
+        button_profile.setOnAction(this::userProfile);
+        button_messages.setOnAction(this::message_menu);
+        button_FindCar.setOnAction(this::findACar);
+        button_customerService.setOnAction(this::customerService);
+        button_logOut.setOnAction(this::userLogOut);
     }
 
+    public void userRegisterCar(ActionEvent event) {
+        Main m = new Main();
+        try {
+            m.changeScene("RegistrationCar.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
 
+    public void carAdvertisement(ActionEvent event) {
+        Main m = new Main();
+        try {
+            m.changeScene("Advertisement.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
+
+  public void userProfile(ActionEvent event) {
+        Main m = new Main();
+        try {
+          m.changeScene("Profile.fxml");
+        } catch (IOException ioException) {
+          System.out.println(ioException.getMessage());
+        }
+    }
+
+  public void message_menu(ActionEvent event) {
+        Main m = new Main();
+        try {
+          m.changeScene("LogIn.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
+
+ public void findACar(ActionEvent event) {
+        Main m = new Main();
+        try {
+         m.changeScene("FilterCar.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
+ public void customerService(ActionEvent event) {
+        Main m = new Main();
+        try {
+         m.changeScene("Login.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
+ public void userLogOut(ActionEvent event) {
+        Main m = new Main();
+        try {
+         m.changeScene("LogIn.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
 }
