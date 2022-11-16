@@ -55,7 +55,7 @@ public abstract class Vehicle implements Serialise, GetAutoIncrementId, ExistsIn
         String sql = "SELECT * FROM vehicles WHERE regNo = " + this.regNo;
 
         int i = 0;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -73,7 +73,7 @@ public abstract class Vehicle implements Serialise, GetAutoIncrementId, ExistsIn
         String sql = "SELECT COUNT(*) AS amount FROM vehicles WHERE regNo = " + this.regNo;
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -86,6 +86,10 @@ public abstract class Vehicle implements Serialise, GetAutoIncrementId, ExistsIn
             System.out.println(e.getMessage());
         }
         return false;
+    }
+
+    public void removeVehicleAndCascade() {
+        RemoveVehicleDB.remove(this.getId());
     }
 
     public int getId() {
@@ -146,6 +150,11 @@ public abstract class Vehicle implements Serialise, GetAutoIncrementId, ExistsIn
 
     public String getVehicleSubclass() {
         return vehicleSubclass;
+    }
+
+    @Override
+    public String toString() {
+        return  manufacturer;
     }
 
     public void setVehicleSubclass(String vehicleSubclass) {

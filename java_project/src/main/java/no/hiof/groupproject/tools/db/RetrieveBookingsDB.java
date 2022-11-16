@@ -22,7 +22,7 @@ public class RetrieveBookingsDB {
 
         ArrayList<Booking> bookings = new ArrayList<>();
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 
@@ -37,5 +37,23 @@ public class RetrieveBookingsDB {
         }
         return bookings;
     }
+
+   /* public static ArrayList<Booking> retrieveWithPriorConnection(RentOutAd rentOutAd, Connection conn) throws SQLException {
+
+        String sql = "SELECT * FROM bookings " +
+                "WHERE vehicle_fk = " + rentOutAd.getVehicle().getId();
+
+        ArrayList<Booking> bookings = new ArrayList<>();
+
+         Statement str = conn.createStatement();
+         ResultSet rs = str.executeQuery(sql);
+
+        //loops through rows in the sql SELECT statement
+        while (rs.next()) {
+            Booking booking = RetrieveBookingDB.retrieve(rs.getString("bookings_id"));
+            bookings.add(booking);
+        }
+        return bookings;
+    }*/
 
 }

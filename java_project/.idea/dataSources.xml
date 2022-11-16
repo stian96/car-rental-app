@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="test" uuid="b2848fc0-19c8-4050-a6c7-ecb4d1677b34">
+    <data-source source="LOCAL" name="test [2]" uuid="64267aff-23ed-42a4-822a-6d5e6294298b">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
@@ -13,11 +13,11 @@
         </library>
       </libraries>
     </data-source>
-    <data-source source="LOCAL" name="test" uuid="86acba2d-3d0a-42b5-a760-e87a8adb9712">
+    <data-source source="LOCAL" name="testable [2]" uuid="297cc551-a213-45cd-9248-9cac2fd1a48b">
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\rchlm\IdeaProjects\Group_Project\java_project\sqlite\db\test.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/sqlite/db/testable.db</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
       <libraries>
         <library>

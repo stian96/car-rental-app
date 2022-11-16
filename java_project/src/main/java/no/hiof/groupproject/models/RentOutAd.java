@@ -1,12 +1,10 @@
 package no.hiof.groupproject.models;
 
+import javafx.beans.property.SimpleObjectProperty;
 import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
 import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.db.ConnectDB;
-import no.hiof.groupproject.tools.db.GenericQueryDB;
-import no.hiof.groupproject.tools.db.InsertAvailableWithinDB;
-import no.hiof.groupproject.tools.db.InsertBookingDB;
+import no.hiof.groupproject.tools.db.*;
 import no.hiof.groupproject.tools.geocode.Location;
 
 import java.io.IOException;
@@ -79,7 +77,10 @@ public class RentOutAd extends Advertisement {
 
         if (!existsInDb()) {
             serialise();
+            updateDateLastChanged();
         }
+
+
         this.setId(getAutoIncrementId());
 
     }
@@ -91,19 +92,18 @@ public class RentOutAd extends Advertisement {
         //saves the period in the database table 'availableWithin'
         if (!availableWithinExistsInDb(dateFrom, dateTo)) {
             InsertAvailableWithinDB.insert(this, dateFrom, dateTo);
+            updateDateLastChanged();
         }
-        updateDateLastChanged();
+
     }
 
-    //function to add a new booking, ensuring the date is available, and no other booking happens at the same time
-    public void addBooking(Booking booking) {
-
+    public boolean checkIfDateIsAvailable(LocalDate from, LocalDate to) {
         boolean dateAvailable = false;
         boolean dateDoesNotClash = false;
 
         for (Map.Entry<LocalDate, LocalDate> set : availableWithin.entrySet()) {
             //as long as the booking is within the available dates then the code can proceed
-            if (booking.getBookedFrom().isAfter(set.getKey()) && booking.getBookedTo().isBefore(set.getValue())) {
+            if (from.isAfter(set.getKey()) && to.isBefore(set.getValue())) {
                 dateAvailable = true;
             }
         }
@@ -191,7 +191,7 @@ public class RentOutAd extends Advertisement {
                             secondVal = set.getValue();
                         }
                     }
-                    
+
                     dateIsFree.put(firstVal, secondKey);
                     dateIsFree.put(secondVal, LocalDate.parse("2099-01-01"));
                 } else if (confirmedBookings.size() == 1) {
@@ -209,24 +209,31 @@ public class RentOutAd extends Advertisement {
 
             //sets a flag if the booking does not clash with another booking
             for (Map.Entry<LocalDate, LocalDate> set : dateIsFree.entrySet()) {
-                if (booking.getBookedFrom().isAfter(set.getKey()) && booking.getBookedTo().isBefore(set.getValue())) {
+                if (from.isAfter(set.getKey()) && to.isBefore(set.getValue())) {
                     dateDoesNotClash = true;
                 }
             }
         }
 
+        return dateDoesNotClash;
+
+
+    }
+
+    //function to add a new booking, ensuring the date is available, and no other booking happens at the same time
+    public void addBooking(Booking booking) {
+
         //if and ONLY IF the booking date is within dates available AND does not clash with other booking dates
         //then the booking will be added to a booking array
-        if (dateDoesNotClash) {
+        if (checkIfDateIsAvailable(booking.getBookedFrom(), booking.getBookedTo())) {
             //creates a booking in the format of <renter id>.<date booking begins>.<vehicle owner id>
             //42.2024-12-24.26
             confirmedBookings.add(booking);
             //serialises booking
             if (!booking.existsInDb()) {
                 InsertBookingDB.insert(booking);
+                updateDateLastChanged();
             }
-
-            updateDateLastChanged();
         }
     }
 
@@ -241,7 +248,7 @@ public class RentOutAd extends Advertisement {
                 " AND vehicle_fk = " + this.vehicle.getId();
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -262,7 +269,7 @@ public class RentOutAd extends Advertisement {
                 "\' AND dateTo = \'" + dateTo.toString() + "\'";
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -282,7 +289,7 @@ public class RentOutAd extends Advertisement {
                 " AND vehicle_fk = " + this.vehicle.getId();
 
         int i = 0;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -292,6 +299,23 @@ public class RentOutAd extends Advertisement {
             System.out.println(e.getMessage());
         }
         return i;
+    }
+
+    //test to remove a specific booking based on its id
+    public void removeBooking(String strId) {
+
+        Booking bookingToRemove = null;
+
+        for (Booking booking : confirmedBookings) {
+            if (Objects.equals(booking.getStrId(), strId)) {
+                bookingToRemove = booking;
+            }
+        }
+        if (bookingToRemove != null) {
+            confirmedBookings.remove(bookingToRemove);
+            RemoveBookingDB.remove(strId);
+        }
+
     }
 
     public String getTown() {
@@ -390,6 +414,12 @@ public class RentOutAd extends Advertisement {
         this.confirmedBookings = confirmedBookings;
     }
 
+    @Override
+    public String toString() {
+        return "Owner:" + getUser().getFirstName() + " |manufacturer: " + vehicle.getManufacturer() + " |Model: " + vehicle.getModel() +
+                " |Daily charge: " + dailyCharge
+                ;
+    }
 }
 
 

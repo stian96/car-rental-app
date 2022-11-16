@@ -27,4 +27,17 @@ public class InsertLicenseDB {
         }
 
     }
+
+   /* public static void insertWithPriorConnection(License dLicense, Connection conn) throws SQLException {
+
+        String sql = "INSERT INTO licenses (licenseNumber, dateOfIssue, countryOfIssue)" +
+                "VALUES(?,?,?)";
+
+        PreparedStatement str = conn.prepareStatement(sql);
+            str.setString(1, dLicense.getLicenseNumber());
+            str.setString(2, dLicense.getDateOfIssue().toString());
+            str.setString(3, dLicense.getCountryOfIssue());
+            str.executeUpdate();
+
+    }*/
 }

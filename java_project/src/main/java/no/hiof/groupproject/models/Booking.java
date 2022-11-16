@@ -63,7 +63,7 @@ public class Booking implements ExistsInDb, Serialise {
         String sql = "SELECT COUNT(*) AS amount FROM bookings WHERE bookings_id = \'" + strId + "\'";
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();

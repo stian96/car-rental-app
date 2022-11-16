@@ -24,8 +24,13 @@ public class License implements Serialise, ExistsInDb, VerifyLicense {
         this.dateOfIssue = dateOfIssue;
         this.countryOfIssue = countryOfIssue;
 
-        //serialisation done in User as long as license doesn't exist in the DB, and licenseNumber
+        //serialisation done as long as license doesn't exist in the DB, and licenseNumber
         //and dateOfIssue are valid
+        if (this.verifyLicenseNumber() && this.verifyDateOfIssue()) {
+            if (!existsInDb()) {
+                serialise();
+            }
+        }
 
     }
 
@@ -60,7 +65,7 @@ public class License implements Serialise, ExistsInDb, VerifyLicense {
         String sql = "SELECT COUNT(*) AS amount FROM licenses WHERE licenseNumber = \'" + this.licenseNumber + "\'";
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();

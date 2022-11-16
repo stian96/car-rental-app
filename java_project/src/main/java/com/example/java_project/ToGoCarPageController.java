@@ -1,128 +1,138 @@
 package com.example.java_project;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class ToGoCarPageController {
+
+public class ToGoCarPageController  implements Initializable {
 
     @FXML
     private Button button_registerCar;
     @FXML
-    private Button button_bookCar;
+    private Button button_FindCar;
+    @FXML
+    private Button button_Advertisement;
     @FXML
     private Button button_profile;
-
-
-
-    public ToGoCarPageController() {
-    }
-
-    public Button getButton_registerCar() {
-        return button_registerCar;
-    }
-
-    public void setButton_registerCar(Button button_registerCar) {
-        this.button_registerCar = button_registerCar;
-    }
-
-    public Button getButton_bookCar() {
-        return button_bookCar;
-    }
-
-    public void setButton_bookCar(Button button_bookCar) {
-        this.button_bookCar = button_bookCar;
-    }
-
-    public Button getButton_profile() {
-        return button_profile;
-    }
-
-    public void setButton_profile(Button button_profile) {
-        this.button_profile = button_profile;
-    }
-
-    public Button getButton_messages() {
-        return button_messages;
-    }
-
-    public void setButton_messages(Button button_messages) {
-        this.button_messages = button_messages;
-    }
-
-    public Button getButton_customerService() {
-        return button_customerService;
-    }
-
-    public void setButton_customerService(Button button_customerService) {
-        this.button_customerService = button_customerService;
-    }
-
-    public Button getButton_logOut() {
-        return button_logOut;
-    }
-
-    public void setButton_logOut(Button button_logOut) {
-        this.button_logOut = button_logOut;
-    }
-
     @FXML
-    private Button button_messages;
+    private Button button_message;
     @FXML
     private Button button_customerService;
     @FXML
     private Button button_logOut;
+    @FXML
+    private TextField tf_TownName;
+    @FXML
+    private DatePicker start_DatePicker;
+    @FXML
+    private DatePicker return_DatePicker;
+    @FXML
+    private Label noAvailableCarWarning;
 
 
-    public void userRegisterCar(ActionEvent event) throws IOException {
-        registerAcar();
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        // noAvailableCarWarning.setText("Hello: " + LogInController.user.getFirstName() + " " + LogInController.user.getLastName());
+        button_Advertisement.setOnAction(this::carAdvertisement);
+        button_registerCar.setOnAction(this::userRegisterCar);
+        button_profile.setOnAction(this::userProfile);
+        button_message.setOnAction(this::message_menu);
+        button_FindCar.setOnAction(this::findACar);
+        button_customerService.setOnAction(this::customerService);
+        button_logOut.setOnAction(this::userLogOut);
+        buttonStyle();
+
     }
 
-    public void userBookCar(ActionEvent event) throws IOException{
-        bookAcar();
-    }
-
-    public void userProfile(ActionEvent event) throws IOException{
-        user_profile();
-    }
-
-    public void message_menu(ActionEvent event) throws IOException{
-        MessageCheck();
-    }
-    public void customerService(ActionEvent event) throws IOException{
-        CustomerServicePage();
-    }
-    public void userLogOut(ActionEvent event) throws IOException{
-        LogOutCheck();
-    }
-
-
-    private void registerAcar() throws IOException{
+    public void userRegisterCar(ActionEvent event) {
         Main m = new Main();
-        m.changeScene("RegisterACar.fxml");
-    }
-    private void bookAcar() throws IOException{
-        Main m = new Main();
-        m.changeScene("LogIn.fxml");
-    }
-    private void user_profile() throws IOException{
-        Main m = new Main();
-        m.changeScene("Profile.fxml");
-    }
-    private void MessageCheck() throws IOException{
-        Main m = new Main();
-        m.changeScene("LogIn.fxml");
-    }
-    private void CustomerServicePage() throws IOException{
-        Main m = new Main();
-        m.changeScene("LogIn.fxml");
+        try {
+            m.changeScene("RegisterACar.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
     }
 
-    private void LogOutCheck() throws IOException{
+    public void carAdvertisement(ActionEvent event) {
         Main m = new Main();
-        m.changeScene("LogIn.fxml");
+        try {
+            m.changeScene("Advertisement.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
     }
 
+  public void userProfile(ActionEvent event) {
+        Main m = new Main();
+        try {
+          m.changeScene("UpdateProfile.fxml");
+        } catch (IOException ioException) {
+          System.out.println(ioException.getMessage());
+        }
+    }
+
+  public void message_menu(ActionEvent event) {
+        Main m = new Main();
+        try {
+          m.changeScene("LogIn.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
+
+ public void findACar(ActionEvent event) {
+        Main m = new Main();
+        try {
+         m.changeScene("FilterCar.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
+ public void customerService(ActionEvent event) {
+        Main m = new Main();
+        try {
+         m.changeScene("Login.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
+ public void userLogOut(ActionEvent event) {
+        Main m = new Main();
+        try {
+         m.changeScene("LogIn.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
+
+    public void buttonStyle() {
+        button_registerCar.setOnMouseEntered(e -> button_registerCar.setStyle("-fx-background-color: #c9b502;"));
+        button_registerCar.setOnMouseExited(e -> button_registerCar.setStyle("-fx-background-color:  #f1c232;"));
+
+        button_Advertisement.setOnMouseEntered(e -> button_Advertisement.setStyle("-fx-background-color: #c9b502;"));
+        button_Advertisement.setOnMouseExited(e -> button_Advertisement.setStyle("-fx-background-color:  #f1c232;"));
+
+        button_profile.setOnMouseEntered(e -> button_profile.setStyle("-fx-background-color: #c9b502;"));
+        button_profile.setOnMouseExited(e -> button_profile.setStyle("-fx-background-color:  #f1c232;"));
+
+        button_FindCar.setOnMouseEntered(e -> button_FindCar.setStyle("-fx-background-color: #c9b502;"));
+        button_FindCar.setOnMouseExited(e -> button_FindCar.setStyle("-fx-background-color:  #f1c232;"));
+
+        button_customerService.setOnMouseEntered(e -> button_customerService.setStyle("-fx-background-color: #c9b502;"));
+        button_customerService.setOnMouseExited(e -> button_customerService.setStyle("-fx-background-color:  #f1c232;"));
+
+        button_logOut.setOnMouseEntered(e -> button_logOut.setStyle("-fx-background-color: #c9b502;"));
+        button_logOut.setOnMouseExited(e -> button_logOut.setStyle("-fx-background-color:  #f1c232;"));
+
+        button_message.setOnMouseEntered(e -> button_message.setStyle("-fx-background-color: #c9b502;"));
+        button_message.setOnMouseExited(e -> button_message.setStyle("-fx-background-color:  #f1c232;"));
+    }
 }

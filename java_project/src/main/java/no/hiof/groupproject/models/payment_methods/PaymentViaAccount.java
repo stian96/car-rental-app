@@ -34,10 +34,10 @@ public abstract class PaymentViaAccount extends Payment {
 
     @Override
     public boolean existsInDb() {
-        String sql = "SELECT COUNT(*) AS amount FROM payments WHERE email = " + this.email;
+        String sql = "SELECT COUNT(*) AS amount FROM payments WHERE email = \'" + this.email + "\'";
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -57,7 +57,7 @@ public abstract class PaymentViaAccount extends Payment {
         String sql = "SELECT * FROM payments WHERE email = \'" + this.email + "\'";
 
         int i = 0;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();

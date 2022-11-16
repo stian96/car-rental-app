@@ -20,7 +20,7 @@ public class RetrieveBookingDB {
 
         Booking booking = null;
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -41,5 +41,30 @@ public class RetrieveBookingDB {
         }
         return booking;
     }
+
+    /*public static Booking retrieveWithPriorConnection(String strId, Connection conn) throws SQLException {
+
+        String sql = "SELECT * FROM bookings " +
+                "WHERE bookings_id = \'" + strId + "\'";
+
+        Booking booking = null;
+
+        PreparedStatement str = conn.prepareStatement(sql);
+
+        ResultSet queryResult = str.executeQuery();
+
+        User renter = RetrieveUserDB.retrieveFromId(queryResult.getInt("renter_fk"));
+        User owner = RetrieveUserDB.retrieveFromId(queryResult.getInt("owner_fk"));
+        LocalDate bookedFrom = LocalDate.parse(queryResult.getString("bookedFrom"));
+        LocalDate bookedTo = LocalDate.parse(queryResult.getString("bookedTo"));
+        Payment payment = RetrievePaymentDB.retrieve(queryResult.getInt("payment_fk"));
+        Vehicle vehicle = RetrieveVehicleDB.retrieveFromId(queryResult.getInt("vehicle_fk"));
+
+        booking = new Booking(renter, owner, bookedFrom, bookedTo, payment, vehicle);
+        booking.setStrId(strId);
+
+        return booking;
+
+    }*/
 
 }

@@ -2,39 +2,39 @@ package no.hiof.groupproject.tools;
 import java.time.*;
 public class Deadline {
     //Added class Deadline to accept/decline an offer..
-    private LocalDateTime today;
-    private LocalDateTime deadline;
+    private LocalDate today;
+    private LocalDate deadline;
 
-    public Deadline(LocalDateTime today,LocalDateTime deadline)
+    public Deadline(LocalDate today,LocalDate deadline)
     {
         this.today=today;
         this.deadline=deadline;
     }
 
-    public LocalDateTime getToday(){
-        return LocalDateTime.now();
+    public LocalDate getToday(){
+        return today;
     }
 
-    public void setToday(LocalDateTime today){
+    public void setToday(LocalDate today){
         this.today=today;
     }
 
-    public LocalDateTime getDeadline(){
-        return getToday().plusDays(2);
+    public LocalDate getDeadline(){
+        return deadline;
     }
 
-    public void setDeadline(LocalDateTime deadline){
+    public void setDeadline(LocalDate deadline){
         this.deadline=deadline;
     }
 
-    public boolean compareDates(){
-        if(getToday().compareTo(getDeadline())>0){
-            return false;//dateisafterdeadline
-        }else if(getToday().compareTo(getDeadline())<0){
-            return true;//dateisbeforedeadline
+    public boolean compareDates() {
+        //dateisbeforedeadline
+        if (getToday().isEqual(getDeadline())) {
+            //if it's the same day
+            return true;
+        } else {
+            return getToday().isBefore(getDeadline());
         }
-        else{
-            return true;}//thisdateequaltodeadline
-    }
 
+    }
 }

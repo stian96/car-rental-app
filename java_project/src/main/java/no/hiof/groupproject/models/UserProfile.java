@@ -45,17 +45,11 @@ public class UserProfile implements Serialise, ExistsInDb {
 
     /** Method to calculates the average rating for the User*/
     public double calculateAverageRating(){
-        double sum = 0;
-        int count = ratings.size();
-        double result;
-        for(int values : ratings.values()){
-            sum += values;
-            result = sum/((double) count);//Fix later : round to one or two decimal places
-            averageRating = result;
-        }
+        double avgRating = Double.parseDouble(RetrieveAverageRatingDB.retrieve(this));
+        this.setAverageRating(avgRating);
         //updates the averageRating column in userProfiles table after each refresh
         RetrieveAverageRatingDB.update(this);
-        return averageRating;
+        return avgRating;
     }
 
     /** Method that gets new rating to add to the ratings hashmap.
@@ -70,10 +64,12 @@ public class UserProfile implements Serialise, ExistsInDb {
             //if the userGivingRating hasn't rated user before then the following code is executed
             ratings.put(userGivingRating, rating);
             InsertRatingDB.insert(user, userGivingRating, rating);
+            calculateAverageRating();
             return calculateAverageRating();
         } else if (ratingExistsInDb(userGivingRating) && userGivingRating.getId() != user.getId()){
             //if the userGivingRating wishes to update their rating:
             InsertRatingDB.update(user, userGivingRating, rating);
+            calculateAverageRating();
             return calculateAverageRating();
         }
         return 0;
@@ -84,7 +80,7 @@ public class UserProfile implements Serialise, ExistsInDb {
         String sql = "SELECT COUNT(*) AS amount FROM userProfiles WHERE user_fk = " + this.user.getId();
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -105,7 +101,7 @@ public class UserProfile implements Serialise, ExistsInDb {
                 userGivingRating.getId() + " AND user = " + user.getId();
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();

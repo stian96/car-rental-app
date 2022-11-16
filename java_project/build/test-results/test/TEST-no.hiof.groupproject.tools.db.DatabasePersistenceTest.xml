@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="no.hiof.groupproject.tools.db.DatabasePersistenceTest" tests="25" skipped="0" failures="0" errors="0" timestamp="2022-11-16T17:41:34" hostname="DESKTOP-P1M6OUN" time="28.153">
+  <properties/>
+  <testcase name="assertsBookingsCanBeSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="2.027"/>
+  <testcase name="assertsBookingsThatClashWillNotBeSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="1.986"/>
+  <testcase name="assertsUserCreatesUserProfile()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.008"/>
+  <testcase name="assertsRentOutAdDateChangedIsUpdated()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="3.96"/>
+  <testcase name="assertsRatingsCanBeSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.063"/>
+  <testcase name="assertsRentOutAdCanBeSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="1.941"/>
+  <testcase name="assertsLicenseCanBeSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.005"/>
+  <testcase name="assertsUserProfileIsSerialisedWhenUserClassIsCreated()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.019"/>
+  <testcase name="assertsVehiclesCanBeSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.004"/>
+  <testcase name="assertsAvailableWithinPeriodCanBeSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="1.967"/>
+  <testcase name="assertsUserUpgradeCreatesUserProfile()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.009"/>
+  <testcase name="assertsUserClassCanBeUpdatedAndReserialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.015"/>
+  <testcase name="assertsAverageRatingsCanBeUpdated()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.096"/>
+  <testcase name="assertsUserClassBasicIsSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.006"/>
+  <testcase name="assertsRatingsCanBeUpdated()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.061"/>
+  <testcase name="assertsRentOutAdDateCreatedIsCorrect()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="3.811"/>
+  <testcase name="assertsInsertAndDeleteFromDB()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.019"/>
+  <testcase name="assertsUserBasicDoesNotCreateUserProfile()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.004"/>
+  <testcase name="assertsBookingsWithDateBeforePresentWillNotBeSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="2.002"/>
+  <testcase name="assertsAllVehiclesCanBeDeserialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="9.996"/>
+  <testcase name="assertsPaymentsCanBeSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.03"/>
+  <testcase name="assertsAverageRatingsCanBeCalculated()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.08"/>
+  <testcase name="assertsUserCanBeEdited()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.031"/>
+  <testcase name="assertsLicensesCanBeSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.003"/>
+  <testcase name="assertsUserClassIsSerialised()" classname="no.hiof.groupproject.tools.db.DatabasePersistenceTest" time="0.007"/>
+  <system-out><![CDATA[[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
