@@ -14,6 +14,14 @@
                   <Font name="Comic Sans MS Bold Italic" size="22.0" />
                </font>
             </Label>
+            <Button id="1" fx:id="menuButton" layoutX="457.0" layoutY="24.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="115.0" style="-fx-background-color: #f1c232;" text="Main menu">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children></Pane>
       <Pane accessibleText="hello" prefHeight="341.0" prefWidth="604.0" style="-fx-background-color: #9fc5e8;">
          <children>

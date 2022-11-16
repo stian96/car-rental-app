@@ -5,22 +5,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-import javafx.scene.layout.Pane;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 
 import java.util.ResourceBundle;
 
-import static com.fasterxml.jackson.databind.type.LogicalType.Array;
-
 
 public class AdvertisementController implements Initializable {
-
+    @FXML
+    private Button menuButton;
     @FXML
     private TextField regNumberField;
 
@@ -52,7 +51,6 @@ public class AdvertisementController implements Initializable {
     @FXML
     private Label errorLabel;
 
-
     @FXML
     private void buttonClick(ActionEvent event) {
         String regNumber = regNumberField.getText();
@@ -71,6 +69,8 @@ public class AdvertisementController implements Initializable {
 
     public void createAdvertisement(String regNo, String dailyCharge, String per20, String city) {
         Vehicle vehicle = RetrieveVehicleDB.retrieveFromRegNo(regNo);
+
+
         User user = LogInController.user;
 
         BigDecimal dailyC = BigDecimal.valueOf(Long.parseLong(dailyCharge));
@@ -87,9 +87,24 @@ public class AdvertisementController implements Initializable {
                 element.setVisible(true);
     }
 
+    @FXML
+    private void menuButtonClick(ActionEvent event) {
+        Main main = new Main();
+        try {
+            main.changeScene("ToGoCar.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         registerButton.setOnAction(this::buttonClick);
+        menuButton.setOnAction(this::menuButtonClick);
+
+        menuButton.setOnMouseEntered(e -> menuButton.setStyle("-fx-background-color:  #f1c232; -fx-text-fill: white;"));
+        menuButton.setOnMouseExited(e -> menuButton.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
     }
 
 }
