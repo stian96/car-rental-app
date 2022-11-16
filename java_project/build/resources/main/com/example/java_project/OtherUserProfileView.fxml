@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.OtherUserProfileView">
+   <children>
+      <Label fx:id="userName" layoutX="35.0" layoutY="150.0" prefHeight="43.0" prefWidth="131.0">
+         <font>
+            <Font name="Cambria" size="14.0" />
+         </font></Label>
+      <Label layoutX="35.0" layoutY="200.0" prefHeight="17.0" prefWidth="59.0" text="Rating:" />
+      <Label layoutX="35.0" layoutY="266.0" prefHeight="17.0" prefWidth="52.0" text="Rate:">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font></Label>
+      <TextField fx:id="rateTxtField" layoutX="92.0" layoutY="264.0" promptText="number 1-5" />
+      <Label fx:id="userAVgRate" layoutX="100.0" layoutY="200.0" />
+      <ImageView fitHeight="127.0" fitWidth="189.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@man.png" />
+         </image></ImageView>
+      <Button fx:id="addRateButton" layoutX="248.0" layoutY="264.0" mnemonicParsing="false" text="Button" />
+   </children>
+</AnchorPane>

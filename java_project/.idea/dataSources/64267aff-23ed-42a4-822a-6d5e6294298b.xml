@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dataSource name="test ">
-  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.32">
+<dataSource name="test [2]">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.43">
     <root id="1">
       <ServerVersion>3.39.2</ServerVersion>
     </root>
@@ -1330,10 +1330,10 @@
     <table id="492" parent="166" name="users"/>
     <table id="493" parent="166" name="vehicles"/>
     <column id="494" parent="482" name="advertisements_id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="495" parent="482" name="user_fk">
       <DataType>INTEGER|0s</DataType>
@@ -1389,19 +1389,16 @@
       <ColNames>user_fk</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>users_id</RefColNames>
-      <RefKeyName>users_pk</RefKeyName>
       <RefTableName>users</RefTableName>
     </foreign-key>
     <foreign-key id="508" parent="482">
       <ColNames>vehicle_fk</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>vehicles_id</RefColNames>
-      <RefKeyName>vehicles_pk</RefKeyName>
       <RefTableName>vehicles</RefTableName>
     </foreign-key>
     <index id="509" parent="482" name="advertisements_advertisements_id_uindex">
       <ColNames>advertisements_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="510" parent="482" name="advertisements_pk">
@@ -1426,16 +1423,12 @@
       <ColNames>availableWithin_id_fk</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>advertisements_id</RefColNames>
-      <RefKeyName>advertisements_pk</RefKeyName>
       <RefTableName>advertisements</RefTableName>
     </foreign-key>
     <index id="515" parent="483" name="sqlite_autoindex_availableWithin_1">
       <ColNames>availableWithin_id_fk
 dateFrom
 dateTo</ColNames>
-      <ColumnCollations>
-
-</ColumnCollations>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
@@ -1480,18 +1473,15 @@ dateTo</ColNames>
     <foreign-key id="524" parent="484">
       <ColNames>payment_fk</ColNames>
       <RefColNames>payment_id</RefColNames>
-      <RefKeyName>payments_pk</RefKeyName>
       <RefTableName>payments</RefTableName>
     </foreign-key>
-    <foreign-key id="525" parent="484">
+    <foreign-key id="525" parent="484" name="bookings_vehicles_vehicles_id_fk">
       <ColNames>vehicle_fk</ColNames>
       <RefColNames>vehicles_id</RefColNames>
-      <RefKeyName>vehicles_pk</RefKeyName>
       <RefTableName>vehicles</RefTableName>
     </foreign-key>
     <index id="526" parent="484" name="sqlite_autoindex_bookings_1">
       <ColNames>bookings_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
@@ -1517,12 +1507,10 @@ dateTo</ColNames>
     </column>
     <index id="531" parent="485" name="licenses_licenseNumber_uindex">
       <ColNames>licenseNumber</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="532" parent="485" name="sqlite_autoindex_licenses_1">
       <ColNames>licenseNumber</ColNames>
-      <ColumnCollations></ColumnCollations>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
@@ -1555,9 +1543,6 @@ dateTo</ColNames>
       <ColNames>user_id
 melding
 dato</ColNames>
-      <ColumnCollations>
-
-</ColumnCollations>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
@@ -1568,10 +1553,10 @@ dato</ColNames>
       <UnderlyingIndexName>sqlite_autoindex_messages_1</UnderlyingIndexName>
     </key>
     <column id="541" parent="487" name="payment_id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="542" parent="487" name="paymentType">
       <DataType>TEXT|0s</DataType>
@@ -1608,22 +1593,18 @@ dato</ColNames>
     </column>
     <index id="550" parent="487" name="payments_payment_id_uindex">
       <ColNames>payment_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="551" parent="487" name="payments_cardNumber_uindex">
       <ColNames>cardNumber</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="552" parent="487" name="payments_email_uindex">
       <ColNames>email</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="553" parent="487" name="payments_tlfnr_uindex">
       <ColNames>tlfnr</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="554" parent="487" name="payments_pk">
@@ -1644,27 +1625,22 @@ dato</ColNames>
       <DataType>INTEGER|0s</DataType>
       <Position>3</Position>
     </column>
-    <foreign-key id="558" parent="488">
+    <foreign-key id="558" parent="488" name="ratings_users_fk">
       <ColNames>user</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>users_id</RefColNames>
-      <RefKeyName>users_pk</RefKeyName>
       <RefTableName>users</RefTableName>
     </foreign-key>
-    <foreign-key id="559" parent="488">
+    <foreign-key id="559" parent="488" name="ratings_usersGivingRating_fk">
       <ColNames>userGivingRating</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>users_id</RefColNames>
-      <RefKeyName>users_pk</RefKeyName>
       <RefTableName>users</RefTableName>
     </foreign-key>
     <index id="560" parent="488" name="sqlite_autoindex_ratings_1">
       <ColNames>user
 userGivingRating
 rating</ColNames>
-      <ColumnCollations>
-
-</ColumnCollations>
       <NameSurrogate>1</NameSurrogate>
       <Unique>1</Unique>
     </index>
@@ -1709,16 +1685,14 @@ rating</ColNames>
       <DataType>REAL|0s</DataType>
       <Position>2</Position>
     </column>
-    <foreign-key id="571" parent="491">
+    <foreign-key id="571" parent="491" name="userProfiles_users_users_id_fk">
       <ColNames>user_fk</ColNames>
       <OnDelete>cascade</OnDelete>
       <RefColNames>users_id</RefColNames>
-      <RefKeyName>users_pk</RefKeyName>
       <RefTableName>users</RefTableName>
     </foreign-key>
     <index id="572" parent="491" name="userProfiles_user_fk_uindex">
       <ColNames>user_fk</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <column id="573" parent="492" name="users_id">
@@ -1763,17 +1737,14 @@ rating</ColNames>
     <foreign-key id="582" parent="492">
       <ColNames>license</ColNames>
       <RefColNames>licenseNumber</RefColNames>
-      <RefKeyName>licenses_pk</RefKeyName>
       <RefTableName>licenses</RefTableName>
     </foreign-key>
     <index id="583" parent="492" name="users_users_id_uindex">
       <ColNames>users_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="584" parent="492" name="users_email_uindex">
       <ColNames>email</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="585" parent="492" name="users_pk">
@@ -1782,10 +1753,10 @@ rating</ColNames>
       <UnderlyingIndexName>users_users_id_uindex</UnderlyingIndexName>
     </key>
     <column id="586" parent="493" name="vehicles_id">
+      <AutoIncrement>1</AutoIncrement>
       <DataType>INTEGER|0s</DataType>
       <NotNull>1</NotNull>
       <Position>1</Position>
-      <SequenceIdentity>null</SequenceIdentity>
     </column>
     <column id="587" parent="493" name="vehicleSubclass">
       <DataType>TEXT|0s</DataType>
@@ -1856,12 +1827,10 @@ rating</ColNames>
     </column>
     <index id="602" parent="493" name="vehicles_vehicles_id_uindex">
       <ColNames>vehicles_id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="603" parent="493" name="vehicles_regNo_uindex">
       <ColNames>regNo</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="604" parent="493" name="vehicles_pk">

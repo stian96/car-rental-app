@@ -23,7 +23,8 @@ public class Main extends Application {
         FXMLLoader fxmlLoader1 = new FXMLLoader(Main.class.getResource("Advertisement.fxml"));
         FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("ToGoCar.fxml"));
         FXMLLoader fxmlLoader3 = new FXMLLoader(Main.class.getResource("FilterCar.fxml"));
-        Scene scene = new Scene(fxmlLoader1.load(), 600, 400);
+        FXMLLoader fxmlLoader4 = new FXMLLoader(Main.class.getResource("LogIn.fxml"));
+        Scene scene = new Scene(fxmlLoader4.load(), 600, 400);
         //checkConnection();
         stage.setTitle("ToGoCar");
         stage.setScene(scene);

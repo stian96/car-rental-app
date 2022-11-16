@@ -85,13 +85,15 @@ public class FindACarToRent implements Initializable  {
     public void addFilters(){
 
     }
-
+    public static RentOutAd roa;
 
     //Method to populatetheVehicleListView. Gets ad id from the Filter based on the
     public void populateListView(){
-        RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
+        RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
+        roa =ad;
+
         //Vehicle v = RetrieveVehicleDB.retrieveFromId(roa.getVehicle().getId());
-        adObservableList.addAll(roa);
+        adObservableList.addAll(ad);
         System.out.println(adObservableList);
         vehicleListView.getItems().addAll(adObservableList);
 
@@ -110,46 +112,6 @@ public class FindACarToRent implements Initializable  {
 
     }
 
-
-
-
-
-
-
-
-
-
- public void populateListViewWithHashMap(){
-       String town = tf_townName.getText().trim().toLowerCase();
-    HashMap<Integer, String> thing = new HashMap<>();
-    ArrayList<Integer> thingWithInts = FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null, town, null, null, null, null, null, null);
-
-        for (int i : thingWithInts) {
-        String sql = "SELECT * FROM advertisements INNER JOIN vehicles ON vehicle_fk = vehicles_id WHERE advertisements_id = " + i;
-        String string = null;
-        try (Connection conn = ConnectDB.connect();
-             PreparedStatement str = conn.prepareStatement(sql)) {
-
-            ResultSet queryResult = str.executeQuery();
-
-            string = queryResult.getString("modelYear") + " " +
-                    queryResult.getString("manufacturer") + " " +
-                    queryResult.getString("model") + " - " +
-                    queryResult.getString("town");
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-        thing.put(i, string);
-    }
-
-        for (Map.Entry<Integer, String> result : thing.entrySet()) {
-        //System.out.println("\n\n" + result.getKey() + "     " + result.getValue() + "\n\n");
-
-
-
-
-    }}
 
 
 
@@ -208,89 +170,21 @@ public class FindACarToRent implements Initializable  {
 
         //access the controller and call a method
         DetailedAdViewController controller = loader.getController();
-        //controller.fillData((RentOutAd) vehicleListView.getSelectionModel().getSelectedItem());
+        controller.fillData((RentOutAd) vehicleListView.getSelectionModel().getSelectedItem());
 
 
         //This line gets the Stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = new Stage();
 
         window.setScene(scene);
         window.show();
 
 
-        /*
-
-
-
-        RentOutAd RentOutAd;
-        controller.fillData(RentOutAd)vehicleListView.getSelectionModel().getSelectedItem()  ;
-
-        loader.setController(controller);
-        Parent layout;
-        try {
-            layout = loader.load();
-            Scene scene = new Scene(layout);
-            // this is the popup stage
-            Stage popupStage = new Stage();
-            // now
-            controller.setStage(popupStage);
-            if (this.main != null) {
-                popupStage.initOwner(main.getStage());
-            }
-            popupStage.initModality(Modality.WINDOW_MODAL);
-            popupStage.setScene(scene);
-            popupStage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "There was an error trying to load the popup fxml file.").show();
-        }
-
-         */
-
-
-
-
-
-
-
-
     }
-    /*
-
-    public void showDetails() throws IOException {
-
-
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("DetailedAdView.fxml"));
-        // initializing the controller
-        DetailedAdViewController popupController = new DetailedAdViewController();
-        popupController.fillData((RentOutAd) vehicleListView.getSelectionModel().getSelectedItem());
-
-        //loader.setController(popupController);
-        Parent layout;
-        try {
-            layout = loader.load();
-            Scene scene = new Scene(layout);
-            // this is the popup stage
-            Stage popupStage = new Stage();
-            // now
-            popupController.setStage(popupStage);
-            if(this.main!=null) {
-                popupStage.initOwner(main.getStage());
-            }
-            popupStage.initModality(Modality.WINDOW_MODAL);
-            popupStage.setScene(scene);
-            popupStage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-            new Alert(Alert.AlertType.ERROR, "There was an error trying to load the popup fxml file.").show();
-        }
 
 
 
-}
 
-     */
 
     public void manualChecked(){
 
@@ -306,7 +200,7 @@ public class FindACarToRent implements Initializable  {
 
         //access the controller and call a method
         BookingController booking = loader.getController();
-       // booking.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
+        booking.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
         booking.adFromDate(getFromDate());
         booking.adToDate(getToDate());
         booking.fillAmount(BigDecimal.valueOf(countDaysBetween(getFromDate(),getToDate())));
@@ -321,13 +215,13 @@ public class FindACarToRent implements Initializable  {
 
     public void viewOwner(ActionEvent  event) throws IOException {
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("Profile.fxml"));
+        loader.setLocation(getClass().getResource("OtherUserProfileView.fxml"));
         Parent pane = loader.load();
 
         Scene scene = new Scene(pane);
 
         //access the controller and call a method
-        UserProfileController p = new UserProfileController();
+        OtherUserProfileView p = new OtherUserProfileView();
        // p.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
 
 
