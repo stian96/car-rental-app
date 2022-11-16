@@ -30,7 +30,7 @@ public class PaymentPageController {
     if(!email.isEmpty() && !password.isEmpty()){
         try{
             if(!p.existsInDb()){
-                Payment pay = InsertPaymentDB.insert(p);
+                InsertPaymentDB.insert(p);
                 payment = p;
                 m.changeScene("Booking.fxml");
 

@@ -30,7 +30,7 @@ public class InsertMessageDB {
         }
     }
 
-    public static void insertWithPriorConnection(Message chat, Connection conn) throws SQLException {
+    /*public static void insertWithPriorConnection(Message chat, Connection conn) throws SQLException {
 
 
         String sql = "INSERT INTO messages (user_id, user_name, melding, dato, tid) " + "VALUES(?,?,?,?,?)";
@@ -44,5 +44,5 @@ public class InsertMessageDB {
 
             str.executeUpdate();
 
-    }
+    }*/
 }

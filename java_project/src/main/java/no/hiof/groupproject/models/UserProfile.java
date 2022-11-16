@@ -80,7 +80,7 @@ public class UserProfile implements Serialise, ExistsInDb {
         String sql = "SELECT COUNT(*) AS amount FROM userProfiles WHERE user_fk = " + this.user.getId();
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -101,7 +101,7 @@ public class UserProfile implements Serialise, ExistsInDb {
                 userGivingRating.getId() + " AND user = " + user.getId();
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();

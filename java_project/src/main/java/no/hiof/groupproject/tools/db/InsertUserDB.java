@@ -70,7 +70,7 @@ public class InsertUserDB {
 
     }
 
-    public static void insertWithPriorConnection(User user, Connection conn) throws SQLException {
+   /* public static void insertWithPriorConnection(User user, Connection conn) throws SQLException {
 
         String sql = "INSERT INTO users (firstName, lastName, postNr, password, bankAccountNr, email, tlfNr, license) " +
                 "VALUES(?,?,?,?,?,?,?,?)";
@@ -115,5 +115,5 @@ public class InsertUserDB {
 
         str.executeUpdate();
 
-    }
+    }*/
 }

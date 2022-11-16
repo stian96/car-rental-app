@@ -28,7 +28,7 @@ public class InsertLicenseDB {
 
     }
 
-    public static void insertWithPriorConnection(License dLicense, Connection conn) throws SQLException {
+   /* public static void insertWithPriorConnection(License dLicense, Connection conn) throws SQLException {
 
         String sql = "INSERT INTO licenses (licenseNumber, dateOfIssue, countryOfIssue)" +
                 "VALUES(?,?,?)";
@@ -39,5 +39,5 @@ public class InsertLicenseDB {
             str.setString(3, dLicense.getCountryOfIssue());
             str.executeUpdate();
 
-    }
+    }*/
 }

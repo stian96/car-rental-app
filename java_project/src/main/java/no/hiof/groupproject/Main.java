@@ -22,6 +22,11 @@ import java.util.TreeMap;
 public class Main {
     public static void main(String[] args) throws IOException, SQLException {
 
+        for (Advertisement advertisement : FilterAdvertisement.filterToArrayListAdvertisement(null, null,
+                null, null,null, null, null,
+                null, null, null)) {
+            System.out.println(advertisement);
+        }
         //the following code is used to test serialisation and deserialisation of the database
         //                             *********** IMPORTANT ***********
         //SQLite errors in the console is just feedback - often preventing duplicate entries (e.g UNIQUE constraints)

@@ -37,7 +37,7 @@ public class InsertUserProfileDB {
 
     }
 
-    public static void insertWithPriorConnection(UserProfile userProfile, Connection conn) throws SQLException {
+    /*public static void insertWithPriorConnection(UserProfile userProfile, Connection conn) throws SQLException {
 
         String sql = "INSERT INTO userProfiles (user_fk, averageRating) " +
                 "VALUES(?,?)";
@@ -54,5 +54,5 @@ public class InsertUserProfileDB {
 
         str.executeUpdate();
 
-    }
+    }*/
 }

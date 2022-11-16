@@ -32,7 +32,7 @@ public class RetrieveUserProfileDB {
         }
         returnedUserProfile.setAdvertisements(RetrieveAdvertisementsDB.retrieveAdvertisementObjectFromId(user.getId()));
         /*
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
         } catch (SQLException e) {
@@ -59,7 +59,7 @@ public class RetrieveUserProfileDB {
         }
         returnedUserProfile.setAdvertisements(RetrieveAdvertisementsDB.retrieveAdvertisementObjectFromId(user.getId()));
         /*
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
         } catch (SQLException e) {
@@ -68,6 +68,7 @@ public class RetrieveUserProfileDB {
          */
         return returnedUserProfile;
     }
+/*
 
     public static UserProfile retrieveWithPriorConnection(int id, Connection conn) throws SQLException {
 
@@ -75,23 +76,25 @@ public class RetrieveUserProfileDB {
 
         UserProfile returnedUserProfile = null;
 
-        User user = RetrieveUserDB.retrieveFromIdWithPriorConnection(id, conn);
+        User user = RetrieveUserDB.retrieveFromId(id);
         returnedUserProfile = new UserProfile(user);
-        HashMap<User, Integer> ratings = RetrieveRatingDB.retrieveWithPriorConnection(returnedUserProfile, conn);
+        HashMap<User, Integer> ratings = RetrieveRatingDB.retrieve(returnedUserProfile);
         if (!ratings.isEmpty()) {
             returnedUserProfile.setRatings(ratings);
             returnedUserProfile.setAverageRating(
-                    Double.parseDouble(RetrieveAverageRatingDB.retrieveWithPriorConnection(returnedUserProfile, conn)));
+                    Double.parseDouble(RetrieveAverageRatingDB.retrieve(returnedUserProfile)));
         }
         returnedUserProfile.setAdvertisements(RetrieveAdvertisementsDB.retrieveAdvertisementObjectFromId(user.getId()));
-        /*
-        try (Connection conn = ConnectDB.connect();
+        */
+/*
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-         */
+         *//*
+
 
         return returnedUserProfile;
     }
@@ -103,24 +106,27 @@ public class RetrieveUserProfileDB {
 
         UserProfile returnedUserProfile = null;
 
-        User user = RetrieveUserDB.retrieveFromEmailWithPriorConnection(email, conn);
+        User user = RetrieveUserDB.retrieveFromEmail(email);
         returnedUserProfile = new UserProfile(user);
-        HashMap<User, Integer> ratings = RetrieveRatingDB.retrieveWithPriorConnection(returnedUserProfile, conn);
+        HashMap<User, Integer> ratings = RetrieveRatingDB.retrieve(returnedUserProfile);
         if (!ratings.isEmpty()) {
             returnedUserProfile.setRatings(ratings);
             returnedUserProfile.setAverageRating(
-                    Double.parseDouble(RetrieveAverageRatingDB.retrieveWithPriorConnection(returnedUserProfile, conn)));
+                    Double.parseDouble(RetrieveAverageRatingDB.retrieve(returnedUserProfile)));
         }
         returnedUserProfile.setAdvertisements(RetrieveAdvertisementsDB.retrieveAdvertisementObjectFromId(user.getId()));
-        /*
-        try (Connection conn = ConnectDB.connect();
+        */
+/*
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
-         */
+         *//*
+
         return returnedUserProfile;
     }
+*/
 
 }

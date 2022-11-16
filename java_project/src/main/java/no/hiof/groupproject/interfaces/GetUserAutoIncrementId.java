@@ -14,7 +14,7 @@ public interface GetUserAutoIncrementId {
         String sql = "SELECT * FROM users WHERE email = " + email;
 
         int i = 0;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();

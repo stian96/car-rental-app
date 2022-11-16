@@ -15,6 +15,11 @@ public class ConnectDB {
         return ConnectSpecifiedDB.connect(db);
     }
 
+    public static Connection connectReadOnly() {
+
+        return ConnectSpecifiedDB.connectReadOnly(db);
+    }
+
     public static String getDb() {
         return db;
     }

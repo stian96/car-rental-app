@@ -5,30 +5,28 @@ import org.junit.jupiter.api.Test;
 import java.sql.Array;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 class DeadlineTest {
 
-    LocalDate thisDay1= LocalDate.now();
-    LocalDate deadline1=thisDay1.plusDays(2);
-
-    LocalDate thisDay2= LocalDate.now();
-    LocalDate deadline2=thisDay2.plusDays(0);
-
-    LocalDate thisDay3= LocalDate.now();
-    LocalDate deadline3=thisDay3.plusDays(-2);
-
     @Test
-    public void afterDeadline(){
-        Assertions.assertEquals(-2, thisDay1.compareTo(deadline1));
+    public void beforeDeadline(){
+        Deadline deadlineTest1 = new Deadline(LocalDate.now(), LocalDate.now().plusDays(2));
+        Assertions.assertTrue(deadlineTest1.compareDates());
     }
     @Test
     public void sameDayAsDeadline(){
-        Assertions.assertEquals(0, thisDay2.compareTo(deadline2));
+        Deadline deadlineTest2 = new Deadline(LocalDate.now(), LocalDate.now());
+        System.out.println(deadlineTest2.getToday());
+        System.out.println(deadlineTest2.getDeadline());
+        Assertions.assertTrue(deadlineTest2.compareDates());
     }
 
     @Test
-    public void beforeDeadline(){
-        Assertions.assertEquals(2, thisDay3.compareTo(deadline3));
-
+    public void afterDeadline(){
+        Deadline deadlineTest3 = new Deadline(LocalDate.now(), LocalDate.now().minusDays(2));
+        System.out.println(deadlineTest3.getToday());
+        System.out.println(deadlineTest3.getDeadline());
+        Assertions.assertFalse(deadlineTest3.compareDates());
     }
 }

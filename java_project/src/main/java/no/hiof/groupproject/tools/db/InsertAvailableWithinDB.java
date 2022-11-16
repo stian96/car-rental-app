@@ -36,7 +36,7 @@ public class InsertAvailableWithinDB {
         }
     }
 
-    public static void insertWithPriorConnection(Advertisement advertisement, LocalDate dateFrom, LocalDate dateTo, Connection conn) throws SQLException {
+    /*public static void insertWithPriorConnection(Advertisement advertisement, LocalDate dateFrom, LocalDate dateTo, Connection conn) throws SQLException {
 
         String sql = "INSERT INTO availableWithin (availableWithin_id_fk, dateFrom, dateTo)" +
                 "VALUES(?,?,?)";
@@ -48,5 +48,5 @@ public class InsertAvailableWithinDB {
         str.setString(3, dateTo.toString());
         str.executeUpdate();
 
-    }
+    }*/
 }

@@ -3,6 +3,7 @@ package no.hiof.groupproject.tools.db;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Properties;
 
 /*
 Establishes a connection to a database.
@@ -23,6 +24,28 @@ public class ConnectSpecifiedDB {
             //path location of the database
             //establish a database connection
             conn = DriverManager.getConnection(specificURL);
+
+            //feedback confirming database is connected
+            //System.out.println("Connection to SQLite has been established.");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        //returns a variable of type Connection
+        return conn;
+    }
+
+    public static Connection connectReadOnly(String specificURL) {
+
+        Connection conn = null;
+
+        Properties config = new Properties();
+        config.setProperty("open_mode", "1");  //1 == readonly
+
+        try {
+            //path location of the database
+            //establish a database connection
+            conn = DriverManager.getConnection(specificURL, config);
 
             //feedback confirming database is connected
             //System.out.println("Connection to SQLite has been established.");
