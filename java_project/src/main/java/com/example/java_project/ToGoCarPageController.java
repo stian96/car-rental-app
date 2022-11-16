@@ -46,22 +46,13 @@ public class ToGoCarPageController  implements Initializable {
         button_Advertisement.setOnAction(this::carAdvertisement);
         button_registerCar.setOnAction(this::userRegisterCar);
         button_profile.setOnAction(this::userProfile);
-        button_messages.setOnAction(this::message_menu);
+        // button_messages.setOnAction(this::message_menu);
         button_FindCar.setOnAction(this::findACar);
         button_customerService.setOnAction(this::customerService);
         button_logOut.setOnAction(this::userLogOut);
+
     }
 
-    // Add icons to the buttons
-    public ImageView addIcon(String imagePath) {
-        //Creating a graphic (image)
-        Image img = new Image("UIControls/logo.png");
-        ImageView view = new ImageView(img);
-        view.setFitHeight(80);
-        view.setPreserveRatio(true);
-
-        return view;
-    }
 
     public void userRegisterCar(ActionEvent event) {
         Main m = new Main();
