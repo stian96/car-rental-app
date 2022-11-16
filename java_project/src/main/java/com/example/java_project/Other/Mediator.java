@@ -1,4 +1,4 @@
-package com.example.java_project;
+package com.example.java_project.Other;
 
 import javafx.stage.Stage;
 import no.hiof.groupproject.models.User;

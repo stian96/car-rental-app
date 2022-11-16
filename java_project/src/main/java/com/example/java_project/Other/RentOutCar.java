@@ -1,4 +1,4 @@
-package com.example.java_project;
+package com.example.java_project.Other;
 
 public class RentOutCar {
     //search bar to retrieve vehicle vehicle class
