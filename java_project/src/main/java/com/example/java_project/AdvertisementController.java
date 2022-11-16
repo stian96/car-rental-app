@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
+import javafx.scene.layout.Pane;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
@@ -50,10 +51,14 @@ public class AdvertisementController implements Initializable {
         registerButton.setText("Success!");
     }
 
+    @FXML
+    private void onMouseHover(ActionEvent event) {
+
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         registerButton.setOnAction(this::buttonClick);
-
     }
 
 }

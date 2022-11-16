@@ -15,7 +15,7 @@
                </font>
             </Label>
          </children></Pane>
-      <Pane prefHeight="341.0" prefWidth="604.0" style="-fx-background-color: #9fc5e8;">
+      <Pane fx:id="toolTip" prefHeight="341.0" prefWidth="604.0" style="-fx-background-color: #9fc5e8;">
          <children>
             <TextField fx:id="regNumberField" layoutX="140.0" layoutY="35.0" />
             <Label fx:id="regNumberLabel" layoutX="50.0" layoutY="40.0" text="Reg Number" />
@@ -33,6 +33,9 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <tooltip>
+                  <Tooltip text="Empty Tooltip" />
+               </tooltip>
             </Button>
          </children></Pane>
    </children>
