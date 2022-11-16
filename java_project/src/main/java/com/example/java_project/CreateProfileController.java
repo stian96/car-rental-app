@@ -37,18 +37,18 @@ public class CreateProfileController implements Initializable {
     @FXML
     private TextField tf_drivingLicense, countryTxtField, dateTxtField;
 
+    @FXML
+    private Label  error1, error2, error3, error4, error5, error6,
+    error7,error8,error9,error10;
+
     String email = SignUpController.emails;
     String password = SignUpController.pass;
 
 
 
-
-
-
-
     // action button for create profile
 
-   public void UpdateProfile(ActionEvent event) {
+   public void UpdateProfile(ActionEvent event) throws IOException {
 
         Main m = new Main();
         String firstName = tf_firstName.getText();
@@ -64,48 +64,27 @@ public class CreateProfileController implements Initializable {
         String countryOfIssue = countryTxtField.getText();
 
         License l = new License(dLicenseNum,dateOfIssue,countryOfIssue);
-
-        User u = RetrieveUserDB.retrieveFromEmail(email);
-       button_UpdateProfile.setText("Added");
-
-
-
-
-
-
-
-
-
+        if(firstName.equals("") || lastName.equals("") || email.equals("") ||
+                password.equals("") || phoneNum.equals("") || bankAccNum.equals("")
+                || postNumber.equals("") || dLicenseNum.equals("") || countryOfIssue.equals("")
+        ) {showErrorlabels();}
+        else {
+           User user = new User(firstName,lastName,postNumber,password,bankAccNum,email,phoneNum,l);
+            button_UpdateProfile.setText("Added");
+            //m.changeScene("ToGoCar.fxml");
+        }
 
     }
 
-    public void exitToMainPage(ActionEvent actionEvent) throws IOException {
-         Main m = new Main();
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText("You must have set up your profile to fully experince the site!");
-        alert.setContentText("Press ok to go to Main or cancel to uptade profile");
-        alert.showAndWait();
-        Optional<ButtonType> result = alert.showAndWait();
-        if(!result.isPresent()){
-
-        }
-        // alert is exited, no button has been pressed.
-        else if(result.get() == ButtonType.OK){
-            m.changeScene("ToGoCar.fxml");
-        }
-        //oke button is pressed
-        else if(result.get() == ButtonType.CANCEL){
+    public void showErrorlabels(){
+       Label[] labellist = {error1, error2, error3, error4, error5, error6,
+               error7,error8,error9,error10};
+       for(Label e : labellist){
+           e.setVisible(true);
+       }
+    }
 
 
-
-        }
-
-
-
-
-
-
-}
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
