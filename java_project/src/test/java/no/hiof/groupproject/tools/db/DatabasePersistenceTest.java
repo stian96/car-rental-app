@@ -589,4 +589,13 @@ class DatabasePersistenceTest {
        assertNotNull(creditDebit1);
     }
 
+    @Test
+    void assertsLicenseCanBeSerialised() {
+
+        License license = new License("98 38 123456 1", LocalDate.parse("2008-05-12"),
+                "Norway");
+
+        assertTrue(license.existsInDb());
+    }
+
 }
