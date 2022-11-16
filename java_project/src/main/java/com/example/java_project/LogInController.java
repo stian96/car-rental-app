@@ -34,11 +34,8 @@ public class LogInController {
     @FXML
     protected Button button_signUp;
 
-
-    public LogInController() {
-
-
-    }
+    //This method is when the user clicks on the login. Checks if user in DB if not creates new user and
+    //saves to DB
     public void userLogIn(ActionEvent event) throws IOException {
         Main m = new Main();
         User u = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());

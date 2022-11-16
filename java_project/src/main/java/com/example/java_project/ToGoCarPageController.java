@@ -55,214 +55,43 @@ public class ToGoCarPageController  implements Initializable {
 
 
 
-    private ListView<Vehicle> vehicleList = new ListView<>() ;
+    public void userRegisterCar(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("RegisterACar.fxml"));
+        Parent pane = loader.load();
+
+        Scene scene = new Scene(pane);
+
+        Stage window = new Stage();
+
+        window.setScene(scene);
+        window.show();}
+
+    public void carAdvertisement(ActionEvent event)throws IOException{
+        Main m = new Main();
+        m.changeScene("Advertisement.fxml");}
 
 
-
-
-
-    //ObservableList<Integer> observableList = FXCollections.observableArrayList();
-    //ObservableList<Advertisement> observableList = FXCollections.observableArrayList();
-    ObservableList<Vehicle> observableListVehicle = FXCollections.observableArrayList();
-
-
-
-
-
-    //This returns the ad id based on the town inserted into the textfield
-    public Integer getAdId(){
-        String town = tf_TownName.getText().trim().toLowerCase();
-
-        for(Integer id : FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null,
-                town, null, null, null,
-                null,null, null)){
-            return id;
+  public void userProfile(ActionEvent event) throws IOException{
+        Main m = new Main();
+        m.changeScene("Profile.fxml");
         }
 
-        return getAdId();}
-
-
-    public String getTextfield(){
-        return tf_TownName.getText();
-
-    }
-
-    //returns the startDate picked using the date picker
-    public LocalDate getStartDate(){
-
-        return start_DatePicker.getValue();
-    }
-    //returns the startDate picked using the date picker
-    public LocalDate getReturnDate(){
-
-        return return_DatePicker.getValue();
-
-
-    }
-
-
-
-
-
-    //prints the ad id into the listview
-    /*
-    public void loadAds(){
-                observableList.addAll(getAdId());
-            System.out.println(observableList);
-                vehicleList.getItems().addAll(observableList);
-
+  public void message_menu(ActionEvent event) throws IOException{
+        Main m = new Main();
+        m.changeScene("LogIn.fxml");
         }
-
-     */
-
-
-
-    public String findAnAvailableCar(){
-        String status = "success";
-        if(getStartDate() == null || getReturnDate() == null){
-            setNoAvailableCarWarning("pick dates");
-            status = "error";}
-        else {
-            try {
-                RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
-                if(!roa.checkIfDateIsAvailable(getStartDate(),getReturnDate())){
-                    setNoAvailableCarWarning("pick Other dates");
-                    status = "error";}
-
-
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-
-        }
-        return status;
-
-    }
-
-
-
-
-    public void FindBookCar(ActionEvent event) throws IOException{
-           Main m = new Main();
-
-       if(event.getSource() == button_FindCar){
-           if(findAnAvailableCar().equals("success")){
-
-               //populateListView();
-
-           }
-        }
-    else noAvailableCarWarning.setText("check other dates");}
-    //public void displayName(String username) {noAvailableCarWarning.setText("Hello: " + username);}
-
-   @FXML
-    private void dateSelection(){
-        if(start_DatePicker.getValue() == null || return_DatePicker.getValue() == null){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText(start_DatePicker.getValue().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")));
-            alert.show();
-            return;
-        }
-        if(start_DatePicker.getValue().isBefore(LocalDate.now()) || return_DatePicker.getValue().isBefore(LocalDate.now())){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Please select an actual date!");
-            alert.show();
-            return;
-        }
-        if(return_DatePicker.getValue().isBefore(start_DatePicker.getValue())){
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("End date is before start date!");
-            alert.show();
-            return;
-        }
-
-        LocalDate fromDate = start_DatePicker.getValue();
-
-        LocalDate toDate = return_DatePicker.getValue();
-
-
-       TreeMap<LocalDate, LocalDate> availableDates = new TreeMap<>();
-       availableDates.put(fromDate,toDate);
-       RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
-       TreeMap<LocalDate, LocalDate> s = RetrieveAvailableWithinDB.retrieve(roa);
-       roa.checkIfDateIsAvailable(fromDate,toDate);
-
-       if(roa.availableWithinExistsInDb(fromDate,toDate)){
-
-           Alert alert = new Alert(Alert.AlertType.ERROR);
-           alert.setContentText("not available");
-           alert.show();
-
-       }
-
-
-
-
-    }
-
-
-    private int ConvertIntoNumeric(String xVal)
-    {
-        try
-        {
-            return Integer.parseInt(xVal);
-        }
-        catch(Exception ex)
-        {
-            return 0;
-        }
-    }
-
-
-        public void setNoAvailableCarWarning(String text){
-            noAvailableCarWarning.setText(text);
-        }
-
-        public void userRegisterCar(ActionEvent event) throws IOException {
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("RegisterACar.fxml"));
-            Parent pane = loader.load();
-
-            Scene scene = new Scene(pane);
-
-            //access the controller and call a method
-
-
-
-            //This line gets the Stage information
-            Stage window = new Stage();
-
-            window.setScene(scene);
-            window.show();
-
-        }
-        public void carAdvertisement(ActionEvent event)throws IOException{
-            Main m = new Main();
-            m.changeScene("Advertisement.fxml");
-        }
-
-
-        public void userProfile(ActionEvent event) throws IOException{
-            Main m = new Main();
-            m.changeScene("Profile.fxml");
-        }
-
-        public void message_menu(ActionEvent event) throws IOException{
-            Main m = new Main();
-            m.changeScene("LogIn.fxml");
-        }
-
-        public void findACar(ActionEvent event) throws IOException {
+ public void findACar(ActionEvent event) throws IOException {
         Main m = new Main();
         m.changeScene("FilterCar.fxml");
         }
-        public void customerService(ActionEvent event) throws IOException{
-            Main m = new Main();
-            m.changeScene("LogIn.fxml");
+ public void customerService(ActionEvent event) throws IOException{
+        Main m = new Main();
+        m.changeScene("LogIn.fxml");
         }
-        public void userLogOut(ActionEvent event) throws IOException{
-            Main m = new Main();
-            m.changeScene("LogIn.fxml");
+ public void userLogOut(ActionEvent event) throws IOException{
+        Main m = new Main();
+        m.changeScene("LogIn.fxml");
         }
 
 
