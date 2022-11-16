@@ -18,7 +18,7 @@ public class RetrieveAverageRatingDB {
                 "WHERE user = " + userProfile.getUser().getId();
 
         String i = null;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -50,7 +50,7 @@ public class RetrieveAverageRatingDB {
 
     }
 
-    public static String retrieveWithPriorConnection(UserProfile userProfile, Connection conn) throws SQLException {
+   /* public static String retrieveWithPriorConnection(UserProfile userProfile, Connection conn) throws SQLException {
 
         String sql = "SELECT AVG(rating) as avgRating FROM ratings " +
                 "WHERE user = " + userProfile.getUser().getId();
@@ -76,6 +76,6 @@ public class RetrieveAverageRatingDB {
 
             str.executeUpdate();
         }
-    }
+    }*/
 
 }

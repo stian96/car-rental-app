@@ -51,7 +51,7 @@ public class Vipps extends Payment {
         String sql = "SELECT COUNT(*) AS amount FROM payments WHERE tlfnr = \'" + this.tlfnr + "\'";
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -71,7 +71,7 @@ public class Vipps extends Payment {
         String sql = "SELECT * FROM payments WHERE tlfnr = \'" + this.tlfnr + "\'";
 
         int i = 0;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();

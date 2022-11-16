@@ -26,7 +26,7 @@ public class RetrieveAdvertisementsDB {
 
         ArrayList<Advertisement> returnedAdvertisements = new ArrayList<>();
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 
@@ -36,7 +36,7 @@ public class RetrieveAdvertisementsDB {
             while (rs.next()) {
 
                 Advertisement advertisement =  RetrieveAdvertisementDB.
-                        retrieveFromIdWithPriorConnection(rs.getInt("advertisements_id"), conn);
+                        retrieveFromId(rs.getInt("advertisements_id"));
                 returnedAdvertisements.add(advertisement);
             }
 
@@ -50,7 +50,7 @@ public class RetrieveAdvertisementsDB {
 
     }
 
-    public static ArrayList<Advertisement> retrieveAdvertisementObjectFromIdWithPriorConnection(int id, Connection conn) throws SQLException {
+   /* public static ArrayList<Advertisement> retrieveAdvertisementObjectFromIdWithPriorConnection(int id, Connection conn) throws SQLException {
 
         String sql = "SELECT * FROM advertisements WHERE user_fk = " + id;
 
@@ -62,13 +62,13 @@ public class RetrieveAdvertisementsDB {
         //loops through rows in the sql SELECT statement
         while (rs.next()) {
 
-            Advertisement advertisement =  RetrieveAdvertisementDB.retrieveFromIdWithPriorConnection(rs.getInt("advertisements_id"), conn);
+            Advertisement advertisement =  RetrieveAdvertisementDB.retrieveFromId(rs.getInt("advertisements_id"));
             returnedAdvertisements.add(advertisement);
         }
 
 
         return returnedAdvertisements;
-    }
+    }*/
 
     public static ArrayList<Integer> retrieveAdvertisementIdFromId(int id) {
 
@@ -77,7 +77,7 @@ public class RetrieveAdvertisementsDB {
         ArrayList<Integer> returnedAdvertisements = new ArrayList<>();
 
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 
@@ -100,6 +100,7 @@ public class RetrieveAdvertisementsDB {
 
     }
 
+/*
     public static ArrayList<Integer> retrieveAdvertisementIdFromIdWithPriorConnection(int id, Connection conn) throws SQLException {
 
         String sql = "SELECT * FROM advertisements WHERE user_fk = " + id;
@@ -119,5 +120,6 @@ public class RetrieveAdvertisementsDB {
 
         return returnedAdvertisements;
     }
+*/
 
 }

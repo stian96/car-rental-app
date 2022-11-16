@@ -19,7 +19,7 @@ public class RetrieveLicenseDB {
         String sql = "SELECT * FROM licenses WHERE licenseNumber = \'" + licenseNumber + "\'";
 
         License dLicense = null;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -40,7 +40,7 @@ public class RetrieveLicenseDB {
         String sql = "SELECT * FROM users INNER JOIN licenses ON license=licenseNumber WHERE users_id = " + id;
 
         License dLicense = null;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -55,7 +55,7 @@ public class RetrieveLicenseDB {
         }
         return dLicense;
     }
-
+/*
     public static License retrieveFromLicenseNrWithPriorConnection(String licenseNumber, Connection conn) throws SQLException {
 
         String sql = "SELECT * FROM licenses WHERE licenseNumber = \'" + licenseNumber + "\'";
@@ -89,6 +89,6 @@ public class RetrieveLicenseDB {
         dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
 
         return dLicense;
-    }
+    }*/
 
 }

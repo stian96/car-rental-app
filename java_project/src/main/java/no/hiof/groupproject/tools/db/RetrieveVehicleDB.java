@@ -24,7 +24,7 @@ public class RetrieveVehicleDB {
         String sql = "SELECT * FROM vehicles WHERE vehicles_id = " + id;
 
         Vehicle returnedVehicle = null;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -88,7 +88,7 @@ public class RetrieveVehicleDB {
         String sql = "SELECT * FROM vehicles WHERE regNo = " + regNo;
 
         Vehicle returnedVehicle = null;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -146,7 +146,7 @@ public class RetrieveVehicleDB {
         }
         return returnedVehicle;
     }
-
+/*
     public static Vehicle retrieveFromIdWithPriorConnection(int id, Connection conn) throws SQLException {
 
         String sql = "SELECT * FROM vehicles WHERE vehicles_id = " + id;
@@ -265,5 +265,5 @@ public class RetrieveVehicleDB {
         }
 
         return returnedVehicle;
-    }
+    }*/
 }

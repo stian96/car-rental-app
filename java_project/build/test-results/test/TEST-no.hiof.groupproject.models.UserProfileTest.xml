@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="no.hiof.groupproject.models.UserProfileTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-14T08:29:42" hostname="DESKTOP-K38CI5S" time="0.09">
-  <properties/>
-  <testcase name="newRatingIsAddedAndAvgIsCalculated()" classname="no.hiof.groupproject.models.UserProfileTest" time="0.09"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

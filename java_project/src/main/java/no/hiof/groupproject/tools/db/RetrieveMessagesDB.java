@@ -14,7 +14,7 @@ public class RetrieveMessagesDB {
 
         ArrayList<String> returnedMessages = new ArrayList<>();
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 

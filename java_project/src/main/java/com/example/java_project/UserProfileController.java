@@ -84,7 +84,7 @@ public class UserProfileController implements Initializable {
 
 
         }
-
+/*
 
     public void fillData(RentOutAd roa){
         ad = roa;
@@ -94,7 +94,7 @@ public class UserProfileController implements Initializable {
         //this.userProfile1 = RetrieveUserProfileDB.retrieve(roa.getUser().getId());
         //ratingLabel.setText(roa.getUser().getFirstName());
         //System.out.println(userProfile);
-        /*
+
         if(roa.getUser().equals(logIn)){
             label_UserName.setText(logIn.getFirstName());
         }else{
@@ -102,11 +102,13 @@ public class UserProfileController implements Initializable {
 
 
 
-         */
+
 
 
 
         }
+
+ */
 
 
 
@@ -124,6 +126,6 @@ public class UserProfileController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       // label_UserName.setText(ad.getUser().getFirstName());
+       label_UserName.setText(LogInController.user.getFirstName() + " " + LogInController.user.getLastName());
     }
 }

@@ -1,5 +1,6 @@
 package no.hiof.groupproject.tools.db;
 
+import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
 import no.hiof.groupproject.models.*;
 import no.hiof.groupproject.models.payment_methods.CreditDebit;
 import no.hiof.groupproject.models.payment_methods.GooglePay;
@@ -368,6 +369,7 @@ class DatabasePersistenceTest {
         roa.addNewPeriod(LocalDate.parse("2030-01-01"), LocalDate.parse("2031-01-01"));
 
         assertTrue(roa.availableWithinExistsInDb(LocalDate.parse("2030-01-01"), LocalDate.parse("2031-01-01")));
+        assertTrue(AvailableWithinExistsInDb.existsInDb(roa,LocalDate.parse("2030-01-01"), LocalDate.parse("2031-01-01") ));
     }
 
     @Test
@@ -587,6 +589,64 @@ class DatabasePersistenceTest {
        assertNotNull(paypal1);
        assertNotNull(googlePay1);
        assertNotNull(creditDebit1);
+    }
+
+    @Test
+    void assertsLicenseCanBeSerialised() {
+
+        License license = new License("98 38 123456 1", LocalDate.parse("2008-05-12"),
+                "Norway");
+
+        assertTrue(license.existsInDb());
+    }
+
+    @Test
+    void assertsInsertAndDeleteFromDB() {
+
+        InsertDB.insert("payments", "paymentType, tlfnr", "'vipps', 96286479");
+
+        String sql = "SELECT COUNT(*) AS amount FROM payments WHERE tlfnr = 96286479";
+
+        boolean ans = false;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        assertTrue(ans);
+
+        DeleteFromDB.delete("payments", "tlfnr", "96286479");
+
+        ans = false;
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        assertFalse(ans);
+    }
+
+    @Test
+    void assertsAllVehiclesCanBeDeserialised() {
+
+        assertFalse(RetrieveVehiclesDB.retrieveAllVehiclesAndAdvertisementsId().isEmpty());
+        assertFalse(RetrieveVehiclesDB.retrieveAllVehiclesId().isEmpty());
+        assertFalse(RetrieveVehiclesDB.retrieveAllVehiclesObject().isEmpty());
+        assertFalse(RetrieveVehiclesDB.retrieveAllVehiclesAndAdvertisementsObject().isEmpty());
     }
 
 }

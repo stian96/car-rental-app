@@ -1,5 +1,6 @@
 package no.hiof.groupproject.tools.db;
 
+import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.payment_methods.*;
 
 import java.sql.Connection;
@@ -12,7 +13,7 @@ A class used to serialise a Booking into a database for permanent storage.
  */
 public class InsertPaymentDB {
 
-    public static Payment insert(Payment payment) {
+    public static void insert(Payment payment) {
 
         String sql = "INSERT INTO payments (paymentType, cardNumber, ccv, validUntil, email, pwd, tlfnr, pincode)" +
                 "VALUES(?,?,?,?,?,?,?,?)";
@@ -39,10 +40,9 @@ public class InsertPaymentDB {
             System.out.println(e.getMessage());
         }
 
-        return payment;
     }
 
-    public static void insertWithPriorConnection(Payment payment, Connection conn) throws SQLException {
+   /* public static void insertWithPriorConnection(Payment payment, Connection conn) throws SQLException {
 
         String sql = "INSERT INTO payments (paymentType, cardNumber, ccv, validUntil, email, pwd, tlfnr, pincode)" +
                 "VALUES(?,?,?,?,?,?,?,?)";
@@ -65,7 +65,5 @@ public class InsertPaymentDB {
         }
         str.executeUpdate();
 
-    }
-
-
+    }*/
 }

@@ -15,15 +15,14 @@ on the 14/10/2022.
  */
 public class InsertDB {
 
-    public void insert(String table, String nm, int ag) {
+    public static void insert(String table, String fieldsToInsert, String valuesToInsert) {
 
-        //eg INSERT INTO people(name,age) VALUES('sam',29)
-        String sql = "INSERT INTO " + table + "(name,age) VALUES(?,?)";
+        //eg InsertDB.insert("payments", "paymentType, tlfNr", "'vipps', 96286479");
+        String sql = "INSERT INTO " + table + "(" + fieldsToInsert + ") VALUES(" + valuesToInsert + ")";
 
         try (Connection conn = ConnectDB.connect();
              PreparedStatement str = conn.prepareStatement(sql)) {
-            str.setString(1, nm);
-            str.setInt(2, ag);
+
             str.executeUpdate();
             //conn.close();   //not necessary - try catch closes the resource after being used
         } catch (SQLException e) {
@@ -31,15 +30,4 @@ public class InsertDB {
         }
     }
 
-    public void insertWithPriorConnection(String table, String nm, int ag, Connection conn) throws SQLException {
-
-        //eg INSERT INTO people(name,age) VALUES('sam',29)
-        String sql = "INSERT INTO " + table + "(name,age) VALUES(?,?)";
-
-        PreparedStatement str = conn.prepareStatement(sql);
-        str.setString(1, nm);
-        str.setInt(2, ag);
-        str.executeUpdate();
-
-    }
 }

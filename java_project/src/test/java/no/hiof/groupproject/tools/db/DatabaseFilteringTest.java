@@ -256,6 +256,7 @@ class DatabaseFilteringTest {
         }
 
         assertFalse(result);
+
     }
 
     @Test

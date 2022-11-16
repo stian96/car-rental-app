@@ -26,7 +26,7 @@ public class RemoveVehicleDB {
         }
     }
 
-    public static void removeWithPriorConnection(int id, Connection conn) throws SQLException {
+  /*  public static void removeWithPriorConnection(int id, Connection conn) throws SQLException {
 
         String sql = "DELETE FROM vehicles WHERE vehicles_id = " + id;
 
@@ -36,6 +36,6 @@ public class RemoveVehicleDB {
         str2.execute("PRAGMA foreign_keys = ON;");
         str.executeUpdate();
 
-    }
+    }*/
 
 }

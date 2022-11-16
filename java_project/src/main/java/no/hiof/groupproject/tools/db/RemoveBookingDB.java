@@ -30,7 +30,7 @@ public class RemoveBookingDB {
         }
     }
 
-    public static void removeWithPriorConnection(String strId, Connection conn) throws SQLException {
+   /* public static void removeWithPriorConnection(String strId, Connection conn) throws SQLException {
 
         String sql = "DELETE FROM bookings " +
                 "WHERE bookings_id = \'" + strId + "\'";
@@ -39,6 +39,6 @@ public class RemoveBookingDB {
 
         ResultSet queryResult = str.executeQuery();
 
-    }
+    }*/
 
 }
