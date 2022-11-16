@@ -15,17 +15,15 @@ on the 14/10/2022.
  */
 public class DeleteFromDB {
 
-    public void delete(String table, String col, int val) {
+    public static void delete(String table, String col, String val) {
 
         //choose a table, then a column, then a value. All rows with that value will then be deleted
         //eg DELETE FROM people WHERE people_pk = 5
-        String sql = "DELETE FROM " + table + " WHERE " + col + " = ?";
+        String sql = "DELETE FROM " + table + " WHERE " + col + " = \'" + val + "\'";
 
         try (Connection conn = ConnectDB.connect();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
-            //sets the row value
-            pstmt.setInt(1, val);
             //deletes the stated rows
             pstmt.executeUpdate();
 

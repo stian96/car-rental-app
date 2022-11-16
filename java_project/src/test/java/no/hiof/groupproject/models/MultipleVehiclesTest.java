@@ -48,7 +48,7 @@ class MultipleVehiclesTest {
         RentOutAd roa2 = new RentOutAd(
                 user,
                 car2,
-                BigDecimal.valueOf(800), BigDecimal.valueOf(65), "oslo"
+                BigDecimal.valueOf(800), BigDecimal.valueOf(65), "moss"
         );
 
         UserProfile up = RetrieveUserProfileDB.retrieve(user.getId());

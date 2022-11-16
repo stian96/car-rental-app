@@ -30,7 +30,7 @@ public class Location {
      *  and then use that object to call the openConnection() method which returns a URLConnection instance.
      */
     public Location(String city) throws IOException {
-        this.url = new URL("https://nominatim.openstreetmap.org/search?format=json&city=" + city);
+        this.url = new URL("https://nominatim.openstreetmap.org/search?format=json&city=" + city + "&country=norway");
         this.connection = (HttpURLConnection) url.openConnection();
     }
 

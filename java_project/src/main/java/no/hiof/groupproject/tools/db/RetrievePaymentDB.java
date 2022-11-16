@@ -20,7 +20,7 @@ public class RetrievePaymentDB {
         String sql = "SELECT * FROM payments WHERE payment_id = " + id;
 
         Payment payment = null;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -50,7 +50,7 @@ public class RetrievePaymentDB {
         }
         return payment;
     }
-
+/*
     public static Payment retrieveWithPriorConnection(int id, Connection conn) throws SQLException {
 
         String sql = "SELECT * FROM payments WHERE payment_id = " + id;
@@ -80,7 +80,7 @@ public class RetrievePaymentDB {
         }
 
         return payment;
-    }
+    }*/
 
 
 }

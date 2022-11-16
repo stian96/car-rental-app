@@ -14,7 +14,7 @@ public interface GetVehicleAutoIncrementId {
         String sql = "SELECT * FROM vehicles WHERE regNo = " + regNo;
 
         int i = 0;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();

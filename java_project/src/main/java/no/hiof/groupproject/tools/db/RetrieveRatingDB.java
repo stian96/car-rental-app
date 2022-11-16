@@ -17,13 +17,13 @@ public class RetrieveRatingDB {
                 "WHERE user = " + userProfile.getUser().getId();
         HashMap<User, Integer> ratings = new HashMap<>();
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 
             //loops through rows in the sql SELECT statement
             while (rs.next()) {
-                ratings.put(RetrieveUserDB.retrieveFromIdWithPriorConnection(rs.getInt("userGivingRating"), conn),
+                ratings.put(RetrieveUserDB.retrieveFromId(rs.getInt("userGivingRating")),
                         rs.getInt("rating"));
             }
             return ratings;
@@ -32,6 +32,7 @@ public class RetrieveRatingDB {
         }
         return ratings;
     }
+/*
 
     public static HashMap<User, Integer> retrieveWithPriorConnection(UserProfile userProfile, Connection conn) throws SQLException {
 
@@ -44,11 +45,12 @@ public class RetrieveRatingDB {
 
         //loops through rows in the sql SELECT statement
         while (rs.next()) {
-            ratings.put(RetrieveUserDB.retrieveFromIdWithPriorConnection(rs.getInt("userGivingRating"), conn),
+            ratings.put(RetrieveUserDB.retrieveFromId(rs.getInt("userGivingRating")),
                     rs.getInt("rating"));
         }
         return ratings;
 
     }
+*/
 
 }
