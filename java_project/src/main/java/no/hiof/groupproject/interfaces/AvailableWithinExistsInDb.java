@@ -15,7 +15,7 @@ public interface AvailableWithinExistsInDb {
 
     static boolean existsInDb(Advertisement advertisement, LocalDate dateFrom, LocalDate dateTo) {
         String sql = "SELECT COUNT(*) AS amount FROM availableWithin WHERE availableWithin_id_fk = " +
-                advertisement.getUser().getId() + " AND dateFrom = \'" + dateFrom.toString() +
+                advertisement.getId() + " AND dateFrom = \'" + dateFrom.toString() +
                 "\' AND dateTo = \'" + dateTo.toString() + "\'";
 
         boolean ans = false;

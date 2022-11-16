@@ -1,5 +1,6 @@
 package no.hiof.groupproject.tools.db;
 
+import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
 import no.hiof.groupproject.models.*;
 import no.hiof.groupproject.models.payment_methods.CreditDebit;
 import no.hiof.groupproject.models.payment_methods.GooglePay;
@@ -368,6 +369,7 @@ class DatabasePersistenceTest {
         roa.addNewPeriod(LocalDate.parse("2030-01-01"), LocalDate.parse("2031-01-01"));
 
         assertTrue(roa.availableWithinExistsInDb(LocalDate.parse("2030-01-01"), LocalDate.parse("2031-01-01")));
+        assertTrue(AvailableWithinExistsInDb.existsInDb(roa,LocalDate.parse("2030-01-01"), LocalDate.parse("2031-01-01") ));
     }
 
     @Test
