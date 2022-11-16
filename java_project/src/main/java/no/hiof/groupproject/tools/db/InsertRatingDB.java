@@ -54,7 +54,7 @@ public class InsertRatingDB {
 
     }
 
-    public static void insertWithPriorConnection(User user, User userGivingRating, int rating, Connection conn) throws SQLException {
+   /* public static void insertWithPriorConnection(User user, User userGivingRating, int rating, Connection conn) throws SQLException {
 
         String sql = "INSERT INTO ratings (user, userGivingRating, rating)" +
                 "VALUES(?,?,?)";
@@ -78,7 +78,7 @@ public class InsertRatingDB {
 
         str.executeUpdate();
 
-    }
+    }*/
 
 
 }

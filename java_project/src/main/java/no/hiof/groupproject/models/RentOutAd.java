@@ -246,7 +246,7 @@ public class RentOutAd extends Advertisement {
                 " AND vehicle_fk = " + this.vehicle.getId();
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -267,7 +267,7 @@ public class RentOutAd extends Advertisement {
                 "\' AND dateTo = \'" + dateTo.toString() + "\'";
 
         boolean ans = false;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -287,7 +287,7 @@ public class RentOutAd extends Advertisement {
                 " AND vehicle_fk = " + this.vehicle.getId();
 
         int i = 0;
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();

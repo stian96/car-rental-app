@@ -21,7 +21,7 @@ public class RetrieveUserDB {
 
         User returnedUser = null;
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -74,7 +74,7 @@ public class RetrieveUserDB {
 
         User returnedUser = null;
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              PreparedStatement str = conn.prepareStatement(sql)) {
 
             ResultSet queryResult = str.executeQuery();
@@ -118,7 +118,7 @@ public class RetrieveUserDB {
         }
         return returnedUser;
     }
-
+/*
     public static User retrieveFromIdWithPriorConnection(int id, Connection conn) throws SQLException {
 
         String sql = "SELECT * FROM users LEFT JOIN licenses ON license=licenseNumber WHERE users_id = " + id;
@@ -215,5 +215,5 @@ public class RetrieveUserDB {
         returnedUser.setId(idNumber);
 
         return returnedUser;
-    }
+    }*/
 }

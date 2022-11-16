@@ -25,7 +25,7 @@ public class RemoveUserDB {
             System.out.println(e.getMessage());
         }
     }
-
+/*
     public static void removeWithPriorConnection(int id, Connection conn) throws SQLException {
 
         String sql = "DELETE FROM users WHERE users_id = " + id;
@@ -37,6 +37,6 @@ public class RemoveUserDB {
         str2.execute("PRAGMA foreign_keys = ON;");
         str.executeUpdate();
 
-    }
+    }*/
 
 }

@@ -53,7 +53,7 @@ public class InsertBookingDB {
 
     }
 
-    public static void insertWithPriorConnection(Booking booking, Connection conn) throws SQLException {
+    /*public static void insertWithPriorConnection(Booking booking, Connection conn) throws SQLException {
 
         String sql = "INSERT INTO bookings (bookings_id, renter_fk, owner_fk, bookedFrom, bookedTo, payment_fk, vehicle_fk)" +
                 "VALUES(?,?,?,?,?,?,?)";
@@ -80,5 +80,5 @@ public class InsertBookingDB {
         str.executeUpdate();
 
 
-    }
+    }*/
 }

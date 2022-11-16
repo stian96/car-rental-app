@@ -29,7 +29,7 @@ public class RetrieveVehiclesDB {
 
         ArrayList<Integer> allVehicles = new ArrayList<>();
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 
@@ -51,14 +51,14 @@ public class RetrieveVehiclesDB {
 
         ArrayList<Vehicle> allVehicles = new ArrayList<>();
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 
             //loops through rows in the sql SELECT statement
             while (rs.next()) {
                 int id = rs.getInt("vehicle_fk");
-                Vehicle vehicle = RetrieveVehicleDB.retrieveFromIdWithPriorConnection(id, conn);
+                Vehicle vehicle = RetrieveVehicleDB.retrieveFromId(id);
                 allVehicles.add(vehicle);
             }
             return allVehicles;
@@ -75,7 +75,7 @@ public class RetrieveVehiclesDB {
 
         HashMap<Advertisement, Vehicle> returnedHash = new HashMap<>();
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 
@@ -83,8 +83,8 @@ public class RetrieveVehiclesDB {
             while (rs.next()) {
                 int vehicleId = rs.getInt("vehicle_fk");
                 int advertisementId = rs.getInt("advertisements_id");
-                Advertisement advertisement = RetrieveAdvertisementDB.retrieveFromIdWithPriorConnection(advertisementId, conn);
-                Vehicle vehicle = RetrieveVehicleDB.retrieveFromIdWithPriorConnection(vehicleId, conn);
+                Advertisement advertisement = RetrieveAdvertisementDB.retrieveFromId(advertisementId);
+                Vehicle vehicle = RetrieveVehicleDB.retrieveFromId(vehicleId);
                 returnedHash.put(advertisement, vehicle);
             }
             return returnedHash;
@@ -101,7 +101,7 @@ public class RetrieveVehiclesDB {
 
         HashMap<Integer, Integer> returnedHash = new HashMap<>();
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 

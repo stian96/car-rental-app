@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Locale;
 import java.util.Objects;
+import java.util.Properties;
 
 /*
 Class designed to return an ArrayList of Vehicles, vehicle id, Advertisements, or advertisement id from
@@ -89,7 +90,7 @@ public class FilterAdvertisement {
         ArrayList<Vehicle> vehicles = new ArrayList<>();
 
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 
@@ -118,7 +119,7 @@ public class FilterAdvertisement {
         ArrayList<Integer> vehicles = new ArrayList<>();
 
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 
@@ -148,7 +149,7 @@ public class FilterAdvertisement {
         ArrayList<Advertisement> advertisements = new ArrayList<>();
 
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 
@@ -179,7 +180,7 @@ public class FilterAdvertisement {
         ArrayList<Integer> advertisements = new ArrayList<>();
 
 
-        try (Connection conn = ConnectDB.connect();
+        try (Connection conn = ConnectDB.connectReadOnly();
              Statement str = conn.createStatement();
              ResultSet rs = str.executeQuery(sql)) {
 

@@ -70,7 +70,7 @@ public class InsertVehicleDB {
         }
     }
 
-    public static void insertWithPriorConnection(Vehicle vehicle, Connection conn) throws SQLException {
+  /*  public static void insertWithPriorConnection(Vehicle vehicle, Connection conn) throws SQLException {
 
 
         String sql = "INSERT INTO vehicles (vehicleSubclass, regNo, manufacturer, model, engineType, gearType, " +
@@ -117,5 +117,5 @@ public class InsertVehicleDB {
 
         str.executeUpdate();
 
-    }
+    }*/
 }
