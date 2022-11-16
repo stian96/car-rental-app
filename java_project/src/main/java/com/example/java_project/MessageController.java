@@ -23,18 +23,12 @@ public class MessageController {
     private Button button_send;
     @FXML
     private Button button_toGoCar;
-    public void btnSend(ActionEvent event) throws IOException {
+    public void btnSend(ActionEvent event) {
         Main m = new Main();
         User user = LogInController.user;
-        ChatRoom chat = new ChatRoom();
         String message = textArea_send.getText();
-        String viewMessage = scroolPane_chat.getAccessibleText();
-
-        for (String msg : chat.getMessageLog()) {
-
-        }
+        Message messageClass = new Message(user, message);
     }
-
     public void btnTogoCar(ActionEvent event) throws IOException{
         Main m = new Main();
         m.changeScene("ToGoCar.fxml");
