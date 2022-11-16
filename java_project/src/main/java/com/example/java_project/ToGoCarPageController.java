@@ -5,10 +5,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.effect.DropShadow;
-import javafx.scene.effect.Effect;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 
 
 import java.io.IOException;
@@ -27,7 +23,7 @@ public class ToGoCarPageController  implements Initializable {
     @FXML
     private Button button_profile;
     @FXML
-    private Button button_messages;
+    private Button button_message;
     @FXML
     private Button button_customerService;
     @FXML
@@ -48,7 +44,7 @@ public class ToGoCarPageController  implements Initializable {
         button_Advertisement.setOnAction(this::carAdvertisement);
         button_registerCar.setOnAction(this::userRegisterCar);
         button_profile.setOnAction(this::userProfile);
-        // button_messages.setOnAction(this::message_menu);
+        button_message.setOnAction(this::message_menu);
         button_FindCar.setOnAction(this::findACar);
         button_customerService.setOnAction(this::customerService);
         button_logOut.setOnAction(this::userLogOut);
@@ -136,7 +132,7 @@ public class ToGoCarPageController  implements Initializable {
         button_logOut.setOnMouseEntered(e -> button_logOut.setStyle("-fx-background-color: #c9b502;"));
         button_logOut.setOnMouseExited(e -> button_logOut.setStyle("-fx-background-color:  #f1c232;"));
 
-        button_messages.setOnMouseEntered(e -> button_messages.setStyle("-fx-background-color: #c9b502;"));
-        button_messages.setOnMouseExited(e -> button_messages.setStyle("-fx-background-color:  #f1c232;"));
+        button_message.setOnMouseEntered(e -> button_message.setStyle("-fx-background-color: #c9b502;"));
+        button_message.setOnMouseExited(e -> button_message.setStyle("-fx-background-color:  #f1c232;"));
     }
 }
