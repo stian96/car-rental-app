@@ -75,7 +75,17 @@
             <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Label>
-      <TextField fx:id="dateTxtField" layoutX="260.0" layoutY="295.0" prefHeight="25.0" prefWidth="110.0" promptText="Date of Issue" />
-      <TextField fx:id="countryTxtField" layoutX="393.0" layoutY="295.0" prefHeight="25.0" prefWidth="119.0" promptText="Country of Issue" />
+      <TextField fx:id="dateTxtField" layoutX="283.0" layoutY="295.0" prefHeight="25.0" prefWidth="110.0" promptText="Date of Issue" />
+      <TextField fx:id="countryTxtField" layoutX="417.0" layoutY="295.0" prefHeight="25.0" prefWidth="119.0" promptText="Country of Issue" />
+      <Label fx:id="Error1" layoutX="417.0" layoutY="59.0" text="*" textFill="#f52929" visible="false" />
+      <Label fx:id="error2" layoutX="417.0" layoutY="98.0" text="*" textFill="#f52929" visible="false" />
+      <Label fx:id="error3" layoutX="417.0" layoutY="136.0" text="*" textFill="#f52929" visible="false" />
+      <Label fx:id="error4" layoutX="417.0" layoutY="168.0" text="*" textFill="#f52929" visible="false" />
+      <Label fx:id="error5" layoutX="417.0" layoutY="203.0" text="*" textFill="#f52929" visible="false" />
+      <Label fx:id="error6" layoutX="417.0" layoutY="235.0" text="*" textFill="#f52929" visible="false" />
+      <Label fx:id="error7" layoutX="417.0" layoutY="267.0" text="*" textFill="#f52929" visible="false" />
+      <Label fx:id="error8" layoutX="257.0" layoutY="299.0" text="*" textFill="#f52929" visible="false" />
+      <Label fx:id="error9" layoutX="393.0" layoutY="299.0" text="*" textFill="#f52929" visible="false" />
+      <Label fx:id="error10" layoutX="536.0" layoutY="299.0" text="*" textFill="#f52929" visible="false" />
    </children>
 </AnchorPane>
