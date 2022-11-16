@@ -1,5 +1,6 @@
-package com.example.java_project;
+package com.example.java_project.Controller;
 
+import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -7,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.stage.Stage;
 import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
@@ -15,7 +15,6 @@ import no.hiof.groupproject.models.payment_methods.Payment;
 import no.hiof.groupproject.models.vehicle_types.Car;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.db.InsertBookingDB;
-import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
 
 import java.io.IOException;
 import java.math.BigDecimal;

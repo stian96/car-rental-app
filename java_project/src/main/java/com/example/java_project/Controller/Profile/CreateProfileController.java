@@ -1,17 +1,17 @@
-package com.example.java_project;
+package com.example.java_project.Controller.Profile;
 
+import com.example.java_project.Controller.SignUpController;
+import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import no.hiof.groupproject.models.License;
 import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.tools.db.RetrieveUserDB;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class CreateProfileController implements Initializable {

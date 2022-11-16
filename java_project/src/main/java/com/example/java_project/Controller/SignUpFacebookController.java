@@ -1,4 +1,4 @@
-package com.example.java_project;
+package com.example.java_project.Controller;
 
 import com.example.java_project.Main;
 import javafx.event.ActionEvent;

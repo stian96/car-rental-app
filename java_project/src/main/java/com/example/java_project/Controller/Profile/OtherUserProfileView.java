@@ -1,5 +1,7 @@
-package com.example.java_project;
+package com.example.java_project.Controller.Profile;
 
+import com.example.java_project.Controller.LogInController;
+import com.example.java_project.Other.FindACarToRent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

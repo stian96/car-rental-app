@@ -1,6 +1,4 @@
-package com.example.java_project;
-
-import no.hiof.groupproject.models.User;
+package com.example.java_project.Controller.Profile;
 
 public final class UserLogInSession {
     private static UserLogInSession instance;

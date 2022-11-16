@@ -1,5 +1,7 @@
-package com.example.java_project;
+package com.example.java_project.Controller.Profile;
 
+import com.example.java_project.Controller.LogInController;
+import com.example.java_project.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -9,21 +11,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import no.hiof.groupproject.interfaces.DeserialiseRating;
 import no.hiof.groupproject.models.Advertisement;
 import no.hiof.groupproject.models.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.UserProfile;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
-import no.hiof.groupproject.tools.db.RetrieveRatingDB;
-import no.hiof.groupproject.tools.db.RetrieveUserDB;
-import no.hiof.groupproject.tools.db.RetrieveUserProfileDB;
-import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class UserProfileController implements Initializable {
