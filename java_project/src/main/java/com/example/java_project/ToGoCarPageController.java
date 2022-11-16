@@ -60,22 +60,13 @@ public class ToGoCarPageController  {
        Stage stage = new Stage();
        stage.setScene(new Scene(pane));
        stage.show();
-
-
-
-
     */
-
-
-
 
     //ObservableList<Integer> observableList = FXCollections.observableArrayList();
     //ObservableList<Advertisement> observableList = FXCollections.observableArrayList();
     ObservableList<Vehicle> observableListVehicle = FXCollections.observableArrayList();
 
     FilterCarController f = new FilterCarController();
-
-
 
     //This returns the ad id based on the town inserted into the textfield
     public Integer getAdId(){
@@ -86,7 +77,6 @@ public class ToGoCarPageController  {
                 null,null, null)){
             return id;
         }
-
 
         return getAdId();}
      //RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
@@ -214,10 +204,6 @@ public class ToGoCarPageController  {
            alert.show();
 
        }
-
-
-
-
     }
 
 
@@ -266,10 +252,8 @@ public class ToGoCarPageController  {
             m.changeScene("LogIn.fxml");
         }
 
-
-
-
-
-
-
+        public void AdvertisementScene(ActionEvent event) throws IOException{
+            Main m = new Main();
+            m.changeScene("Advertisement.fxml");
+    }
 }
