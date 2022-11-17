@@ -7,22 +7,27 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.UserProfile;
+import no.hiof.groupproject.tools.db.RetrieveAverageRatingDB;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ProfileView implements Initializable {
 
+    UserProfile u = new UserProfile(LogInController.user);
+    String avgRating = RetrieveAverageRatingDB.retrieve(u);
+
 
     @FXML
     private ListView<?> advertisementList;
 
     @FXML
-    private Button button_EditProfile;
+    private Button editProfileButton;
 
     @FXML
-    private Button button_backMainPage;
+    private Button mainPageButton;
 
     @FXML
     private Label ratingLabel;
@@ -31,12 +36,12 @@ public class ProfileView implements Initializable {
     private Label userNameLabel;
 
     @FXML
-    void BackMainPage(ActionEvent event) {
+    void backMainPage(ActionEvent event) {
 
     }
 
     @FXML
-    void EditProfile(ActionEvent event) {
+    void editProfile(ActionEvent event) {
 
     }
 
@@ -45,7 +50,7 @@ public class ProfileView implements Initializable {
         UserProfile userProfile = new UserProfile(LogInController.user);
         userNameLabel.setText("Hello " + userProfile.getUser().getFirstName() +
                 " " + userProfile.getUser().getLastName() + "!");
-        ratingLabel.setText(String.format("%f", userProfile.getAverageRating()));
+        ratingLabel.setText(String.format("%s", avgRating));
 
     }
 }
