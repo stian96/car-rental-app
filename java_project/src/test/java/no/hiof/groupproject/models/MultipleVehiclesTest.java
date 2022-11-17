@@ -1,7 +1,9 @@
 package no.hiof.groupproject.models;
 
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.RetrieveUserProfileDB;
 import org.junit.jupiter.api.AfterEach;
@@ -10,7 +12,6 @@ import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

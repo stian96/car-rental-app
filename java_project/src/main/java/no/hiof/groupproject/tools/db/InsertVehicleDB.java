@@ -1,11 +1,11 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.two_wheeled_vehicle.Moped;
-import no.hiof.groupproject.models.two_wheeled_vehicle.Motorcycle;
-import no.hiof.groupproject.models.vehicle_types.Camper;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Truck;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.two_wheeled_vehicles.Moped;
+import no.hiof.groupproject.models.vehicles.two_wheeled_vehicles.Motorcycle;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Camper;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Truck;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

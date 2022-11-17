@@ -1,8 +1,8 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
-import no.hiof.groupproject.models.Advertisement;
-import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

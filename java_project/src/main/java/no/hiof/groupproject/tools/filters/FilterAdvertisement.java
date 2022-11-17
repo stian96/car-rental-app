@@ -1,7 +1,7 @@
 package no.hiof.groupproject.tools.filters;
 
-import no.hiof.groupproject.models.Advertisement;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;

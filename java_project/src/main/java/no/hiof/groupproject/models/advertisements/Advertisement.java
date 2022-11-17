@@ -1,8 +1,9 @@
-package no.hiof.groupproject.models;
+package no.hiof.groupproject.models.advertisements;
 
 import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.interfaces.Serialise;
+import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.tools.db.GenericQueryDB;
 import no.hiof.groupproject.tools.db.InsertAdvertisementDB;
 

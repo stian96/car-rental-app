@@ -1,6 +1,6 @@
 package no.hiof.groupproject.interfaces;
 
-import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.tools.db.RetrieveAvailableWithinDB;
 
 import java.time.LocalDate;

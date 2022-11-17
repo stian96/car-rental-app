@@ -1,0 +1,22 @@
+ê[Owner:jeff |manufacturer: volkswagen |Model: e golf |Daily charge: 300.0, Owner:jeff |manufacturer: ferrari |Model: f50 |Daily charge: 800.0]
+g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+98 47 123456 1
+"%g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+"(g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+"(g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+23g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+23g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+2=ä[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: ratings.user, ratings.userGivingRating, ratings.rating)
+2Ij[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: licenses.licenseNumber)
+2Kg[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+2Kg[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+2Mg[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+2Nj[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: licenses.licenseNumber)
+^_2022-11-17
+^_2022-11-15
+^`2022-11-17
+^`2022-11-17
+op9Sending message 'Hello' to email address: ash@gmail.com
+op9Sending message 'Hello' to email address: ash@gmail.com
+or6Sending message 'Hi' to email address: ash@gmail.com

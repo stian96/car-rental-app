@@ -1,7 +1,7 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.Advertisement;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

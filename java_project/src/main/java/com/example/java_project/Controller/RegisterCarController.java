@@ -2,13 +2,10 @@ package com.example.java_project.Controller;
 
 import com.example.java_project.Main;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.db.InsertUserDB;
-import no.hiof.groupproject.tools.db.InsertVehicleDB;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 
 import java.io.IOException;

@@ -1,7 +1,7 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.models.Booking;
-import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

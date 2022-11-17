@@ -3,7 +3,7 @@ package no.hiof.groupproject.tools.db;
 import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.payment_methods.Payment;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

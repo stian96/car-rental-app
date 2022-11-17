@@ -1,4 +1,6 @@
-package no.hiof.groupproject.models.vehicle_types;
+package no.hiof.groupproject.models.vehicles.four_wheeled_vehicles;
+
+import no.hiof.groupproject.models.vehicles.Vehicle;
 
 public class Car extends Vehicle {
     private int seatingCapacity;

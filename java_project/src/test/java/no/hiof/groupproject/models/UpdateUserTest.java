@@ -1,19 +1,13 @@
 package no.hiof.groupproject.models;
 
-import no.hiof.groupproject.models.payment_methods.Paypal;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.db.ConnectDB;
-import no.hiof.groupproject.tools.db.RetrieveBookingDB;
 import no.hiof.groupproject.tools.db.RetrieveUserDB;
 import no.hiof.groupproject.tools.db.UpdateDB;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,4 +1,4 @@
-package no.hiof.groupproject.models.vehicle_types;
+package no.hiof.groupproject.models.vehicles;
 
 import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.GetAutoIncrementId;

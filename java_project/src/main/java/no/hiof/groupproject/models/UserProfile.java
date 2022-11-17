@@ -2,6 +2,7 @@ package no.hiof.groupproject.models;
 
 import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.Serialise;
+import no.hiof.groupproject.models.advertisements.Advertisement;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.InsertRatingDB;
 import no.hiof.groupproject.tools.db.InsertUserProfileDB;

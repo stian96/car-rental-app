@@ -1,7 +1,7 @@
 package no.hiof.groupproject.interfaces;
 
 import no.hiof.groupproject.models.Booking;
-import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.tools.db.RetrieveBookingDB;
 import no.hiof.groupproject.tools.db.RetrieveBookingsDB;
 

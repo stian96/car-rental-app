@@ -2,12 +2,13 @@ package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
 import no.hiof.groupproject.models.*;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.models.payment_methods.CreditDebit;
 import no.hiof.groupproject.models.payment_methods.GooglePay;
 import no.hiof.groupproject.models.payment_methods.Paypal;
 import no.hiof.groupproject.models.payment_methods.Vipps;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import org.junit.jupiter.api.*;
 
 import java.math.BigDecimal;

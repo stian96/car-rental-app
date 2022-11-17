@@ -1,6 +1,6 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.Advertisement;
+import no.hiof.groupproject.models.advertisements.Advertisement;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

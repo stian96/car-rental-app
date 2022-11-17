@@ -1,6 +1,6 @@
-package no.hiof.groupproject.models.two_wheeled_vehicle;
+package no.hiof.groupproject.models.vehicles.two_wheeled_vehicles;
 
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 
 public class Moped extends Vehicle {
     private String helmetProvided;

@@ -3,7 +3,7 @@ package no.hiof.groupproject.models;
 import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.Serialise;
 import no.hiof.groupproject.models.payment_methods.Payment;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.InsertBookingDB;
 

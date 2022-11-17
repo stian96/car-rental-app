@@ -1,6 +1,8 @@
-package no.hiof.groupproject.models;
+package no.hiof.groupproject.models.advertisements;
 
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.Booking;
+import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.InsertAvailableWithinDB;
 import no.hiof.groupproject.tools.db.InsertBookingDB;
