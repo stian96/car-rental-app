@@ -1,11 +1,11 @@
 package no.hiof.groupproject.tools;
 
 import no.hiof.groupproject.models.loginSignUp_methods.*;
+import no.hiof.groupproject.tools.verification.VerifyLogInSignUp;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 class VerifyLogInSignUpTest {
 

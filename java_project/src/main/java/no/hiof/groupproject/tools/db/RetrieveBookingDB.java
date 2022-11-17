@@ -3,11 +3,13 @@ package no.hiof.groupproject.tools.db;
 import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.payment_methods.Payment;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
 
 //Returns a specific TreeMap of all valid rental periods in the database based on a specific User
 

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="no.hiof.groupproject.models.MultipleVehiclesTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-16T19:39:49" hostname="DESKTOP-P1M6OUN" time="8.017">
-  <properties/>
-  <testcase name="assertsUserCanRegisterMoreThanOneVehicle()" classname="no.hiof.groupproject.models.MultipleVehiclesTest" time="8.017"/>
-  <system-out><![CDATA[[Owner:jeff |manufacturer: volkswagen |Model: e golf |Daily charge: 300.0, Owner:jeff |manufacturer: ferrari |Model: f50 |Daily charge: 800.0]
-]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

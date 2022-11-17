@@ -9,11 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import no.hiof.groupproject.models.Booking;
-import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.payment_methods.Payment;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.InsertBookingDB;
 
 import java.io.IOException;

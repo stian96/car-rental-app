@@ -1,10 +1,10 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.Advertisement;
+import no.hiof.groupproject.models.advertisements.Advertisement;
 import no.hiof.groupproject.models.Booking;
-import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 
 import java.math.BigDecimal;
 import java.sql.Connection;

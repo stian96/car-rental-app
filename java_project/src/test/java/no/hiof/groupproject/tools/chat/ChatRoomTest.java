@@ -45,6 +45,10 @@ public class ChatRoomTest {
     @Test
     void VerifyThatGetMessageLogRetrieveDataFromDatabase() {
         ArrayList<String> testLog = new ArrayList<>();
+        Message msg = new Message(user, "Hello from sam");
+        chatRoom.sendMessage(msg);
+        msg = new Message(user, "Test from the same user");
+        chatRoom.sendMessage(msg);
         testLog.add("sam: Hello from sam");
         testLog.add("sam: Test from the same user");
 

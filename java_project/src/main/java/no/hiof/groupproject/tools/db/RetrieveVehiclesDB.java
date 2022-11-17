@@ -1,18 +1,14 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.Advertisement;
-import no.hiof.groupproject.models.Booking;
-import no.hiof.groupproject.models.two_wheeled_vehicle.Moped;
-import no.hiof.groupproject.models.two_wheeled_vehicle.Motorcycle;
-import no.hiof.groupproject.models.vehicle_types.Camper;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Truck;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 
 /*
 Returns an ArrayList of all the Vehicles with RentOutAds associated with them

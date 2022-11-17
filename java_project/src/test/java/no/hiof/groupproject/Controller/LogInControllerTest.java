@@ -2,7 +2,7 @@ package no.hiof.groupproject.Controller;
 
 import no.hiof.groupproject.models.loginSignUp_methods.LogInSignUp;
 import no.hiof.groupproject.models.loginSignUp_methods.LogInValidUsers;
-import no.hiof.groupproject.tools.VerifyLogInSignUp;
+import no.hiof.groupproject.tools.verification.VerifyLogInSignUp;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
