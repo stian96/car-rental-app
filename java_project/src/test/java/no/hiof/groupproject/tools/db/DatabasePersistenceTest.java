@@ -118,12 +118,12 @@ class DatabasePersistenceTest {
     void assertsUserUpgradeCreatesUserProfile() {
         User user = new User("basicbeforeupgrade@user.no", "ihavenoname");
 
-        String sql = "SELECT COUNT(*) AS amount FROM userProfiles WHERE user_fk = " + user.getId();
-
         User user2 = new User("lorry", "dovid", "1777", user.getPassword(),
                 "12341234123", user.getEmail(), "12341234",
                 new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
                         "Norway"));
+
+        String sql = "SELECT COUNT(*) AS amount FROM userProfiles WHERE user_fk = " + user.getId();
 
         boolean ans = false;
 
