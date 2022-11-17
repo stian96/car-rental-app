@@ -48,6 +48,7 @@ public class ToGoCarPageController  implements Initializable {
 
     public static RentOutAd roa;
 
+    //Returns the ID of a advertisemnt that have the give town as location
     public Integer getAdId(){
         String town = townTxtField.getText().trim().toLowerCase();
 
@@ -58,7 +59,7 @@ public class ToGoCarPageController  implements Initializable {
         }
         return getAdId();
     }
-
+    //returns the startDate picked using the date picker
     public LocalDate getFromDate(){
         return fromDatePicker.getValue();
     }
@@ -80,15 +81,11 @@ public class ToGoCarPageController  implements Initializable {
             try {
                 RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
                 roa = ad;
-
-
                 if(!ad.checkIfDateIsAvailable(getFromDate(),getToDate())){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
                     alert.setContentText("No cars available for those dates");
                     alert.show();
                     status = "error";}
-
-
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
@@ -106,19 +103,11 @@ public class ToGoCarPageController  implements Initializable {
                 try {
                     m.changeScene("FilterCar.fxml");
                 } catch (IOException ioException) {
-                    System.out.println(ioException.getMessage());
-                }
-
-            }
-        }
-
-    }
-
+                    System.out.println(ioException.getMessage());}}}}
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // noAvailableCarWarning.setText("Hello: " + LogInController.user.getFirstName() + " " + LogInController.user.getLastName());
         button_Advertisement.setOnAction(this::carAdvertisement);
         button_registerCar.setOnAction(this::userRegisterCar);
         button_profile.setOnAction(this::userProfile);
