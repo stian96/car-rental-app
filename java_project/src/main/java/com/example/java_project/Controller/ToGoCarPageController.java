@@ -83,7 +83,7 @@ public class ToGoCarPageController  implements Initializable {
   public void message_menu(ActionEvent event) {
         Main m = new Main();
         try {
-          m.changeScene("LogIn.fxml");
+          m.changeScene("Message.fxml");
         } catch (IOException ioException) {
             System.out.println(ioException.getMessage());
         }

@@ -23,7 +23,6 @@ public class AdvertisementController implements Initializable {
     private Button menuButton;
     @FXML
     private TextField regNumberField;
-
     @FXML
     private TextField dailyChargeField;
     @FXML
@@ -36,7 +35,6 @@ public class AdvertisementController implements Initializable {
     private TextField chargePerTwentyField;
     @FXML
     private Button registerButton;
-
     @FXML
     private Label error1;
     @FXML
@@ -51,7 +49,6 @@ public class AdvertisementController implements Initializable {
     private Label error6;
     @FXML
     private Label errorLabel;
-
     @FXML
     private void buttonClick(ActionEvent event) {
         String regNumber = regNumberField.getText();
