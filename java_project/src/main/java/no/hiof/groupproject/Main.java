@@ -22,6 +22,7 @@ import java.util.TreeMap;
 public class Main {
     public static void main(String[] args) throws IOException, SQLException {
 
+        /*
         for (Advertisement advertisement : FilterAdvertisement.filterToArrayListAdvertisement(null, null,
                 null, null,null, null, null,
                 null, null, null)) {
@@ -62,7 +63,6 @@ public class Main {
 
 
 
-        /*
         for (Vehicle vehicle : FilterAdvertisement.filterToArrayListVehicle(null, null,
                 null, null,null, null, null,
                 null, null, 1)) {
