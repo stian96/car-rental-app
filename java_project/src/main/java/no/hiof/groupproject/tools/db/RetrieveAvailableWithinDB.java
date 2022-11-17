@@ -1,15 +1,12 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.models.RentOutAd;
-import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.models.UserProfile;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.TreeMap;
 
 /*

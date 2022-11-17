@@ -11,9 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Objects;
-import java.util.Properties;
 
 /*
 Class designed to return an ArrayList of Vehicles, vehicle id, Advertisements, or advertisement id from

@@ -1,6 +1,5 @@
 package no.hiof.groupproject.models.two_wheeled_vehicle;
 
-import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 
 public class Motorcycle extends Vehicle {

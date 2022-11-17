@@ -6,7 +6,6 @@ import no.hiof.groupproject.models.payment_methods.Payment;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.InsertBookingDB;
-import no.hiof.groupproject.tools.db.InsertVehicleDB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Period;
-import java.util.Date;
 
 /*
 A class used to hold data relating to a specific singular booking. This class is used within the RentOutAd

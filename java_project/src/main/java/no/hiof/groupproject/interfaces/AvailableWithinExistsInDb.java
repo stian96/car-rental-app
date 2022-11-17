@@ -8,7 +8,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Map;
 
 //static interface to help with serialisation of TreeMap serialisation, and to avoid saving duplicates
 public interface AvailableWithinExistsInDb {

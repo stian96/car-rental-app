@@ -2,7 +2,6 @@ package no.hiof.groupproject.interfaces;
 
 import no.hiof.groupproject.models.Advertisement;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 import no.hiof.groupproject.tools.db.RetrieveVehiclesDB;
 
 import java.util.ArrayList;

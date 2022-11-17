@@ -1,6 +1,7 @@
 package no.hiof.groupproject.tools.chat;
 
 import no.hiof.groupproject.models.User;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 

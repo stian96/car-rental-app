@@ -1,6 +1,5 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.two_wheeled_vehicle.Moped;
 import no.hiof.groupproject.models.two_wheeled_vehicle.Motorcycle;
 import no.hiof.groupproject.models.vehicle_types.Camper;

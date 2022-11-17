@@ -1,5 +1,6 @@
 package no.hiof.groupproject.tools;
-import java.time.*;
+
+import java.time.LocalDate;
 public class Deadline {
     //Added class Deadline to accept/decline an offer..
     private LocalDate today;

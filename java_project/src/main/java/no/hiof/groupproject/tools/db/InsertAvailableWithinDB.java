@@ -1,16 +1,11 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
 import no.hiof.groupproject.models.Advertisement;
-import no.hiof.groupproject.models.Booking;
-import no.hiof.groupproject.models.RentOutAd;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.Map;
-import java.util.TreeMap;
 
 /*
 A class used to serialise an ArrayWithin date available to book into a database for permanent storage.

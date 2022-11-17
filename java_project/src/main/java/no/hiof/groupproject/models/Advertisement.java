@@ -3,12 +3,9 @@ package no.hiof.groupproject.models;
 import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.interfaces.Serialise;
-import no.hiof.groupproject.tools.db.*;
+import no.hiof.groupproject.tools.db.GenericQueryDB;
+import no.hiof.groupproject.tools.db.InsertAdvertisementDB;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.time.LocalDate;
 
 /*

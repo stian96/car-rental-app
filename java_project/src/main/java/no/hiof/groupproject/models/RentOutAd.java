@@ -1,10 +1,10 @@
 package no.hiof.groupproject.models;
 
-import javafx.beans.property.SimpleObjectProperty;
-import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
-import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.db.*;
+import no.hiof.groupproject.tools.db.ConnectDB;
+import no.hiof.groupproject.tools.db.InsertAvailableWithinDB;
+import no.hiof.groupproject.tools.db.InsertBookingDB;
+import no.hiof.groupproject.tools.db.RemoveBookingDB;
 import no.hiof.groupproject.tools.geocode.Location;
 
 import java.io.IOException;
@@ -14,7 +14,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.Period;
 import java.util.*;
 
 /*
