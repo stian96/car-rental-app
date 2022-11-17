@@ -3,6 +3,7 @@ package com.example.java_project.Other;
 import com.example.java_project.Controller.BookingController;
 import com.example.java_project.Controller.DetailedAdViewController;
 import com.example.java_project.Controller.Profile.OtherUserProfileView;
+import com.example.java_project.Controller.ToGoCarPageController;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -41,6 +42,8 @@ public class FindACarToRent implements Initializable  {
     //private ListView<Vehicle> vehicleListView = new ListView<>();
     private ListView<Advertisement> vehicleListView = new ListView<>();//change the name later
    //rivate ListView<HashMap> vehicleListView = new ListView<>();
+    ListView <Integer> intListView= new ListView<>();
+
     @FXML
     private TextField tf_townName;
     @FXML
@@ -57,21 +60,31 @@ public class FindACarToRent implements Initializable  {
     private Label priceLabel;
     private double dailyPrice;
     private ToggleGroup transmissionToggleGroups, engineToggleGroup;
+
+    String gearType = null;
     private BigDecimal dailyChargebd;
    // ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
     ObservableList<Advertisement> adObservableList = FXCollections.observableArrayList();
 
-    ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null,
+
+    ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, null, null,
             null, null, null, null,
             null,null, null);
+    ObservableList<Integer> adIds = FXCollections.observableArrayList();
 
 
     //mathod to find the ad id using filter based on town name
     public Integer getAdId(){
-        String town = tf_townName.getText().trim().toLowerCase();
 
-        for(Integer id : FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null,
-                town, null, null, null,
+        String gearType = null;
+        if(radioButton_automatic.isSelected()){
+            gearType = "automatic";
+        }else if(radioButton_manual.isSelected()){
+            gearType = "manual";
+        }
+
+        for(Integer id : FilterAdvertisement.filterToArrayListAdvertisementId(gearType, null, null,
+                null, null, null, null,
                 null,null, null)){
             return id;
         }
@@ -86,8 +99,8 @@ public class FindACarToRent implements Initializable  {
 
     //Method to populatetheVehicleListView. Gets ad id from the Filter based on the
     public void populateListView(){
-        RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
-        roa =ad;
+        RentOutAd ad = ToGoCarPageController.roa;
+
 
         //Vehicle v = RetrieveVehicleDB.retrieveFromId(roa.getVehicle().getId());
         adObservableList.addAll(ad);
@@ -98,9 +111,15 @@ public class FindACarToRent implements Initializable  {
 
 
     }
+
+
+
+
     public void radioButtonChanged() {
 
-        if(this.transmissionToggleGroups.getSelectedToggle().equals(this.radioButton_manual)){
+        if(radioButton_automatic.isSelected()){
+            gearType = "automatic";
+
 
 
 
@@ -240,7 +259,11 @@ public class FindACarToRent implements Initializable  {
         engineToggleGroup = new ToggleGroup();
         this.radioButton_Diesel.setToggleGroup(engineToggleGroup);
         this.radioButton_electric.setToggleGroup(engineToggleGroup);
-        this.radioButton_automatic.setToggleGroup(engineToggleGroup);
+        this.radioButton_Hybrid.setToggleGroup(engineToggleGroup);
+        this.adObservableList.addAll(ToGoCarPageController.roa);
+        this.vehicleListView.getItems().addAll(this.adObservableList);
+
+
 
 
 
