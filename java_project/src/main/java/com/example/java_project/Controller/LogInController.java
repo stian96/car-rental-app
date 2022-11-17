@@ -60,14 +60,9 @@ public class LogInController {
         else {wrongLogin.setText("Enter email and Password");}}
 
 
+
     public void userSignUp(ActionEvent event) throws IOException {
         SignUpCheck();
-    }
-
-    public String firstName(){
-        User u = RetrieveUserDB.retrieveFromEmail(tf_userName.getText());
-        return u.getFirstName();
-
     }
 
 

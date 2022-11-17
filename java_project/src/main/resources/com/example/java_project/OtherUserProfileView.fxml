@@ -20,7 +20,7 @@
       <Label fx:id="userAVgRate" layoutX="100.0" layoutY="200.0" />
       <ImageView fitHeight="127.0" fitWidth="189.0" layoutX="14.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@man.png" />
+            <Image url="@images/man.png" />
          </image></ImageView>
       <Button fx:id="addRateButton" layoutX="248.0" layoutY="264.0" mnemonicParsing="false" text="Button" />
    </children>
