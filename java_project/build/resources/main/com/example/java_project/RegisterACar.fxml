@@ -11,7 +11,7 @@
          <children>
             <ImageView fitHeight="42.0" fitWidth="66.0" layoutX="14.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@car.png" />
+                  <Image url="@images/car.png" />
                </image>
             </ImageView>
             <Label layoutX="83.0" layoutY="21.0" text="Register Your Car">
