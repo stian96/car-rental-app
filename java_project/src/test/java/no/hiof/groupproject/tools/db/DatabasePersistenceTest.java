@@ -416,7 +416,10 @@ class DatabasePersistenceTest {
                 BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
         );
 
-        roa.addNewPeriod(LocalDate.parse("2032-01-01"), LocalDate.parse("2033-01-01"));
+        GenericQueryDB.query("DELETE FROM availableWithin WHERE availableWithin_id_fk = " + roa.getId() +
+                " AND dateFrom = '2033-01-01' AND dateTo = '2034-01-01'");
+
+        roa.addNewPeriod(LocalDate.parse("2033-01-01"), LocalDate.parse("2034-01-01"));
 
         RentOutAd roa2 = ((RentOutAd)RetrieveAdvertisementDB.retrieveFromId(roa.getId()));
 
