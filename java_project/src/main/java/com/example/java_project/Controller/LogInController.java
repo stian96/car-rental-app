@@ -53,11 +53,11 @@ public class LogInController {
                     m.changeScene("ToGoCar.fxml");
 
                 }
-                else {wrongLogin.setText("Wrong email or password");}
+                else {wrongLogin.setText("The email or password is incorrect");}
             }catch (IOException e){
                     System.out.println(e.getMessage());}}
 
-        else {wrongLogin.setText("Enter email and Password");}}
+        else {wrongLogin.setText("Please enter an email and password");}}
 
 
     public void userSignUp(ActionEvent event) throws IOException {

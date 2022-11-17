@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="no.hiof.groupproject.tools.chat.ChatRoomTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-17T08:24:50" hostname="DESKTOP-P1M6OUN" time="0.048">
-  <properties/>
-  <testcase name="VerifyThatGetMessageLogRetrieveDataFromDatabase()" classname="no.hiof.groupproject.tools.chat.ChatRoomTest" time="0.048"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>

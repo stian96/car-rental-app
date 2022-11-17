@@ -65,7 +65,7 @@ public class UserProfileController implements Initializable {
     private ObservableList<Advertisement> getAd(){
         ObservableList<Advertisement> ads = FXCollections.observableArrayList();
         Advertisement ad = RetrieveAdvertisementDB.retrieveFromId(LogInController.user.getId());
-        if(!ad.existsInDb()){
+        if(!((RentOutAd)ad).existsInDb()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("No ads");
             alert.show();

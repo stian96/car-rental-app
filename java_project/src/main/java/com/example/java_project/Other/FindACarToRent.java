@@ -127,7 +127,7 @@ public class FindACarToRent implements Initializable  {
         if(getFromDate() == null || getToDate()== null){
 
             Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Select Date");
+            alert.setContentText("Select a date");
             alert.show();
             status = "error";}
         else {
@@ -135,7 +135,7 @@ public class FindACarToRent implements Initializable  {
                 RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
                 if(!roa.checkIfDateIsAvailable(getFromDate(),getToDate())){
                     Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("No cars available for those dates");
+                    alert.setContentText("No cars are available for those dates");
                     alert.show();
                     status = "error";}
 

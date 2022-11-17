@@ -68,14 +68,14 @@ public class RegisterCarController {
                         ConvertIntoNumeric(seatingCapacity),ConvertIntoNumeric(towingCapacity));
 
                 m.changeScene("ToGoCar.fxml");}
-            else{registerPrompt.setText("Car exists already");}}
+            else{registerPrompt.setText("The car already exists");}}
         catch (IOException e){
             System.out.println(e.getMessage());
         }
 
 
         }
-    else { registerPrompt.setText("enter information");}
+    else { registerPrompt.setText("Please complete all fields");}
 
 }
     public void ExitButton(ActionEvent event) throws IOException {
