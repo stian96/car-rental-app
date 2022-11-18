@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.tools.chat.ChatRoom;
+import no.hiof.groupproject.tools.chat.Message;
 import no.hiof.groupproject.tools.db.RetrieveUserDB;
 import no.hiof.groupproject.tools.db.RetrieveUserProfileDB;
 
@@ -31,18 +32,27 @@ public class MessageController implements Initializable {
     @FXML
     private Label receiverLabel;
 
+
     // Global chat room instance.
     ChatRoom chat = new ChatRoom();
 
+    ArrayList<User> receiverList = new ArrayList<>();
+
     public void btnSend(ActionEvent event) {
         User user = LogInController.user;
-        //chat.sendMessage(new Message(user, textArea_send.getText()));
+
+        for (User receiver : receiverList) {
+            if (receiver.getFirstName().equals(receiverChoice.getValue())) {
+                chat.sendMessage(new Message(user, receiver, textArea_send.getText()));
+            }
+        }
         textArea_send.setText(null);
         showMessagesInScrollPane();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        receiverChoice.setOnAction(this::getSelectedChoice);
         button_toGoCar.setOnAction(this::btnTogoCar);
         button_send.setOnAction(this::btnSend);
         addStyle(button_toGoCar);
@@ -50,14 +60,33 @@ public class MessageController implements Initializable {
 
         scroolPane_chat.setContent(messageArea);
         showMessagesInScrollPane();
+
+        getReceiversFromDataBase();
         addReceiversToChoiceBox();
+
     }
 
     public void addReceiversToChoiceBox() {
-        receiverChoice.getItems().add(RetrieveUserDB.retrieveFromId(7).getFirstName());
-        receiverChoice.getItems().add(RetrieveUserDB.retrieveFromId(8).getFirstName());
-        receiverChoice.getItems().add(RetrieveUserDB.retrieveFromId(12).getFirstName());
-        receiverChoice.getItems().add(RetrieveUserDB.retrieveFromId(14).getFirstName());
+        receiverChoice.getItems().add("None");
+        for (User firstname : receiverList)
+            receiverChoice.getItems().add(firstname.getFirstName());
+    }
+
+    public void getReceiversFromDataBase() {
+        receiverList.add(RetrieveUserDB.retrieveFromId(7));
+        receiverList.add(RetrieveUserDB.retrieveFromId(8));
+        receiverList.add(RetrieveUserDB.retrieveFromId(12));
+        receiverList.add(RetrieveUserDB.retrieveFromId(14));
+    }
+
+    public void getSelectedChoice(ActionEvent event) {
+        if (!receiverChoice.getValue().equals("None")) {
+            receiverLabel.setVisible(false);
+        }
+        else {
+            receiverChoice.setValue("");
+            receiverLabel.setVisible(true);
+        }
     }
 
     public void showMessagesInScrollPane() {
