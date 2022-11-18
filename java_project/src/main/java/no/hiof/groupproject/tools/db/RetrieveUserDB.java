@@ -56,8 +56,7 @@ public class RetrieveUserDB {
                 String dateOfIssue = queryResult.getString("dateOfIssue");
                 String countryOfIssue = queryResult.getString("countryOfIssue");
 
-                License dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
-                returnedUser.setdLicense(dLicense);
+                returnedUser.setdLicense(new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue));
             }
 
             returnedUser.setId(id);

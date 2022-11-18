@@ -89,12 +89,15 @@ public class RentOutAd extends Advertisement {
 
     //function to set a new period of time that the vehicle is available within
     public void addNewPeriod(LocalDate dateFrom, LocalDate dateTo) {
-        availableWithin.put(dateFrom, dateTo);
-        //saves the period in the database table 'availableWithin'
-        if (!availableWithinExistsInDb(dateFrom, dateTo)) {
-            InsertAvailableWithinDB.insert(this, dateFrom, dateTo);
-            updateDateLastChanged();
+        if (dateFrom.isBefore(dateTo)) {
+            availableWithin.put(dateFrom, dateTo);
+            //saves the period in the database table 'availableWithin'
+            if (!availableWithinExistsInDb(dateFrom, dateTo)) {
+                InsertAvailableWithinDB.insert(this, dateFrom, dateTo);
+                updateDateLastChanged();
+            }
         }
+
 
     }
 
