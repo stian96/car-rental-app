@@ -52,7 +52,7 @@
                </font>
             </Label>
             <Spinner layoutX="26.0" layoutY="223.0" prefHeight="25.0" prefWidth="79.0" />
-            <Button layoutX="12.0" layoutY="307.0" mnemonicParsing="false" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Add Filters">
+            <Button fx:id="addFilters" layoutX="12.0" layoutY="307.0" mnemonicParsing="false" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Add Filters">
                <font>
                   <Font name="Comic Sans MS Bold Italic" size="13.0" />
                </font>

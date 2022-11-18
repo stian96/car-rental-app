@@ -69,8 +69,34 @@ public class FindACarToRent implements Initializable  {
             null, null, null, null,
             null,null, null);
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        transmissionToggleGroups = new ToggleGroup();
+        this.radioButton_manual.setToggleGroup(transmissionToggleGroups);
+        this.radioButton_automatic.setToggleGroup(transmissionToggleGroups);
 
-    //mathod to find the ad id using filter based on town name
+        engineToggleGroup = new ToggleGroup();
+        this.radioButton_Diesel.setToggleGroup(engineToggleGroup);
+        this.radioButton_electric.setToggleGroup(engineToggleGroup);
+        this.radioButton_automatic.setToggleGroup(engineToggleGroup);
+
+        button_mainMenu.setOnAction(this::goToMainMenu);
+        addStyle(button_mainMenu);
+
+
+        priceSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+
+                dailyPrice = (int) priceSlider.getValue();
+                dailyChargebd = BigDecimal.valueOf(priceSlider.getValue());
+
+                priceLabel.setText(String.valueOf(dailyPrice));
+
+            }
+        });
+    }
+
     public Integer getAdId(){
         String town = tf_townName.getText().trim().toLowerCase();
 
@@ -168,18 +194,11 @@ public class FindACarToRent implements Initializable  {
 
         window.setScene(scene);
         window.show();
-
-
     }
-
-
-
-
 
     public void manualChecked(){
 
     }
-
 
     public void changeSceneToBooking(ActionEvent event) throws IOException, IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -230,35 +249,6 @@ public class FindACarToRent implements Initializable  {
         } catch (IOException ioException) {
             System.out.println(ioException.getMessage());
         }
-    }
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-         transmissionToggleGroups = new ToggleGroup();
-        this.radioButton_manual.setToggleGroup(transmissionToggleGroups);
-        this.radioButton_automatic.setToggleGroup(transmissionToggleGroups);
-
-        engineToggleGroup = new ToggleGroup();
-        this.radioButton_Diesel.setToggleGroup(engineToggleGroup);
-        this.radioButton_electric.setToggleGroup(engineToggleGroup);
-        this.radioButton_automatic.setToggleGroup(engineToggleGroup);
-
-        button_mainMenu.setOnAction(this::goToMainMenu);
-        addStyle(button_mainMenu);
-
-
-        priceSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-
-                dailyPrice = (int) priceSlider.getValue();
-                dailyChargebd = BigDecimal.valueOf(priceSlider.getValue());
-
-                priceLabel.setText(String.valueOf(dailyPrice));
-
-            }
-        });
     }
 
     public void addStyle(Button button) {
