@@ -1,18 +1,22 @@
 package no.hiof.groupproject.models;
 
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.ConnectDB;
+import no.hiof.groupproject.tools.db.RetrieveUserDB;
 import no.hiof.groupproject.tools.db.RetrieveUserProfileDB;
+import no.hiof.groupproject.tools.db.RetrieveVehiclesDB;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.HashMap;
+import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MultipleVehiclesTest {
 
@@ -59,6 +63,20 @@ class MultipleVehiclesTest {
             count++;
         }
         assertEquals(2, count);
+
+    }
+
+    @Test
+    void assertsAllVehicleIdsBasedOnASpecificUserCanBeDeserialised() {
+
+        //based on the user in the above test with several vehicles
+        User user = RetrieveUserDB.retrieveFromEmail("dsfsd@hgh.no");
+        assertNotNull(user);
+
+        ArrayList<Integer> vehicles = RetrieveVehiclesDB.retrieveAllVehiclesIdLinkedToUser(user.getId());
+
+        assertFalse(vehicles.isEmpty());
+        assertTrue(vehicles.size() > 1);
 
     }
 

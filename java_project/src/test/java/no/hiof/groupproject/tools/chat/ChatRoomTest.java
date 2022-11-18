@@ -48,11 +48,29 @@ public class ChatRoomTest {
     @Test
     void VerifyThatGetMessageLogRetrieveDataFromDatabase() {
         ArrayList<String> testLog = new ArrayList<>();
+        Message msg = new Message(user, "Hello from sam");
+        chatRoom.sendMessage(msg);
+        msg = new Message(user, "Test from the same user");
+        chatRoom.sendMessage(msg);
         testLog.add("sam: Hello from sam");
         testLog.add("sam: Test from the same user");
 
         Object[] response = Arrays.copyOfRange(chatRoom.getMessageLog().toArray(), 0, 2);
         assertArrayEquals(testLog.toArray(), response);
+    }
+
+    @Test
+    void VerifyThatGetLimitedMessageLogRetrieveDataFromDatabase() {
+        ArrayList<String> testLog = new ArrayList<>();
+        Message msg = new Message(user, "Hello from sam");
+        chatRoom.sendMessage(msg);
+        msg = new Message(user, "Test from the same user");
+        chatRoom.sendMessage(msg);
+        testLog.add("sam: Hello from sam");
+        testLog.add("sam: Test from the same user");
+
+        ArrayList<String> limitedLog = chatRoom.getLimitedMessageLog(1);
+        assertEquals(1, limitedLog.size());
     }
 
     @Test

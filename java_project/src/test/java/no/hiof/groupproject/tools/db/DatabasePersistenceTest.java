@@ -2,17 +2,19 @@ package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
 import no.hiof.groupproject.models.*;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.models.payment_methods.CreditDebit;
 import no.hiof.groupproject.models.payment_methods.GooglePay;
 import no.hiof.groupproject.models.payment_methods.Paypal;
 import no.hiof.groupproject.models.payment_methods.Vipps;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import org.junit.jupiter.api.*;
 
 import java.math.BigDecimal;
 import java.sql.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicReference;
 
@@ -117,12 +119,12 @@ class DatabasePersistenceTest {
     void assertsUserUpgradeCreatesUserProfile() {
         User user = new User("basicbeforeupgrade@user.no", "ihavenoname");
 
-        String sql = "SELECT COUNT(*) AS amount FROM userProfiles WHERE user_fk = " + user.getId();
-
         User user2 = new User("lorry", "dovid", "1777", user.getPassword(),
                 "12341234123", user.getEmail(), "12341234",
                 new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
                         "Norway"));
+
+        String sql = "SELECT COUNT(*) AS amount FROM userProfiles WHERE user_fk = " + user.getId();
 
         boolean ans = false;
 
@@ -415,7 +417,10 @@ class DatabasePersistenceTest {
                 BigDecimal.valueOf(200), BigDecimal.valueOf(10), "Sarpsborg"
         );
 
-        roa.addNewPeriod(LocalDate.parse("2032-01-01"), LocalDate.parse("2033-01-01"));
+        GenericQueryDB.query("DELETE FROM availableWithin WHERE availableWithin_id_fk = " + roa.getId() +
+                " AND dateFrom = '2033-01-01' AND dateTo = '2034-01-01'");
+
+        roa.addNewPeriod(LocalDate.parse("2033-01-01"), LocalDate.parse("2034-01-01"));
 
         RentOutAd roa2 = ((RentOutAd)RetrieveAdvertisementDB.retrieveFromId(roa.getId()));
 
@@ -647,6 +652,210 @@ class DatabasePersistenceTest {
         assertFalse(RetrieveVehiclesDB.retrieveAllVehiclesId().isEmpty());
         assertFalse(RetrieveVehiclesDB.retrieveAllVehiclesObject().isEmpty());
         assertFalse(RetrieveVehiclesDB.retrieveAllVehiclesAndAdvertisementsObject().isEmpty());
+    }
+
+    @Test
+    void assertsRatingsInsertCorrectlySerialises() {
+        User user = new User("rating", "receiver", "1777", "ratingking",
+                "12341234123", "rate@me.com", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
+        User user2 = new User("rating", "giver", "1777", "ratinglover",
+                "12341234123", "rate@you.com", "12341234",
+                new License("98 44 123456 1", LocalDate.parse("2008-02-11"),
+                        "Norway"));
+
+        InsertRatingDB.insert(user, user2, 3);
+
+        String sql = "SELECT COUNT(*) AS amount FROM ratings WHERE user = " + user.getId() +
+                " AND userGivingRating = " + user2.getId();
+
+        boolean ans = false;
+
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        assertTrue(ans);
+
+    }
+
+    @Test
+    void assertsCreditDebitInsertCorrectlySerialises() {
+
+
+        CreditDebit cd = new CreditDebit("6479084575441564", "991", 4, 2031);
+
+        String sql = "SELECT COUNT(*) AS amount FROM payments WHERE cardNumber = " + cd.getCard_number();
+
+        boolean ans = false;
+
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        assertTrue(ans);
+
+    }
+
+    @Test
+    void assertsPaypalInsertCorrectlySerialises() {
+
+
+        Paypal pp = new Paypal("jorn@hoel.no", "magicboi");
+
+        String sql = "SELECT COUNT(*) AS amount FROM payments WHERE email = \'" + pp.getEmail() + "\'";
+
+        boolean ans = false;
+
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        assertTrue(ans);
+
+    }
+
+    @Test
+    void assertsGooglePayInsertCorrectlySerialises() {
+
+
+        GooglePay gp = new GooglePay("abba@bb.aa", "asgfdl");
+
+        String sql = "SELECT COUNT(*) AS amount FROM payments WHERE email = \'" + gp.getEmail() + "\'";
+
+        boolean ans = false;
+
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        assertTrue(ans);
+
+    }
+
+    @Test
+    void assertsVippsInsertCorrectlySerialises() {
+
+
+        Vipps vi = new Vipps("01547426", "5367");
+
+        String sql = "SELECT COUNT(*) AS amount FROM payments WHERE tlfnr = \'" + vi.getTlfnr() + "\'";
+
+        boolean ans = false;
+
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        assertTrue(ans);
+    }
+
+    @Test
+    void assertsRetrieveAdvertisementsByIdCorrectlyDeserialises() {
+        ArrayList<Integer> list = new ArrayList<>();
+        assertTrue(list.isEmpty());
+
+        list = RetrieveAdvertisementsDB.retrieveAdvertisementsIdFromUserId(13);
+
+        assertFalse(list.isEmpty());
+    }
+
+    @Test
+    void assertsLicenseCanBeCorrectlySerialisedFromInsert() {
+        InsertLicenseDB.insert(new License("98 37 123456 1", LocalDate.parse("2020-05-05"), "Norway"));
+
+        String sql = "SELECT COUNT(*) AS amount FROM licenses WHERE licenseNumber = '98 37 123456 1'";
+
+        boolean ans = false;
+
+        try (Connection conn = ConnectDB.connect();
+             PreparedStatement str = conn.prepareStatement(sql)) {
+
+            ResultSet queryResult = str.executeQuery();
+            if (queryResult.getInt("amount") > 0) {
+                ans = true;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        assertTrue(ans);
+    }
+
+    @Test
+    void assertsLicenseCanBeCorrectlyDeerialisedFromLicenseNr() {
+        InsertLicenseDB.insert(new License("98 37 123456 1", LocalDate.parse("2020-05-05"), "Norway"));
+
+        License l = null;
+        assertNull(l);
+
+        l = RetrieveLicenseDB.retrieveFromLicenseNr("98 37 123456 1");
+        assertNotNull(l);
+    }
+
+    @Test
+    void assertsLicenseCanBeCorrectlyDeerialisedFromId() {
+
+        User user = new User("ronny", "pickering", "1777", "catsanddogs",
+                "12341234123", "another@test.no", "12341234",
+                new License("98 45 123456 1", LocalDate.parse("2008-05-12"),
+                        "Norway"));
+
+        License l = null;
+        assertNull(l);
+
+        l = RetrieveLicenseDB.retrieveFromId(user.getId());
+        assertEquals(user.getdLicense().getLicenseNumber(), l.getLicenseNumber());
+    }
+
+    @Test
+    void assertsVehicleCanBeDeserialisedFromRegNo() {
+
+        Vehicle car = new Car("12341234", "audi", "tt", "petrol",
+                "automatic", 2013, 5, 1500);
+
+        Vehicle carTest = null;
+        assertNull(carTest);
+
+        carTest = RetrieveVehicleDB.retrieveFromRegNo(car.getRegNo());
+
+        assertEquals(car.getRegNo(), carTest.getRegNo());
     }
 
 }

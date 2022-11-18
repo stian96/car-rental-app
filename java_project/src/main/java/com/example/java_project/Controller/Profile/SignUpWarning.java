@@ -19,7 +19,7 @@ public class SignUpWarning {
 
     public void goToMainPage(ActionEvent e){
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText("You must have set up your profile to fully experince the sericses!");
+        alert.setHeaderText("You must have set up your profile to fully experience the service!");
         alert.setContentText("Press ok to cancel");
         alert.showAndWait();
 

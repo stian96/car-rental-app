@@ -1,8 +1,9 @@
 package no.hiof.groupproject.models;
 
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.models.payment_methods.Paypal;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.RetrieveBookingDB;
 import org.junit.jupiter.api.AfterEach;

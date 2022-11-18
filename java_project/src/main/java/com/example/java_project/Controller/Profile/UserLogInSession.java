@@ -31,4 +31,5 @@ public final class UserLogInSession {
     public String toString() {
         return userEmail;
     }
+
 }

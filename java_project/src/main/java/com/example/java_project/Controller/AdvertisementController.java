@@ -6,9 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 
 import java.io.IOException;

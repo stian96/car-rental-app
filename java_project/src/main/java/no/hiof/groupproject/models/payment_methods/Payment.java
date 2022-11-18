@@ -5,7 +5,6 @@ import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.interfaces.Serialise;
 import no.hiof.groupproject.interfaces.StrLengthCheck;
 import no.hiof.groupproject.tools.db.InsertPaymentDB;
-import no.hiof.groupproject.tools.db.InsertVehicleDB;
 
 public abstract class Payment implements Serialise, StrLengthCheck, ExistsInDb, GetAutoIncrementId {
 

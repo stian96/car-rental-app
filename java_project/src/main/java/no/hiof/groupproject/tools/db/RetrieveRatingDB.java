@@ -3,7 +3,10 @@ package no.hiof.groupproject.tools.db;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.UserProfile;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.HashMap;
 
 /*

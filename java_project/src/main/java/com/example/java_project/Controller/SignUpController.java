@@ -56,11 +56,11 @@ public class SignUpController {
                     emails = email;
                     pass = password;
                     LogInCheck();
-                }else{validEmail.setText("This email already exists!");}
+                }else{validEmail.setText("This email is already in use!");}
             }
             catch (IOException e){
                 System.out.println(e.getMessage());}}
-        else{ validEmail.setText("Enter email and password");}
+        else{ validEmail.setText("Please enter an email or password");}
     }
 
 

@@ -3,7 +3,10 @@ package no.hiof.groupproject.models;
 import no.hiof.groupproject.interfaces.ExistsInDb;
 import no.hiof.groupproject.interfaces.GetAutoIncrementId;
 import no.hiof.groupproject.interfaces.Serialise;
-import no.hiof.groupproject.tools.db.*;
+import no.hiof.groupproject.tools.db.ConnectDB;
+import no.hiof.groupproject.tools.db.InsertUserDB;
+import no.hiof.groupproject.tools.db.RemoveUserDB;
+import no.hiof.groupproject.tools.db.RetrieveUserDB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

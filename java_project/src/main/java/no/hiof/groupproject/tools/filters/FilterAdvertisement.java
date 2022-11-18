@@ -1,7 +1,7 @@
 package no.hiof.groupproject.tools.filters;
 
-import no.hiof.groupproject.models.Advertisement;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.ConnectDB;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
@@ -11,9 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Objects;
-import java.util.Properties;
 
 /*
 Class designed to return an ArrayList of Vehicles, vehicle id, Advertisements, or advertisement id from

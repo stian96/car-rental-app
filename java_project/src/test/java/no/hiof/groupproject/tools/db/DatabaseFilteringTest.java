@@ -1,28 +1,18 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.models.*;
-import no.hiof.groupproject.models.payment_methods.CreditDebit;
-import no.hiof.groupproject.models.payment_methods.GooglePay;
-import no.hiof.groupproject.models.payment_methods.Paypal;
-import no.hiof.groupproject.models.payment_methods.Vipps;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Locale;
 import java.util.Objects;
-import java.util.concurrent.atomic.AtomicReference;
 
 import static org.junit.jupiter.api.Assertions.*;
 

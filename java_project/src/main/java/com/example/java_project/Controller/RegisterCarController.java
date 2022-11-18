@@ -2,21 +2,15 @@ package com.example.java_project.Controller;
 
 import com.example.java_project.Main;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.db.InsertUserDB;
-import no.hiof.groupproject.tools.db.InsertVehicleDB;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
-public class RegisterCarController implements Initializable {
+public class RegisterCarController {
 
     @FXML
     private TextField tf_regNumber;
@@ -41,18 +35,13 @@ public class RegisterCarController implements Initializable {
     @FXML
     private Button searchButton;
     @FXML
-    private Button button_mainMenu;
+    private Button button_exit;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        button_mainMenu.setOnAction(this::mainMenuButton);
-        addStyle(button_mainMenu);
 
-        button_Register.setOnAction(this::RegisterCar);
-        addStyle(button_Register);
-    }
+
 
     public void RegisterCar(ActionEvent event){
+        Main m = new Main();
         String regNo = tf_regNumber.getText().trim();
         String manu = tf_manufacturer.getText().trim();
         String model = tf_model.getText().trim();
@@ -68,30 +57,30 @@ public class RegisterCarController implements Initializable {
         && !gearType.isEmpty() && !modelYear.isEmpty()
                 && !seatingCapacity.isEmpty() && !towingCapacity.isEmpty()
         ){
-            if(v == null){
+            try {
+                if(v == null){
 
-            Vehicle c = new Car(regNo,manu,model,engineType,gearType,
-                    ConvertIntoNumeric(modelYear), /**gives null for the vehicle fix **/
-                    ConvertIntoNumeric(seatingCapacity),ConvertIntoNumeric(towingCapacity));
+                Vehicle c = new Car(regNo,manu,model,engineType,gearType,
+                        ConvertIntoNumeric(modelYear), /**gives null for the vehicle fix **/
+                        ConvertIntoNumeric(seatingCapacity),ConvertIntoNumeric(towingCapacity));
 
-            button_Register.setText("Success!");
-            }
-        else {
-            registerPrompt.setText("Car exists already");
+                m.changeScene("ToGoCar.fxml");}
+            else{registerPrompt.setText("The car already exists");}}
+        catch (IOException e){
+            System.out.println(e.getMessage());
         }
 
+
         }
-    else { registerPrompt.setText("enter information");}
+    else { registerPrompt.setText("Please complete all fields");}
 
 }
-    public void mainMenuButton(ActionEvent event) {
+    public void ExitButton(ActionEvent event) throws IOException {
         Main m = new Main();
-        try {
-            m.changeScene("ToGoCar.fxml");
-        } catch (IOException ioException) {
-            System.out.println(ioException.getMessage());
-        }
+        m.changeScene("ToGoCar.fxml");
+
     }
+
 
     private int ConvertIntoNumeric(String xVal)
     {
@@ -105,13 +94,6 @@ public class RegisterCarController implements Initializable {
         }
     }
 
-    public void addStyle(Button button) {
-        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:  #f1c232; -fx-text-fill: white;"));
-        button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
-    }
-
     public void searchRegNo(ActionEvent event) {
     }
-
-
 }

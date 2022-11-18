@@ -1,9 +1,8 @@
 package no.hiof.groupproject.tools;
 
 import no.hiof.groupproject.models.payment_methods.*;
+import no.hiof.groupproject.tools.verification.VerifyPayment;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
 
 import static org.junit.jupiter.api.Assertions.*;
 

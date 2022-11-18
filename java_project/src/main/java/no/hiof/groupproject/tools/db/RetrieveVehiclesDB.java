@@ -1,18 +1,14 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.Advertisement;
-import no.hiof.groupproject.models.Booking;
-import no.hiof.groupproject.models.two_wheeled_vehicle.Moped;
-import no.hiof.groupproject.models.two_wheeled_vehicle.Motorcycle;
-import no.hiof.groupproject.models.vehicle_types.Camper;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Truck;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Objects;
 
 /*
 Returns an ArrayList of all the Vehicles with RentOutAds associated with them
@@ -116,6 +112,29 @@ public class RetrieveVehiclesDB {
             System.out.println(e.getMessage());
         }
         return returnedHash;
+    }
+
+    public static ArrayList<Integer> retrieveAllVehiclesIdLinkedToUser(int userId) {
+
+        String sql = "SELECT * FROM advertisements INNER JOIN vehicles ON vehicle_fk=vehicles.vehicles_id " +
+                "WHERE advertisementSubclass = \'rentoutad\' AND user_fk = " + userId;
+
+        ArrayList<Integer> allVehicles = new ArrayList<>();
+
+        try (Connection conn = ConnectDB.connectReadOnly();
+             Statement str = conn.createStatement();
+             ResultSet rs = str.executeQuery(sql)) {
+
+            //loops through rows in the sql SELECT statement
+            while (rs.next()) {
+
+                allVehicles.add(rs.getInt("vehicle_fk"));
+            }
+            return allVehicles;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return allVehicles;
     }
 
 }

@@ -25,6 +25,11 @@ public class ChatRoom implements DeserialiseMessages {
         return messageLog;
     }
 
+    public ArrayList<String> getLimitedMessageLog(int results) {
+        messageLog = RetrieveMessagesDB.retrieveLimitedMessages(results);
+        return messageLog;
+    }
+
     public void deleteMessage(String writeMessage) {
         DeleteMessagesFromDB db = new DeleteMessagesFromDB();
         db.delete("messages", "melding", writeMessage);

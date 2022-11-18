@@ -11,8 +11,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import no.hiof.groupproject.models.Advertisement;
-import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.UserProfile;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
@@ -65,7 +65,7 @@ public class UserProfileController implements Initializable {
     private ObservableList<Advertisement> getAd(){
         ObservableList<Advertisement> ads = FXCollections.observableArrayList();
         Advertisement ad = RetrieveAdvertisementDB.retrieveFromId(LogInController.user.getId());
-        if(!ad.existsInDb()){
+        if(!((RentOutAd)ad).existsInDb()){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setContentText("No ads");
             alert.show();

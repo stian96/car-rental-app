@@ -1,6 +1,5 @@
 package no.hiof.groupproject.models.payment_methods;
 
-import no.hiof.groupproject.models.payment_methods.Payment;
 import no.hiof.groupproject.tools.db.ConnectDB;
 
 import java.sql.Connection;

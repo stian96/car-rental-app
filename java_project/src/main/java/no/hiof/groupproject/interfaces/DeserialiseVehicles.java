@@ -1,6 +1,6 @@
 package no.hiof.groupproject.interfaces;
 
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 
 public interface DeserialiseVehicles {

@@ -9,7 +9,7 @@
    <children>
       <ImageView fitHeight="38.0" fitWidth="60.0" layoutX="6.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@car.png" />
+            <Image url="@images/car.png" />
          </image>
       </ImageView>
       <Label layoutX="70.0" layoutY="9.0" prefHeight="19.0" prefWidth="201.0" text="Profile Details">
