@@ -29,7 +29,7 @@
       </Label>
       <Label layoutX="95.0" layoutY="266.0" text="Post number">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+            <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Label>
       <TextField fx:id="tf_firstName" layoutX="234.0" layoutY="55.0" prefHeight="4.0" prefWidth="180.0" promptText="First name" />
