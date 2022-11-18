@@ -20,7 +20,7 @@ public class Main extends Application {
     public void start(Stage stage) throws IOException {
         stg = stage;
         stage.setResizable(false);
-        FXMLLoader fxmlLoader1 = new FXMLLoader(Main.class.getResource("UpdateProfile.fxml"));
+        FXMLLoader fxmlLoader1 = new FXMLLoader(Main.class.getResource("Advertisement.fxml"));
         Scene scene = new Scene(fxmlLoader1.load(), 600, 400);
         //checkConnection();
         stage.setTitle("ToGoCar");
