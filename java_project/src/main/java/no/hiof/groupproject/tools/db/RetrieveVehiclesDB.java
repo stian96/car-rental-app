@@ -114,4 +114,27 @@ public class RetrieveVehiclesDB {
         return returnedHash;
     }
 
+    public static ArrayList<Integer> retrieveAllVehiclesIdLinkedToUser(int userId) {
+
+        String sql = "SELECT * FROM advertisements INNER JOIN vehicles ON vehicle_fk=vehicles.vehicles_id " +
+                "WHERE advertisementSubclass = \'rentoutad\' AND user_fk = " + userId;
+
+        ArrayList<Integer> allVehicles = new ArrayList<>();
+
+        try (Connection conn = ConnectDB.connectReadOnly();
+             Statement str = conn.createStatement();
+             ResultSet rs = str.executeQuery(sql)) {
+
+            //loops through rows in the sql SELECT statement
+            while (rs.next()) {
+
+                allVehicles.add(rs.getInt("vehicle_fk"));
+            }
+            return allVehicles;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return allVehicles;
+    }
+
 }
