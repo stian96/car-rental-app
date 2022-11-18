@@ -87,7 +87,7 @@
       <Label fx:id="error8" layoutX="257.0" layoutY="299.0" text="*" textFill="#f52929" visible="false" />
       <Label fx:id="error9" layoutX="393.0" layoutY="299.0" text="*" textFill="#f52929" visible="false" />
       <Label fx:id="error10" layoutX="536.0" layoutY="299.0" text="*" textFill="#f52929" visible="false" />
-      <Button layoutX="497.0" layoutY="15.0" mnemonicParsing="false" style="-fx-background-color: #f1c232;" text="Main menu">
+      <Button fx:id="button_mainMenu" layoutX="497.0" layoutY="15.0" mnemonicParsing="false" style="-fx-background-color: #f1c232;" text="Main menu">
          <font>
             <Font name="Comic Sans MS" size="13.0" />
          </font>

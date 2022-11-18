@@ -36,6 +36,8 @@ public class CreateProfileController implements Initializable {
     private Label UpdatePrompt;
     @FXML
     private TextField tf_drivingLicense, countryTxtField, dateTxtField;
+    @FXML
+    private Button button_mainMenu;
 
     @FXML
     private Label  error1, error2, error3, error4, error5, error6,
@@ -84,12 +86,25 @@ public class CreateProfileController implements Initializable {
        }
     }
 
-
+    public void goToMainMenu(ActionEvent event) {
+        Main main = new Main();
+        try {
+            main.changeScene("ToGoCar.fxml");
+        } catch (IOException io) {
+            System.out.println(io.getMessage());
+        }
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         tf_emailAdd.setText(email);
         tf_password.setText(password);
+        button_mainMenu.setOnAction(this::goToMainMenu);
+        addStyle(button_mainMenu);
+    }
 
+    public void addStyle(Button button) {
+        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:  #f1c232; -fx-text-fill: white;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
     }
 }
