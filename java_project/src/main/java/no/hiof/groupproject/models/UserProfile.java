@@ -14,6 +14,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class UserProfile implements Serialise, ExistsInDb {
 
@@ -70,6 +72,12 @@ public class UserProfile implements Serialise, ExistsInDb {
         } else if (ratingExistsInDb(userGivingRating) && userGivingRating.getId() != user.getId()){
             //if the userGivingRating wishes to update their rating:
             InsertRatingDB.update(user, userGivingRating, rating);
+            for (Map.Entry<User, Integer> set: ratings.entrySet()) {
+                if (set.getKey().getId() == userGivingRating.getId() && Objects.equals(set.getValue(), rating)) {
+                    ratings.remove(set.getKey());
+                }
+            }
+            ratings.put(userGivingRating, rating);
             calculateAverageRating();
             return calculateAverageRating();
         }
