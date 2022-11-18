@@ -33,7 +33,7 @@ public class MessageController implements Initializable {
 
     public void btnSend(ActionEvent event) {
         User user = LogInController.user;
-        chat.sendMessage(new Message(user, textArea_send.getText()));
+        //chat.sendMessage(new Message(user, textArea_send.getText()));
         textArea_send.setText(null);
         showMessagesInScrollPane();
     }

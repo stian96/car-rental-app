@@ -16,8 +16,9 @@ public class MessageTest {
             "Norway");
     User user = new User("sam", "davies", "1111", "hunter2",
             "12341234123", "sam@sam.no", "12341234", license);
-
+    /*
     Message formatTest = new Message(user, "hello");
+
 
     @Test
     void VerifyThatFormatNowDateReturnCorrectFormat() {
@@ -42,4 +43,5 @@ public class MessageTest {
         LocalDateTime currentDate = LocalDateTime.now();
         assertEquals(currentDate.format(DateTimeFormatter.ofPattern("HH:mm:ss")), formatTest.formatNowTime());
     }
+     */
 }

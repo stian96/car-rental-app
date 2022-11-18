@@ -30,6 +30,8 @@ public class ChatRoomTest {
         ConnectDB.setDb("jdbc:sqlite:sqlite/db/test.db");
     }
 
+    /*
+
     @Test
     void VerifyThatSendMessageSerialiseMessages() {
         assertTrue(chatRoom.sendMessage(new Message(user, "A brand new message!")));
@@ -41,6 +43,7 @@ public class ChatRoomTest {
         Message msg = new Message(user, "Hello from sam");
         assertFalse(chatRoom.sendMessage(msg));
     }
+     */
 
     @Test
     void VerifyThatGetMessageLogRetrieveDataFromDatabase() {
