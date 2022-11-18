@@ -59,6 +59,8 @@ public class FindACarToRent implements Initializable  {
     private Slider priceSlider ;
     @FXML
     private Label priceLabel;
+    @FXML
+    private Button bt_viewOwner;
     private double dailyPrice;
     private ToggleGroup transmissionToggleGroups, engineToggleGroup;
     private BigDecimal dailyChargebd;
@@ -80,8 +82,11 @@ public class FindACarToRent implements Initializable  {
         this.radioButton_electric.setToggleGroup(engineToggleGroup);
         this.radioButton_automatic.setToggleGroup(engineToggleGroup);
 
-        button_mainMenu.setOnAction(this::goToMainMenu);
+        button_mainMenu.setOnAction(this::goToMainMenu);;
         addStyle(button_mainMenu);
+        addStyle(selectAd);
+        addStyle(bookButton);
+        addStyle(bt_viewOwner);
 
 
         priceSlider.valueProperty().addListener(new ChangeListener<Number>() {

@@ -12,7 +12,10 @@
             <TextField fx:id="tf_townName" layoutX="14.0" layoutY="15.0" promptText="Add town name" />
             <DatePicker fx:id="fromDatePicker" layoutX="165.0" layoutY="15.0" promptText="Select From Date" />
             <DatePicker fx:id="toDatePicker" layoutX="346.0" layoutY="15.0" promptText="Select To Date" />
-            <Button fx:id="searchButton" layoutX="533.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchButtonPushed" text="Search" />
+            <Button fx:id="searchButton" layoutX="533.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchButtonPushed" text="Search">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Button>
          </children>
       </Pane>
       <Pane prefHeight="352.0" prefWidth="598.0" style="-fx-background-color: #f1c232;">
