@@ -6,10 +6,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
+import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
+import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 
@@ -30,18 +34,80 @@ public class ToGoCarPageController  implements Initializable {
     @FXML
     private Button button_logOut;
     @FXML
-    private TextField tf_TownName;
+    private DatePicker fromDatePicker;
+
     @FXML
-    private DatePicker start_DatePicker;
+    private Button searchButton;
+
     @FXML
-    private DatePicker return_DatePicker;
+    private DatePicker toDatePicker;
+
     @FXML
-    private Label noAvailableCarWarning;
+    private TextField townTxtField;
+
+
+    public static RentOutAd roa;
+
+    //Returns the ID of a advertisemnt that have the give town as location
+    public Integer getAdId(){
+        String town = townTxtField.getText().trim().toLowerCase();
+
+        for(Integer id : FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null,
+                town, null, null, null,
+                null,null, null)){
+            return id;
+        }
+        return getAdId();
+    }
+    //returns the startDate picked using the date picker
+    public LocalDate getFromDate(){
+        return fromDatePicker.getValue();
+    }
+    //returns the startDate picked using the date picker
+    public LocalDate getToDate(){
+        return toDatePicker.getValue();
+    }
+
+
+    public String findAnAvailableCar(){
+        String status = "success";
+        if(getFromDate() == null || getToDate()== null){
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Select Date");
+            alert.show();
+            status = "error";}
+        else {
+            try {
+                RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
+                roa = ad;
+                if(!ad.checkIfDateIsAvailable(getFromDate(),getToDate())){
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("No cars available for those dates");
+                    alert.show();
+                    status = "error";}
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
+        }
+        return status;
+
+    }
+
+    @FXML
+    void searchAds(ActionEvent event) {
+        Main m = new Main();
+        if(event.getSource() == searchButton){
+            if(findAnAvailableCar().equals("success")){
+                try {
+                    m.changeScene("FilterCar.fxml");
+                } catch (IOException ioException) {
+                    System.out.println(ioException.getMessage());}}}}
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // noAvailableCarWarning.setText("Hello: " + LogInController.user.getFirstName() + " " + LogInController.user.getLastName());
         button_Advertisement.setOnAction(this::carAdvertisement);
         button_registerCar.setOnAction(this::userRegisterCar);
         button_profile.setOnAction(this::userProfile);
@@ -49,6 +115,7 @@ public class ToGoCarPageController  implements Initializable {
         button_FindCar.setOnAction(this::findACar);
         button_customerService.setOnAction(this::customerService);
         button_logOut.setOnAction(this::userLogOut);
+        searchButton.setOnAction(this::searchAds);
         buttonStyle();
 
     }
@@ -74,7 +141,7 @@ public class ToGoCarPageController  implements Initializable {
   public void userProfile(ActionEvent event) {
         Main m = new Main();
         try {
-          m.changeScene("UpdateProfile.fxml");
+          m.changeScene("UserProfile.fxml");
         } catch (IOException ioException) {
           System.out.println(ioException.getMessage());
         }
