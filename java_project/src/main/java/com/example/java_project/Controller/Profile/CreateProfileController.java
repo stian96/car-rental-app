@@ -99,12 +99,19 @@ public class CreateProfileController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         tf_emailAdd.setText(email);
         tf_password.setText(password);
+
         button_mainMenu.setOnAction(this::goToMainMenu);
         addStyle(button_mainMenu);
+        addStyleToUpdateButton(button_UpdateProfile);
     }
 
     public void addStyle(Button button) {
         button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:  #f1c232; -fx-text-fill: white;"));
         button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
+    }
+
+    public void addStyleToUpdateButton(Button button) {
+        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:  #9fc5e8; -fx-text-fill: white;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-background-color:  #9fc5e8; -fx-text-fill: black"));
     }
 }

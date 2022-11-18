@@ -61,7 +61,7 @@
       <TextField fx:id="tf_postNumber" layoutX="234.0" layoutY="263.0" prefHeight="25.0" prefWidth="180.0" promptText="Post number" />
       <Button fx:id="button_UpdateProfile" layoutX="260.0" layoutY="350.0" mnemonicParsing="false" onAction="#UpdateProfile" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Update Profile">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+            <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Button>
       <Label layoutX="53.0" layoutY="298.0" text="DL info:">
