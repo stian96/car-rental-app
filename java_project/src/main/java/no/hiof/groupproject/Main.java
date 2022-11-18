@@ -11,10 +11,10 @@ import java.sql.*;
 public class Main {
     public static void main(String[] args) throws IOException, SQLException {
 
+        /*
         GDPRInformation info = new GDPRInformation(12);
         info.print();
 
-        /*
         for (Advertisement advertisement : FilterAdvertisement.filterToArrayListAdvertisement(null, null,
                 null, null,null, null, null,
                 null, null, null)) {
