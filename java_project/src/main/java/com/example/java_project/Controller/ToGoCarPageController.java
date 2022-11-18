@@ -29,14 +29,6 @@ public class ToGoCarPageController  implements Initializable {
     private Button button_customerService;
     @FXML
     private Button button_logOut;
-    @FXML
-    private TextField tf_TownName;
-    @FXML
-    private DatePicker start_DatePicker;
-    @FXML
-    private DatePicker return_DatePicker;
-    @FXML
-    private Label noAvailableCarWarning;
 
 
     @Override
@@ -83,7 +75,7 @@ public class ToGoCarPageController  implements Initializable {
   public void message_menu(ActionEvent event) {
         Main m = new Main();
         try {
-          m.changeScene("LogIn.fxml");
+          m.changeScene("Message.fxml");
         } catch (IOException ioException) {
             System.out.println(ioException.getMessage());
         }
