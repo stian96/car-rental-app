@@ -13,6 +13,8 @@ import no.hiof.groupproject.tools.db.RetrieveVehiclesDB;
 
 import java.util.ArrayList;
 
+//class that collects all personal information about a user based on the userid.
+//information is collected into an ArrayList<String> and can be printed to a default output with the .print() method
 public class GDPRInformation {
 
     UserProfile up;
