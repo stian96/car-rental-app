@@ -3,6 +3,7 @@ package com.example.java_project.Other;
 import com.example.java_project.Controller.BookingController;
 import com.example.java_project.Controller.DetailedAdViewController;
 import com.example.java_project.Controller.Profile.OtherUserProfileView;
+import com.example.java_project.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -31,6 +32,7 @@ import java.util.*;
 import static java.time.temporal.ChronoUnit.DAYS;
 
 public class FindACarToRent implements Initializable  {
+
     //method to get the number of days for booking
     public static long countDaysBetween(LocalDate dateFrom, LocalDate dateTo){
         return DAYS.between(dateFrom,dateTo);
@@ -48,6 +50,8 @@ public class FindACarToRent implements Initializable  {
 
     @FXML
     private Button searchButton, bookButton,selectAd ;
+    @FXML
+    private Button button_mainMenu;
     @FXML
     private RadioButton radioButton_manual,radioButton_automatic,
             radioButton_electric,radioButton_Hybrid,radioButton_Diesel;
@@ -93,25 +97,14 @@ public class FindACarToRent implements Initializable  {
         adObservableList.addAll(ad);
         System.out.println(adObservableList);
         vehicleListView.getItems().addAll(adObservableList);
-
-
-
-
     }
+
     public void radioButtonChanged() {
 
-        if(this.transmissionToggleGroups.getSelectedToggle().equals(this.radioButton_manual)){
-
-
+        if (this.transmissionToggleGroups.getSelectedToggle().equals(this.radioButton_manual)){
 
         }
-
-
     }
-
-
-
-
 
     public LocalDate getFromDate(){
         return fromDatePicker.getValue();
@@ -230,6 +223,15 @@ public class FindACarToRent implements Initializable  {
 
     }
 
+    public void goToMainMenu(ActionEvent event) {
+        Main main = new Main();
+        try {
+            main.changeScene("ToGoCar.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -242,7 +244,8 @@ public class FindACarToRent implements Initializable  {
         this.radioButton_electric.setToggleGroup(engineToggleGroup);
         this.radioButton_automatic.setToggleGroup(engineToggleGroup);
 
-
+        button_mainMenu.setOnAction(this::goToMainMenu);
+        addStyle(button_mainMenu);
 
 
         priceSlider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -255,13 +258,11 @@ public class FindACarToRent implements Initializable  {
                 priceLabel.setText(String.valueOf(dailyPrice));
 
             }
-
-
         });
+    }
 
-
-
-
-
+    public void addStyle(Button button) {
+        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:  #f1c232; -fx-text-fill: white;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -79,6 +80,11 @@
             <Button fx:id="selectAd" layoutX="237.0" layoutY="322.0" mnemonicParsing="false" onAction="#changeSceneToDetailedAdView" text="View Details" />
             <Button fx:id="bookButton" layoutX="365.0" layoutY="322.0" mnemonicParsing="false" onAction="#changeSceneToBooking" prefHeight="25.0" prefWidth="56.0" text="Book" />
             <Button fx:id="bt_viewOwner" layoutX="451.0" layoutY="322.0" mnemonicParsing="false" onAction="#viewOwner" text="View Owner profile" />
+            <Button fx:id="button_mainMenu" layoutX="486.0" layoutY="11.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="78.0" style="-fx-background-color: #f1c232;" text="Main menu">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </Pane>
    </children>
