@@ -34,9 +34,9 @@ public class RetrieveMessagesDB {
         return returnedMessages;
     }
 
-    public static ArrayList<String> retrieveLimitedMessages(int i) {
+    public static ArrayList<String> retrieveLimitedMessages(int results) {
 
-        String sql = "SELECT * FROM messages WHERE user_id > 0 ORDER BY dato, tid LIMIT " + i;
+        String sql = "SELECT * FROM messages WHERE user_id > 0 ORDER BY dato, tid LIMIT " + results;
 
         ArrayList<String> returnedMessages = new ArrayList<>();
 
