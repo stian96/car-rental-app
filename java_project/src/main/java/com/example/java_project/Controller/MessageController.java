@@ -1,19 +1,18 @@
 package com.example.java_project.Controller;
 
-import com.example.java_project.Controller.LogInController;
 import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.tools.chat.ChatRoom;
-import no.hiof.groupproject.tools.chat.Message;
+import no.hiof.groupproject.tools.db.RetrieveUserDB;
+import no.hiof.groupproject.tools.db.RetrieveUserProfileDB;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class MessageController implements Initializable {
@@ -27,6 +26,10 @@ public class MessageController implements Initializable {
     private Button button_toGoCar;
     @FXML
     private TextArea messageArea;
+    @FXML
+    private ChoiceBox<String> receiverChoice;
+    @FXML
+    private Label receiverLabel;
 
     // Global chat room instance.
     ChatRoom chat = new ChatRoom();
@@ -47,6 +50,14 @@ public class MessageController implements Initializable {
 
         scroolPane_chat.setContent(messageArea);
         showMessagesInScrollPane();
+        addReceiversToChoiceBox();
+    }
+
+    public void addReceiversToChoiceBox() {
+        receiverChoice.getItems().add(RetrieveUserDB.retrieveFromId(7).getFirstName());
+        receiverChoice.getItems().add(RetrieveUserDB.retrieveFromId(8).getFirstName());
+        receiverChoice.getItems().add(RetrieveUserDB.retrieveFromId(12).getFirstName());
+        receiverChoice.getItems().add(RetrieveUserDB.retrieveFromId(14).getFirstName());
     }
 
     public void showMessagesInScrollPane() {
@@ -75,6 +86,5 @@ public class MessageController implements Initializable {
             button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #f1c232; -fx-text-fill: white"));
             button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
         }
-
     }
 }

@@ -35,8 +35,8 @@
                   <Font name="Comic Sans MS" size="13.0" />
                </font>
             </Button>
-            <ChoiceBox layoutX="433.0" layoutY="297.0" prefHeight="26.0" prefWidth="118.0" />
-            <Label layoutX="463.0" layoutY="302.0" text="Receiver">
+            <ChoiceBox fx:id="receiverChoice" layoutX="433.0" layoutY="297.0" prefHeight="26.0" prefWidth="118.0" style="-fx-background-color: #9fc5e8;" />
+            <Label fx:id="receiverLabel" layoutX="466.0" layoutY="301.0" text="Receiver">
                <font>
                   <Font name="Comic Sans MS" size="13.0" />
                </font>
