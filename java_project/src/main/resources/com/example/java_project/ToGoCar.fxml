@@ -114,7 +114,7 @@
             </children></AnchorPane>
         <AnchorPane prefHeight="392.0" prefWidth="388.0" style="-fx-background-color: #92cbf7;">
          <children>
-            <AnchorPane layoutY="175.0" prefHeight="255.0" prefWidth="385.0" style="-fx-background-color: #92bee0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="145.0">
+            <AnchorPane fx:id="pane1" layoutY="175.0" prefHeight="255.0" prefWidth="385.0" style="-fx-background-color: #92bee0;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="145.0">
                <children>
                   <ImageView fitHeight="255.0" fitWidth="410.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -122,14 +122,14 @@
                      </image>
                   </ImageView>
                </children></AnchorPane>
-            <AnchorPane layoutY="145.0" prefHeight="255.0" prefWidth="385.0" AnchorPane.topAnchor="145.0">
+            <AnchorPane fx:id="pane2" layoutY="145.0" prefHeight="255.0" prefWidth="385.0" AnchorPane.topAnchor="145.0">
                <children>
                   <ImageView fitHeight="255.0" fitWidth="383.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@images/audi.jpg" />
                      </image></ImageView>
                </children></AnchorPane>
-            <AnchorPane layoutY="145.0" prefHeight="255.0" prefWidth="383.0" AnchorPane.topAnchor="145.0">
+            <AnchorPane fx:id="pane3" layoutY="145.0" prefHeight="255.0" prefWidth="383.0" AnchorPane.topAnchor="145.0">
                <children>
                   <ImageView fitHeight="255.0" fitWidth="383.0" pickOnBounds="true" preserveRatio="true">
                      <image>

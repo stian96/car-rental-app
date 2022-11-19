@@ -2,10 +2,14 @@ package com.example.java_project.Controller;
 
 
 import com.example.java_project.Main;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 
 import java.io.IOException;
@@ -14,7 +18,6 @@ import java.util.ResourceBundle;
 
 
 public class ToGoCarPageController  implements Initializable {
-
     @FXML
     private Button button_registerCar;
     @FXML
@@ -29,11 +32,24 @@ public class ToGoCarPageController  implements Initializable {
     private Button button_customerService;
     @FXML
     private Button button_logOut;
+    @FXML
+    private AnchorPane pane1;
+    @FXML
+    private AnchorPane pane2;
+    @FXML
+    private AnchorPane pane3;
+
+    public void translateAnimation(double duration, Node node, double width) {
+
+        TranslateTransition trans = new TranslateTransition(Duration.seconds(duration), node);
+        trans.setByX(width);
+        trans.play();
+
+    }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // noAvailableCarWarning.setText("Hello: " + LogInController.user.getFirstName() + " " + LogInController.user.getLastName());
         button_Advertisement.setOnAction(this::carAdvertisement);
         button_registerCar.setOnAction(this::userRegisterCar);
         button_profile.setOnAction(this::userProfile);
@@ -42,6 +58,8 @@ public class ToGoCarPageController  implements Initializable {
         button_customerService.setOnAction(this::customerService);
         button_logOut.setOnAction(this::userLogOut);
         buttonStyle();
+
+        //translateAnimation(0.5, pane2);
 
     }
 
