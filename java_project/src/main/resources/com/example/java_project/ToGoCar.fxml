@@ -116,6 +116,13 @@
          <children>
             <Button layoutY="187.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="35.0" text="&lt;" />
             <Button layoutX="367.0" layoutY="187.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="35.0" text="&gt;" />
+            <AnchorPane prefHeight="400.0" prefWidth="402.0" AnchorPane.bottomAnchor="31.0" AnchorPane.topAnchor="99.0">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutY="94.0" prefHeight="306.0" prefWidth="402.0" AnchorPane.bottomAnchor="31.0" AnchorPane.topAnchor="99.0" />
+            <AnchorPane layoutY="99.0" prefHeight="270.0" prefWidth="402.0" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="99.0" />
          </children></AnchorPane>
     </children>
 </HBox>
