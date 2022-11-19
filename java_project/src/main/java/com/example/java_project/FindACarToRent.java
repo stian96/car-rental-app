@@ -1,7 +1,6 @@
-package com.example.java_project.Other;
+package com.example.java_project;
 
-import com.example.java_project.Controller.BookingController;
-import com.example.java_project.Controller.DetailedAdViewController;
+import com.example.java_project.BookingController;
 import com.example.java_project.Controller.Profile.OtherUserProfileView;
 import com.example.java_project.Main;
 import javafx.beans.value.ChangeListener;
@@ -13,13 +12,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.*;
-import no.hiof.groupproject.models.Advertisement;
-import no.hiof.groupproject.models.RentOutAd;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
@@ -33,16 +33,16 @@ import static java.time.temporal.ChronoUnit.DAYS;
 
 public class FindACarToRent implements Initializable  {
 
+
     //method to get the number of days for booking
     public static long countDaysBetween(LocalDate dateFrom, LocalDate dateTo){
         return DAYS.between(dateFrom,dateTo);
     }
+
     @FXML
-    private TableView<Vehicle> tableViewVehicle;
-    @FXML
-    //private ListView<Vehicle> vehicleListView = new ListView<>();
+
     private ListView<Advertisement> vehicleListView = new ListView<>();//change the name later
-   //rivate ListView<HashMap> vehicleListView = new ListView<>();
+
     @FXML
     private TextField tf_townName;
     @FXML
@@ -64,15 +64,19 @@ public class FindACarToRent implements Initializable  {
     private double dailyPrice;
     private ToggleGroup transmissionToggleGroups, engineToggleGroup;
     private BigDecimal dailyChargebd;
-   // ObservableList<Vehicle> vehicleObservableList = FXCollections.observableArrayList();
-    ObservableList<Advertisement> adObservableList = FXCollections.observableArrayList();
 
-    ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null,
-            null, null, null, null,
-            null,null, null);
+    ObservableList<Advertisement> adObservableList = FXCollections.observableArrayList();
+    public static RentOutAd roa ;
+
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        searchButton.setOnAction(this::searchButtonPushed);
+        selectAd.setOnAction(this::changeSceneToDetailedAdView);
+        bookButton.setOnAction(this::changeSceneToBooking);
+        bt_viewOwner.setOnAction(this::viewOwner);
+
         transmissionToggleGroups = new ToggleGroup();
         this.radioButton_manual.setToggleGroup(transmissionToggleGroups);
         this.radioButton_automatic.setToggleGroup(transmissionToggleGroups);
@@ -87,6 +91,7 @@ public class FindACarToRent implements Initializable  {
         addStyle(selectAd);
         addStyle(bookButton);
         addStyle(bt_viewOwner);
+        
 
 
         priceSlider.valueProperty().addListener(new ChangeListener<Number>() {
@@ -102,32 +107,59 @@ public class FindACarToRent implements Initializable  {
         });
     }
 
-    public Integer getAdId(){
-        String town = tf_townName.getText().trim().toLowerCase();
 
-        for(Integer id : FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null,
+
+    ArrayList<RentOutAd> adArrayList = new ArrayList<>();
+    ArrayList<RentOutAd> adsAvailInThoseDates = new ArrayList<>();
+    public void searchButtonPushed(ActionEvent event){
+
+        String town = tf_townName.getText();
+        ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null,
                 town, null, null, null,
-                null,null, null)){
-            return id;
-        }
-        return getAdId();
-    }
+                null,null, null);
+        if(getFromDate() == null || getToDate()== null){
+
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Select Date");
+            alert.show();}
+        else{
+                try{
+                    for(int i : filteredAds){
+                        RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(i);
+                        adArrayList.add(ad);}
+                    if(!adArrayList.isEmpty()){
+                        for(RentOutAd rentOutAd: adArrayList){
+                            if(rentOutAd.checkIfDateIsAvailable(getFromDate(),getToDate())){
+                                adsAvailInThoseDates.add(rentOutAd);
+                                roa = adsAvailInThoseDates.get(0);
+                                populateListView();
+                                }
+                            else if(adsAvailInThoseDates.isEmpty()){
+                                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                                    alert.setContentText("No dates available");
+                                    alert.show();}}}
+                    else{
+                            Alert alert = new Alert(Alert.AlertType.ERROR);
+                            alert.setContentText("No cars available at this locations");
+                            alert.show();}
+            }
+                catch (Exception e){
+                    throw new RuntimeException(e);
+            }}}
+
 
 
     public void addFilters(){
 
     }
-    public static RentOutAd roa;
+
 
     //Method to populatetheVehicleListView. Gets ad id from the Filter based on the
     public void populateListView(){
-        RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
-        roa =ad;
-
-        //Vehicle v = RetrieveVehicleDB.retrieveFromId(roa.getVehicle().getId());
-        adObservableList.addAll(ad);
-        System.out.println(adObservableList);
+        adObservableList.addAll(adsAvailInThoseDates);
+        System.out.println("lets" + adObservableList);
         vehicleListView.getItems().addAll(adObservableList);
+
     }
 
     public void radioButtonChanged() {
@@ -146,43 +178,11 @@ public class FindACarToRent implements Initializable  {
     }
 
 
-    public String findAnAvailableCar(){
-        String status = "success";
-        if(getFromDate() == null || getToDate()== null){
-
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Select Date");
-            alert.show();
-            status = "error";}
-        else {
-            try {
-                RentOutAd roa = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(getAdId());
-                if(!roa.checkIfDateIsAvailable(getFromDate(),getToDate())){
-                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                    alert.setContentText("No cars available for those dates");
-                    alert.show();
-                    status = "error";}
-
-
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
-
-        }
-        return status;
-
-    }
-    // Once search button is pressed adds vehicle in the listview
-    public void searchButtonPushed(ActionEvent event){
-        if(event.getSource() == searchButton){
-            if(findAnAvailableCar().equals("success")){
-                populateListView();
-            }
-        }
-
-    }
     //Changes scene to view details of the Ad
-    public void changeSceneToDetailedAdView(ActionEvent event) throws IOException, IOException {
+
+    public void changeSceneToDetailedAdView(ActionEvent event){
+
+        try{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("DetailedAdView.fxml"));
         Parent pane = loader.load();
@@ -199,13 +199,15 @@ public class FindACarToRent implements Initializable  {
 
         window.setScene(scene);
         window.show();
-    }
 
-    public void manualChecked(){
+    } catch (IOException e) {
+            throw new RuntimeException(e);
+        }}
+        public void manualChecked(){
 
-    }
-
-    public void changeSceneToBooking(ActionEvent event) throws IOException, IOException {
+        }
+    public void changeSceneToBooking(ActionEvent event) {
+        try{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("Booking.fxml"));
         Parent pane = loader.load();
@@ -225,9 +227,14 @@ public class FindACarToRent implements Initializable  {
 
         window.setScene(scene);
         window.show();
-    }
 
-    public void viewOwner(ActionEvent  event) throws IOException {
+    } catch (IOException e) {
+            throw new RuntimeException(e);
+        }}
+
+
+        public void viewOwner(ActionEvent  event)  {
+        try{
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("OtherUserProfileView.fxml"));
         Parent pane = loader.load();
@@ -245,9 +252,11 @@ public class FindACarToRent implements Initializable  {
         window.setScene(scene);
         window.show();
 
-    }
+    } catch (IOException e) {
+            throw new RuntimeException(e);
+        }}
 
-    public void goToMainMenu(ActionEvent event) {
+            public void goToMainMenu(ActionEvent event) {
         Main main = new Main();
         try {
             main.changeScene("ToGoCar.fxml");
