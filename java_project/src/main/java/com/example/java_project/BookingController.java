@@ -1,5 +1,7 @@
-package com.example.java_project.Controller;
+package com.example.java_project;
 
+import com.example.java_project.Controller.LogInController;
+import com.example.java_project.Controller.PaymentPageController;
 import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

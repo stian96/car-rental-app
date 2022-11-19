@@ -1,8 +1,9 @@
-package com.example.java_project.Controller;
+package com.example.java_project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,9 +16,11 @@ import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
-public class DetailedAdViewController {
+public class DetailedAdViewController implements Initializable {
     private RentOutAd selectedAd;
     private Car vehicle;
 
@@ -76,9 +79,8 @@ public class DetailedAdViewController {
     }
 
 
-    public void setStage(Stage popupStage) {
-        this.stage = stage;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
     }
-
-
 }
