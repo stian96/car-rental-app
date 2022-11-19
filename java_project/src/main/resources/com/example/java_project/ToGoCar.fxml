@@ -114,20 +114,20 @@
             </children></AnchorPane>
         <AnchorPane prefHeight="400.0" prefWidth="426.0" style="-fx-background-color: #9fc5e8;">
          <children>
-            <Button layoutY="187.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="35.0" text="&lt;" />
-            <Button layoutX="367.0" layoutY="187.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="35.0" text="&gt;" />
-            <AnchorPane prefHeight="400.0" prefWidth="402.0" AnchorPane.bottomAnchor="31.0" AnchorPane.topAnchor="99.0">
+            <Button layoutY="200.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="35.0" text="&lt;" />
+            <Button layoutX="367.0" layoutY="200.0" mnemonicParsing="false" prefHeight="100.0" prefWidth="35.0" text="&gt;" />
+            <AnchorPane prefHeight="400.0" prefWidth="402.0" AnchorPane.bottomAnchor="31.0" AnchorPane.topAnchor="118.0">
                <children>
-                   <ImageView fitHeight="270.0" fitWidth="402.0" pickOnBounds="true" preserveRatio="true" />
+                   <ImageView fitHeight="188.0" fitWidth="311.0" layoutX="34.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
                </children>
             </AnchorPane>
-            <AnchorPane layoutY="94.0" prefHeight="306.0" prefWidth="402.0" AnchorPane.bottomAnchor="31.0" AnchorPane.topAnchor="99.0">
+            <AnchorPane layoutY="138.0" prefHeight="243.0" prefWidth="402.0" AnchorPane.bottomAnchor="31.0" AnchorPane.topAnchor="118.0">
                <children>
-                   <ImageView fitHeight="270.0" fitWidth="402.0" pickOnBounds="true" preserveRatio="true" />
+                   <ImageView fitHeight="210.0" fitWidth="334.0" layoutX="34.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
                </children></AnchorPane>
-            <AnchorPane layoutY="99.0" prefHeight="270.0" prefWidth="402.0" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="99.0">
+            <AnchorPane layoutY="118.0" prefHeight="254.0" prefWidth="402.0" AnchorPane.bottomAnchor="31.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="118.0">
                <children>
-                   <ImageView fitHeight="270.0" fitWidth="402.0" pickOnBounds="true" preserveRatio="true" />
+                   <ImageView fitHeight="211.0" fitWidth="334.0" layoutX="34.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" />
                </children></AnchorPane>
          </children></AnchorPane>
     </children>
