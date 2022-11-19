@@ -116,13 +116,18 @@
          <children>
             <AnchorPane layoutY="147.0" prefHeight="251.0" prefWidth="374.0" style="-fx-background-color: #92cbf7;" AnchorPane.bottomAnchor="0.0">
                <children>
-                  <ImageView fx:id="carImage" fitHeight="216.0" fitWidth="318.0" layoutX="28.0" layoutY="20.0" pickOnBounds="true">
+                  <ImageView fx:id="carImage" fitHeight="231.0" fitWidth="318.0" layoutX="28.0" layoutY="20.0" pickOnBounds="true">
                      <image>
                         <Image url="@images/audi.jpg" />
                      </image>
                   </ImageView>
-                  <Button fx:id="buttonLeft" layoutX="-1.0" layoutY="20.0" mnemonicParsing="false" prefHeight="216.0" prefWidth="30.0" style="-fx-background-color: white;" text="&lt;" />
-                  <Button fx:id="buttonRight" layoutX="345.0" layoutY="20.0" mnemonicParsing="false" prefHeight="216.0" prefWidth="30.0" style="-fx-background-color: white;" text="&gt;" />
+                  <Button fx:id="buttonLeft" layoutX="-1.0" layoutY="20.0" mnemonicParsing="false" prefHeight="231.0" prefWidth="30.0" style="-fx-background-color: white;" text="&lt;" />
+                  <Button fx:id="buttonRight" layoutX="345.0" layoutY="20.0" mnemonicParsing="false" prefHeight="231.0" prefWidth="30.0" style="-fx-background-color: white;" text="&gt;" />
+                  <ImageView fx:id="carImage2" fitHeight="231.0" fitWidth="318.0" layoutX="27.0" layoutY="20.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bmw.jpg" />
+                     </image>
+                  </ImageView>
                </children>
             </AnchorPane>
          </children></AnchorPane>

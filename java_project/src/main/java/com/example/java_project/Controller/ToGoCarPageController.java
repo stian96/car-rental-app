@@ -6,16 +6,10 @@ import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.util.Duration;
 
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,6 +33,8 @@ public class ToGoCarPageController  implements Initializable {
     @FXML
     private ImageView carImage;
     @FXML
+    private ImageView carImage2;
+    @FXML
     private Button buttonLeft;
     @FXML
     private Button buttonRight;
@@ -54,20 +50,19 @@ public class ToGoCarPageController  implements Initializable {
         button_logOut.setOnAction(this::userLogOut);
         buttonStyle();
 
-        // buttonRight.setOnAction(this::changeImage);
+        buttonRight.setOnAction(this::changeImage);
+        buttonLeft.setOnAction(this::changeImageBack);
     }
-    /*
+
 
     public void changeImage(ActionEvent event) {
-        try {
-            Image car2 = new Image(new FileInputStream());
-            carImage.setImage(car2);
-        } catch (FileNotFoundException f) {
-            System.out.println(f.getMessage());
-        }
+        carImage2.setVisible(false);
     }
 
-     */
+    public void changeImageBack(ActionEvent event) {
+        carImage2.setVisible(true);
+    }
+
 
     public void userRegisterCar(ActionEvent event) {
         Main m = new Main();
