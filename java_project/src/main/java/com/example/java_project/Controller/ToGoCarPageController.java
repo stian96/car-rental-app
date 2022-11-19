@@ -32,21 +32,6 @@ public class ToGoCarPageController  implements Initializable {
     private Button button_customerService;
     @FXML
     private Button button_logOut;
-    @FXML
-    private AnchorPane pane1;
-    @FXML
-    private AnchorPane pane2;
-    @FXML
-    private AnchorPane pane3;
-
-    public void translateAnimation(double duration, Node node, double width) {
-
-        TranslateTransition trans = new TranslateTransition(Duration.seconds(duration), node);
-        trans.setByX(width);
-        trans.play();
-
-    }
-
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -58,9 +43,6 @@ public class ToGoCarPageController  implements Initializable {
         button_customerService.setOnAction(this::customerService);
         button_logOut.setOnAction(this::userLogOut);
         buttonStyle();
-
-        //translateAnimation(0.5, pane2);
-
     }
 
     public void userRegisterCar(ActionEvent event) {
