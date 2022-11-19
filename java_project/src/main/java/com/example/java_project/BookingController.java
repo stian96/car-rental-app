@@ -5,15 +5,20 @@ import com.example.java_project.Controller.PaymentPageController;
 import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
+import javafx.stage.Stage;
 import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.payment_methods.Payment;
+import no.hiof.groupproject.models.payment_methods.Paypal;
 import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
 import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.InsertBookingDB;
@@ -38,7 +43,7 @@ public class BookingController implements Initializable {
     LocalDate fromDate, toDate;
 
     @FXML
-    private Label label_model;
+    private Label label_model, nameOwner;
     @FXML
     private Label label_vehicleModel;
     @FXML
@@ -52,7 +57,7 @@ public class BookingController implements Initializable {
     private ToggleGroup paymentToggleGroups;
     int id;
 
-    User owner, renter;
+    User owner=FindACarToRent.roa.getUser(), renter;
     Vehicle vehicle;
     int vehicleId;
     Payment pay;
@@ -68,8 +73,9 @@ public class BookingController implements Initializable {
     public void fillData(RentOutAd roa) {
     ad = roa;
     this.id = roa.getAutoIncrementId();
-    this.owner = roa.getUser();
-    this.vehicle= roa.getVehicle();
+    this.vehicle = roa.getVehicle();
+
+    nameOwner.setText(String.valueOf(this.owner.getId()));
 
     label_model.setText(roa.getVehicle().getManufacturer());
     label_vehicleModel.setText(roa.getVehicle().getModel());
@@ -123,22 +129,44 @@ public class BookingController implements Initializable {
 
 
     public void btn_back(ActionEvent event)throws IOException {
-        Main m = new Main();
-        m.changeScene("FilterCar.fxml");
+
+    }
+    public void getAgreement(){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("TermsAndCondition.fxml"));
+            Parent pane = loader.load();
+
+            Scene scene = new Scene(pane);
+
+            //access the controller and call a method
+
+
+
+            //This line gets the Stage information
+            Stage window = new Stage();
+
+            window.setScene(scene);
+            window.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void btn_book(ActionEvent event)throws IOException {
 
-       User owner = this.owner;
+        //User owner1 = owner;
         User renter  = LogInController.user;
         LocalDate fromDate = this.fromDate;
         LocalDate toDate = this.toDate;
         Vehicle vehicle = this.vehicle;
-        Payment payment = PaymentPageController.payment;
-        Booking book = new Booking(owner,renter,fromDate,toDate,payment,vehicle);
+        Paypal payment = PaymentPageController.payment;
+        Booking book = new Booking(renter,owner,fromDate,toDate,payment,vehicle);
         try{
             if(!book.existsInDb()){
                 Booking b = InsertBookingDB.insert(book);
+                getAgreement();
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -152,6 +180,8 @@ public class BookingController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         paymentToggleGroups = new ToggleGroup();
         this.rb_paypal.setToggleGroup(paymentToggleGroups);
+
+
 
 
 

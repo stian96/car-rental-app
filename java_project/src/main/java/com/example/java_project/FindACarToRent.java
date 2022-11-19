@@ -65,7 +65,7 @@ public class FindACarToRent implements Initializable  {
     private ToggleGroup transmissionToggleGroups, engineToggleGroup;
     private BigDecimal dailyChargebd;
 
-    ObservableList<Advertisement> adObservableList = FXCollections.observableArrayList();
+    public static ObservableList<Advertisement> adObservableList = FXCollections.observableArrayList();
     public static RentOutAd roa ;
 
 
@@ -147,11 +147,52 @@ public class FindACarToRent implements Initializable  {
                     throw new RuntimeException(e);
             }}}
 
-
-
-    public void addFilters(){
-
+    public String getGearType(){
+        String gearType = null;
+        if(radioButton_automatic.isSelected()){
+            gearType = "automatic";
+        }else if(radioButton_manual.isSelected()){
+            gearType = "manual";
+        }
+        return gearType;
     }
+    public String getEngineType(){
+        String engineType = null;
+        if(radioButton_Hybrid.isSelected()){
+            engineType = "hybrid";
+
+        }
+        if(radioButton_Diesel.isSelected()){
+            engineType = "petrol";
+        }
+        if(radioButton_electric.isSelected()){
+            engineType = "electric";
+        }
+        return engineType;
+    }
+
+
+    public void addFilters(ActionEvent actionEvent){
+        ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(getGearType(), getEngineType(), null,
+                tf_townName.getText(), null, null, null,
+                null,null, null);
+        try {
+            for(int i :filteredAds){
+                RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(i);
+                afterOtherFiltersAdded.add(ad);}
+            if(!afterOtherFiltersAdded.isEmpty()){
+                clearListViewAndRepopulate();
+
+
+            }else {Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setContentText("No dates available");
+                alert.show();}}
+        catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+
 
 
     //Method to populatetheVehicleListView. Gets ad id from the Filter based on the
@@ -162,11 +203,13 @@ public class FindACarToRent implements Initializable  {
 
     }
 
-    public void radioButtonChanged() {
+    ArrayList<RentOutAd> afterOtherFiltersAdded =new ArrayList<>();
+    public void clearListViewAndRepopulate(){
+        adObservableList.removeAll(adsAvailInThoseDates);
+        adObservableList.addAll(afterOtherFiltersAdded);
+        System.out.println("filter" + adObservableList);
+        vehicleListView.getItems().addAll(adObservableList);
 
-        if (this.transmissionToggleGroups.getSelectedToggle().equals(this.radioButton_manual)){
-
-        }
     }
 
     public LocalDate getFromDate(){
