@@ -114,7 +114,17 @@
             </children></AnchorPane>
         <AnchorPane prefHeight="392.0" prefWidth="388.0" style="-fx-background-color: #92cbf7;">
          <children>
-            <ImageView fitHeight="192.0" fitWidth="374.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true" />
+            <AnchorPane layoutY="147.0" prefHeight="251.0" prefWidth="374.0" style="-fx-background-color: #92cbf7;" AnchorPane.bottomAnchor="0.0">
+               <children>
+                  <ImageView fx:id="carImage" fitHeight="216.0" fitWidth="318.0" layoutX="28.0" layoutY="20.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/audi.jpg" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="buttonLeft" layoutX="-1.0" layoutY="20.0" mnemonicParsing="false" prefHeight="216.0" prefWidth="30.0" style="-fx-background-color: white;" text="&lt;" />
+                  <Button fx:id="buttonRight" layoutX="345.0" layoutY="20.0" mnemonicParsing="false" prefHeight="216.0" prefWidth="30.0" style="-fx-background-color: white;" text="&gt;" />
+               </children>
+            </AnchorPane>
          </children></AnchorPane>
     </children>
 </HBox>

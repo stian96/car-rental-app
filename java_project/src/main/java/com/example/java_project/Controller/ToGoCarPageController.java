@@ -8,10 +8,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,6 +36,12 @@ public class ToGoCarPageController  implements Initializable {
     private Button button_customerService;
     @FXML
     private Button button_logOut;
+    @FXML
+    private ImageView carImage;
+    @FXML
+    private Button buttonLeft;
+    @FXML
+    private Button buttonRight;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -43,7 +53,21 @@ public class ToGoCarPageController  implements Initializable {
         button_customerService.setOnAction(this::customerService);
         button_logOut.setOnAction(this::userLogOut);
         buttonStyle();
+
+        // buttonRight.setOnAction(this::changeImage);
     }
+    /*
+
+    public void changeImage(ActionEvent event) {
+        try {
+            Image car2 = new Image(new FileInputStream());
+            carImage.setImage(car2);
+        } catch (FileNotFoundException f) {
+            System.out.println(f.getMessage());
+        }
+    }
+
+     */
 
     public void userRegisterCar(ActionEvent event) {
         Main m = new Main();
