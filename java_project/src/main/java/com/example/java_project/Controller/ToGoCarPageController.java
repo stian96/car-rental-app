@@ -35,6 +35,8 @@ public class ToGoCarPageController  implements Initializable {
     @FXML
     private ImageView carImage2;
     @FXML
+    private ImageView carImage3;
+    @FXML
     private Button buttonLeft;
     @FXML
     private Button buttonRight;
@@ -54,13 +56,38 @@ public class ToGoCarPageController  implements Initializable {
         buttonLeft.setOnAction(this::changeImageBack);
     }
 
+    int counter = 0;
 
     public void changeImage(ActionEvent event) {
-        carImage2.setVisible(false);
+        if (counter <= 1) {
+            if (counter == 0) {
+                carImage3.setVisible(false);
+            }
+            else if (counter == 1) {
+                carImage2.setVisible(false);
+            }
+            counter++;
+        }
+        else {
+            counter--;
+        }
+
     }
 
     public void changeImageBack(ActionEvent event) {
-        carImage2.setVisible(true);
+        if (counter >= 0) {
+            if (counter == 1) {
+                carImage2.setVisible(true);
+            }
+            else if (counter == 0) {
+                carImage3.setVisible(true);
+            }
+            counter--;
+        }
+        else {
+            counter++;
+        }
+
     }
 
 
