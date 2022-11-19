@@ -54,6 +54,8 @@ public class ToGoCarPageController  implements Initializable {
 
         buttonRight.setOnAction(this::changeImage);
         buttonLeft.setOnAction(this::changeImageBack);
+        gliderButtonStyle(buttonRight);
+        gliderButtonStyle(buttonLeft);
     }
 
     int counter = 0;
@@ -150,6 +152,12 @@ public class ToGoCarPageController  implements Initializable {
         } catch (IOException ioException) {
             System.out.println(ioException.getMessage());
         }
+    }
+
+    public void gliderButtonStyle(Button button) {
+        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #e6e6e6;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-background-color:  white;"));
+
     }
 
     public void buttonStyle() {

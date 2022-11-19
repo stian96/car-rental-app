@@ -114,7 +114,7 @@
             </children></AnchorPane>
         <AnchorPane prefHeight="392.0" prefWidth="388.0" style="-fx-background-color: #92cbf7;">
          <children>
-            <AnchorPane layoutY="147.0" prefHeight="251.0" prefWidth="374.0" style="-fx-background-color: #92cbf7;" AnchorPane.bottomAnchor="0.0">
+            <AnchorPane layoutY="147.0" prefHeight="250.0" prefWidth="375.0" style="-fx-background-color: #92cbf7;" AnchorPane.bottomAnchor="0.0">
                <children>
                   <ImageView fx:id="carImage" fitHeight="231.0" fitWidth="318.0" layoutX="28.0" layoutY="20.0" pickOnBounds="true">
                      <image>
@@ -128,11 +128,16 @@
                         <Image url="@images/bmw.jpg" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="carImage3" fitHeight="231.0" fitWidth="318.0" layoutX="26.0" layoutY="20.0" pickOnBounds="true">
+                  <ImageView fx:id="carImage3" fitHeight="231.0" fitWidth="318.0" layoutX="29.0" layoutY="20.0" pickOnBounds="true">
                      <image>
                         <Image url="@images/aston.jpg" />
                      </image>
                   </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-12.0" prefHeight="34.0" prefWidth="375.0" style="-fx-background-color: #9bbffa;" text="View the cars in the system">
+                     <font>
+                        <Font name="Comic Sans MS" size="14.0" />
+                     </font>
+                  </Label>
                </children>
             </AnchorPane>
          </children></AnchorPane>
