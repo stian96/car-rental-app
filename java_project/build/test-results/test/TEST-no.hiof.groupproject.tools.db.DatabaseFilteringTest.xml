@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="no.hiof.groupproject.tools.db.DatabaseFilteringTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2022-11-16T19:40:02" hostname="DESKTOP-P1M6OUN" time="41.68">
+<testsuite name="no.hiof.groupproject.tools.db.DatabaseFilteringTest" tests="15" skipped="0" failures="0" errors="0" timestamp="2022-11-20T15:21:31" hostname="Stians-MacBook-Air.local" time="41.82">
   <properties/>
-  <testcase name="assertsFilterToGearType()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.025"/>
-  <testcase name="assertsFilterToEngineType()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.024"/>
-  <testcase name="assertsFilterToArrayListAdvertisementFunctions()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="5.587"/>
-  <testcase name="assertsFilterToLocation()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="6.006"/>
-  <testcase name="assertsFilterToArrayListIntegerAdvertisementIdFunctions()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="5.987"/>
-  <testcase name="assertsFilterToChargePerTwentyKm()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="4.02"/>
-  <testcase name="assertsFilterRatingSortsByHighestAutomatically()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="9.997"/>
-  <testcase name="assertsFilterToModelYear()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.015"/>
-  <testcase name="assertsFilterToSeatingCapacity()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.013"/>
-  <testcase name="assertsFilterToDailyCharge()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="5.965"/>
-  <testcase name="assertsFilterToArrayListVehicleIdFunctions()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.021"/>
-  <testcase name="assertsFilterToAverageRating()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="3.978"/>
-  <testcase name="assertsFilterToArrayListVehicleFunctions()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.023"/>
-  <testcase name="assertsFilterToManufacturer()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.015"/>
+  <testcase name="assertsFilterToGearType()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.044"/>
+  <testcase name="assertsFilterToEngineType()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.021"/>
+  <testcase name="assertsFilterToArrayListAdvertisementFunctions()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="5.786"/>
+  <testcase name="assertsFilterToLocation()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="5.935"/>
+  <testcase name="assertsFilterToArrayListIntegerAdvertisementIdFunctions()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="6.046"/>
+  <testcase name="assertsFilterToChargePerTwentyKm()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="3.995"/>
+  <testcase name="assertsFilterRatingSortsByHighestAutomatically()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="9.902"/>
+  <testcase name="assertsFilterToModelYear()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.012"/>
+  <testcase name="assertsFilterToSeatingCapacity()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.01"/>
+  <testcase name="assertsFilterToDailyCharge()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="6.012"/>
+  <testcase name="assertsFilterToArrayListVehicleIdFunctions()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.009"/>
+  <testcase name="assertsFilterToAverageRating()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="3.968"/>
+  <testcase name="assertsFilterToArrayListVehicleFunctions()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.009"/>
+  <testcase name="assertsFilterToManufacturer()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.01"/>
   <testcase name="assertsFilterLimitCanBeSpecified()" classname="no.hiof.groupproject.tools.db.DatabaseFilteringTest" time="0.002"/>
   <system-out><![CDATA[[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
 [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)

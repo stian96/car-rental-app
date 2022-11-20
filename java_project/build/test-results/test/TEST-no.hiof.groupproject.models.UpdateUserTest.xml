@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="no.hiof.groupproject.models.UpdateUserTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-11-16T19:40:01" hostname="DESKTOP-P1M6OUN" time="0.26">
+<testsuite name="no.hiof.groupproject.models.UpdateUserTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2022-11-20T15:22:49" hostname="Stians-MacBook-Air.local" time="0.089">
   <properties/>
-  <testcase name="assertsUserPostNrCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.043"/>
-  <testcase name="assertsUserTlfNrCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.031"/>
-  <testcase name="assertsUserPasswordCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.045"/>
-  <testcase name="assertsUserLicenseCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.035"/>
-  <testcase name="assertsUserLastNameCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.037"/>
-  <testcase name="assertsUserFirstNameCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.037"/>
-  <testcase name="assertsUserBankAccountNrCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.031"/>
+  <testcase name="assertsUserPostNrCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.014"/>
+  <testcase name="assertsUserTlfNrCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.008"/>
+  <testcase name="assertsUserPasswordCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.01"/>
+  <testcase name="assertsUserLicenseCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.011"/>
+  <testcase name="assertsUserLastNameCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.013"/>
+  <testcase name="assertsUserFirstNameCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.013"/>
+  <testcase name="assertsUserBankAccountNrCanBeChanged()" classname="no.hiof.groupproject.models.UpdateUserTest" time="0.014"/>
   <system-out><![CDATA[98 47 123456 1
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="no.hiof.groupproject.tools.DeadlineTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-11-16T19:41:11" hostname="DESKTOP-P1M6OUN" time="0.003">
+<testsuite name="no.hiof.groupproject.tools.DeadlineTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-11-20T15:21:25" hostname="Stians-MacBook-Air.local" time="0.013">
   <properties/>
   <testcase name="beforeDeadline()" classname="no.hiof.groupproject.tools.DeadlineTest" time="0.002"/>
-  <testcase name="afterDeadline()" classname="no.hiof.groupproject.tools.DeadlineTest" time="0.001"/>
-  <testcase name="sameDayAsDeadline()" classname="no.hiof.groupproject.tools.DeadlineTest" time="0.0"/>
-  <system-out><![CDATA[2022-11-16
-2022-11-14
-2022-11-16
-2022-11-16
+  <testcase name="afterDeadline()" classname="no.hiof.groupproject.tools.DeadlineTest" time="0.006"/>
+  <testcase name="sameDayAsDeadline()" classname="no.hiof.groupproject.tools.DeadlineTest" time="0.001"/>
+  <system-out><![CDATA[2022-11-20
+2022-11-18
+2022-11-20
+2022-11-20
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="no.hiof.groupproject.models.RemoveUserTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-11-16T19:39:59" hostname="DESKTOP-P1M6OUN" time="2.052">
+<testsuite name="no.hiof.groupproject.models.RemoveUserTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2022-11-20T15:22:51" hostname="Stians-MacBook-Air.local" time="2.053">
   <properties/>
-  <testcase name="assertsAdvertisementsAreDeletedOnCascade()" classname="no.hiof.groupproject.models.RemoveUserTest" time="1.989"/>
-  <testcase name="assertsUserIsRemovedFromDatabase()" classname="no.hiof.groupproject.models.RemoveUserTest" time="0.029"/>
-  <testcase name="assertsUserProfileIsRemovedFromDatabaseViaCascade()" classname="no.hiof.groupproject.models.RemoveUserTest" time="0.034"/>
+  <testcase name="assertsAdvertisementsAreDeletedOnCascade()" classname="no.hiof.groupproject.models.RemoveUserTest" time="2.032"/>
+  <testcase name="assertsUserIsRemovedFromDatabase()" classname="no.hiof.groupproject.models.RemoveUserTest" time="0.01"/>
+  <testcase name="assertsUserProfileIsRemovedFromDatabaseViaCascade()" classname="no.hiof.groupproject.models.RemoveUserTest" time="0.01"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="no.hiof.groupproject.models.SerialiseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-16T19:40:01" hostname="DESKTOP-P1M6OUN" time="0.0">
+<testsuite name="no.hiof.groupproject.models.SerialiseTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-20T15:22:41" hostname="Stians-MacBook-Air.local" time="0.0">
   <properties/>
   <testcase name="assertsMockTest()" classname="no.hiof.groupproject.models.SerialiseTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
