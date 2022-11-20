@@ -2,15 +2,21 @@ package com.example.java_project;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class TermsAndCondition implements Initializable {
     @FXML private TextArea textArea;
     @FXML private CheckBox checkBox;
+    @FXML private AnchorPane scenePane;
+    Stage stage;
 
 
     @Override
@@ -26,4 +32,18 @@ public class TermsAndCondition implements Initializable {
                 "Damages:\n" +
                 "Damages must be reported to the owner of the vehicle and insurance company. Damages will be compensated of the insurance company.\n");
     }
-}
+
+    public void checkBoxIsTicked() throws IOException {
+        Main m = new Main();
+        if(checkBox.isSelected()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Your booking is confirmed! ");
+            alert.show();
+            stage = (Stage) scenePane.getScene().getWindow();
+            stage.close();
+
+            m.changeScene("ToGoCar.fxml");}
+
+
+    }}
+
