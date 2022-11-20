@@ -106,6 +106,7 @@ public class RegisterCarController implements Initializable {
     }
 
     public void addStyle(Button button) {
+        // style to be added the buttons.
         button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:  #f1c232; -fx-text-fill: white;"));
         button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
     }
