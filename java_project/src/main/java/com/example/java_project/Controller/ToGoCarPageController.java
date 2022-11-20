@@ -32,8 +32,6 @@ public class ToGoCarPageController  implements Initializable {
     @FXML
     private Button button_logOut;
     @FXML
-    private ImageView carImage;
-    @FXML
     private ImageView carImage2;
     @FXML
     private ImageView carImage3;
