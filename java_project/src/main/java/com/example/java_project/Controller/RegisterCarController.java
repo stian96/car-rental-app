@@ -2,14 +2,11 @@ package com.example.java_project.Controller;
 
 import com.example.java_project.Main;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.db.InsertUserDB;
-import no.hiof.groupproject.tools.db.InsertVehicleDB;
+import no.hiof.groupproject.models.vehicles.Vehicle;
+import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 
 import java.io.IOException;
@@ -81,7 +78,7 @@ public class RegisterCarController implements Initializable {
         }
 
         }
-    else { registerPrompt.setText("enter information");}
+    else { registerPrompt.setText("Enter information");}
 
 }
     public void mainMenuButton(ActionEvent event) {
@@ -106,7 +103,6 @@ public class RegisterCarController implements Initializable {
     }
 
     public void addStyle(Button button) {
-        // style to be added the buttons.
         button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:  #f1c232; -fx-text-fill: white;"));
         button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
     }
