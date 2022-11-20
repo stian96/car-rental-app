@@ -1,18 +1,14 @@
 package com.example.java_project;
 
 import com.example.java_project.Controller.LogInController;
-import com.example.java_project.Controller.PaymentPageController;
-import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import no.hiof.groupproject.models.Booking;
 import no.hiof.groupproject.models.advertisements.RentOutAd;
@@ -41,7 +37,8 @@ public class BookingController implements Initializable {
     private RentOutAd ad;
     private Car v;
     LocalDate fromDate, toDate;
-
+    @FXML
+    private AnchorPane scenePane;
     @FXML
     private Label label_model, nameOwner;
     @FXML
@@ -67,6 +64,8 @@ public class BookingController implements Initializable {
     private Button button_back;
     @FXML
     private Button button_book;
+
+    Stage stage;
 
 // radio buttons has action listener.  radioCard, radioPaypal, radioVipps, radioGoogle
 //temporary
@@ -110,7 +109,21 @@ public class BookingController implements Initializable {
     public void radioPayPal(ActionEvent event) throws IOException {
         Main m = new Main();
         if(this.paymentToggleGroups.getSelectedToggle().equals(this.rb_paypal)){
-            m.changeScene("PaymentPage.fxml");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("PaymentPage.fxml"));
+            Parent pane = loader.load();
+
+            Scene scene = new Scene(pane);
+
+            //access the controller and call a method
+
+
+
+            //This line gets the Stage information
+            Stage window = new Stage();
+
+            window.setScene(scene);
+            window.show();
         }
 
 
@@ -165,9 +178,14 @@ public class BookingController implements Initializable {
         Booking book = new Booking(renter,owner,fromDate,toDate,payment,vehicle);
         try{
             if(!book.existsInDb()){
-                Booking b = InsertBookingDB.insert(book);
-                getAgreement();
-            }
+                 InsertBookingDB.insert(book);
+                 getAgreement();
+                 stage = (Stage) scenePane.getScene().getWindow();
+                 stage.close();
+
+            }else{Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("Your booking is confirmed ");
+            alert.show();}
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -180,6 +198,7 @@ public class BookingController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         paymentToggleGroups = new ToggleGroup();
         this.rb_paypal.setToggleGroup(paymentToggleGroups);
+
 
 
 
