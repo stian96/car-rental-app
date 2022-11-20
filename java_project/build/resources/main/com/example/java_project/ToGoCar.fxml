@@ -12,7 +12,7 @@
             <children>
                 <ImageView fitHeight="45.0" fitWidth="62.0" layoutX="20.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@images/car.png" />
+                        <Image url="@car.png" />
                     </image>
                 </ImageView>
                 <Label layoutX="94.0" layoutY="22.0" text="ToGoCar">
@@ -112,12 +112,34 @@
                </children>
             </VBox>
             </children></AnchorPane>
-        <AnchorPane prefHeight="400.0" prefWidth="426.0" style="-fx-background-color: #9fc5e8;">
+        <AnchorPane prefHeight="392.0" prefWidth="388.0" style="-fx-background-color: #92cbf7;">
          <children>
-            <TextField fx:id="townTxtField" layoutX="74.0" layoutY="101.0" prefHeight="25.0" prefWidth="174.0" />
-            <DatePicker fx:id="fromDatePicker" layoutX="74.0" layoutY="164.0" />
-            <DatePicker fx:id="toDatePicker" layoutX="74.0" layoutY="219.0" />
-            <Button fx:id="searchButton" layoutX="122.0" layoutY="285.0" mnemonicParsing="false" text="Search" />
+            <AnchorPane layoutY="147.0" prefHeight="250.0" prefWidth="375.0" style="-fx-background-color: #92cbf7;" AnchorPane.bottomAnchor="0.0">
+               <children>
+                  <ImageView fx:id="carImage" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/audi.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="carImage2" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bmw.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="carImage3" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/aston.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-12.0" prefHeight="34.0" prefWidth="375.0" style="-fx-background-color: #9bbffa;" text="View the cars in the system">
+                     <font>
+                        <Font name="Comic Sans MS" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonLeft" layoutX="13.0" layoutY="33.0" mnemonicParsing="false" opacity="0.6" prefHeight="26.0" prefWidth="30.0" style="-fx-background-color: white; -fx-background-radius: 20px;" text="&lt;" />
+                  <Button fx:id="buttonRight" layoutX="331.0" layoutY="33.0" mnemonicParsing="false" opacity="0.6" prefHeight="26.0" prefWidth="30.0" style="-fx-background-color: white; -fx-background-radius: 20px;" text="&gt;" />
+               </children>
+            </AnchorPane>
          </children></AnchorPane>
     </children>
 </HBox>
