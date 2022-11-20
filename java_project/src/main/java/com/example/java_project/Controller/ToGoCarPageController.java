@@ -66,7 +66,7 @@ public class ToGoCarPageController  implements Initializable {
   public void userProfile(ActionEvent event) {
         Main m = new Main();
         try {
-          m.changeScene("UpdateProfile.fxml");
+          m.changeScene("UserProfile.fxml");
         } catch (IOException ioException) {
           System.out.println(ioException.getMessage());
         }
