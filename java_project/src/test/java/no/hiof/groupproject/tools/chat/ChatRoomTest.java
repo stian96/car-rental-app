@@ -45,7 +45,6 @@ public class ChatRoomTest {
         Message msg = new Message(user, receiver,"Hello from sam");
         assertFalse(chatRoom.sendMessage(msg));
     }
-    /*
 
     @Test
     void VerifyThatGetMessageLogRetrieveDataFromDatabase() {
@@ -60,8 +59,6 @@ public class ChatRoomTest {
         Object[] response = Arrays.copyOfRange(chatRoom.getMessageLog(user.getId()).toArray(), 0, 2);
         assertArrayEquals(testLog.toArray(), response);
     }
-
-     */
 
     @Test
     void VerifyThatGetLimitedMessageLogRetrieveDataFromDatabase() {
