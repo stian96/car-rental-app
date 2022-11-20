@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 
 import java.io.IOException;
@@ -50,46 +51,57 @@ public class ToGoCarPageController  implements Initializable {
         button_FindCar.setOnAction(this::findACar);
         button_customerService.setOnAction(this::customerService);
         button_logOut.setOnAction(this::userLogOut);
-        buttonStyle();
 
         buttonRight.setOnAction(this::changeImage);
         buttonLeft.setOnAction(this::changeImageBack);
         gliderButtonStyle(buttonRight);
         gliderButtonStyle(buttonLeft);
+
+        Button[] buttonList = {button_Advertisement, button_message, button_logOut, button_customerService,
+        button_FindCar, button_profile, button_registerCar};
+        for (Button buttons : buttonList)
+                buttonStyle(buttons);
     }
 
-    int counter = 0;
+    int counterR = 0;
+    TranslateTransition trans = new TranslateTransition();
 
     public void changeImage(ActionEvent event) {
-        if (counter <= 1) {
-            if (counter == 0) {
-                carImage3.setVisible(false);
-            }
-            else if (counter == 1) {
-                carImage2.setVisible(false);
-            }
-            counter++;
+        trans.setDuration(Duration.seconds(0.4));
+        if (counterR == 0 && carImage3.getX() == 0) {
+            trans.setNode(carImage3);
+            trans.setByX(375);
+            trans.play();
+            counterR++;
+        }
+        else if (counterR == 1 && carImage2.getX() == 0) {
+            trans.setNode(carImage2);
+            trans.setByX(375);
+            trans.play();
+            counterR++;
         }
         else {
-            counter--;
+            counterR = 2;
         }
-
     }
 
     public void changeImageBack(ActionEvent event) {
-        if (counter >= 0) {
-            if (counter == 1) {
-                carImage2.setVisible(true);
-            }
-            else if (counter == 0) {
-                carImage3.setVisible(true);
-            }
-            counter--;
+        trans.setDuration(Duration.seconds(0.4));
+        if (counterR == 1 && carImage3.getX() == 0.0) {
+            trans.setNode(carImage3);
+            trans.setByX(-375);
+            trans.play();
+            counterR--;
+        }
+        else if (counterR == 2 && carImage2.getX() == 0.0) {
+            trans.setNode(carImage2);
+            trans.setByX(-375);
+            trans.play();
+            counterR--;
         }
         else {
-            counter++;
+            counterR = 0;
         }
-
     }
 
 
@@ -155,31 +167,15 @@ public class ToGoCarPageController  implements Initializable {
     }
 
     public void gliderButtonStyle(Button button) {
-        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #e6e6e6;"));
-        button.setOnMouseExited(e -> button.setStyle("-fx-background-color:  white;"));
+        button.setOnMouseEntered(e -> button.setStyle("-fx-opacity: 1; -fx-background-radius: 20px;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-opacity: 0.6; -fx-background-radius: 20px;"));
+
 
     }
 
-    public void buttonStyle() {
-        button_registerCar.setOnMouseEntered(e -> button_registerCar.setStyle("-fx-background-color: #c9b502;"));
-        button_registerCar.setOnMouseExited(e -> button_registerCar.setStyle("-fx-background-color:  #f1c232;"));
+    public void buttonStyle(Button button) {
+        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #c9b502;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-background-color:  #f1c232;"));
 
-        button_Advertisement.setOnMouseEntered(e -> button_Advertisement.setStyle("-fx-background-color: #c9b502;"));
-        button_Advertisement.setOnMouseExited(e -> button_Advertisement.setStyle("-fx-background-color:  #f1c232;"));
-
-        button_profile.setOnMouseEntered(e -> button_profile.setStyle("-fx-background-color: #c9b502;"));
-        button_profile.setOnMouseExited(e -> button_profile.setStyle("-fx-background-color:  #f1c232;"));
-
-        button_FindCar.setOnMouseEntered(e -> button_FindCar.setStyle("-fx-background-color: #c9b502;"));
-        button_FindCar.setOnMouseExited(e -> button_FindCar.setStyle("-fx-background-color:  #f1c232;"));
-
-        button_customerService.setOnMouseEntered(e -> button_customerService.setStyle("-fx-background-color: #c9b502;"));
-        button_customerService.setOnMouseExited(e -> button_customerService.setStyle("-fx-background-color:  #f1c232;"));
-
-        button_logOut.setOnMouseEntered(e -> button_logOut.setStyle("-fx-background-color: #c9b502;"));
-        button_logOut.setOnMouseExited(e -> button_logOut.setStyle("-fx-background-color:  #f1c232;"));
-
-        button_message.setOnMouseEntered(e -> button_message.setStyle("-fx-background-color: #c9b502;"));
-        button_message.setOnMouseExited(e -> button_message.setStyle("-fx-background-color:  #f1c232;"));
     }
 }
