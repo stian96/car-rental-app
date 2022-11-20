@@ -37,9 +37,9 @@ public class MessageController implements Initializable {
     ChatRoom chat = new ChatRoom();
 
     ArrayList<User> receiverList = new ArrayList<>();
+    User user = LogInController.user;
 
     public void btnSend(ActionEvent event) {
-        User user = LogInController.user;
 
         for (User receiver : receiverList) {
             if (receiver.getFirstName().equals(receiverChoice.getValue())) {
@@ -91,7 +91,7 @@ public class MessageController implements Initializable {
 
     public void showMessagesInScrollPane() {
         StringBuilder buildLog = new StringBuilder();
-        for (String messages : chat.getMessageLog()) {
+        for (String messages : chat.getMessageLog(user.getId())) {
             buildLog.append(messages).append("\n");
         }
         messageArea.setText(buildLog.toString());

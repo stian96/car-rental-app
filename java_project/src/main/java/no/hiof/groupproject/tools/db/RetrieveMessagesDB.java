@@ -8,9 +8,10 @@ import java.util.ArrayList;
 
 public class RetrieveMessagesDB {
 
-    public static ArrayList<String> retrieveAllMessages() {
+    public static ArrayList<String> retrieveAllMessages(int id) {
 
-        String sql = "SELECT * FROM messages WHERE user_id > 0 ORDER BY dato, tid";
+        String sql = "SELECT * FROM messages WHERE user_id = " + id + " OR receiver_id = " + id +
+                " ORDER BY dato, tid";
 
         ArrayList<String> returnedMessages = new ArrayList<>();
 
