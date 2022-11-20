@@ -19,6 +19,9 @@ public class ChatRoomTest {
     User user = new User("sam", "davies", "1111", "hunter2",
             "12341234123", "sam@sam.no", "12341234", license);
 
+    User receiver = new User("Geir", "Larsen", "1234", "cake",
+            "123456789101", "geir@larsen.no","91038420", license);
+
     ChatRoom chatRoom = new ChatRoom();
 
     @BeforeEach
@@ -30,20 +33,18 @@ public class ChatRoomTest {
         ConnectDB.setDb("jdbc:sqlite:sqlite/db/test.db");
     }
 
-    /*
 
     @Test
     void VerifyThatSendMessageSerialiseMessages() {
-        assertTrue(chatRoom.sendMessage(new Message(user, "A brand new message!")));
+        assertTrue(chatRoom.sendMessage(new Message(user, receiver,"A brand new message!")));
         chatRoom.deleteMessage("A brand new message!");
     }
 
     @Test
     void VerifyThatSendMessageDoNotStoreMessagesThatExist() {
-        Message msg = new Message(user, "Hello from sam");
+        Message msg = new Message(user, receiver,"Hello from sam");
         assertFalse(chatRoom.sendMessage(msg));
     }
-     */
 
     @Test
     void VerifyThatGetMessageLogRetrieveDataFromDatabase() {
