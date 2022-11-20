@@ -88,6 +88,5 @@
             <Font name="Comic Sans MS Bold Italic" size="13.0" />
          </font>
       </Button>
-      <Label fx:id="nameOwner" layoutX="189.0" layoutY="18.0" />
    </children>
 </AnchorPane>
