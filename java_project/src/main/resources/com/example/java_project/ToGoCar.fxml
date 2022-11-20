@@ -20,7 +20,7 @@
                         <Font name="JetBrains Mono ExtraBold" size="18.0" />
                     </font>
                 </Label>
-            <VBox layoutY="66.0" prefHeight="333.0" prefWidth="207.0">
+            <VBox layoutY="66.0" prefHeight="333.0" prefWidth="226.0">
                <children>
                       <Button fx:id="button_registerCar" mnemonicParsing="false" onAction="#userRegisterCar" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Register a car">
                           <font>
