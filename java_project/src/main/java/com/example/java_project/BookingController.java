@@ -54,7 +54,7 @@ public class BookingController implements Initializable {
     private ToggleGroup paymentToggleGroups;
     int id;
 
-    User owner=FindACarToRent.roa.getUser(), renter;
+    User owner, renter;
     Vehicle vehicle;
     int vehicleId;
     Payment pay;
@@ -73,8 +73,8 @@ public class BookingController implements Initializable {
     ad = roa;
     this.id = roa.getAutoIncrementId();
     this.vehicle = roa.getVehicle();
+    this.owner = roa.getUser();
 
-    nameOwner.setText(String.valueOf(this.owner.getId()));
 
     label_model.setText(roa.getVehicle().getManufacturer());
     label_vehicleModel.setText(roa.getVehicle().getModel());
@@ -169,7 +169,7 @@ public class BookingController implements Initializable {
 
     public void btn_book(ActionEvent event)throws IOException {
 
-        //User owner1 = owner;
+        User owner = this.owner;
         User renter  = LogInController.user;
         LocalDate fromDate = this.fromDate;
         LocalDate toDate = this.toDate;
