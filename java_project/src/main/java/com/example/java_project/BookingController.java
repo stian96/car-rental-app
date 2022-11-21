@@ -64,7 +64,7 @@ public class BookingController implements Initializable {
     static Payment pay;
 
 
-    LocalDate getFromDate, getToDate;
+
     @FXML
     private Button button_back;
     @FXML
@@ -97,6 +97,7 @@ public class BookingController implements Initializable {
         paymentMethodChoiceBox.setOnAction(this::choosePaymentMethod);
 
 
+
     }
 
     public void choosePaymentMethod(ActionEvent event) {
@@ -109,6 +110,8 @@ public class BookingController implements Initializable {
 
         } else if (Objects.equals(paymentMethodChoiceBox.getValue(), "googlepay")) {
             changeToGooglePayScene();
+
+        }else if(Objects.equals(paymentMethodChoiceBox.getValue(), "googlepay")){
 
         }
     }
@@ -137,7 +140,25 @@ public class BookingController implements Initializable {
     public void changeToGooglePayScene() {
         try {
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("PaymentPage.fxml"));
+            loader.setLocation(getClass().getResource("GooglePay.fxml"));
+            Parent pane = loader.load();
+
+            Scene scene = new Scene(pane);
+
+            Stage window = new Stage();
+
+            window.setScene(scene);
+            window.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public void changeToVippsScene() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("VippsPayment.fxml"));
             Parent pane = loader.load();
 
             Scene scene = new Scene(pane);
