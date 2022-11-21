@@ -103,6 +103,7 @@ public class AdvertisementController implements Initializable {
 
         menuButton.setOnMouseEntered(e -> menuButton.setStyle("-fx-background-color:  #f1c232; -fx-text-fill: white;"));
         menuButton.setOnMouseExited(e -> menuButton.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
+
     }
 
 }
