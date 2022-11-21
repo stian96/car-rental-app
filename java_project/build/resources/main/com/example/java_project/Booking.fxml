@@ -39,25 +39,6 @@
          <font>
             <Font name="Comic Sans MS Bold Italic" size="14.0" />
          </font></Label>
-
-      <RadioButton fx:id="rb_card" layoutX="36.0" layoutY="266.0" mnemonicParsing="false" onAction="#radioCard" text="Card">
-         <font>
-            <Font name="Comic Sans MS Bold Italic" size="12.0" />
-         </font>
-      </RadioButton>
-      <RadioButton fx:id="rb_paypal" layoutX="31.0" layoutY="295.0" mnemonicParsing="false" onAction="#radioPayPal" text="Paypal">
-         <font>
-            <Font name="Comic Sans MS Bold Italic" size="12.0" />
-         </font>
-      </RadioButton>
-      <RadioButton fx:id="rb_googlePay" layoutX="125.0" layoutY="295.0" mnemonicParsing="false" onAction="#radioGoogle" text="GooglePay">
-         <font>
-            <Font name="Comic Sans MS Bold Italic" size="12.0" />
-         </font></RadioButton>
-      <RadioButton fx:id="rb_Vipps" layoutX="125.0" layoutY="266.0" mnemonicParsing="false" onAction="#radioVipps" text="Vipps">
-         <font>
-            <Font name="Comic Sans MS Bold Italic" size="12.0" />
-         </font></RadioButton>
       <Label fx:id="label_model" layoutX="210.0" layoutY="65.0" prefHeight="19.0" prefWidth="106.0">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="13.0" />
@@ -88,6 +69,6 @@
             <Font name="Comic Sans MS Bold Italic" size="13.0" />
          </font>
       </Button>
-      <ChoiceBox fx:id="paymentMethodChoiceBox" layoutX="27.0" layoutY="336.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="paymentMethodChoiceBox" layoutX="23.0" layoutY="263.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
