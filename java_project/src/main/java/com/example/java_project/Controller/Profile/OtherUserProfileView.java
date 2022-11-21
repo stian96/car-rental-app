@@ -2,7 +2,6 @@ package com.example.java_project.Controller.Profile;
 
 import com.example.java_project.FindACarToRent;
 import com.example.java_project.Controller.LogInController;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
