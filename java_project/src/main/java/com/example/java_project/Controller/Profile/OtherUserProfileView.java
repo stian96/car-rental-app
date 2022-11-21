@@ -11,7 +11,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.UserProfile;
-import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.tools.db.RetrieveAverageRatingDB;
 
 import java.net.URL;
@@ -23,7 +23,7 @@ public class OtherUserProfileView implements Initializable {
         @FXML private Label userName,userAVgRate;
         @FXML private TextField rateTxtField;
         @FXML private Button addRateButton;
-        @FXML private ListView<Advertisement> listViewAds;
+        @FXML private ListView<RentOutAd> listViewAds;
     @FXML
     public void addRating(ActionEvent actionEvent){
         User user = LogInController.user;

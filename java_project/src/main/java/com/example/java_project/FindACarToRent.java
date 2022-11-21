@@ -1,19 +1,19 @@
 package com.example.java_project;
 
-import com.example.java_project.BookingController;
+
 import com.example.java_project.Controller.Profile.OtherUserProfileView;
-import com.example.java_project.Main;
+
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 
-import javafx.scene.Node;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -53,9 +53,7 @@ public class FindACarToRent implements Initializable  {
     private Button searchButton, bookButton,selectAd ;
     @FXML
     private Button button_mainMenu;
-    @FXML
-    private RadioButton radioButton_manual,radioButton_automatic,
-            radioButton_electric,radioButton_Hybrid,radioButton_Diesel;
+
     @FXML
     private Slider priceSlider ;
     @FXML
@@ -63,24 +61,25 @@ public class FindACarToRent implements Initializable  {
     @FXML
     private Button bt_viewOwner;
     private double dailyPrice;
-    @FXML
-    private ToggleGroup transmissionToggleGroups, engineToggleGroup;
+
     @FXML
     private ChoiceBox<String>transmissionChoiceBox, engineChoiceBox, manuChoiceBox;
     @FXML
-    private ChoiceBox<Integer> numSeatChoiceBox;
+    private ChoiceBox<Integer> numSeatChoiceBox,
+            yearChoiceBox;
     private String[] gearTypeArr= {"automatic", "manual"};
     private String[] engineTypeArr={  "hybrid", "petrol","electric"};
 
     private String[] manuArray={  "bmw", "audi", "nissan", "honda", "aston Martin"};
     private  Integer[] numSeatArray = {2,3,4,5,6,7};
+    private Integer[] yearsArray = {1963,1993, 1994,1999,2013};
 
     private BigDecimal dailyCharge;
 
-    public static ObservableList<Advertisement> adObservableList = FXCollections.observableArrayList();
+    public static ObservableList<RentOutAd> adObservableList = FXCollections.observableArrayList();
     public static RentOutAd roa ;
     String gearType, engineType, manuType = null;
-    Integer numSeat = null;
+    Integer numSeat, yearModel = null;
 
 
 
@@ -90,9 +89,6 @@ public class FindACarToRent implements Initializable  {
         selectAd.setOnAction(this::changeSceneToDetailedAdView);
         bookButton.setOnAction(this::changeSceneToBooking);
         bt_viewOwner.setOnAction(this::viewOwner);
-
-        //yearChoiceBox.getItems().addAll("1950","1999");
-        //yearChoiceBox.setValue("1999");
 
         transmissionChoiceBox.getItems().addAll(gearTypeArr);
         transmissionChoiceBox.setOnAction(this::gearTypeChanged);
@@ -106,10 +102,8 @@ public class FindACarToRent implements Initializable  {
         numSeatChoiceBox.getItems().addAll(numSeatArray);
         numSeatChoiceBox.setOnAction(this::getNumSeats);
 
-
-
-
-
+        yearChoiceBox.getItems().addAll(yearsArray);
+        yearChoiceBox.setOnAction(this::getYearModel);
 
 
 
@@ -138,7 +132,6 @@ public class FindACarToRent implements Initializable  {
 
 
 
-    ArrayList<RentOutAd> adArrayList = new ArrayList<>();
     ArrayList<RentOutAd> adsAvailInThoseDates = new ArrayList<>();
     public void searchButtonPushed(ActionEvent event){
 
@@ -146,14 +139,24 @@ public class FindACarToRent implements Initializable  {
         ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, engineType,
                 manuType, town, null, null, null,
                 numSeat,null, null);
+        for(int i : filteredAds){
+            RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(i);
+            adObservableList.add(ad);}
 
-                try{
-                    for(int i : filteredAds){
-                        RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(i);
-                        adArrayList.add(ad);
-                    roa = ad;}
-                populateListView();}
+                try{{
+                    if(!adObservableList.isEmpty()){
+                        for(RentOutAd rentOutAd : adObservableList){
+                        if(rentOutAd.checkIfDateIsAvailable(getFromDate(),getFromDate())) {
+                            adsAvailInThoseDates.add(rentOutAd);
+                            vehicleListView.getItems().addAll(adsAvailInThoseDates);
 
+                        }}
+                    }else{Alert alert = new Alert(Alert.AlertType.ERROR);
+                        alert.setContentText("Cars available for this criteria");
+                        alert.show();}{
+                    }
+
+                    }}
                 catch (Exception e){
                     throw new RuntimeException(e);
             }}
@@ -179,46 +182,10 @@ public class FindACarToRent implements Initializable  {
     public void getNumSeats(ActionEvent event){
         numSeat = numSeatChoiceBox.getValue();
     }
-
-    public void addFilters(ActionEvent actionEvent){
-        ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, engineType, null,
-                tf_townName.getText(), null, null, null,
-                null,null, null);
-        try {
-            for(int i :filteredAds){
-                RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(i);
-                afterOtherFiltersAdded.add(ad);}
-            if(!afterOtherFiltersAdded.isEmpty()){
-                clearListViewAndRepopulate();
-
-
-            }else {Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("No dates available");
-                alert.show();}}
-        catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+    public void getYearModel(ActionEvent event){
+        yearModel = yearChoiceBox.getValue();
     }
 
-
-
-
-    //Method to populatetheVehicleListView. Gets ad id from the Filter based on the
-    public void populateListView(){
-        adObservableList.addAll(adArrayList);
-        System.out.println("lets" + adObservableList);
-        vehicleListView.getItems().addAll(adObservableList);
-
-    }
-
-    ArrayList<RentOutAd> afterOtherFiltersAdded =new ArrayList<>();
-    public void clearListViewAndRepopulate(){
-        adObservableList.removeAll(adsAvailInThoseDates);
-        adObservableList.addAll(afterOtherFiltersAdded);
-        System.out.println("filter" + adObservableList);
-        vehicleListView.getItems().addAll(adObservableList);
-
-    }
 
     public LocalDate getFromDate(){
         return fromDatePicker.getValue();
