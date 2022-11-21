@@ -14,7 +14,7 @@ public class InsertMessageDB {
     public static void insert(Message chat) {
 
 
-        String sql = "INSERT INTO messages (user_id, user_name, melding, dato, tid) " + "VALUES(?,?,?,?,?)";
+        String sql = "INSERT INTO messages (user_id, user_name, melding, dato, tid, receiver_id) " + "VALUES(?,?,?,?,?,?)";
 
         try (Connection conn = ConnectDB.connect();
              PreparedStatement str = conn.prepareStatement(sql)) {
@@ -23,6 +23,7 @@ public class InsertMessageDB {
             str.setString(3, chat.getMessage());
             str.setString(4, chat.formatNowDate());
             str.setString(5, chat.formatNowTime());
+            str.setInt(6, chat.getReceiver().getId());
 
             str.executeUpdate();
         } catch (SQLException sqlException) {

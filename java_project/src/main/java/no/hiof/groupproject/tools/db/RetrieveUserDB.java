@@ -1,7 +1,7 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.License;
+import no.hiof.groupproject.models.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -56,8 +56,7 @@ public class RetrieveUserDB {
                 String dateOfIssue = queryResult.getString("dateOfIssue");
                 String countryOfIssue = queryResult.getString("countryOfIssue");
 
-                License dLicense = new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue);
-                returnedUser.setdLicense(dLicense);
+                returnedUser.setdLicense(new License(licenseNumber, LocalDate.parse(dateOfIssue), countryOfIssue));
             }
 
             returnedUser.setId(id);

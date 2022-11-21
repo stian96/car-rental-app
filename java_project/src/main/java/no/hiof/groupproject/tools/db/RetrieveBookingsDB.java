@@ -1,15 +1,13 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.models.Booking;
-import no.hiof.groupproject.models.RentOutAd;
-import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.models.payment_methods.Payment;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 
-import java.sql.*;
-import java.time.LocalDate;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.TreeMap;
 
 //Returns a specific ArrayList of all confirmedBookings based on a specific RentOutAd
 

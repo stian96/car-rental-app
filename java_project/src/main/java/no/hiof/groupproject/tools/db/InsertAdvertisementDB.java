@@ -1,13 +1,12 @@
 package no.hiof.groupproject.tools.db;
 
 import no.hiof.groupproject.interfaces.AvailableWithinExistsInDb;
-import no.hiof.groupproject.models.Advertisement;
-import no.hiof.groupproject.models.Booking;
-import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 
-import java.sql.*;
-import java.time.LocalDate;
-import java.util.Map;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.Objects;
 
 /*

@@ -20,8 +20,13 @@ public class ChatRoom implements DeserialiseMessages {
         }
     }
 
-    public ArrayList<String> getMessageLog() {
-        messageLog = RetrieveMessagesDB.retrieveAllMessages();
+    public ArrayList<String> getMessageLog(int user_id) {
+        messageLog = RetrieveMessagesDB.retrieveAllMessages(user_id);
+        return messageLog;
+    }
+
+    public ArrayList<String> getLimitedMessageLog(int results) {
+        messageLog = RetrieveMessagesDB.retrieveLimitedMessages(results);
         return messageLog;
     }
 

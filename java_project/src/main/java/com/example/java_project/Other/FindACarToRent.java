@@ -3,6 +3,7 @@ package com.example.java_project.Other;
 import com.example.java_project.Controller.BookingController;
 import com.example.java_project.Controller.DetailedAdViewController;
 import com.example.java_project.Controller.Profile.OtherUserProfileView;
+import com.example.java_project.Main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -16,9 +17,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.*;
-import no.hiof.groupproject.models.Advertisement;
-import no.hiof.groupproject.models.RentOutAd;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
 import no.hiof.groupproject.tools.filters.FilterAdvertisement;
 
@@ -31,6 +32,7 @@ import java.util.*;
 import static java.time.temporal.ChronoUnit.DAYS;
 
 public class FindACarToRent implements Initializable  {
+
     //method to get the number of days for booking
     public static long countDaysBetween(LocalDate dateFrom, LocalDate dateTo){
         return DAYS.between(dateFrom,dateTo);
@@ -49,12 +51,16 @@ public class FindACarToRent implements Initializable  {
     @FXML
     private Button searchButton, bookButton,selectAd ;
     @FXML
+    private Button button_mainMenu;
+    @FXML
     private RadioButton radioButton_manual,radioButton_automatic,
             radioButton_electric,radioButton_Hybrid,radioButton_Diesel;
     @FXML
     private Slider priceSlider ;
     @FXML
     private Label priceLabel;
+    @FXML
+    private Button bt_viewOwner;
     private double dailyPrice;
     private ToggleGroup transmissionToggleGroups, engineToggleGroup;
     private BigDecimal dailyChargebd;
@@ -65,8 +71,37 @@ public class FindACarToRent implements Initializable  {
             null, null, null, null,
             null,null, null);
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        transmissionToggleGroups = new ToggleGroup();
+        this.radioButton_manual.setToggleGroup(transmissionToggleGroups);
+        this.radioButton_automatic.setToggleGroup(transmissionToggleGroups);
 
-    //mathod to find the ad id using filter based on town name
+        engineToggleGroup = new ToggleGroup();
+        this.radioButton_Diesel.setToggleGroup(engineToggleGroup);
+        this.radioButton_electric.setToggleGroup(engineToggleGroup);
+        this.radioButton_automatic.setToggleGroup(engineToggleGroup);
+
+        button_mainMenu.setOnAction(this::goToMainMenu);;
+        addStyle(button_mainMenu);
+        addStyle(selectAd);
+        addStyle(bookButton);
+        addStyle(bt_viewOwner);
+
+
+        priceSlider.valueProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
+
+                dailyPrice = (int) priceSlider.getValue();
+                dailyChargebd = BigDecimal.valueOf(priceSlider.getValue());
+
+                priceLabel.setText(String.valueOf(dailyPrice));
+
+            }
+        });
+    }
+
     public Integer getAdId(){
         String town = tf_townName.getText().trim().toLowerCase();
 
@@ -93,25 +128,14 @@ public class FindACarToRent implements Initializable  {
         adObservableList.addAll(ad);
         System.out.println(adObservableList);
         vehicleListView.getItems().addAll(adObservableList);
-
-
-
-
     }
+
     public void radioButtonChanged() {
 
-        if(this.transmissionToggleGroups.getSelectedToggle().equals(this.radioButton_manual)){
-
-
+        if (this.transmissionToggleGroups.getSelectedToggle().equals(this.radioButton_manual)){
 
         }
-
-
     }
-
-
-
-
 
     public LocalDate getFromDate(){
         return fromDatePicker.getValue();
@@ -175,18 +199,11 @@ public class FindACarToRent implements Initializable  {
 
         window.setScene(scene);
         window.show();
-
-
     }
-
-
-
-
 
     public void manualChecked(){
 
     }
-
 
     public void changeSceneToBooking(ActionEvent event) throws IOException, IOException {
         FXMLLoader loader = new FXMLLoader();
@@ -230,38 +247,17 @@ public class FindACarToRent implements Initializable  {
 
     }
 
+    public void goToMainMenu(ActionEvent event) {
+        Main main = new Main();
+        try {
+            main.changeScene("ToGoCar.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-         transmissionToggleGroups = new ToggleGroup();
-        this.radioButton_manual.setToggleGroup(transmissionToggleGroups);
-        this.radioButton_automatic.setToggleGroup(transmissionToggleGroups);
-
-        engineToggleGroup = new ToggleGroup();
-        this.radioButton_Diesel.setToggleGroup(engineToggleGroup);
-        this.radioButton_electric.setToggleGroup(engineToggleGroup);
-        this.radioButton_automatic.setToggleGroup(engineToggleGroup);
-
-
-
-
-        priceSlider.valueProperty().addListener(new ChangeListener<Number>() {
-            @Override
-            public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
-
-                dailyPrice = (int) priceSlider.getValue();
-                dailyChargebd = BigDecimal.valueOf(priceSlider.getValue());
-
-                priceLabel.setText(String.valueOf(dailyPrice));
-
-            }
-
-
-        });
-
-
-
-
-
+    public void addStyle(Button button) {
+        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:  #f1c232; -fx-text-fill: white;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
     }
 }

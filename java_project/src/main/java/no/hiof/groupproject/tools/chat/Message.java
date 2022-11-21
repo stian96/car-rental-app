@@ -1,16 +1,20 @@
 package no.hiof.groupproject.tools.chat;
 
 import no.hiof.groupproject.models.User;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class Message {
     private final User user;
+
+    private final User receiver;
     private final String message;
     private final LocalDateTime time;
 
-    public Message(User usertype, String message) {
+    public Message(User usertype, User receiver, String message) {
         this.user = usertype;
+        this.receiver = receiver;
         this.message = message;
         this.time = LocalDateTime.now();
     }
@@ -35,6 +39,10 @@ public class Message {
 
     public User getUser() {
         return user;
+    }
+
+    public User getReceiver() {
+        return receiver;
     }
 
 }

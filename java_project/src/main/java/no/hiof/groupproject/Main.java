@@ -1,26 +1,19 @@
 package no.hiof.groupproject;
 
 
-import no.hiof.groupproject.interfaces.*;
-import no.hiof.groupproject.models.*;
-import no.hiof.groupproject.models.payment_methods.Vipps;
-import no.hiof.groupproject.models.vehicle_types.Car;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
-import no.hiof.groupproject.tools.db.*;
-import no.hiof.groupproject.tools.filters.FilterAdvertisement;
+import no.hiof.groupproject.models.User;
+import no.hiof.groupproject.tools.GDPRInformation;
+import no.hiof.groupproject.tools.db.RetrieveUserDB;
 
-import java.io.File;
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.sql.*;
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
 
 public class Main {
     public static void main(String[] args) throws IOException, SQLException {
+
+        /*
+        GDPRInformation info = new GDPRInformation(12);
+        info.print();
 
         for (Advertisement advertisement : FilterAdvertisement.filterToArrayListAdvertisement(null, null,
                 null, null,null, null, null,
@@ -62,7 +55,6 @@ public class Main {
 
 
 
-        /*
         for (Vehicle vehicle : FilterAdvertisement.filterToArrayListVehicle(null, null,
                 null, null,null, null, null,
                 null, null, 1)) {

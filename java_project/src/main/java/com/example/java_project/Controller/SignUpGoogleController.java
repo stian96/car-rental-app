@@ -61,10 +61,10 @@ public class SignUpGoogleController {
                 validEmail.setText("Success!");
                 m.changeScene("ToGoCar.fxml");
             }else if (tf_userName.getText().isEmpty() && tf_password.getText().isEmpty()) {
-                validEmail.setText("Please enter Email and Password.");
+                validEmail.setText("Please enter an email and password.");
             }
             else {
-                validEmail.setText("Wrong email or password");
+                validEmail.setText("The email or password is incorrect");
             }
 
         }

@@ -6,9 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 
-import no.hiof.groupproject.models.RentOutAd;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.vehicles.Vehicle;
 import no.hiof.groupproject.tools.db.RetrieveVehicleDB;
 
 import java.io.IOException;
@@ -23,6 +23,7 @@ public class AdvertisementController implements Initializable {
     private Button menuButton;
     @FXML
     private TextField regNumberField;
+
     @FXML
     private TextField dailyChargeField;
     @FXML
@@ -35,6 +36,7 @@ public class AdvertisementController implements Initializable {
     private TextField chargePerTwentyField;
     @FXML
     private Button registerButton;
+
     @FXML
     private Label error1;
     @FXML
@@ -49,6 +51,7 @@ public class AdvertisementController implements Initializable {
     private Label error6;
     @FXML
     private Label errorLabel;
+
     @FXML
     private void buttonClick(ActionEvent event) {
         String regNumber = regNumberField.getText();
@@ -101,8 +104,13 @@ public class AdvertisementController implements Initializable {
         registerButton.setOnAction(this::buttonClick);
         menuButton.setOnAction(this::menuButtonClick);
 
-        menuButton.setOnMouseEntered(e -> menuButton.setStyle("-fx-background-color:  #f1c232; -fx-text-fill: white;"));
-        menuButton.setOnMouseExited(e -> menuButton.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
+        addStyle(menuButton);
+        addStyle(registerButton);
+    }
+
+    public void addStyle(Button button) {
+        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:  #f1c232; -fx-text-fill: white;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
 
     }
 

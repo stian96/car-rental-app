@@ -9,7 +9,7 @@
    <children>
       <ImageView fitHeight="38.0" fitWidth="60.0" layoutX="6.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@car.png" />
+            <Image url="@images/car.png" />
          </image>
       </ImageView>
       <Label layoutX="70.0" layoutY="9.0" prefHeight="19.0" prefWidth="201.0" text="Profile Details">
@@ -17,19 +17,19 @@
             <Font name="Comic Sans MS Bold Italic" size="23.0" />
          </font>
       </Label>
-      <Label layoutX="104.0" layoutY="58.0" text="First name">
+      <Label layoutX="96.0" layoutY="58.0" text="First name">
          <font>
-            <Font name="Comic Sans MS Bold" size="13.0" />
+            <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Label>
       <Label layoutX="97.0" layoutY="97.0" prefHeight="19.0" prefWidth="74.0" text="Last name">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+            <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Label>
       <Label layoutX="95.0" layoutY="266.0" text="Post number">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+            <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Label>
       <TextField fx:id="tf_firstName" layoutX="234.0" layoutY="55.0" prefHeight="4.0" prefWidth="180.0" promptText="First name" />
@@ -37,36 +37,36 @@
       <TextField fx:id="tf_emailAdd" layoutX="234.0" layoutY="132.0" prefHeight="25.0" prefWidth="180.0" promptText="Email add" />
       <Label layoutX="99.0" layoutY="167.0" text="Password">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+            <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Label>
       <PasswordField fx:id="tf_password" layoutX="234.0" layoutY="164.0" prefHeight="25.0" prefWidth="180.0" promptText="Password" />
       <Label layoutX="78.0" layoutY="234.0" text="Bank Acnt Number">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+            <Font name="Comic Sans MS" size="12.0" />
          </font>
       </Label>
       <TextField fx:id="tf_bankAccnt" layoutX="234.0" layoutY="231.0" prefHeight="25.0" prefWidth="180.0" promptText="Bank Account Number" />
       <Label layoutX="97.0" layoutY="135.0" text="Email add">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+            <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Label>
       <Label layoutX="91.0" layoutY="202.0" text="Phone number">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+            <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Label>
       <TextField fx:id="tf_phone" layoutX="234.0" layoutY="199.0" prefHeight="25.0" prefWidth="180.0" promptText="Phone number" />
       <TextField fx:id="tf_postNumber" layoutX="234.0" layoutY="263.0" prefHeight="25.0" prefWidth="180.0" promptText="Post number" />
       <Button fx:id="button_UpdateProfile" layoutX="260.0" layoutY="350.0" mnemonicParsing="false" onAction="#UpdateProfile" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Update Profile">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+            <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Button>
       <Label layoutX="53.0" layoutY="298.0" text="DL info:">
          <font>
-            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+            <Font name="Comic Sans MS" size="13.0" />
          </font>
       </Label>
       <TextField fx:id="tf_drivingLicense" layoutX="107.0" layoutY="295.0" prefHeight="25.0" prefWidth="149.0" promptText="Driving licensed number" />
@@ -87,5 +87,10 @@
       <Label fx:id="error8" layoutX="257.0" layoutY="299.0" text="*" textFill="#f52929" visible="false" />
       <Label fx:id="error9" layoutX="393.0" layoutY="299.0" text="*" textFill="#f52929" visible="false" />
       <Label fx:id="error10" layoutX="536.0" layoutY="299.0" text="*" textFill="#f52929" visible="false" />
+      <Button fx:id="button_mainMenu" layoutX="497.0" layoutY="15.0" mnemonicParsing="false" style="-fx-background-color: #f1c232;" text="Main menu">
+         <font>
+            <Font name="Comic Sans MS" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

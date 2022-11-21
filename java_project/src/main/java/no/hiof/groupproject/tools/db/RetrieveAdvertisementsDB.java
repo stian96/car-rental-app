@@ -1,18 +1,12 @@
 package no.hiof.groupproject.tools.db;
 
-import no.hiof.groupproject.models.Advertisement;
-import no.hiof.groupproject.models.Booking;
-import no.hiof.groupproject.models.RentOutAd;
-import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.models.vehicle_types.Vehicle;
+import no.hiof.groupproject.models.advertisements.Advertisement;
 
-import java.math.BigDecimal;
-import java.sql.*;
-import java.time.LocalDate;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Currency;
-import java.util.Objects;
-import java.util.TreeMap;
 
 /*
 Returns an ArrayList of Advertisements or Advertisement id based off a User id.
@@ -20,7 +14,7 @@ Useful for allowing a single UserProfile to have multiple vehicles
  */
 public class RetrieveAdvertisementsDB {
 
-    public static ArrayList<Advertisement> retrieveAdvertisementObjectFromId(int id) {
+    public static ArrayList<Advertisement> retrieveAdvertisementsObjectFromUserId(int id) {
 
         String sql = "SELECT * FROM advertisements WHERE user_fk = " + id;
 
@@ -70,7 +64,7 @@ public class RetrieveAdvertisementsDB {
         return returnedAdvertisements;
     }*/
 
-    public static ArrayList<Integer> retrieveAdvertisementIdFromId(int id) {
+    public static ArrayList<Integer> retrieveAdvertisementsIdFromUserId(int id) {
 
         String sql = "SELECT * FROM advertisements WHERE user_fk = " + id;
 

@@ -7,7 +7,9 @@ import java.util.ArrayList;
 public interface DeserialiseMessages {
 
     //returns an ArrayList of all messages
+    /*
     static ArrayList<String> getMessageLogFromDB() {
         return RetrieveMessagesDB.retrieveAllMessages();
     }
+     */
 }
