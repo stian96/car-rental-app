@@ -23,6 +23,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -64,8 +65,11 @@ public class BookingController implements Initializable {
     private Button button_back;
     @FXML
     private Button button_book;
+    @FXML private ChoiceBox<String> paymentMethodChoiceBox;
 
     Stage stage;
+
+    public String[] paymentMethodsArray = {"card", "paypal", "vipps", "googlepay"};
 
 // radio buttons has action listener.  radioCard, radioPaypal, radioVipps, radioGoogle
 //temporary
@@ -79,6 +83,58 @@ public class BookingController implements Initializable {
     label_model.setText(roa.getVehicle().getManufacturer());
     label_vehicleModel.setText(roa.getVehicle().getModel());
 
+
+    }
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        paymentToggleGroups = new ToggleGroup();
+        this.rb_paypal.setToggleGroup(paymentToggleGroups);
+
+        paymentMethodChoiceBox.getItems().addAll(paymentMethodsArray);
+        paymentMethodChoiceBox.setOnAction(this::choosePaymentMethod);
+
+
+
+
+
+
+
+
+
+    }
+
+    public void choosePaymentMethod(ActionEvent event) {
+
+
+        if(Objects.equals(paymentMethodChoiceBox.getValue(), "paypal")){
+
+         changeToPayPalScene();
+
+
+        }
+    }
+
+    public void changeToPayPalScene() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("PaymentPage.fxml"));
+            Parent pane = loader.load();
+
+            Scene scene = new Scene(pane);
+
+            //access the controller and call a method
+
+
+
+            //This line gets the Stage information
+            Stage window = new Stage();
+
+            window.setScene(scene);
+            window.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
     }
     public void adFromDate(LocalDate localDate){
@@ -194,18 +250,5 @@ public class BookingController implements Initializable {
     }
 
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        paymentToggleGroups = new ToggleGroup();
-        this.rb_paypal.setToggleGroup(paymentToggleGroups);
-
-
-
-
-
-
-
-
-
-    }}
+    }
 
