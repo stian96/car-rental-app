@@ -41,8 +41,10 @@ public class PaymentPageController implements Initializable {
         try{
 
                 InsertPaymentDB.insert(p);
-                payment = p;
+                BookingController.pay= p;
+
                 button_addPayment.setText("Added!");
+
                 stage = (Stage) scenePane.getScene().getWindow();
                 stage.close();
 
