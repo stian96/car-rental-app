@@ -39,7 +39,6 @@ public class PaymentPageController implements Initializable {
        Paypal p = new Paypal(email,password);
     if(!email.isEmpty() && !password.isEmpty()){
         try{
-
                 InsertPaymentDB.insert(p);
                 BookingController.pay= p;
 
@@ -47,10 +46,6 @@ public class PaymentPageController implements Initializable {
 
                 stage = (Stage) scenePane.getScene().getWindow();
                 stage.close();
-
-
-
-
 
         } catch (Exception e) {
             throw new RuntimeException(e);
