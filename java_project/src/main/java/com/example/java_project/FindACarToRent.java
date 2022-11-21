@@ -8,6 +8,7 @@ import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -62,11 +63,24 @@ public class FindACarToRent implements Initializable  {
     @FXML
     private Button bt_viewOwner;
     private double dailyPrice;
+    @FXML
     private ToggleGroup transmissionToggleGroups, engineToggleGroup;
-    private BigDecimal dailyChargebd;
+    @FXML
+    private ChoiceBox<String>transmissionChoiceBox, engineChoiceBox, manuChoiceBox;
+    @FXML
+    private ChoiceBox<Integer> numSeatChoiceBox;
+    private String[] gearTypeArr= {"automatic", "manual"};
+    private String[] engineTypeArr={  "hybrid", "petrol","electric"};
+
+    private String[] manuArray={  "bmw", "audi", "nissan", "honda", "aston Martin"};
+    private  Integer[] numSeatArray = {2,3,4,5,6,7};
+
+    private BigDecimal dailyCharge;
 
     public static ObservableList<Advertisement> adObservableList = FXCollections.observableArrayList();
     public static RentOutAd roa ;
+    String gearType, engineType, manuType = null;
+    Integer numSeat = null;
 
 
 
@@ -77,14 +91,28 @@ public class FindACarToRent implements Initializable  {
         bookButton.setOnAction(this::changeSceneToBooking);
         bt_viewOwner.setOnAction(this::viewOwner);
 
-        transmissionToggleGroups = new ToggleGroup();
-        this.radioButton_manual.setToggleGroup(transmissionToggleGroups);
-        this.radioButton_automatic.setToggleGroup(transmissionToggleGroups);
+        //yearChoiceBox.getItems().addAll("1950","1999");
+        //yearChoiceBox.setValue("1999");
 
-        engineToggleGroup = new ToggleGroup();
-        this.radioButton_Diesel.setToggleGroup(engineToggleGroup);
-        this.radioButton_electric.setToggleGroup(engineToggleGroup);
-        this.radioButton_automatic.setToggleGroup(engineToggleGroup);
+        transmissionChoiceBox.getItems().addAll(gearTypeArr);
+        transmissionChoiceBox.setOnAction(this::gearTypeChanged);
+
+        engineChoiceBox.getItems().addAll(engineTypeArr);
+        engineChoiceBox.setOnAction(this::getEngineType);
+
+        manuChoiceBox.getItems().addAll(manuArray);
+        manuChoiceBox.setOnAction(this::getManuType);
+
+        numSeatChoiceBox.getItems().addAll(numSeatArray);
+        numSeatChoiceBox.setOnAction(this::getNumSeats);
+
+
+
+
+
+
+
+
 
         button_mainMenu.setOnAction(this::goToMainMenu);;
         addStyle(button_mainMenu);
@@ -99,7 +127,7 @@ public class FindACarToRent implements Initializable  {
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
 
                 dailyPrice = (int) priceSlider.getValue();
-                dailyChargebd = BigDecimal.valueOf(priceSlider.getValue());
+                dailyCharge = BigDecimal.valueOf(priceSlider.getValue());
 
                 priceLabel.setText(String.valueOf(dailyPrice));
 
@@ -109,71 +137,51 @@ public class FindACarToRent implements Initializable  {
 
 
 
+
     ArrayList<RentOutAd> adArrayList = new ArrayList<>();
     ArrayList<RentOutAd> adsAvailInThoseDates = new ArrayList<>();
     public void searchButtonPushed(ActionEvent event){
 
         String town = tf_townName.getText();
-        ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(null, null, null,
-                town, null, null, null,
-                null,null, null);
-        if(getFromDate() == null || getToDate()== null){
+        ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, engineType,
+                manuType, town, null, null, null,
+                numSeat,null, null);
 
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setContentText("Select Date");
-            alert.show();}
-        else{
                 try{
                     for(int i : filteredAds){
                         RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(i);
-                        adArrayList.add(ad);}
-                    if(!adArrayList.isEmpty()){
-                        for(RentOutAd rentOutAd: adArrayList){
-                            if(rentOutAd.checkIfDateIsAvailable(getFromDate(),getToDate())){
-                                adsAvailInThoseDates.add(rentOutAd);
-                                roa = adsAvailInThoseDates.get(0);
-                                populateListView();
-                                }
-                            else if(adsAvailInThoseDates.isEmpty()){
-                                    Alert alert = new Alert(Alert.AlertType.ERROR);
-                                    alert.setContentText("No dates available");
-                                    alert.show();}}}
-                    else{
-                            Alert alert = new Alert(Alert.AlertType.ERROR);
-                            alert.setContentText("No cars available at this locations");
-                            alert.show();}
-            }
+                        adArrayList.add(ad);
+                    roa = ad;}
+                populateListView();}
+
                 catch (Exception e){
                     throw new RuntimeException(e);
-            }}}
+            }}
 
-    public String getGearType(){
-        String gearType = null;
-        if(radioButton_automatic.isSelected()){
-            gearType = "automatic";
-        }else if(radioButton_manual.isSelected()){
-            gearType = "manual";
-        }
-        return gearType;
-    }
-    public String getEngineType(){
-        String engineType = null;
-        if(radioButton_Hybrid.isSelected()){
-            engineType = "hybrid";
+    @FXML
+    private void gearTypeChanged(ActionEvent event){
 
-        }
-        if(radioButton_Diesel.isSelected()){
-            engineType = "petrol";
-        }
-        if(radioButton_electric.isSelected()){
-            engineType = "electric";
-        }
-        return engineType;
+       gearType = transmissionChoiceBox.getValue();
+
     }
 
+
+    public void getEngineType(ActionEvent event){
+
+        engineType = engineChoiceBox.getValue();
+
+    }
+
+    public void getManuType(ActionEvent event){
+        manuType = manuChoiceBox.getValue();
+    }
+
+    public void getNumSeats(ActionEvent event){
+        numSeat = numSeatChoiceBox.getValue();
+    }
 
     public void addFilters(ActionEvent actionEvent){
-        ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(getGearType(), getEngineType(), null,
+        ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, engineType, null,
                 tf_townName.getText(), null, null, null,
                 null,null, null);
         try {
@@ -197,7 +205,7 @@ public class FindACarToRent implements Initializable  {
 
     //Method to populatetheVehicleListView. Gets ad id from the Filter based on the
     public void populateListView(){
-        adObservableList.addAll(adsAvailInThoseDates);
+        adObservableList.addAll(adArrayList);
         System.out.println("lets" + adObservableList);
         vehicleListView.getItems().addAll(adObservableList);
 

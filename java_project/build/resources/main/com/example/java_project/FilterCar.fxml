@@ -25,11 +25,14 @@
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <RadioButton fx:id="radioButton_manual" layoutX="236.0" layoutY="48.0" mnemonicParsing="false" onAction="#manualChecked" text="Manual">
+            <RadioButton fx:id="radioButton_manual" layoutX="236.0" layoutY="48.0" mnemonicParsing="false" onAction="#gearTypeChanged" text="Manual">
                <font>
                   <Font name="Comic Sans MS Bold" size="12.0" />
-               </font></RadioButton>
-            <RadioButton fx:id="radioButton_automatic" layoutX="320.0" layoutY="47.0" mnemonicParsing="false" text="Automatic">
+               </font>
+               <toggleGroup>
+                  <ToggleGroup fx:id="transmissionToggleGroups" />
+               </toggleGroup></RadioButton>
+            <RadioButton fx:id="radioButton_automatic" layoutX="320.0" layoutY="47.0" mnemonicParsing="false" onAction="#gearTypeChanged" text="Automatic" toggleGroup="$transmissionToggleGroups">
                <font>
                   <Font name="Comic Sans MS Bold" size="12.0" />
                </font></RadioButton>
@@ -65,7 +68,6 @@
                   <Font name="Comic Sans MS" size="14.0" />
                </font>
             </Label>
-            <TextField layoutX="27.0" layoutY="196.0" prefHeight="25.0" prefWidth="77.0" />
             <RadioButton fx:id="radioButton_Diesel" layoutX="401.0" layoutY="130.0" mnemonicParsing="false" text="Diesel">
                <font>
                   <Font name="Comic Sans MS Bold" size="12.0" />
@@ -100,6 +102,8 @@
                   <Font name="Comic Sans MS" size="13.0" />
                </font>
             </Button>
+            <ChoiceBox fx:id="yearChoiceBox" layoutX="18.0" layoutY="188.0" prefHeight="25.0" prefWidth="91.0" />
+            <ChoiceBox fx:id="transmissionChoiceBox" layoutX="401.0" layoutY="45.0" prefWidth="150.0" />
          </children>
       </Pane>
    </children>
