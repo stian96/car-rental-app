@@ -8,9 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import no.hiof.groupproject.models.payment_methods.GooglePay;
 import no.hiof.groupproject.models.payment_methods.Paypal;
-import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.tools.db.InsertPaymentDB;
 
 import java.net.URL;
