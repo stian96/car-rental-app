@@ -8,7 +8,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import no.hiof.groupproject.models.payment_methods.Paypal;
+
+import no.hiof.groupproject.models.payment_methods.Vipps;
 import no.hiof.groupproject.tools.db.InsertPaymentDB;
 
 import java.net.URL;
@@ -24,14 +25,14 @@ public class VippsPaymentController implements Initializable {
     @FXML
     private AnchorPane scenePane;
 
-    public static Paypal payment;
+    public static Vipps payment;
     Stage stage;
 
     @FXML
     public void btn_AddPayment(ActionEvent event) {
         String email = tf_EmailAdd.getText();
         String password = tf_Password.getText();
-        Paypal p = new Paypal(email, password);
+        Vipps p = new Vipps(email, password);
         if (!email.isEmpty() && !password.isEmpty()) {
             try {
                 InsertPaymentDB.insert(p);
