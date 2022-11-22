@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.*;
 
 import no.hiof.groupproject.models.advertisements.Advertisement;
@@ -67,6 +68,9 @@ public class FindACarToRent implements Initializable  {
     @FXML
     private ChoiceBox<Integer> numSeatChoiceBox,
             yearChoiceBox;
+    @FXML
+    private FlowPane scenePane;
+    Stage stage;
     private String[] gearTypeArr= {"automatic", "manual"};
     private String[] engineTypeArr={  "hybrid", "petrol","electric"};
 
@@ -77,6 +81,7 @@ public class FindACarToRent implements Initializable  {
     private BigDecimal dailyCharge;
 
     public static ObservableList<RentOutAd> adObservableList = FXCollections.observableArrayList();
+    ArrayList<RentOutAd> adArrayList = new ArrayList<>();
     public static RentOutAd roa ;
     String gearType, engineType, manuType = null;
     Integer numSeat, yearModel = null;
@@ -128,46 +133,12 @@ public class FindACarToRent implements Initializable  {
             }
         });
     }
-
-
-
-
-    ArrayList<RentOutAd> adsAvailInThoseDates = new ArrayList<>();
-    public void searchButtonPushed(ActionEvent event){
-
-        String town = tf_townName.getText();
-        ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, engineType,
-                manuType, town, null, null, null,
-                numSeat,null, null);
-        for(int i : filteredAds){
-            RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(i);
-            adObservableList.add(ad);}
-
-                try{{
-                    if(!adObservableList.isEmpty()){
-                        for(RentOutAd rentOutAd : adObservableList){
-                        if(rentOutAd.checkIfDateIsAvailable(getFromDate(),getFromDate())) {
-                            adsAvailInThoseDates.add(rentOutAd);
-                            vehicleListView.getItems().addAll(adsAvailInThoseDates);
-
-                        }}
-                    }else{Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setContentText("Cars available for this criteria");
-                        alert.show();}{
-                    }
-
-                    }}
-                catch (Exception e){
-                    throw new RuntimeException(e);
-            }}
-
     @FXML
     private void gearTypeChanged(ActionEvent event){
 
-       gearType = transmissionChoiceBox.getValue();
+        gearType = transmissionChoiceBox.getValue();
 
     }
-
 
     public void getEngineType(ActionEvent event){
 
@@ -186,14 +157,77 @@ public class FindACarToRent implements Initializable  {
         yearModel = yearChoiceBox.getValue();
     }
 
-
     public LocalDate getFromDate(){
         return fromDatePicker.getValue();
     }
-    //returns the startDate picked using the date picker
     public LocalDate getToDate(){
         return toDatePicker.getValue();
     }
+
+    public void searchButtonPushed(ActionEvent event){
+
+        String town = tf_townName.getText();
+        ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, engineType,
+                manuType, town, null, null, null,
+                numSeat,null, null);
+        for(int i : filteredAds){
+            if(!filteredAds.isEmpty()){
+                RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(i);
+                adArrayList.add(ad);}}
+
+        try{
+            if(!adArrayList.isEmpty()){
+                adObservableList.addAll(adArrayList);
+                vehicleListView.getItems().addAll(adObservableList);
+
+            }else{ Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+                alert.setHeaderText("There are no available ads with that criteria.");
+                alert.setResizable(false);
+                alert.setContentText("Press Ok to search again or cancel to return to main page");
+                Optional<ButtonType> result = alert.showAndWait();
+
+
+                if(result.get() == ButtonType.OK){
+                    stage = (Stage) scenePane.getScene().getWindow();
+                    stage.close();
+                    reload();
+                }
+                //oke button is pressed
+                else if(result.get() == ButtonType.CANCEL){
+                    stage = (Stage) scenePane.getScene().getWindow();
+                    stage.close();
+                }
+
+            }}
+        catch (Exception e){
+            throw new RuntimeException(e);
+        }}
+
+    public void reload(){
+
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("FilterCar.fxml"));
+            Parent pane = loader.load();
+
+            Scene scene = new Scene(pane);
+
+            Stage window = new Stage();
+
+            window.setScene(scene);
+            window.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }}
+
+    public void changeSceneToBooking(ActionEvent event) {
+        checkDate(getFromDate(),getToDate());
+    }
+
+
+    //returns the startDate picked using the date picker
 
 
     //Changes scene to view details of the Ad
@@ -221,34 +255,62 @@ public class FindACarToRent implements Initializable  {
     } catch (IOException e) {
             throw new RuntimeException(e);
         }}
-        public void manualChecked(){
 
+    public void checkDate(LocalDate date1, LocalDate date2){
+        RentOutAd ad = (RentOutAd) vehicleListView.getSelectionModel().getSelectedItem();
+
+        if (!ad.checkIfDateIsAvailable(date1, date2)) {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+            alert.setHeaderText("Oops! Looks like this has been booked already!");
+            alert.setResizable(false);
+            alert.setContentText("Press Ok to search again or cancel to return to main page");
+            Optional<ButtonType> result = alert.showAndWait();
+
+
+            if(result.get() == ButtonType.OK){
+                stage = (Stage) scenePane.getScene().getWindow();
+                stage.close();
+                reload();
+            }
+            //oke button is pressed
+            else if(result.get() == ButtonType.CANCEL){
+                stage = (Stage) scenePane.getScene().getWindow();
+                stage.close();
+            }}
+
+        else{
+                changeScene();
+            }
         }
-    public void changeSceneToBooking(ActionEvent event) {
+
+
+    public void changeScene(){
         try{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("Booking.fxml"));
-        Parent pane = loader.load();
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("Booking.fxml"));
+            Parent pane = loader.load();
 
-        Scene scene = new Scene(pane);
+            Scene scene = new Scene(pane);
 
-        //access the controller and call a method
-        BookingController booking = loader.getController();
-        booking.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
-        booking.adFromDate(getFromDate());
-        booking.adToDate(getToDate());
-        booking.fillAmount(BigDecimal.valueOf(countDaysBetween(getFromDate(),getToDate())));
+            //access the controller and call a method
+            BookingController booking = loader.getController();
+            booking.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
+            booking.adFromDate(getFromDate());
+            booking.adToDate(getToDate());
+            booking.fillAmount(BigDecimal.valueOf(countDaysBetween(getFromDate(),getToDate())));
 
 
-        //This line gets the Stage information
-        Stage window = new Stage();
+            //This line gets the Stage information
+            Stage window = new Stage();
 
-        window.setScene(scene);
-        window.show();
+            window.setScene(scene);
+            window.show();
 
-    } catch (IOException e) {
+        } catch (IOException e) {
             throw new RuntimeException(e);
-        }}
+        }
+    }
 
 
         public void viewOwner(ActionEvent  event)  {
