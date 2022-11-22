@@ -1,6 +1,6 @@
 package com.example.java_project;
 
-import com.example.java_project.Main;
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -9,12 +9,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import no.hiof.groupproject.models.payment_methods.Payment;
+
 import no.hiof.groupproject.models.payment_methods.Paypal;
 import no.hiof.groupproject.tools.db.InsertPaymentDB;
-import no.hiof.groupproject.tools.db.RetrievePaymentDB;
 
-import java.io.IOException;
+
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -61,11 +61,15 @@ public class PaymentPageController implements Initializable {
 
         }
 
-
+    public void backToBookingPage(ActionEvent event){
+        stage = (Stage) scenePane.getScene().getWindow();
+        stage.close();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         button_addPayment.setOnAction(this::btn_AddPayment);
+        backButton.setOnAction(this::backToBookingPage);
         buttonStyle();
     }
 
