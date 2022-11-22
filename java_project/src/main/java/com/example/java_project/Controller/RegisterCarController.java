@@ -61,8 +61,8 @@ public class RegisterCarController {
                 if(v == null){
 
                 Vehicle c = new Car(regNo,manu,model,engineType,gearType,
-                        ConvertIntoNumeric(modelYear), /**gives null for the vehicle fix **/
-                        ConvertIntoNumeric(seatingCapacity),ConvertIntoNumeric(towingCapacity));
+                        ChangeToInt(modelYear),
+                        ChangeToInt(seatingCapacity),ChangeToInt(towingCapacity));
 
                 m.changeScene("ToGoCar.fxml");}
             else{registerPrompt.setText("The car already exists");}}
@@ -82,17 +82,18 @@ public class RegisterCarController {
     }
 
 
-    private int ConvertIntoNumeric(String xVal)
+    private int ChangeToInt(String value)
     {
         try
         {
-            return Integer.parseInt(xVal);
+            return Integer.parseInt(value);
         }
         catch(Exception ex)
         {
             return 0;
         }
     }
+
 
     public void searchRegNo(ActionEvent event) {
     }

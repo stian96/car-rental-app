@@ -9,7 +9,10 @@
       <Pane prefHeight="85.0" prefWidth="600.0" style="-fx-background-color: #f1c232;" />
       <Pane prefHeight="317.0" prefWidth="601.0" style="-fx-background-color: #9fc5e8;">
          <children>
-            <Label fx:id="userNameLabel" layoutX="36.0" layoutY="45.0" prefHeight="39.0" prefWidth="153.0" />
+            <Label fx:id="userNameLabel" layoutX="36.0" layoutY="45.0" prefHeight="39.0" prefWidth="153.0">
+               <font>
+                  <Font name="Comic Sans MS Bold" size="14.0" />
+               </font></Label>
             <Label layoutX="36.0" layoutY="127.0" text="Rating:">
                <font>
                   <Font name="Comic Sans MS Bold" size="12.0" />
@@ -28,10 +31,11 @@
                <font>
                   <Font name="Comic Sans MS Bold" size="13.0" />
                </font></Button>
-            <Button fx:id="editProfileButton" alignment="CENTER" layoutX="349.0" layoutY="253.0" mnemonicParsing="false" onAction="#editProfile" prefHeight="27.0" prefWidth="153.0" style="-fx-background-color: #f1c232;" text="Edit Profile">
+            <Button fx:id="editProfileButton" alignment="CENTER" layoutX="349.0" layoutY="247.0" mnemonicParsing="false" onAction="#editProfile" prefHeight="27.0" prefWidth="153.0" style="-fx-background-color: #f1c232;" text="Edit Profile">
                <font>
                   <Font name="Comic Sans MS Bold" size="13.0" />
                </font></Button>
+            <Label fx:id="noAdLabel" layoutX="335.0" layoutY="193.0" prefHeight="17.0" prefWidth="119.0" />
          </children>
       </Pane>
    </children>

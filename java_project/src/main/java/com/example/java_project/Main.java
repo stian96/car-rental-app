@@ -21,6 +21,7 @@ public class Main extends Application {
         stg = stage;
         stage.setResizable(false);
         FXMLLoader fxmlLoader1 = new FXMLLoader(Main.class.getResource("LogIn.fxml"));
+        FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("FilterCar.fxml"));
         Scene scene = new Scene(fxmlLoader1.load(), 600, 400);
         //checkConnection();
         stage.setTitle("ToGoCar");

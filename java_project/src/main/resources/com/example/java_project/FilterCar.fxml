@@ -5,94 +5,14 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<FlowPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.Other.FindACarToRent">
+<FlowPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.FindACarToRent">
    <children>
-      <Pane prefHeight="52.0" prefWidth="599.0" style="-fx-background-color: #9fc5e8;">
+      <Pane prefHeight="77.0" prefWidth="602.0" style="-fx-background-color: #9fc5e8;">
          <children>
-            <TextField fx:id="tf_townName" layoutX="14.0" layoutY="15.0" promptText="Add town name" />
-            <DatePicker fx:id="fromDatePicker" layoutX="165.0" layoutY="15.0" promptText="Select From Date" />
-            <DatePicker fx:id="toDatePicker" layoutX="346.0" layoutY="15.0" promptText="Select To Date" />
-            <Button fx:id="searchButton" layoutX="533.0" layoutY="15.0" mnemonicParsing="false" onAction="#searchButtonPushed" text="Search">
-               <font>
-                  <Font name="Comic Sans MS" size="13.0" />
-               </font></Button>
-         </children>
-      </Pane>
-      <Pane prefHeight="352.0" prefWidth="598.0" style="-fx-background-color: #f1c232;">
-         <children>
-            <Label layoutX="275.0" layoutY="15.0" text="Transmission">
-               <font>
-                  <Font name="Comic Sans MS" size="14.0" />
-               </font>
-            </Label>
-            <RadioButton fx:id="radioButton_manual" layoutX="236.0" layoutY="48.0" mnemonicParsing="false" onAction="#manualChecked" text="Manual">
-               <font>
-                  <Font name="Comic Sans MS Bold" size="12.0" />
-               </font></RadioButton>
-            <RadioButton fx:id="radioButton_automatic" layoutX="320.0" layoutY="47.0" mnemonicParsing="false" text="Automatic">
-               <font>
-                  <Font name="Comic Sans MS Bold" size="12.0" />
-               </font></RadioButton>
-            <Label layoutX="281.0" layoutY="91.0" text="Engine Type">
-               <font>
-                  <Font name="Comic Sans MS" size="14.0" />
-               </font></Label>
-            <RadioButton fx:id="radioButton_electric" layoutX="231.0" layoutY="130.0" mnemonicParsing="false" text="Electric">
-               <font>
-                  <Font name="Comic Sans MS Bold" size="12.0" />
-               </font></RadioButton>
-            <RadioButton fx:id="radioButton_Hybrid" layoutX="330.0" layoutY="130.0" mnemonicParsing="false" text="Gass">
-               <font>
-                  <Font name="Comic Sans MS Bold" size="12.0" />
-               </font></RadioButton>
-            <Label layoutX="26.0" layoutY="15.0" text="Manufacturer">
-               <font>
-                  <Font name="Comic Sans MS" size="14.0" />
-               </font></Label>
-            <Label layoutX="26.0" layoutY="91.0" text="Number of Seats">
-               <font>
-                  <Font name="Comic Sans MS" size="14.0" />
-               </font>
-            </Label>
-            <Spinner layoutX="26.0" layoutY="117.0" prefHeight="25.0" prefWidth="79.0" />
-            <Button fx:id="addFilters" layoutX="23.0" layoutY="312.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="109.0" style="-fx-background-color: #9fc5e8; -fx-cursor: hand;" text="Add Filters">
-               <font>
-                  <Font name="Comic Sans MS Bold Italic" size="13.0" />
-               </font>
-            </Button>
-            <Label layoutX="26.0" layoutY="167.0" text="Year Model">
-               <font>
-                  <Font name="Comic Sans MS" size="14.0" />
-               </font>
-            </Label>
-            <TextField layoutX="27.0" layoutY="196.0" prefHeight="25.0" prefWidth="77.0" />
-            <RadioButton fx:id="radioButton_Diesel" layoutX="401.0" layoutY="130.0" mnemonicParsing="false" text="Diesel">
-               <font>
-                  <Font name="Comic Sans MS Bold" size="12.0" />
-               </font></RadioButton>
-            <Label layoutX="27.0" layoutY="240.0" text="Price Range">
-               <font>
-                  <Font name="Comic Sans MS" size="14.0" />
-               </font>
-            </Label>
-            <TextField layoutX="93.0" layoutY="264.0" prefHeight="25.0" prefWidth="48.0" />
-            <ListView fx:id="vehicleListView" layoutX="205.0" layoutY="224.0" prefHeight="121.0" prefWidth="391.0" />
-            <Slider fx:id="priceSlider" blockIncrement="100.0" layoutX="26.0" layoutY="269.0" max="5000.0" min="100.0" prefHeight="14.0" prefWidth="56.0" />
-            <Label fx:id="priceLabel" layoutX="461.0" layoutY="91.0" />
-            <TextField fx:id="tf_manuName" layoutX="26.0" layoutY="43.0" prefHeight="26.0" prefWidth="128.0" promptText="name" />
-            <Button fx:id="selectAd" layoutX="231.0" layoutY="194.0" mnemonicParsing="false" onAction="#changeSceneToDetailedAdView" style="-fx-background-color: #f1c232;" text="View Details">
-               <font>
-                  <Font name="Comic Sans MS" size="14.0" />
-               </font></Button>
-            <Button fx:id="bookButton" layoutX="360.0" layoutY="196.0" mnemonicParsing="false" onAction="#changeSceneToBooking" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: #f1c232;" text="Book">
-               <font>
-                  <Font size="14.0" />
-               </font></Button>
-            <Button fx:id="bt_viewOwner" layoutX="439.0" layoutY="194.0" mnemonicParsing="false" onAction="#viewOwner" style="-fx-background-color: #f1c232;" text="View Owner profile">
-               <font>
-                  <Font name="Comic Sans MS" size="14.0" />
-               </font></Button>
-            <Button fx:id="button_mainMenu" layoutX="473.0" layoutY="11.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="91.0" style="-fx-background-color: #f1c232;" text="Main menu">
+            <TextField fx:id="tf_townName" layoutX="14.0" layoutY="35.0" promptText="Add town name" />
+            <DatePicker fx:id="fromDatePicker" layoutX="198.0" layoutY="35.0" promptText="Select From Date" />
+            <DatePicker fx:id="toDatePicker" layoutX="407.0" layoutY="35.0" promptText="Select To Date" />
+            <Button fx:id="button_mainMenu" layoutX="494.0" layoutY="1.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #9fc5e8;" text="Main menu">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -100,6 +20,63 @@
                   <Font name="Comic Sans MS" size="13.0" />
                </font>
             </Button>
+         </children>
+      </Pane>
+      <Pane prefHeight="324.0" prefWidth="603.0" style="-fx-background-color: #f1c232;">
+         <children>
+            <Label layoutX="151.0" layoutY="15.0" text="Transmission">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="450.0" layoutY="15.0" text="Engine Type">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font></Label>
+            <Label layoutX="26.0" layoutY="15.0" text="Manufacturer">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font></Label>
+            <Label layoutX="288.0" layoutY="15.0" text="Number of Seats">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="81.0" text="Year Model">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="151.0" layoutY="89.0" text="Price Range">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <TextField layoutX="207.0" layoutY="109.0" prefHeight="25.0" prefWidth="48.0" />
+            <ListView fx:id="vehicleListView" layoutX="106.0" layoutY="193.0" prefHeight="121.0" prefWidth="391.0" />
+            <Slider fx:id="priceSlider" blockIncrement="100.0" layoutX="151.0" layoutY="115.0" max="5000.0" min="100.0" prefHeight="14.0" prefWidth="56.0" />
+            <Label fx:id="priceLabel" layoutX="461.0" layoutY="91.0" />
+            <Button fx:id="selectAd" layoutX="110.0" layoutY="162.0" mnemonicParsing="false" onAction="#changeSceneToDetailedAdView" style="-fx-background-color: #f1c232;" text="View Details">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font></Button>
+            <Button fx:id="bookButton" layoutX="260.0" layoutY="162.0" mnemonicParsing="false" onAction="#changeSceneToBooking" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: #f1c232;" text="Book">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font></Button>
+            <Button fx:id="bt_viewOwner" layoutX="353.0" layoutY="162.0" mnemonicParsing="false" onAction="#viewOwner" style="-fx-background-color: #f1c232;" text="View Owner profile">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font></Button>
+            <ChoiceBox fx:id="yearChoiceBox" layoutX="19.0" layoutY="108.0" prefHeight="25.0" prefWidth="91.0" style="-fx-background-color: #9fc5e8;" />
+            <ChoiceBox fx:id="transmissionChoiceBox" layoutX="151.0" layoutY="36.0" prefHeight="25.0" prefWidth="109.0" style="-fx-background-color: #9fc5e8;" />
+            <ChoiceBox fx:id="engineChoiceBox" layoutX="433.0" layoutY="36.0" prefHeight="25.0" prefWidth="113.0" style="-fx-background-color: #9fc5e8;" />
+            <ChoiceBox fx:id="manuChoiceBox" layoutX="21.0" layoutY="36.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #9fc5e8;" />
+            <ChoiceBox fx:id="numSeatChoiceBox" layoutX="288.0" layoutY="36.0" prefHeight="25.0" prefWidth="99.0" style="-fx-background-color: #9fc5e8;" />
+            <Button fx:id="searchButton" layoutX="344.0" layoutY="107.0" mnemonicParsing="false" onAction="#searchButtonPushed" style="-fx-background-color: #9fc5e8;" text="Search">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font></Button>
          </children>
       </Pane>
    </children>
