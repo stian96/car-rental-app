@@ -4,8 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="scenePane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #9fc5e8;"
-            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.GooglePayController">
+<AnchorPane fx:id="scenePane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #9fc5e8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.PaymentPageController">
     <children>
         <Label layoutX="25.0" layoutY="26.0" text="Payment Page">
             <font>
@@ -22,7 +21,7 @@
                 <Font name="Comic Sans MS Bold Italic" size="16.0" />
             </font>
         </Label>
-        <Button fx:id="button_addPayment" layoutX="373.0" layoutY="297.0" mnemonicParsing="false" onAction="#btn_AddPayment" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #f1c232;" text="Add Payment">
+        <Button fx:id="button_addPayment" layoutX="317.0" layoutY="286.0" mnemonicParsing="false" onAction="#btn_AddPayment" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #f1c232;" text="Add Payment">
             <font>
                 <Font name="Comic Sans MS Bold Italic" size="15.0" />
             </font>
@@ -37,5 +36,9 @@
                 <Font name="Comic Sans MS Bold Italic" size="14.0" />
             </font>
         </TextField>
+        <Button fx:id="backButton" layoutX="402.0" layoutY="36.0" mnemonicParsing="false" style="-fx-background-color: #9fc5e8;" text="Return to previous page">
+            <font>
+                <Font name="Comic Sans MS Bold" size="12.0" />
+            </font></Button>
     </children>
 </AnchorPane>

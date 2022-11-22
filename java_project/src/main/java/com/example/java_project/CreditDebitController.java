@@ -26,8 +26,7 @@ public class CreditDebitController implements Initializable {
     private Button button_addPayment, backButton;
     @FXML
     private AnchorPane scenePane;
-    @FXML
-    private Label emptyFieldWarning;
+
 
     public static Paypal payment;
     Stage stage;
@@ -74,10 +73,16 @@ public class CreditDebitController implements Initializable {
             return 0;
         }
     }
+    public void backToBookingPage(ActionEvent event){
+        stage = (Stage) scenePane.getScene().getWindow();
+        stage.close();
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         button_addPayment.setOnAction(this::btn_AddPayment);
+        backButton.setOnAction(this::backToBookingPage);
+        buttonStyle();
     }
 
     public void buttonStyle() {
