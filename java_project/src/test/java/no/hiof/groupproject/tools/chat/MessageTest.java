@@ -16,8 +16,11 @@ public class MessageTest {
             "Norway");
     User user = new User("sam", "davies", "1111", "hunter2",
             "12341234123", "sam@sam.no", "12341234", license);
-    /*
-    Message formatTest = new Message(user, "hello");
+
+    User receiver = new User("Lars", "Tangen", "1515", "123",
+            "12381254129", "lars@tangen.no", "92341237", license);
+
+    Message formatTest = new Message(user, receiver,"hello");
 
 
     @Test
@@ -43,5 +46,5 @@ public class MessageTest {
         LocalDateTime currentDate = LocalDateTime.now();
         assertEquals(currentDate.format(DateTimeFormatter.ofPattern("HH:mm:ss")), formatTest.formatNowTime());
     }
-     */
+
 }
