@@ -1,8 +1,9 @@
-package com.example.java_project.Controller;
+package com.example.java_project;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -10,21 +11,20 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.models.vehicles.four_wheeled_vehicles.Car;
 
 import java.io.IOException;
+import java.net.URL;
 import java.time.LocalDate;
+import java.util.ResourceBundle;
 
-public class DetailedAdViewController {
+public class DetailedAdViewController implements Initializable {
     private RentOutAd selectedAd;
     private Car vehicle;
 
-    private LocalDate fromDate, toDate;
-    private String stage = null;
-
-    //labels with fx-Id's
     @FXML
     private Label selectedOwner, selectedMan, selectedModel, selectedModelYear, selectedGearType,
             selectedFuelType,
@@ -35,13 +35,10 @@ public class DetailedAdViewController {
     @FXML
     private Button button_back;
 
-    // action Listen
+    @FXML private AnchorPane scenePane;
+    Stage stage;
 
 
-    @FXML
-    private Label vehicleNameLabel, selectedFromDate;
-    @FXML
-    private TextField tf_modelName;
 
     public void fillData(RentOutAd roa) {
         selectedAd = roa;
@@ -56,29 +53,20 @@ public class DetailedAdViewController {
         selectedTowingCapacity.setText(String.valueOf(vehicle.getTowingCapacity()));
     }
 
+    @FXML
+    public void changeSceneToFilterCar(ActionEvent event) {
 
-    public void changeSceneToFilterCar(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("FilterCar.fxml"));
-        Parent pane = loader.load();
-
-        Scene scene = new Scene(pane);
-
-        //access the controller and call a method
-
-
-        //This line gets the Stage information
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        window.setScene(scene);
-        window.show();
+        stage = (Stage) scenePane.getScene().getWindow();
+        stage.close();
 
     }
 
 
-    public void setStage(Stage popupStage) {
-        this.stage = stage;
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+           button_back.setOnAction(this::changeSceneToFilterCar);
     }
-
-
+    public void buttonStyle() {
+        button_back.setOnMouseEntered(e -> button_back.setStyle("-fx-background-color: #c9b502;"));
+        button_back.setOnMouseExited(e -> button_back.setStyle("-fx-background-color:  #f1c232;"));}
 }
