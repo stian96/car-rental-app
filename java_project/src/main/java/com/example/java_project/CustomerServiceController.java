@@ -29,7 +29,7 @@ public class CustomerServiceController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         textArea.setText("Call customer service at +47 945 72 777 \n" +
                 "\nEmail us at: customerservice@TOGO.no");
-        mainMenuButton.setOnAction(this::changeSceneToMainMenu);
+        //mainMenuButton.setOnAction(this::changeSceneToMainMenu);
     }
     public void buttonStyle() {
         mainMenuButton.setOnMouseEntered(e -> mainMenuButton.setStyle("-fx-background-color: #c9b502;"));
