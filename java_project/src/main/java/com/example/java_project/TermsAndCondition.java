@@ -45,5 +45,6 @@ public class TermsAndCondition implements Initializable {
             m.changeScene("ToGoCar.fxml");}
 
 
+
     }}
 

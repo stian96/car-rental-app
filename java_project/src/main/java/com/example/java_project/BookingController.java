@@ -91,7 +91,7 @@ public class BookingController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        button_book.setOnAction(this::bookCar);
 
         paymentMethodChoiceBox.getItems().addAll(paymentMethodsArray);
         paymentMethodChoiceBox.setOnAction(this::choosePaymentMethod);
@@ -218,7 +218,7 @@ public class BookingController implements Initializable {
     }
 
 
-    public void btn_book(ActionEvent event) throws IOException {
+    public void bookCar(ActionEvent event)  {
 
         User owner = this.owner;
         User renter  = LogInController.user;
