@@ -32,7 +32,7 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/register_car.png" />
+                              <Image url="@images/register_car.png" /> <!-- Freepik. (u.å.). -->
                            </image>
                         </ImageView>
                      </graphic>
@@ -44,7 +44,7 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/advertisement.png" />
+                              <Image url="@images/advertisement.png" /> <!-- icon_small. (u.å.). -->
                            </image>
                         </ImageView>
                      </graphic>
@@ -56,7 +56,7 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/search.png" />
+                              <Image url="@images/search.png" /> <!-- Those Icons (u.å.). -->
                            </image>
                         </ImageView>
                      </graphic>
@@ -80,7 +80,7 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/chat.png" />
+                              <Image url="@images/chat.png" /> <!-- apien (u.å.). -->
                            </image>
                         </ImageView>
                      </graphic>
@@ -92,7 +92,7 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/service.png" />
+                              <Image url="@images/service.png" /> <!-- Hilmy Abiyyu A. (u.å.). -->
                            </image>
                         </ImageView>
                      </graphic>
@@ -104,7 +104,7 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/logOut.png" />
+                              <Image url="@images/logOut.png" /> <!-- lakonicon (u.å.). -->
                            </image>
                         </ImageView>
                      </graphic>
@@ -118,17 +118,17 @@
                <children>
                   <ImageView fx:id="carImage" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/audi.jpg" />
+                        <Image url="@images/audi.jpg" /> <!-- ArtisticOperations (2018). -->
                      </image>
                   </ImageView>
                   <ImageView fx:id="carImage2" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bmw.jpg" />
+                        <Image url="@images/bmw.jpg" /> <!-- torquedetail (2021). -->
                      </image>
                   </ImageView>
                   <ImageView fx:id="carImage3" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/aston.jpg" />
+                        <Image url="@images/aston.jpg" /> <!-- Toby_Parsons (2017). -->
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-12.0" prefHeight="34.0" prefWidth="375.0" style="-fx-background-color: #9bbffa;" text="View the cars in the system">
