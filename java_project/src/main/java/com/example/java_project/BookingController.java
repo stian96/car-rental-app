@@ -76,6 +76,7 @@ public class BookingController implements Initializable {
 
     public String[] paymentMethodsArray = {"card", "paypal", "vipps", "googlepay"};
 
+    //Gets the following data from the previous page
     public void fillData(RentOutAd roa) {
         ad = roa;
         this.id = roa.getAutoIncrementId();
@@ -100,6 +101,7 @@ public class BookingController implements Initializable {
 
     }
 
+
     public void choosePaymentMethod(ActionEvent event) {
 
 
@@ -111,8 +113,11 @@ public class BookingController implements Initializable {
         } else if (Objects.equals(paymentMethodChoiceBox.getValue(), "googlepay")) {
             changeToGooglePayScene();
 
-        }else if(Objects.equals(paymentMethodChoiceBox.getValue(), "googlepay")){
+        }else if(Objects.equals(paymentMethodChoiceBox.getValue(), "vipps")){
+            changeToVippsScene();
 
+        }else if(Objects.equals(paymentMethodChoiceBox.getValue(), "card")){
+            changeToCardPaymentScene();
         }
     }
 
@@ -159,6 +164,24 @@ public class BookingController implements Initializable {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("VippsPayment.fxml"));
+            Parent pane = loader.load();
+
+            Scene scene = new Scene(pane);
+
+            Stage window = new Stage();
+
+            window.setScene(scene);
+            window.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    public void changeToCardPaymentScene() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("CreditDebit.fxml"));
             Parent pane = loader.load();
 
             Scene scene = new Scene(pane);
