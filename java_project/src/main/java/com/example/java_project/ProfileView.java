@@ -1,4 +1,4 @@
-package com.example.java_project.Controller.Profile;
+package com.example.java_project;
 
 import com.example.java_project.Controller.LogInController;
 import javafx.collections.FXCollections;
@@ -16,6 +16,7 @@ import no.hiof.groupproject.models.advertisements.Advertisement;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementsDB;
 import no.hiof.groupproject.tools.db.RetrieveAverageRatingDB;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -65,11 +66,22 @@ public class ProfileView implements Initializable {
     }
     @FXML
     void backMainPage(ActionEvent event) {
-
+        Main m = new Main();
+        try {
+            m.changeScene("ToGoCar.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
     }
 
     @FXML
     void editProfile(ActionEvent event) {
+        Main m = new Main();
+        try {
+            m.changeScene("UpdateProfile.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
 
     }
 
