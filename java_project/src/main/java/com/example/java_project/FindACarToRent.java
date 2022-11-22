@@ -330,7 +330,7 @@ public class FindACarToRent implements Initializable  {
     }
 
  public static UserProfile userProfile;
-        public void viewOwner(ActionEvent  event)  {
+        public void viewOwner(ActionEvent  event)   {
          try{
                 FXMLLoader loader = new FXMLLoader();
                 loader.setLocation(getClass().getResource("ugh.fxml"));
