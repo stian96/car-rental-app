@@ -227,7 +227,7 @@ public class FindACarToRent implements Initializable  {
     }
 
 
-    //returns the startDate picked using the date picker
+
 
 
     //Changes scene to view details of the Ad
@@ -241,12 +241,12 @@ public class FindACarToRent implements Initializable  {
 
         Scene scene = new Scene(pane);
 
-        //access the controller and call a method
+
         DetailedAdViewController controller = loader.getController();
         controller.fillData((RentOutAd) vehicleListView.getSelectionModel().getSelectedItem());
 
 
-        //This line gets the Stage information
+
         Stage window = new Stage();
 
         window.setScene(scene);
@@ -273,15 +273,28 @@ public class FindACarToRent implements Initializable  {
                 stage.close();
                 reload();
             }
-            //oke button is pressed
+
             else if(result.get() == ButtonType.CANCEL){
                 stage = (Stage) scenePane.getScene().getWindow();
                 stage.close();
             }}
 
         else{
+             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+
+            alert.setHeaderText("If you proceed to booking your search results will be lost");
+            alert.setResizable(false);
+            alert.setContentText("Press Ok to proceed to booking ");
+            Optional<ButtonType> result = alert.showAndWait();
+
+
+            if(result.get() == ButtonType.OK){
+                stage = (Stage) scenePane.getScene().getWindow();
+                stage.close();
                 changeScene();
-            }
+        }}
+
+
         }
 
 

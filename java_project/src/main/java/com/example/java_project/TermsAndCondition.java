@@ -1,8 +1,10 @@
 package com.example.java_project;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.AnchorPane;
@@ -10,17 +12,22 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class TermsAndCondition implements Initializable {
     @FXML private TextArea textArea;
-    @FXML private CheckBox checkBox;
+    @FXML private CheckBox checkBox, notAgreeCheckBox;
     @FXML private AnchorPane scenePane;
     Stage stage;
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        checkBox.setOnAction(this::checkBoxIsTicked);
+
+        notAgreeCheckBox.setOnAction(this::notAgreeCheckBoxTicked);
+
         this.textArea.setText("Terms Agreement\n" +
                 "By accepting these terms, the user agrees to:\n" +
                 "Deposit:\n" +
@@ -33,18 +40,47 @@ public class TermsAndCondition implements Initializable {
                 "Damages must be reported to the owner of the vehicle and insurance company. Damages will be compensated of the insurance company.\n");
     }
 
-    public void checkBoxIsTicked() throws IOException {
+    public void checkBoxIsTicked(ActionEvent event) {
         Main m = new Main();
-        if(checkBox.isSelected()){
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setContentText("Your booking is confirmed! ");
-            alert.show();
-            stage = (Stage) scenePane.getScene().getWindow();
-            stage.close();
+        try {
+            if (checkBox.isSelected()) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Your booking is confirmed! ");
+                alert.show();
+                stage = (Stage) scenePane.getScene().getWindow();
+                stage.close();
 
-            m.changeScene("ToGoCar.fxml");}
+                m.changeScene("ToGoCar.fxml");
+            }
 
 
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-    }}
+    public void notAgreeCheckBoxTicked(ActionEvent event) {
+        Main m = new Main();
+        try{
+        if(notAgreeCheckBox.isSelected()){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setHeaderText("There are no available ads with that criteria.");
+            alert.setResizable(false);
+            alert.setContentText("Press Ok to search again or cancel to return to main page");
+            Optional<ButtonType> result = alert.showAndWait();
+
+
+            if(result.get() == ButtonType.OK){
+                stage = (Stage) scenePane.getScene().getWindow();
+                stage.close();
+                m.changeScene("ToGoCar.fxml");}
+
+        }
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+}
 
