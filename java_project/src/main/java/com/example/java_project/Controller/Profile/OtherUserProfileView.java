@@ -1,15 +1,17 @@
 package com.example.java_project.Controller.Profile;
 
+import com.example.java_project.FindACarToRent;
 import com.example.java_project.Controller.LogInController;
-import com.example.java_project.Other.FindACarToRent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.UserProfile;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.tools.db.RetrieveAverageRatingDB;
 
 import java.net.URL;
@@ -21,6 +23,7 @@ public class OtherUserProfileView implements Initializable {
         @FXML private Label userName,userAVgRate;
         @FXML private TextField rateTxtField;
         @FXML private Button addRateButton;
+        @FXML private ListView<RentOutAd> listViewAds;
     @FXML
     public void addRating(ActionEvent actionEvent){
         User user = LogInController.user;
@@ -38,6 +41,8 @@ public class OtherUserProfileView implements Initializable {
 
         userName.setText(FindACarToRent.roa.getUser().getFirstName() + " " + FindACarToRent.roa.getUser().getLastName());
         userAVgRate.setText(String.valueOf(RetrieveAverageRatingDB.retrieve(userprofile)));
+        listViewAds.setItems((FindACarToRent.adObservableList));
+
 
     }
 

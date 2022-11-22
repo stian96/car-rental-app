@@ -1,7 +1,7 @@
 package com.example.java_project.Other;
 
-import com.example.java_project.Controller.BookingController;
-import com.example.java_project.Controller.DetailedAdViewController;
+import com.example.java_project.BookingController;
+import com.example.java_project.DetailedAdViewController;
 import com.example.java_project.Controller.Profile.OtherUserProfileView;
 import com.example.java_project.Main;
 import javafx.beans.value.ChangeListener;

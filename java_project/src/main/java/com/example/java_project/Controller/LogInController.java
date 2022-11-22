@@ -4,24 +4,24 @@ import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.tools.db.RetrieveUserDB;
 
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.EventObject;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 
-public class LogInController {
+public class LogInController implements Initializable {
 
     public static User user;
     @FXML
@@ -34,6 +34,8 @@ public class LogInController {
     protected Button button_logIn;
     @FXML
     protected Button button_signUp;
+    @FXML
+    private CheckBox logInCheckBox;
 
     //This method is when the user clicks on the login. Checks if user in DB if not creates new user and
     //saves to DB
@@ -68,8 +70,20 @@ public class LogInController {
 
     private void SignUpCheck() throws IOException {
         Main m = new Main();
+
         m.changeScene("SignUp.fxml");
 
     }
+    public void populateTxtFieldsAfterCheckBoxCheck(ActionEvent event){
+        if(logInCheckBox.isSelected()){
+            tf_userName.setText("stian@stian.no");
+            tf_password.setText("password");
+        }
+    }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        logInCheckBox.setOnAction(this::populateTxtFieldsAfterCheckBoxCheck);
+
+    }
 }

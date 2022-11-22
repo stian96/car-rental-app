@@ -22,7 +22,7 @@
                 </Label>
             <VBox layoutY="66.0" prefHeight="333.0" prefWidth="226.0">
                <children>
-                      <Button fx:id="button_registerCar" mnemonicParsing="false" onAction="#userRegisterCar" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Register a car">
+                      <Button fx:id="button_registerCar" mnemonicParsing="false" onAction="#userRegisterCar" prefHeight="46.0" prefWidth="233.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Register a car">
                           <font>
                               <Font name="Comic Sans MS Bold" size="12.0" />
                           </font>
@@ -32,36 +32,36 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/carIcon.png" />
+                              <Image url="@images/register_car.png" /> <!-- Freepik. (u.å.). -->
                            </image>
                         </ImageView>
                      </graphic>
                       </Button>
-                  <Button fx:id="button_Advertisement" mnemonicParsing="false" onAction="#carAdvertisement" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Advertisement">
+                  <Button fx:id="button_Advertisement" mnemonicParsing="false" onAction="#carAdvertisement" prefHeight="46.0" prefWidth="229.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Advertisement">
                      <font>
                         <Font name="Comic Sans MS Bold" size="12.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/ad.png" />
+                              <Image url="@images/advertisement.png" /> <!-- icon_small. (u.å.). -->
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="button_FindCar" mnemonicParsing="false" onAction="#findACar" prefHeight="48.0" prefWidth="207.0" style="-fx-background-color: #f1c232;" text="Find A Car">
+                  <Button fx:id="button_FindCar" mnemonicParsing="false" onAction="#findACar" prefHeight="48.0" prefWidth="231.0" style="-fx-background-color: #f1c232;" text="Find A Car">
                      <font>
                         <Font name="Comic Sans MS Bold" size="12.0" />
                      </font>
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/search.png" />
+                              <Image url="@images/search.png" /> <!-- Those Icons (u.å.). -->
                            </image>
                         </ImageView>
                      </graphic>
                   </Button>
-                      <Button fx:id="button_profile" mnemonicParsing="false" onAction="#userProfile" prefHeight="47.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Profile">
+                      <Button fx:id="button_profile" mnemonicParsing="false" onAction="#userProfile" prefHeight="47.0" prefWidth="229.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Profile">
                           <font>
                               <Font name="Comic Sans MS Bold" size="12.0" />
                           </font>
@@ -73,38 +73,38 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                      <Button fx:id="button_message" mnemonicParsing="false" onAction="#message_menu" prefHeight="45.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Message">
+                      <Button fx:id="button_message" mnemonicParsing="false" onAction="#message_menu" prefHeight="45.0" prefWidth="229.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Message">
                           <font>
                               <Font name="Comic Sans MS Bold" size="12.0" />
                           </font>
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/message.png" />
+                              <Image url="@images/chat.png" /> <!-- apien (u.å.). -->
                            </image>
                         </ImageView>
                      </graphic>
                       </Button>
-                      <Button fx:id="button_customerService" mnemonicParsing="false" onAction="#customerService" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Customer Service">
+                      <Button fx:id="button_customerService" mnemonicParsing="false" onAction="#customerService" prefHeight="46.0" prefWidth="231.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Customer Service">
                           <font>
                               <Font name="Comic Sans MS Bold" size="11.0" />
                           </font>
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/customer.png" />
+                              <Image url="@images/service.png" /> <!-- Hilmy Abiyyu A. (u.å.). -->
                            </image>
                         </ImageView>
                      </graphic>
                       </Button>
-                      <Button fx:id="button_logOut" mnemonicParsing="false" onAction="#userLogOut" prefHeight="56.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Log Out">
+                      <Button fx:id="button_logOut" mnemonicParsing="false" onAction="#userLogOut" prefHeight="56.0" prefWidth="233.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Log Out">
                           <font>
                               <Font name="Comic Sans MS Bold" size="12.0" />
                           </font>
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/exit.png" />
+                              <Image url="@images/logOut.png" /> <!-- lakonicon (u.å.). -->
                            </image>
                         </ImageView>
                      </graphic>
@@ -118,17 +118,17 @@
                <children>
                   <ImageView fx:id="carImage" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/audi.jpg" />
+                        <Image url="@images/audi.jpg" /> <!-- ArtisticOperations (2018). -->
                      </image>
                   </ImageView>
                   <ImageView fx:id="carImage2" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bmw.jpg" />
+                        <Image url="@images/bmw.jpg" /> <!-- torquedetail (2021). -->
                      </image>
                   </ImageView>
                   <ImageView fx:id="carImage3" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/aston.jpg" />
+                        <Image url="@images/aston.jpg" /> <!-- Toby_Parsons (2017). -->
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-12.0" prefHeight="34.0" prefWidth="375.0" style="-fx-background-color: #9bbffa;" text="View the cars in the system">
