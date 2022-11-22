@@ -1,17 +1,14 @@
-package com.example.java_project;
+package com.example.java_project.Controller;
 
 
-import com.example.java_project.DetailedAdViewController;
 import com.example.java_project.Main;
+import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.stage.Stage;
-import no.hiof.groupproject.models.advertisements.RentOutAd;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 
 
 import java.io.IOException;
@@ -20,7 +17,6 @@ import java.util.ResourceBundle;
 
 
 public class ToGoCarPageController  implements Initializable {
-
     @FXML
     private Button button_registerCar;
     @FXML
@@ -35,21 +31,77 @@ public class ToGoCarPageController  implements Initializable {
     private Button button_customerService;
     @FXML
     private Button button_logOut;
-
+    @FXML
+    private ImageView carImage2;
+    @FXML
+    private ImageView carImage3;
+    @FXML
+    private Button buttonLeft;
+    @FXML
+    private Button buttonRight;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // noAvailableCarWarning.setText("Hello: " + LogInController.user.getFirstName() + " " + LogInController.user.getLastName());
         button_Advertisement.setOnAction(this::carAdvertisement);
         button_registerCar.setOnAction(this::userRegisterCar);
         button_profile.setOnAction(this::userProfile);
         button_message.setOnAction(this::message_menu);
         button_FindCar.setOnAction(this::findACar);
-        //button_customerService.setOnAction(this::customerService);
+        button_customerService.setOnAction(this::customerService);
         button_logOut.setOnAction(this::userLogOut);
-        buttonStyle();
 
+        buttonRight.setOnAction(this::changeImage);
+        buttonLeft.setOnAction(this::changeImageBack);
+        gliderButtonStyle(buttonRight);
+        gliderButtonStyle(buttonLeft);
+
+        Button[] buttonList = {button_Advertisement, button_message, button_logOut, button_customerService,
+        button_FindCar, button_profile, button_registerCar};
+        for (Button buttons : buttonList)
+                buttonStyle(buttons);
     }
+
+    int counterR = 0;
+    TranslateTransition trans = new TranslateTransition();
+
+    public void changeImage(ActionEvent event) {
+        trans.setDuration(Duration.seconds(0.4));
+        if (counterR == 0 && carImage3.getX() == 0) {
+            trans.setNode(carImage3);
+            trans.setByX(375);
+            trans.play();
+            counterR++;
+        }
+        else if (counterR == 1 && carImage2.getX() == 0) {
+            trans.setNode(carImage2);
+            trans.setByX(375);
+            trans.play();
+            counterR++;
+        }
+        else {
+            counterR = 2;
+        }
+    }
+
+    public void changeImageBack(ActionEvent event) {
+        trans.setDuration(Duration.seconds(0.4));
+        if (counterR == 1 && carImage3.getX() == 0.0) {
+            trans.setNode(carImage3);
+            trans.setByX(-375);
+            trans.play();
+            counterR--;
+        }
+        else if (counterR == 2 && carImage2.getX() == 0.0) {
+            trans.setNode(carImage2);
+            trans.setByX(-375);
+            trans.play();
+            counterR--;
+        }
+        else {
+            counterR = 0;
+        }
+    }
+
 
     public void userRegisterCar(ActionEvent event) {
         Main m = new Main();
@@ -72,7 +124,7 @@ public class ToGoCarPageController  implements Initializable {
   public void userProfile(ActionEvent event) {
         Main m = new Main();
         try {
-          m.changeScene("UserProfile.fxml");
+          m.changeScene("UpdateProfile.fxml");
         } catch (IOException ioException) {
           System.out.println(ioException.getMessage());
         }
@@ -88,29 +140,21 @@ public class ToGoCarPageController  implements Initializable {
     }
 
  public void findACar(ActionEvent event) {
-     try{
-         FXMLLoader loader = new FXMLLoader();
-         loader.setLocation(getClass().getResource("FilterCar.fxml"));
-         Parent pane = loader.load();
-
-         Scene scene = new Scene(pane);
-
-
-
-         //This line gets the Stage information
-         Stage window = new Stage();
-
-         window.setScene(scene);
-         window.show();
-
-     } catch (IOException e) {
-         throw new RuntimeException(e);
-     }}
- public void customerService(ActionEvent event) throws IOException {
         Main m = new Main();
-
-         m.changeScene("CustomerService.fxml");}
-
+        try {
+         m.changeScene("FilterCar.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
+ public void customerService(ActionEvent event) {
+        Main m = new Main();
+        try {
+         m.changeScene("Login.fxml");
+        } catch (IOException ioException) {
+            System.out.println(ioException.getMessage());
+        }
+    }
  public void userLogOut(ActionEvent event) {
         Main m = new Main();
         try {
@@ -120,26 +164,16 @@ public class ToGoCarPageController  implements Initializable {
         }
     }
 
-    public void buttonStyle() {
-        button_registerCar.setOnMouseEntered(e -> button_registerCar.setStyle("-fx-background-color: #c9b502;"));
-        button_registerCar.setOnMouseExited(e -> button_registerCar.setStyle("-fx-background-color:  #f1c232;"));
+    public void gliderButtonStyle(Button button) {
+        button.setOnMouseEntered(e -> button.setStyle("-fx-opacity: 1; -fx-background-radius: 20px;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-opacity: 0.6; -fx-background-radius: 20px;"));
 
-        button_Advertisement.setOnMouseEntered(e -> button_Advertisement.setStyle("-fx-background-color: #c9b502;"));
-        button_Advertisement.setOnMouseExited(e -> button_Advertisement.setStyle("-fx-background-color:  #f1c232;"));
 
-        button_profile.setOnMouseEntered(e -> button_profile.setStyle("-fx-background-color: #c9b502;"));
-        button_profile.setOnMouseExited(e -> button_profile.setStyle("-fx-background-color:  #f1c232;"));
+    }
 
-        button_FindCar.setOnMouseEntered(e -> button_FindCar.setStyle("-fx-background-color: #c9b502;"));
-        button_FindCar.setOnMouseExited(e -> button_FindCar.setStyle("-fx-background-color:  #f1c232;"));
+    public void buttonStyle(Button button) {
+        button.setOnMouseEntered(e -> button.setStyle("-fx-background-color: #c9b502;"));
+        button.setOnMouseExited(e -> button.setStyle("-fx-background-color:  #f1c232;"));
 
-        button_customerService.setOnMouseEntered(e -> button_customerService.setStyle("-fx-background-color: #c9b502;"));
-        button_customerService.setOnMouseExited(e -> button_customerService.setStyle("-fx-background-color:  #f1c232;"));
-
-        button_logOut.setOnMouseEntered(e -> button_logOut.setStyle("-fx-background-color: #c9b502;"));
-        button_logOut.setOnMouseExited(e -> button_logOut.setStyle("-fx-background-color:  #f1c232;"));
-
-        button_message.setOnMouseEntered(e -> button_message.setStyle("-fx-background-color: #c9b502;"));
-        button_message.setOnMouseExited(e -> button_message.setStyle("-fx-background-color:  #f1c232;"));
     }
 }

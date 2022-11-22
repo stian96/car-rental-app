@@ -23,13 +23,10 @@ public class Main extends Application {
         FXMLLoader fxmlLoader1 = new FXMLLoader(Main.class.getResource("LogIn.fxml"));
         FXMLLoader fxmlLoader2 = new FXMLLoader(Main.class.getResource("FilterCar.fxml"));
         Scene scene = new Scene(fxmlLoader1.load(), 600, 400);
-        //checkConnection();
         stage.setTitle("ToGoCar");
         stage.setScene(scene);
         stage.show();
     }
-
-    //public void checkConnection(){Connection con = ConnectDB.connect();}
 
     public void changeScene(String fxml) throws IOException {
         Parent pane;

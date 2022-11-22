@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.ToGoCarPageController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.java_project.Controller.ToGoCarPageController">
     <children>
         <AnchorPane prefHeight="400.0" prefWidth="240.0" style="-fx-background-color: #f1c232;">
             <children>
@@ -20,9 +20,9 @@
                         <Font name="JetBrains Mono ExtraBold" size="18.0" />
                     </font>
                 </Label>
-            <VBox layoutY="66.0" prefHeight="333.0" prefWidth="207.0">
+            <VBox layoutY="66.0" prefHeight="333.0" prefWidth="226.0">
                <children>
-                      <Button fx:id="button_registerCar" mnemonicParsing="false" onAction="#userRegisterCar" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Register a car">
+                      <Button fx:id="button_registerCar" mnemonicParsing="false" onAction="#userRegisterCar" prefHeight="46.0" prefWidth="233.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Register a car">
                           <font>
                               <Font name="Comic Sans MS Bold" size="12.0" />
                           </font>
@@ -37,7 +37,7 @@
                         </ImageView>
                      </graphic>
                       </Button>
-                  <Button fx:id="button_Advertisement" mnemonicParsing="false" onAction="#carAdvertisement" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Advertisement">
+                  <Button fx:id="button_Advertisement" mnemonicParsing="false" onAction="#carAdvertisement" prefHeight="46.0" prefWidth="229.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Advertisement">
                      <font>
                         <Font name="Comic Sans MS Bold" size="12.0" />
                      </font>
@@ -49,7 +49,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="button_FindCar" mnemonicParsing="false" onAction="#findACar" prefHeight="48.0" prefWidth="207.0" style="-fx-background-color: #f1c232;" text="Find A Car">
+                  <Button fx:id="button_FindCar" mnemonicParsing="false" onAction="#findACar" prefHeight="48.0" prefWidth="231.0" style="-fx-background-color: #f1c232;" text="Find A Car">
                      <font>
                         <Font name="Comic Sans MS Bold" size="12.0" />
                      </font>
@@ -61,7 +61,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                      <Button fx:id="button_profile" mnemonicParsing="false" onAction="#userProfile" prefHeight="47.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Profile">
+                      <Button fx:id="button_profile" mnemonicParsing="false" onAction="#userProfile" prefHeight="47.0" prefWidth="229.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Profile">
                           <font>
                               <Font name="Comic Sans MS Bold" size="12.0" />
                           </font>
@@ -73,7 +73,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                      <Button fx:id="button_message" mnemonicParsing="false" onAction="#message_menu" prefHeight="45.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Message">
+                      <Button fx:id="button_message" mnemonicParsing="false" onAction="#message_menu" prefHeight="45.0" prefWidth="229.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Message">
                           <font>
                               <Font name="Comic Sans MS Bold" size="12.0" />
                           </font>
@@ -85,7 +85,7 @@
                         </ImageView>
                      </graphic>
                       </Button>
-                      <Button fx:id="button_customerService" mnemonicParsing="false" onAction="#customerService" prefHeight="46.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Customer Service">
+                      <Button fx:id="button_customerService" mnemonicParsing="false" onAction="#customerService" prefHeight="46.0" prefWidth="231.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Customer Service">
                           <font>
                               <Font name="Comic Sans MS Bold" size="11.0" />
                           </font>
@@ -97,7 +97,7 @@
                         </ImageView>
                      </graphic>
                       </Button>
-                      <Button fx:id="button_logOut" mnemonicParsing="false" onAction="#userLogOut" prefHeight="56.0" prefWidth="207.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Log Out">
+                      <Button fx:id="button_logOut" mnemonicParsing="false" onAction="#userLogOut" prefHeight="56.0" prefWidth="233.0" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Log Out">
                           <font>
                               <Font name="Comic Sans MS Bold" size="12.0" />
                           </font>
@@ -112,6 +112,74 @@
                </children>
             </VBox>
             </children></AnchorPane>
-        <AnchorPane prefHeight="400.0" prefWidth="426.0" style="-fx-background-color: #9fc5e8;" />
+        <AnchorPane prefHeight="392.0" prefWidth="388.0" style="-fx-background-color: #92cbf7;">
+         <children>
+            <AnchorPane layoutY="147.0" prefHeight="250.0" prefWidth="375.0" style="-fx-background-color: #92cbf7;" AnchorPane.bottomAnchor="0.0">
+               <children>
+                  <ImageView fx:id="carImage" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/audi.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="carImage2" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/bmw.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="carImage3" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
+                     <image>
+                        <Image url="@images/aston.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-12.0" prefHeight="34.0" prefWidth="375.0" style="-fx-background-color: #9bbffa;" text="View the cars in the system">
+                     <font>
+                        <Font name="Comic Sans MS" size="14.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="buttonLeft" layoutX="13.0" layoutY="33.0" mnemonicParsing="false" opacity="0.6" prefHeight="26.0" prefWidth="30.0" style="-fx-background-color: white; -fx-background-radius: 20px;" text="&lt;" />
+                  <Button fx:id="buttonRight" layoutX="331.0" layoutY="33.0" mnemonicParsing="false" opacity="0.6" prefHeight="26.0" prefWidth="30.0" style="-fx-background-color: white; -fx-background-radius: 20px;" text="&gt;" />
+               </children>
+            </AnchorPane>
+            <Label layoutX="14.0" layoutY="14.0" text="Car Rental">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="16.0" layoutY="46.0" text="1. Create profile">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="73.0" text="2. Register car">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="100.0" text="3. Create advertisement">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="246.0" layoutY="14.0" text="Rent a Car">
+               <font>
+                  <Font name="Comic Sans MS" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="246.0" layoutY="47.0" text="1. Create a profile">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="246.0" layoutY="74.0" text="2. Find a car">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="246.0" layoutY="101.0" text="3. Send message">
+               <font>
+                  <Font name="Comic Sans MS" size="13.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
     </children>
 </HBox>
