@@ -32,7 +32,7 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/carIcon.png" />
+                              <Image url="@images/register_car.png" />
                            </image>
                         </ImageView>
                      </graphic>
