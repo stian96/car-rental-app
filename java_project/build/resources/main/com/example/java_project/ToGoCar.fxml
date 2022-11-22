@@ -32,7 +32,7 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/carIcon.png" />
+                              <Image url="@images/register_car.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -44,7 +44,7 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/ad.png" />
+                              <Image url="@images/advertisement.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -80,7 +80,7 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/message.png" />
+                              <Image url="@images/chat.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -92,7 +92,7 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/customer.png" />
+                              <Image url="@images/service.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -104,7 +104,7 @@
                      <graphic>
                         <ImageView fitHeight="13.0" fitWidth="13.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@images/exit.png" />
+                              <Image url="@images/logOut.png" />
                            </image>
                         </ImageView>
                      </graphic>
