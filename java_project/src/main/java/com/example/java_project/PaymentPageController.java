@@ -66,6 +66,7 @@ public class PaymentPageController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         button_addPayment.setOnAction(this::btn_AddPayment);
+        buttonStyle();
     }
 
     public void buttonStyle() {
