@@ -1,11 +1,17 @@
-package com.example.java_project.Controller;
+package com.example.java_project;
 
 
+import com.example.java_project.DetailedAdViewController;
 import com.example.java_project.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 
 
 import java.io.IOException;
@@ -39,7 +45,7 @@ public class ToGoCarPageController  implements Initializable {
         button_profile.setOnAction(this::userProfile);
         button_message.setOnAction(this::message_menu);
         button_FindCar.setOnAction(this::findACar);
-        button_customerService.setOnAction(this::customerService);
+        //button_customerService.setOnAction(this::customerService);
         button_logOut.setOnAction(this::userLogOut);
         buttonStyle();
 
@@ -82,21 +88,29 @@ public class ToGoCarPageController  implements Initializable {
     }
 
  public void findACar(ActionEvent event) {
+     try{
+         FXMLLoader loader = new FXMLLoader();
+         loader.setLocation(getClass().getResource("FilterCar.fxml"));
+         Parent pane = loader.load();
+
+         Scene scene = new Scene(pane);
+
+
+
+         //This line gets the Stage information
+         Stage window = new Stage();
+
+         window.setScene(scene);
+         window.show();
+
+     } catch (IOException e) {
+         throw new RuntimeException(e);
+     }}
+ public void customerService(ActionEvent event) throws IOException {
         Main m = new Main();
-        try {
-         m.changeScene("FilterCar.fxml");
-        } catch (IOException ioException) {
-            System.out.println(ioException.getMessage());
-        }
-    }
- public void customerService(ActionEvent event) {
-        Main m = new Main();
-        try {
-         m.changeScene("CustomerService.fxml");
-        } catch (IOException ioException) {
-            System.out.println(ioException.getMessage());
-        }
-    }
+
+         m.changeScene("CustomerService.fxml");}
+
  public void userLogOut(ActionEvent event) {
         Main m = new Main();
         try {
