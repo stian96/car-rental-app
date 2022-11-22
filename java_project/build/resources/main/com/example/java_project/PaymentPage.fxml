@@ -21,7 +21,7 @@
             <Font name="Comic Sans MS Bold Italic" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="button_addPayment" layoutX="373.0" layoutY="297.0" mnemonicParsing="false" onAction="#btn_AddPayment" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #f1c232;" text="Add Payment">
+      <Button fx:id="button_addPayment" layoutX="317.0" layoutY="286.0" mnemonicParsing="false" onAction="#btn_AddPayment" prefHeight="27.0" prefWidth="123.0" style="-fx-background-color: #f1c232;" text="Add Payment">
          <font>
             <Font name="Comic Sans MS Bold Italic" size="15.0" />
          </font>
