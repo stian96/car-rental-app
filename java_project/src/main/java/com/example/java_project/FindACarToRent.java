@@ -1,8 +1,6 @@
 package com.example.java_project;
 
 
-import com.example.java_project.Controller.Profile.OtherUserProfileView;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -20,6 +18,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.*;
 
+import no.hiof.groupproject.models.UserProfile;
 import no.hiof.groupproject.models.advertisements.Advertisement;
 import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementDB;
@@ -43,7 +42,7 @@ public class FindACarToRent implements Initializable  {
 
     @FXML
 
-    private ListView<Advertisement> vehicleListView = new ListView<>();//change the name later
+    private  ListView<Advertisement> vehicleListView = new ListView<>();//change the name later
 
     @FXML
     private TextField tf_townName;
@@ -82,7 +81,7 @@ public class FindACarToRent implements Initializable  {
 
     public static ObservableList<RentOutAd> adObservableList = FXCollections.observableArrayList();
     ArrayList<RentOutAd> adArrayList = new ArrayList<>();
-    public static RentOutAd roa ;
+    public static RentOutAd roa  ;
     String gearType, engineType, manuType = null;
     Integer numSeat, yearModel = null;
 
@@ -173,7 +172,8 @@ public class FindACarToRent implements Initializable  {
         for(int i : filteredAds){
             if(!filteredAds.isEmpty()){
                 RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(i);
-                adArrayList.add(ad);}}
+                adArrayList.add(ad);
+                }}
 
         try{
             if(!adArrayList.isEmpty()){
@@ -297,7 +297,10 @@ public class FindACarToRent implements Initializable  {
 
         }
 
-
+    public RentOutAd getRoa(){
+        RentOutAd ad =  (RentOutAd) vehicleListView.getSelectionModel().getSelectedItem();
+        return ad;
+    }
     public void changeScene(){
         try{
             FXMLLoader loader = new FXMLLoader();
@@ -308,6 +311,7 @@ public class FindACarToRent implements Initializable  {
 
             //access the controller and call a method
             BookingController booking = loader.getController();
+
             booking.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
             booking.adFromDate(getFromDate());
             booking.adToDate(getToDate());
@@ -325,27 +329,28 @@ public class FindACarToRent implements Initializable  {
         }
     }
 
+ public static UserProfile userProfile;
+        public void viewOwner(ActionEvent  event)   {
+         try{
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("ugh.fxml"));
+                Parent pane = loader.load();
 
-        public void viewOwner(ActionEvent  event)  {
-        try{
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("OtherUserProfileView.fxml"));
-        Parent pane = loader.load();
-
-        Scene scene = new Scene(pane);
-
-        //access the controller and call a method
-        OtherUserProfileView p = new OtherUserProfileView();
-       // p.fillData((RentOutAd)vehicleListView.getSelectionModel().getSelectedItem());
+                Scene scene = new Scene(pane);
 
 
-        //This line gets the Stage information
-        Stage window = new Stage();
+                OtherUserProfileView controller = loader.getController();
+                controller.fillData((RentOutAd) vehicleListView.getSelectionModel().getSelectedItem());
 
-        window.setScene(scene);
-        window.show();
 
-    } catch (IOException e) {
+
+                Stage window = new Stage();
+
+                window.setScene(scene);
+                window.show();
+
+
+            } catch (IOException e) {
             throw new RuntimeException(e);
         }}
 

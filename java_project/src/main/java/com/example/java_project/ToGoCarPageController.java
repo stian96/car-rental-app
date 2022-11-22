@@ -1,4 +1,4 @@
-package com.example.java_project.Controller;
+package com.example.java_project;
 
 
 import com.example.java_project.Main;
@@ -124,7 +124,7 @@ public class ToGoCarPageController  implements Initializable {
   public void userProfile(ActionEvent event) {
         Main m = new Main();
         try {
-          m.changeScene("UpdateProfile.fxml");
+          m.changeScene("UserProfile.fxml");
         } catch (IOException ioException) {
           System.out.println(ioException.getMessage());
         }
@@ -150,7 +150,7 @@ public class ToGoCarPageController  implements Initializable {
  public void customerService(ActionEvent event) {
         Main m = new Main();
         try {
-         m.changeScene("Login.fxml");
+         m.changeScene("CustomerService.fxml");
         } catch (IOException ioException) {
             System.out.println(ioException.getMessage());
         }
