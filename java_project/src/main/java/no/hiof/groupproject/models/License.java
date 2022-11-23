@@ -49,7 +49,8 @@ public class License implements Serialise, ExistsInDb, VerifyLicense {
 
     @Override
     public String verifyCountryOfIssue() {
-        if (this.countryOfIssue.equalsIgnoreCase("Norway"))
+        if (this.countryOfIssue.equalsIgnoreCase("Norway") ||
+                this.countryOfIssue.equalsIgnoreCase("Norge"))
             return "Valid";
         else
             return "License only valid for 3 months.";
