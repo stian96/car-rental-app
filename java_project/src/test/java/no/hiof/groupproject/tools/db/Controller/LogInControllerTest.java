@@ -1,4 +1,4 @@
-package no.hiof.groupproject.Controller;
+package no.hiof.groupproject.tools.db.Controller;
 
 import no.hiof.groupproject.models.loginSignUp_methods.LogInSignUp;
 import no.hiof.groupproject.models.loginSignUp_methods.LogInValidUsers;

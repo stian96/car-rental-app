@@ -3,4 +3,9 @@
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="17" />
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="java_project.main" options="--add-exports javafx.graphics/com.sun.javafx.menu=com.example.java_project" />
+    </option>
+  </component>
 </project>
