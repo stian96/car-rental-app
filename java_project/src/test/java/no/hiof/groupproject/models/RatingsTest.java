@@ -66,6 +66,8 @@ class RatingsTest {
         up.addNewRating(user2, 4);
         up.addNewRating(user2, 2);
 
+        up = RetrieveUserProfileDB.retrieve(user.getId());
+
 
         assertFalse(up.getRatings().containsValue(4));
         assertTrue(up.getRatings().containsValue(2));

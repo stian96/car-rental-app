@@ -4,6 +4,7 @@ package no.hiof.groupproject;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.tools.GDPRInformation;
 import no.hiof.groupproject.tools.db.RetrieveUserDB;
+import no.hiof.groupproject.tools.geocode.Location;
 
 import java.io.IOException;
 import java.sql.*;
@@ -11,6 +12,14 @@ import java.sql.*;
 public class Main {
     public static void main(String[] args) throws IOException, SQLException {
 
+        Location loc = new Location("sarpsborg");
+        System.out.println(loc.getPostNr() + " " + loc.getFylke());
+        loc = new Location("halden");
+        System.out.println(loc.getPostNr() + " " + loc.getFylke());
+        loc = new Location("fredrikstad");
+        System.out.println(loc.getPostNr() + " " + loc.getFylke());
+        loc = new Location("oslo");
+        System.out.println(loc.getPostNr() + " " + loc.getFylke());
         /*
         GDPRInformation info = new GDPRInformation(12);
         info.print();

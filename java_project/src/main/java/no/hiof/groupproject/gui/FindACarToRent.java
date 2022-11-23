@@ -90,9 +90,22 @@ public class FindACarToRent implements Initializable  {
     public void searchButtonPushed(ActionEvent event){
         Main m = new Main();
         String town = tf_townName.getText();
-        ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, engineType,
-                manuType, town, null, null, null,
-                numSeat,null, null);
+        ArrayList<Integer> filteredAds;
+
+        if (Objects.equals(town, "")) {
+            filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, engineType,
+                    manuType, null, null, null, null,
+                    numSeat,null, null);
+        } else {
+            filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, engineType,
+                    manuType, town, null, null, null,
+                    numSeat,null, null);
+        }
+
+        vehicleListView.getItems().clear();
+        adObservableList.clear();
+        adArrayList.clear();
+
         for(int i : filteredAds){
             if(!filteredAds.isEmpty()){
                 RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(i);

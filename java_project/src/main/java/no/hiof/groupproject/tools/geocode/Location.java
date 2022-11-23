@@ -115,7 +115,11 @@ public class Location {
         str = str.replaceAll(" ", "");
         String[] splitStr = str.split(",");
 
-        return splitStr[1];
+        if (splitStr.length >= 3) {
+            return splitStr[1];
+        }
+
+        return "fylke";
     }
 
     public String getPostNr() throws IOException {
@@ -123,14 +127,20 @@ public class Location {
         str = str.replaceAll(" ", "");
         String[] splitStr = str.split(",");
 
-        return splitStr[2];
+        if (splitStr.length >= 4) {
+            return splitStr[2];
+        }
+
+        return "0000";
     }
 
     public String getLand() throws IOException {
         String str = this.getThisLocationInfo();
         str = str.replaceAll(" ", "");
         String[] splitStr = str.split(",");
-
-        return splitStr[3];
+        if (splitStr.length >= 3) {
+            return splitStr[3];
+        }
+        return "Norge";
     }
 }
