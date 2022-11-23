@@ -1,0 +1,25 @@
+ê[Owner:jeff |manufacturer: volkswagen |Model: e golf |Daily charge: 300.0, Owner:jeff |manufacturer: ferrari |Model: f50 |Daily charge: 800.0]
+
+∞{User{id=19, dLicense=no.hiof.groupproject.models.License@1b9c1b51, firstName='delete', lastName='me', postNr='1777', password='peawet', bankAccountNr='12341234123', email='iwill@be.deleted', tlfNr='12341234'}=2, User{id=19, dLicense=no.hiof.groupproject.models.License@2e52fb3e, firstName='rating', lastName='giver', postNr='1777', password='ratinglover', bankAccountNr='12341234123', email='rate@you.co.uk', tlfNr='12341234'}=4}
+g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+98 47 123456 1
+*-g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+*0g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+*0g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+:;g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+:;g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+:Eä[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: ratings.user, ratings.userGivingRating, ratings.rating)
+:Qj[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: licenses.licenseNumber)
+:Sg[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+:Sg[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+:Ug[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+:Vj[SQLITE_CONSTRAINT_UNIQUE] A UNIQUE constraint failed (UNIQUE constraint failed: licenses.licenseNumber)
+fg2022-11-23
+fg2022-11-21
+fh2022-11-23
+fh2022-11-23
+jlg[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
+{|9Sending message 'Hello' to email address: ash@gmail.com
+{|9Sending message 'Hello' to email address: ash@gmail.com
+{~6Sending message 'Hi' to email address: ash@gmail.com
