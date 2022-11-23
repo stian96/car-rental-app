@@ -2,6 +2,8 @@
 package no.hiof.groupproject.gui;
 
 
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import no.hiof.groupproject.gui.Controller.LogInController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,10 +25,12 @@ public class OtherUserProfileView implements Initializable {
     UserProfile userprofile;
     String avg ;
 
-    @FXML private Label userName,userAverageRate, shit;
+    @FXML private Label userName,userAverageRate;
     @FXML private TextField rateTxtField;
-    @FXML private Button addRateButton;
+    @FXML private Button addRateButton,backButton;
     @FXML private ListView<RentOutAd> listView;
+    @FXML private AnchorPane scenePane;
+    Stage stage;
     private RentOutAd sAd;
 
     public void fillData(RentOutAd ad){
@@ -50,22 +54,38 @@ public class OtherUserProfileView implements Initializable {
 
     }
 
+    public void backToPreviousPage(ActionEvent even){
+        stage = (Stage) scenePane.getScene().getWindow();
+        stage.close();
+
+    }
+
     public UserProfile getUserProfile(User user){
         return new UserProfile(user);
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-       //;
+
         addRateButton.setOnAction(this::addRating);
+        backButton.setOnAction(this::backToPreviousPage);
+
         listView.setItems(FindACarToRent.adObservableList);
+
+        buttonStyle();
     }
 
-
-
-
-
-
+    public void buttonStyle() {
+        backButton.setOnMouseEntered(e -> backButton.setStyle("-fx-background-color: #c9b502;"));
+        backButton.setOnMouseExited(e -> backButton.setStyle("-fx-background-color:  #f1c232;"));}
 
 
 }
+
+
+
+
+
+
+
+
