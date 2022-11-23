@@ -49,7 +49,7 @@ public class FindACarToRent implements Initializable  {
     private DatePicker fromDatePicker, toDatePicker;
 
     @FXML
-    private Button searchButton, bookButton,selectAd ;
+    private Button searchButton, bookButton,selectAd, clearFields ;
     @FXML
     private Button button_mainMenu;
 
@@ -142,6 +142,10 @@ public class FindACarToRent implements Initializable  {
         toDatePicker.setValue(null);
     }
 
+    public void cleanFieldsForNewSearch(ActionEvent event){
+
+        resetAllFields();
+    }
     //
     public void changeSceneToBooking(ActionEvent event) {
         checkDate(getFromDate(),getToDate());
@@ -274,6 +278,7 @@ public class FindACarToRent implements Initializable  {
         selectAd.setOnAction(this::changeSceneToDetailedAdView);
         bookButton.setOnAction(this::changeSceneToBooking);
         bt_viewOwner.setOnAction(this::viewOwner);
+        clearFields.setOnAction(this::cleanFieldsForNewSearch);
 
         transmissionChoiceBox.getItems().addAll(gearTypeArr);
         transmissionChoiceBox.setOnAction(this::gearTypeChanged);
