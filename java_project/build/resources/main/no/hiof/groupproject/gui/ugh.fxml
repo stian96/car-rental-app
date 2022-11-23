@@ -40,7 +40,7 @@
             <Image url="@images/man_Icon.png" />
          </image>
       </ImageView>
-      <Label fx:id="userAverageRate" layoutX="75.0" layoutY="210.0" prefHeight="17.0" prefWidth="65.0">
+      <Label fx:id="userAverageRate" layoutX="75.0" layoutY="210.0" prefHeight="21.0" prefWidth="149.0">
          <font>
             <Font name="Comic Sans MS Bold" size="14.0" />
          </font>

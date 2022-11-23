@@ -23,6 +23,7 @@ import java.math.BigDecimal;
 import java.net.URL;
 import java.time.LocalDate;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import static java.time.temporal.ChronoUnit.DAYS;
@@ -63,7 +64,7 @@ public class BookingController implements Initializable {
 
 
     @FXML
-    private Button button_back;
+    private Button button_back , mainMenu;
     @FXML
     private Button button_book;
     @FXML
@@ -84,15 +85,19 @@ public class BookingController implements Initializable {
         label_model.setText(roa.getVehicle().getManufacturer());
         label_vehicleModel.setText(roa.getVehicle().getModel());
 
-
+        buttonStyle();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         button_book.setOnAction(this::bookCar);
+        button_back.setOnAction(this::btn_back);
+        mainMenu.setOnAction(this::backToMain);
 
         paymentMethodChoiceBox.getItems().addAll(paymentMethodsArray);
         paymentMethodChoiceBox.setOnAction(this::choosePaymentMethod);
+
+
 
 
 
@@ -215,9 +220,50 @@ public class BookingController implements Initializable {
     }
 
 
-    public void btn_back(ActionEvent event) throws IOException {
+    public void backToMain(ActionEvent event) {
+        Main m = new Main();
+       try{
+        stage = (Stage) scenePane.getScene().getWindow();
+        stage.close();
+
+        m.changeScene("ToGoCar.fxml");
+
+    } catch (IOException e) {
+           throw new RuntimeException(e);
+       }
+    }
+    public void btn_back(ActionEvent event) {
+
+        stage = (Stage) scenePane.getScene().getWindow();
+        stage.close();
+
+        changeScene();
 
     }
+
+    public void changeScene(){
+        try{
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("FilterCar.fxml"));
+            Parent pane = loader.load();
+
+            Scene scene = new Scene(pane);
+
+
+            FindACarToRent controller = loader.getController();
+           controller.resetAllFields();
+
+
+
+            Stage window = new Stage();
+
+            window.setScene(scene);
+            window.show();
+
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }}
+
 
     public void getAgreement() {
         try {
@@ -247,24 +293,30 @@ public class BookingController implements Initializable {
         Vehicle vehicle = this.vehicle;
 
         Booking book = new Booking(renter,owner,fromDate,toDate,pay,vehicle);
+
             try {
                 if (!book.existsInDb()) {
                     InsertBookingDB.insert(book);
                     getAgreement();
-                    stage = (Stage) scenePane.getScene().getWindow();
-                    stage.close();
 
-                } else {
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setContentText("Your booking is confirmed ");
+                }
+                else {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Your booking is not ");
                     alert.show();
                 }
+
+
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
 
 
         }
+
+    public void buttonStyle() {
+        mainMenu.setOnMouseEntered(e -> mainMenu.setStyle("-fx-background-color: #c9b502;"));
+        mainMenu.setOnMouseExited(e -> mainMenu.setStyle("-fx-background-color:  #f1c232;"));}
 
 
     }
