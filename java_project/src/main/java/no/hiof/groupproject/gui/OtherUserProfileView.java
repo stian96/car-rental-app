@@ -2,6 +2,8 @@
 package no.hiof.groupproject.gui;
 
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import no.hiof.groupproject.gui.Controller.LogInController;
@@ -14,10 +16,13 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import no.hiof.groupproject.models.User;
 import no.hiof.groupproject.models.UserProfile;
+import no.hiof.groupproject.models.advertisements.Advertisement;
 import no.hiof.groupproject.models.advertisements.RentOutAd;
+import no.hiof.groupproject.tools.db.RetrieveAdvertisementsDB;
 import no.hiof.groupproject.tools.db.RetrieveAverageRatingDB;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class OtherUserProfileView implements Initializable {
@@ -25,22 +30,29 @@ public class OtherUserProfileView implements Initializable {
     UserProfile userprofile;
     String avg ;
 
-    @FXML private Label userName,userAverageRate;
+    @FXML private Label userName,userAverageRate, noAds;
     @FXML private TextField rateTxtField;
     @FXML private Button addRateButton,backButton;
     @FXML private ListView<RentOutAd> listView;
     @FXML private AnchorPane scenePane;
     Stage stage;
     private RentOutAd sAd;
+    ObservableList<RentOutAd> rad = FXCollections.observableArrayList();
+
 
     public void fillData(RentOutAd ad){
         sAd = ad;
         user = ad.getUser();
        // shit.setText(ad.getUser().getFirstName());
         userprofile = getUserProfile(user);
+
         avg = RetrieveAverageRatingDB.retrieve(userprofile);
-        userAverageRate.setText(String.format("%s", avg));
+        userAverageRate.setText(String.format("%s", getAvg(avg)));
+
         userName.setText(userprofile.getUser().getFirstName() + " " + user.getLastName());
+
+        rad.addAll(ad);
+        listView.setItems(rad);
 
     }
     @FXML
@@ -53,6 +65,13 @@ public class OtherUserProfileView implements Initializable {
 
 
     }
+    public String getAvg(String average){
+         String avg = average;
+         if(average == null){    return "No ratings yet!";
+
+         }else {return avg;}
+    }
+
 
     public void backToPreviousPage(ActionEvent even){
         stage = (Stage) scenePane.getScene().getWindow();
@@ -70,7 +89,7 @@ public class OtherUserProfileView implements Initializable {
         addRateButton.setOnAction(this::addRating);
         backButton.setOnAction(this::backToPreviousPage);
 
-        listView.setItems(FindACarToRent.adObservableList);
+
 
         buttonStyle();
     }
