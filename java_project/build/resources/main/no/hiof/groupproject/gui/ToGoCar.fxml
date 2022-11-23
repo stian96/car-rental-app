@@ -118,17 +118,17 @@
                <children>
                   <ImageView fx:id="carImage" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/audi.jpg" /> <!-- ArtisticOperations (2018). -->
+                        <Image url="@images/audi1.jpg" /> <!-- ArtisticOperations (2018). -->
                      </image>
                   </ImageView>
                   <ImageView fx:id="carImage2" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/bmw.jpg" /> <!-- torquedetail (2021). -->
+                        <Image url="@images/bmw1.jpg" /> <!-- torquedetail (2021). -->
                      </image>
                   </ImageView>
                   <ImageView fx:id="carImage3" fitHeight="231.0" fitWidth="375.0" layoutY="20.0" pickOnBounds="true">
                      <image>
-                        <Image url="@images/aston.jpg" /> <!-- Toby_Parsons (2017). -->
+                        <Image url="@images/aston1.jpg" /> <!-- Toby_Parsons (2017). -->
                      </image>
                   </ImageView>
                   <Label alignment="CENTER" contentDisplay="CENTER" layoutY="-12.0" prefHeight="34.0" prefWidth="375.0" style="-fx-background-color: #9bbffa;" text="View the cars in the system">
