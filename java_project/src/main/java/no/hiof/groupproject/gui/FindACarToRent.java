@@ -265,6 +265,7 @@ public class FindACarToRent implements Initializable  {
     public void goToMainMenu(ActionEvent event) {
         Main main = new Main();
         try {
+            resetAllFields();
             main.changeScene("ToGoCar.fxml");
         } catch (IOException ioException) {
             System.out.println(ioException.getMessage());
@@ -295,7 +296,7 @@ public class FindACarToRent implements Initializable  {
         yearChoiceBox.getItems().addAll(yearsArray);
         yearChoiceBox.setOnAction(this::getYearModel);
 
-
+        searchNewDate();
 
 
         button_mainMenu.setOnAction(this::goToMainMenu);;
