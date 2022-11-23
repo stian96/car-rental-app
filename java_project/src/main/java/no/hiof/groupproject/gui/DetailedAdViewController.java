@@ -62,6 +62,7 @@ public class DetailedAdViewController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
            button_back.setOnAction(this::changeSceneToFilterCar);
+           buttonStyle();
     }
     public void buttonStyle() {
         button_back.setOnMouseEntered(e -> button_back.setStyle("-fx-background-color: #c9b502;"));
