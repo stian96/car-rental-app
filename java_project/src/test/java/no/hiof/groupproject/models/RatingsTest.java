@@ -61,13 +61,14 @@ class RatingsTest {
     void assertsValidRatingIsUpdatedToUserProfile() {
 
         UserProfile up = RetrieveUserProfileDB.retrieve(user.getId());
+
+
         up.addNewRating(user2, 4);
         up.addNewRating(user2, 2);
-        HashMap<User, Integer> ratings = up.getRatings();
 
-        System.out.println(ratings);
-        assertFalse(ratings.containsValue(4));
-        assertTrue(ratings.containsValue(2));
+
+        assertFalse(up.getRatings().containsValue(4));
+        assertTrue(up.getRatings().containsValue(2));
 
     }
 
