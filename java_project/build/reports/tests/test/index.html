@@ -20,13 +20,13 @@
 <tr>
 <td>
 <div class="infoBox" id="tests">
-<div class="counter">4</div>
+<div class="counter">137</div>
 <p>tests</p>
 </div>
 </td>
 <td>
 <div class="infoBox" id="failures">
-<div class="counter">0</div>
+<div class="counter">3</div>
 <p>failures</p>
 </div>
 </td>
@@ -38,7 +38,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.034s</div>
+<div class="counter">1m40.72s</div>
 <p>duration</p>
 </div>
 </td>
@@ -47,8 +47,8 @@
 </div>
 </td>
 <td>
-<div class="infoBox success" id="successRate">
-<div class="percent">100%</div>
+<div class="infoBox failures" id="successRate">
+<div class="percent">97%</div>
 <p>successful</p>
 </div>
 </td>
@@ -58,13 +58,33 @@
 <div id="tabs">
 <ul class="tabLinks">
 <li>
-<a href="#tab0">Packages</a>
+<a href="#tab0">Failed tests</a>
 </li>
 <li>
-<a href="#tab1">Classes</a>
+<a href="#tab1">Packages</a>
+</li>
+<li>
+<a href="#tab2">Classes</a>
 </li>
 </ul>
 <div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<ul class="linkList">
+<li>
+<a href="classes/no.hiof.groupproject.tools.db.DatabasePersistenceTest.html">DatabasePersistenceTest</a>.
+<a href="classes/no.hiof.groupproject.tools.db.DatabasePersistenceTest.html#assertsAverageRatingsCanBeCalculated()">assertsAverageRatingsCanBeCalculated()</a>
+</li>
+<li>
+<a href="classes/no.hiof.groupproject.tools.db.DatabasePersistenceTest.html">DatabasePersistenceTest</a>.
+<a href="classes/no.hiof.groupproject.tools.db.DatabasePersistenceTest.html#assertsAverageRatingsCanBeUpdated()">assertsAverageRatingsCanBeUpdated()</a>
+</li>
+<li>
+<a href="classes/no.hiof.groupproject.tools.db.DatabasePersistenceTest.html">DatabasePersistenceTest</a>.
+<a href="classes/no.hiof.groupproject.tools.db.DatabasePersistenceTest.html#assertsRatingsCanBeUpdated()">assertsRatingsCanBeUpdated()</a>
+</li>
+</ul>
+</div>
+<div id="tab1" class="tab">
 <h2>Packages</h2>
 <table>
 <thead>
@@ -80,18 +100,58 @@
 <tbody>
 <tr>
 <td class="success">
+<a href="packages/no.hiof.groupproject.models.html">no.hiof.groupproject.models</a>
+</td>
+<td>20</td>
+<td>0</td>
+<td>0</td>
+<td>12.409s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="packages/no.hiof.groupproject.tools.html">no.hiof.groupproject.tools</a>
+</td>
+<td>50</td>
+<td>0</td>
+<td>0</td>
+<td>18.142s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
 <a href="packages/no.hiof.groupproject.tools.chat.html">no.hiof.groupproject.tools.chat</a>
 </td>
-<td>4</td>
+<td>9</td>
 <td>0</td>
 <td>0</td>
-<td>0.034s</td>
+<td>0.042s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="packages/no.hiof.groupproject.tools.db.html">no.hiof.groupproject.tools.db</a>
+</td>
+<td>57</td>
+<td>3</td>
+<td>0</td>
+<td>1m10.12s</td>
+<td class="failures">94%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="packages/no.hiof.groupproject.tools.db.Controller.html">no.hiof.groupproject.tools.db.Controller</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.003s</td>
 <td class="success">100%</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="tab1" class="tab">
+<div id="tab2" class="tab">
 <h2>Classes</h2>
 <table>
 <thead>
@@ -107,12 +167,212 @@
 <tbody>
 <tr>
 <td class="success">
+<a href="classes/no.hiof.groupproject.models.AddBookingAndAvailableWithinTest.html">no.hiof.groupproject.models.AddBookingAndAvailableWithinTest</a>
+</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0.063s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.models.MultipleVehiclesTest.html">no.hiof.groupproject.models.MultipleVehiclesTest</a>
+</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>8.005s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.models.RatingsTest.html">no.hiof.groupproject.models.RatingsTest</a>
+</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>0.118s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.models.RemoveBookingTest.html">no.hiof.groupproject.models.RemoveBookingTest</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1.830s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.models.RemoveUserTest.html">no.hiof.groupproject.models.RemoveUserTest</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>2.101s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.models.RemoveVehicleTest.html">no.hiof.groupproject.models.RemoveVehicleTest</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.037s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.models.UpdateUserTest.html">no.hiof.groupproject.models.UpdateUserTest</a>
+</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0.255s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.tools.DeadlineTest.html">no.hiof.groupproject.tools.DeadlineTest</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0.005s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.tools.GDPRInformationTest.html">no.hiof.groupproject.tools.GDPRInformationTest</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>15.852s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.tools.LicenseTest.html">no.hiof.groupproject.tools.LicenseTest</a>
+</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0.004s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.tools.LocationTest.html">no.hiof.groupproject.tools.LocationTest</a>
+</td>
+<td>6</td>
+<td>0</td>
+<td>0</td>
+<td>2.163s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.tools.NotificationTest.html">no.hiof.groupproject.tools.NotificationTest</a>
+</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0.012s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.tools.VerifyInsuranceTest.html">no.hiof.groupproject.tools.VerifyInsuranceTest</a>
+</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+<td>0.002s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.tools.VerifyLogInSignUpTest.html">no.hiof.groupproject.tools.VerifyLogInSignUpTest</a>
+</td>
+<td>4</td>
+<td>0</td>
+<td>0</td>
+<td>0.004s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.tools.VerifyPaymentTest.html">no.hiof.groupproject.tools.VerifyPaymentTest</a>
+</td>
+<td>22</td>
+<td>0</td>
+<td>0</td>
+<td>0.100s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.tools.chat.ChatRoomTest.html">no.hiof.groupproject.tools.chat.ChatRoomTest</a>
+</td>
+<td>5</td>
+<td>0</td>
+<td>0</td>
+<td>0.039s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
 <a href="classes/no.hiof.groupproject.tools.chat.MessageTest.html">no.hiof.groupproject.tools.chat.MessageTest</a>
 </td>
 <td>4</td>
 <td>0</td>
 <td>0</td>
-<td>0.034s</td>
+<td>0.003s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.tools.db.DatabaseFilteringTest.html">no.hiof.groupproject.tools.db.DatabaseFilteringTest</a>
+</td>
+<td>15</td>
+<td>0</td>
+<td>0</td>
+<td>41.980s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="failures">
+<a href="classes/no.hiof.groupproject.tools.db.DatabasePersistenceTest.html">no.hiof.groupproject.tools.db.DatabasePersistenceTest</a>
+</td>
+<td>35</td>
+<td>3</td>
+<td>0</td>
+<td>28.130s</td>
+<td class="failures">91%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.tools.db.DatabaseTest.html">no.hiof.groupproject.tools.db.DatabaseTest</a>
+</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>0.012s</td>
+<td class="success">100%</td>
+</tr>
+<tr>
+<td class="success">
+<a href="classes/no.hiof.groupproject.tools.db.Controller.LogInControllerTest.html">no.hiof.groupproject.tools.db.Controller.LogInControllerTest</a>
+</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0.003s</td>
 <td class="success">100%</td>
 </tr>
 </tbody>
@@ -126,7 +386,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 7.2</a> at 22. nov. 2022, 22:07:22</p>
+<a href="http://www.gradle.org">Gradle 7.2</a> at 23 Nov 2022, 08:22:21</p>
 </div>
 </div>
 </body>
