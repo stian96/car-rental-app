@@ -49,7 +49,7 @@ public class FindACarToRent implements Initializable  {
     private DatePicker fromDatePicker, toDatePicker;
 
     @FXML
-    private Button searchButton, bookButton,selectAd ;
+    private Button searchButton, bookButton,selectAd, clearFields ;
     @FXML
     private Button button_mainMenu;
 
@@ -90,9 +90,22 @@ public class FindACarToRent implements Initializable  {
     public void searchButtonPushed(ActionEvent event){
         Main m = new Main();
         String town = tf_townName.getText();
-        ArrayList<Integer> filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, engineType,
-                manuType, town, null, null, null,
-                numSeat,null, null);
+        ArrayList<Integer> filteredAds;
+
+        if (Objects.equals(town, "")) {
+            filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, engineType,
+                    manuType, null, null, null, null,
+                    numSeat,null, null);
+        } else {
+            filteredAds = FilterAdvertisement.filterToArrayListAdvertisementId(gearType, engineType,
+                    manuType, town, null, null, null,
+                    numSeat,null, null);
+        }
+
+        vehicleListView.getItems().clear();
+        adObservableList.clear();
+        adArrayList.clear();
+
         for(int i : filteredAds){
             if(!filteredAds.isEmpty()){
                 RentOutAd ad = (RentOutAd) RetrieveAdvertisementDB.retrieveFromId(i);
@@ -142,6 +155,10 @@ public class FindACarToRent implements Initializable  {
         toDatePicker.setValue(null);
     }
 
+    public void cleanFieldsForNewSearch(ActionEvent event){
+
+        resetAllFields();
+    }
     //
     public void changeSceneToBooking(ActionEvent event) {
         checkDate(getFromDate(),getToDate());
@@ -261,6 +278,7 @@ public class FindACarToRent implements Initializable  {
     public void goToMainMenu(ActionEvent event) {
         Main main = new Main();
         try {
+            resetAllFields();
             main.changeScene("ToGoCar.fxml");
         } catch (IOException ioException) {
             System.out.println(ioException.getMessage());
@@ -274,6 +292,7 @@ public class FindACarToRent implements Initializable  {
         selectAd.setOnAction(this::changeSceneToDetailedAdView);
         bookButton.setOnAction(this::changeSceneToBooking);
         bt_viewOwner.setOnAction(this::viewOwner);
+        clearFields.setOnAction(this::cleanFieldsForNewSearch);
 
         transmissionChoiceBox.getItems().addAll(gearTypeArr);
         transmissionChoiceBox.setOnAction(this::gearTypeChanged);
@@ -290,7 +309,7 @@ public class FindACarToRent implements Initializable  {
         yearChoiceBox.getItems().addAll(yearsArray);
         yearChoiceBox.setOnAction(this::getYearModel);
 
-
+        searchNewDate();
 
 
         button_mainMenu.setOnAction(this::goToMainMenu);;
