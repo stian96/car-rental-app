@@ -1,23 +1,26 @@
 package no.hiof.groupproject.gui.Controller.Profile;
 
-import no.hiof.groupproject.gui.Controller.SignUpController;
-import no.hiof.groupproject.gui.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import no.hiof.groupproject.gui.Controller.LogInController;
+import no.hiof.groupproject.gui.Main;
 import no.hiof.groupproject.models.License;
 import no.hiof.groupproject.models.User;
-import no.hiof.groupproject.tools.db.InsertLicenseDB;
-import no.hiof.groupproject.tools.db.RetrieveLicenseDB;
+import no.hiof.groupproject.tools.db.*;
 
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
-import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class CreateProfileController implements Initializable {
+public class UpdateProfile implements Initializable {
     @FXML
     private TextField tf_firstName;
     @FXML
@@ -44,22 +47,18 @@ public class CreateProfileController implements Initializable {
 
     @FXML
     private Label  error1, error2, error3, error4, error5, error6,
-    error7,error8,error9,error10;
+            error7,error8,error9,error10;
+    @FXML
+    private AnchorPane scenePane;
+    Stage stage;
+    User user = RetrieveUserDB.retrieveFromEmail(LogInController.user.getEmail());
 
-    String email = SignUpController.emails;
-    String password = SignUpController.pass;
+    public void UpdateProfile(ActionEvent event){
 
-
-
-    // action button for create profile
-
-   public void UpdateProfile(ActionEvent event){
-
-        Main m = new Main();
         String firstName = tf_firstName.getText();
         String lastName= tf_lastName.getText();
-        String email = this.email;
-        String password = this.password;
+        String email = tf_emailAdd.getText();
+        String password = tf_password.getText();
         String phoneNum = tf_phone.getText();
         String bankAccNum =tf_bankAccnt.getText();
         String postNumber = tf_postNumber.getText();
@@ -73,67 +72,54 @@ public class CreateProfileController implements Initializable {
                 password.equals("") || phoneNum.equals("") || bankAccNum.equals("")
                 || postNumber.equals("") || dLicenseNum.equals("") || countryOfIssue.equals("")
         ) {showErrorlabels();}
-        else {
+        else{
             try{
+                RemoveUserDB.remove(user.getId());
                 User user = new User(firstName,lastName,postNumber,password,bankAccNum,email,phoneNum,license);
                 button_UpdateProfile.setText("Added");
-
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-
-                alert.setHeaderText("You must log in before continuing to browse!");
-                alert.setResizable(false);
-                alert.setContentText("Press Ok to proceed to log in");
-                Optional<ButtonType> result = alert.showAndWait();
-
-
-                if(result.get() == ButtonType.OK){
-                    m.changeScene("LogIn.fxml");
-                }
             } catch (Exception e) {
                 throw new RuntimeException(e);
             }
 
-        }
 
+        }
     }
 
     public void showErrorlabels(){
-       Label[] labellist = {error1, error2, error3, error4, error5, error6,
-               error7,error8,error9,error10};
-       for(Label e : labellist){
-           e.setVisible(true);
-       }
-    }
-
-    public void goToMainMenu(ActionEvent event) {
-        Main main = new Main();
-        try {
-            main.changeScene("LogIn.fxml");
-        } catch (IOException io) {
-            System.out.println(io.getMessage());
+        Label[] labellist = {error1, error2, error3, error4, error5, error6,
+                error7,error8,error9,error10};
+        for(Label e : labellist){
+            e.setVisible(true);
         }
     }
 
-
+    public void goToMainMenu(ActionEvent event) {
+        stage = (Stage) scenePane.getScene().getWindow();
+        stage.close();
+    }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        tf_emailAdd.setText(email);
-        tf_password.setText(password);
-
         button_mainMenu.setOnAction(this::goToMainMenu);
         button_UpdateProfile.setOnAction(this::UpdateProfile);
-        addStyle(button_mainMenu);
-        addStyleToUpdateButton(button_UpdateProfile);
-    }
 
+        tf_firstName.setText(user.getFirstName());
+        tf_lastName.setText(user.getLastName());
+        tf_emailAdd.setText(user.getEmail());
+        tf_password.setText(user.getPassword());
+        tf_phone.setText(user.getTlfNr());
+        tf_postNumber.setText(user.getPostNr());
+        tf_bankAccnt.setText(user.getBankAccountNr());
+        tf_drivingLicense.setText(user.getdLicense().getLicenseNumber());
+        dateTxtField.setText(String.valueOf(user.getdLicense().getDateOfIssue()));
+        countryTxtField.setText(user.getdLicense().getCountryOfIssue());
+
+    }
     public void addStyle(Button button) {
         button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:  #f1c232; -fx-text-fill: white;"));
         button.setOnMouseExited(e -> button.setStyle("-fx-background-color: #f1c232; -fx-text-fill: black"));
     }
-
-
 
     public void addStyleToUpdateButton(Button button) {
         button.setOnMouseEntered(e -> button.setStyle("-fx-background-color:  #9fc5e8; -fx-text-fill: white;"));
