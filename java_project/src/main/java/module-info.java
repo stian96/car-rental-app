@@ -21,15 +21,15 @@ module com.example.java_project {
 
 
 
-    opens com.example.java_project to javafx.fxml;
-    exports com.example.java_project;
-    exports com.example.java_project.Controller;
-    opens com.example.java_project.Controller to javafx.fxml;
-    exports com.example.java_project.DefaultApp;
-    opens com.example.java_project.DefaultApp to javafx.fxml;
-    exports com.example.java_project.Other;
-    opens com.example.java_project.Other to javafx.fxml;
-    exports com.example.java_project.Controller.Profile;
-    opens com.example.java_project.Controller.Profile to javafx.fxml;
+    opens no.hiof.groupproject.gui to javafx.fxml;
+    exports no.hiof.groupproject.gui;
+    exports no.hiof.groupproject.gui.Controller;
+    opens no.hiof.groupproject.gui.Controller to javafx.fxml;
+    exports no.hiof.groupproject.gui.DefaultApp;
+    opens no.hiof.groupproject.gui.DefaultApp to javafx.fxml;
+    exports no.hiof.groupproject.gui.Other;
+    opens no.hiof.groupproject.gui.Other to javafx.fxml;
+    exports no.hiof.groupproject.gui.Controller.Profile;
+    opens no.hiof.groupproject.gui.Controller.Profile to javafx.fxml;
 
 }

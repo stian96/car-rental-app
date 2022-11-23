@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane fx:id="scenePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #9fc5e8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="no.hiof.groupproject.gui.DetailedAdViewController">
+   <children>
+      <Label layoutX="111.0" layoutY="16.0" text="Owner">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font></Label>
+      <Label layoutX="99.0" layoutY="57.0" text="Manufacturer">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font></Label>
+      <Label layoutX="95.0" layoutY="141.0" text="Model Year">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font></Label>
+      <Label layoutX="98.0" layoutY="180.0" text="Gear Type">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font></Label>
+      <Label layoutX="100.0" layoutY="224.0" text="Fuel Type">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font></Label>
+      <Label layoutX="89.0" layoutY="267.0" text="Seating Capacity">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font></Label>
+      <Label layoutX="91.0" layoutY="307.0" text="Towing Capacity">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font></Label>
+      <Line endX="259.66668701171875" layoutX="260.0" layoutY="47.0" startX="-185.33334350585938" />
+      <Line endX="348.66668701171875" layoutX="160.0" layoutY="168.0" startX="-100.0" />
+      <Line endX="348.66668701171875" endY="-1.52587890625E-5" layoutX="160.0" layoutY="208.0" startX="-100.0" />
+      <Line endX="343.66668701171875" endY="-1.52587890625E-5" layoutX="175.0" layoutY="256.0" startX="-100.0" />
+      <Line endX="341.66668701171875" layoutX="166.0" layoutY="296.0" startX="-100.0" />
+      <Line endX="-4.333343505859375" endY="270.3333435058594" layoutX="263.0" layoutY="56.0" startX="-4.333343505859375" startY="-46.0" />
+      <Button fx:id="button_back" layoutX="476.0" layoutY="358.0" mnemonicParsing="false" onAction="#changeSceneToFilterCar" style="-fx-background-color: #f1c232; -fx-cursor: hand;" text="Go Back">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Button>
+      <Label layoutX="112.0" layoutY="103.0" text="Model">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Line endX="350.66668701171875" layoutX="162.0" layoutY="130.0" startX="-100.0" />
+      <Line endX="343.66668701171875" layoutX="166.0" layoutY="91.0" startX="-100.0" />
+      <Label fx:id="selectedOwner" layoutX="339.0" layoutY="27.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="selectedMan" layoutX="339.0" layoutY="58.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="selectedModel" layoutX="339.0" layoutY="104.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="selectedModelYear" layoutX="339.0" layoutY="142.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="selectedGearType" layoutX="339.0" layoutY="181.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="14.0" />
+         </font></Label>
+      <Label fx:id="selectedFuelType" layoutX="339.0" layoutY="225.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="selectedSeatingCapacity" layoutX="339.0" layoutY="268.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="selectedTowingCapacity" layoutX="339.0" layoutY="308.0">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="13.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

@@ -24,8 +24,8 @@ tasks.withType(JavaCompile) {
 }
 
 application {
-    mainModule = 'com.example.java_project'
-    mainClass = 'com.example.java_project.Main'
+    mainModule = 'no.hiof.groupproject'
+    mainClass = 'no.hiof.groupproject.gui.Main'
 }
 
 javafx {
