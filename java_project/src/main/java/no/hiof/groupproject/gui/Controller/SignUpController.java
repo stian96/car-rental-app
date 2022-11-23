@@ -72,7 +72,7 @@ public class SignUpController {
 
     private void LogInCheck() throws IOException {
         Main m = new Main();
-        m.changeScene("UpdateProfile.fxml");
+        m.changeScene("CreateProfile.fxml");
 
     }
 

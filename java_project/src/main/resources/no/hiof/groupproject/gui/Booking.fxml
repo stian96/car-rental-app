@@ -70,5 +70,10 @@
          </font>
       </Button>
       <ChoiceBox fx:id="paymentMethodChoiceBox" layoutX="23.0" layoutY="263.0" prefWidth="150.0" />
+      <Button fx:id="mainMenu" layoutX="456.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: #f1c232;" text="Main Menu">
+         <font>
+            <Font name="Comic Sans MS Bold" size="13.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

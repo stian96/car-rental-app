@@ -16,7 +16,7 @@ public class RetrieveLicenseDB {
 
     public static License retrieveFromLicenseNr(String licenseNumber) {
 
-        String sql = "SELECT * FROM licenses WHERE licenseNumber = \'" + licenseNumber + "\'";
+        String sql = "SELECT * FROM licenses WHERE LOWER(licenseNumber) = \'" + licenseNumber.toLowerCase() + "\'";
 
         License dLicense = null;
         try (Connection conn = ConnectDB.connectReadOnly();

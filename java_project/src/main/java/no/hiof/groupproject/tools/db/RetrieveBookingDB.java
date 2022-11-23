@@ -18,7 +18,7 @@ public class RetrieveBookingDB {
     public static Booking retrieve(String strId) {
 
         String sql = "SELECT * FROM bookings " +
-                "WHERE bookings_id = \'" + strId + "\'";
+                "WHERE LOWER(bookings_id) = \'" + strId.toLowerCase() + "\'";
 
         Booking booking = null;
 

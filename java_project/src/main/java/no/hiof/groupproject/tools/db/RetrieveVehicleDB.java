@@ -85,7 +85,7 @@ public class RetrieveVehicleDB {
 
     public static Vehicle retrieveFromRegNo(String regNo) {
 
-        String sql = "SELECT * FROM vehicles WHERE regNo = " + regNo;
+        String sql = "SELECT * FROM vehicles WHERE LOWER(regNo) = \'" + regNo.toLowerCase() + "\'";
 
         Vehicle returnedVehicle = null;
         try (Connection conn = ConnectDB.connectReadOnly();

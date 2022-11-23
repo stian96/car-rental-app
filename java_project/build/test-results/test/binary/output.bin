@@ -1,8 +1,6 @@
 ê[Owner:jeff |manufacturer: volkswagen |Model: e golf |Daily charge: 300.0, Owner:jeff |manufacturer: ferrari |Model: f50 |Daily charge: 800.0]
 
-g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
-
-Ô{User{id=19, dLicense=null, firstName='null', lastName='null', postNr='null', password='null', bankAccountNr='null', email='null', tlfNr='null'}=2, User{id=19, dLicense=no.hiof.groupproject.models.License@60921b21, firstName='rating', lastName='giver', postNr='1777', password='ratinglover', bankAccountNr='12341234123', email='rate@you.co.uk', tlfNr='12341234'}=4}
+∞{User{id=19, dLicense=no.hiof.groupproject.models.License@1b9c1b51, firstName='delete', lastName='me', postNr='1777', password='peawet', bankAccountNr='12341234123', email='iwill@be.deleted', tlfNr='12341234'}=2, User{id=19, dLicense=no.hiof.groupproject.models.License@2e52fb3e, firstName='rating', lastName='giver', postNr='1777', password='ratinglover', bankAccountNr='12341234123', email='rate@you.co.uk', tlfNr='12341234'}=4}
 g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
 g[SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: users.password)
 98 47 123456 1

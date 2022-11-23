@@ -41,22 +41,20 @@ public class TermsAndCondition implements Initializable {
     }
 
     public void checkBoxIsTicked(ActionEvent event) {
-        Main m = new Main();
-        try {
-            if (checkBox.isSelected()) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("Your booking is confirmed! ");
-                alert.show();
-                stage = (Stage) scenePane.getScene().getWindow();
-                stage.close();
 
-                m.changeScene("ToGoCar.fxml");
+            if (checkBox.isSelected()) {
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setContentText("Your booking is confirmed! Click main menu to go back to main  ");
+                Optional<ButtonType> res = alert.showAndWait();
+                if(res.get() == ButtonType.OK){
+                    stage = (Stage) scenePane.getScene().getWindow();
+                    stage.close();
+
+                }
+
             }
 
-
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     public void notAgreeCheckBoxTicked(ActionEvent event) {
@@ -68,6 +66,7 @@ public class TermsAndCondition implements Initializable {
             alert.setResizable(false);
             alert.setContentText("Press Ok to search again or cancel to return to main page");
             Optional<ButtonType> result = alert.showAndWait();
+
 
 
             if(result.get() == ButtonType.OK){
@@ -82,5 +81,6 @@ public class TermsAndCondition implements Initializable {
         }
 
     }
+
 }
 

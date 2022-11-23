@@ -1,5 +1,9 @@
 package no.hiof.groupproject.gui;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 import no.hiof.groupproject.gui.Controller.LogInController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -9,12 +13,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import no.hiof.groupproject.gui.Controller.Profile.CreateProfileController;
+import no.hiof.groupproject.gui.Controller.Profile.UpdateProfile;
 import no.hiof.groupproject.models.UserProfile;
 import no.hiof.groupproject.models.advertisements.Advertisement;
+import no.hiof.groupproject.models.advertisements.RentOutAd;
 import no.hiof.groupproject.tools.db.RetrieveAdvertisementsDB;
 import no.hiof.groupproject.tools.db.RetrieveAverageRatingDB;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -76,7 +84,16 @@ public class ProfileView implements Initializable {
     void editProfile(ActionEvent event) {
         Main m = new Main();
         try {
-            m.changeScene("UpdateProfile.fxml");
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("UpdateProfile.fxml"));
+            Parent pane = loader.load();
+
+            Scene scene = new Scene(pane);
+
+            Stage window = new Stage();
+
+            window.setScene(scene);
+            window.show();
         } catch (IOException ioException) {
             System.out.println(ioException.getMessage());
         }
@@ -90,6 +107,9 @@ public class ProfileView implements Initializable {
                 " " + userProfile.getUser().getLastName() + "!");
         ratingLabel.setText(String.format("%s", getAvgRating()));
         advertisementList.getItems().addAll(getAd());
+
+        mainPageButton.setOnAction(this::backMainPage);
+        editProfileButton.setOnAction(this::editProfile);
 
     }
 }
