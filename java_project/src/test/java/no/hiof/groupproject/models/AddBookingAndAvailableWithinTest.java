@@ -31,8 +31,8 @@ class AddBookingAndAvailableWithinTest {
         ConnectDB.setDb("jdbc:sqlite:sqlite/db/test.db");
     }
 
-    Vehicle car = new Car("12341234", "audi", "tt", "petrol",
-            "automatic", 2013, 5, 1500);
+    Vehicle car = new Car("74852754", "reliant robin", "mk1", "diesel",
+            "manual", 1976, 2, 45);
 
     License license = new License("98 43 123456 1", LocalDate.parse("2008-05-12"),
             "Norway");
