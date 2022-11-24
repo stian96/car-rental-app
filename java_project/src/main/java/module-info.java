@@ -25,8 +25,6 @@ module com.example.java_project {
     exports no.hiof.groupproject.gui;
     exports no.hiof.groupproject.gui.Controller;
     opens no.hiof.groupproject.gui.Controller to javafx.fxml;
-    exports no.hiof.groupproject.gui.DefaultApp;
-    opens no.hiof.groupproject.gui.DefaultApp to javafx.fxml;
     exports no.hiof.groupproject.gui.Other;
     opens no.hiof.groupproject.gui.Other to javafx.fxml;
     exports no.hiof.groupproject.gui.Controller.Profile;
