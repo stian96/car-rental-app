@@ -2,7 +2,7 @@
 
 This project was created for a Software Engineering and Testing course at Østfold University College. The application uses [Gradle](https://gradle.org/) v7.2 to build and download external dependencies. Java is the main programming language used, and [JavaFX](https://openjfx.io/) v7.0.1 is used for the GUI. Persistent storage is saved locally using a [SQLite](https://www.sqlite.org/index.html) database. The testing framework used is [JUnit](https://junit.org/) v5.9.0, as well as [Mockito](https://site.mockito.org/) v4.8.0. The [Nominatim](https://nominatim.org/) API was used to query [OpenStreetMaps](https://www.openstreetmap.org/) and retrieve additional geolocation data upon input from the user.
 
-The following instructions are for Windows 10 users (the application has been tested on a Mac OS, and has run as desired, but the following code syntax may have to be adjusted) 
+The following instructions are for **Windows 10** users (the application has been tested on a Mac OS, and has run as desired, but the following code syntax may have to be adjusted) 
 
 **_Step One_**
 
