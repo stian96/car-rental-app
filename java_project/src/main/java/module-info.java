@@ -1,4 +1,4 @@
-module com.example.java_project {
+module no.hiof.groupproject {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;

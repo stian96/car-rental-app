@@ -5,7 +5,7 @@ plugins {
     id 'org.beryx.jlink' version '2.24.1'
 }
 
-group 'com.example.java_project'
+group 'no.hiof.groupproject'
 version '1.0-SNAPSHOT'
 
 repositories {
