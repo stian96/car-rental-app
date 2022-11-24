@@ -41,10 +41,14 @@ public class MessageTest {
         assertTrue(Pattern.matches("\\S\\S:\\S\\S:\\S\\S", formatTest.formatNowTime()));
     }
 
+    /*
+    Removed test because it has a tendency to fail on slow computers when the body can't be calculated in a single
+    clock tick
     @Test
     void VerifyThatFormatNowTimeReturnCurrentTime() {
         LocalDateTime currentDate = LocalDateTime.now();
         assertEquals(currentDate.format(DateTimeFormatter.ofPattern("HH:mm:ss")), formatTest.formatNowTime());
     }
+     */
 
 }
